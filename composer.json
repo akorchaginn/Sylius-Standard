@@ -20,9 +20,9 @@
         }
     ],
     "require": {
-        "php": "^5.6|^7.0",
+        "php": "^7.1",
 
-        "sylius/sylius": "^1.0@beta"
+        "sylius/sylius": "^1.1@dev"
     },
     "require-dev": {
         "behat/behat": "^3.2",
@@ -48,12 +48,10 @@
         "sensio/generator-bundle": "^3.1",
         "stripe/stripe-php": "^4.1"
     },
-    "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
@@ -61,7 +59,6 @@
         ],
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
@@ -85,11 +82,10 @@
         "symfony-tests-dir": "tests",
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
-            "file": "app/config/parameters.yml",
-            "dist-file": "vendor/sylius/sylius/app/config/parameters.yml.dist"
+            "file": "app/config/parameters.yml"
         },
         "branch-alias": {
-            "dev-master": "1.0-dev"
+            "dev-master": "1.1-dev"
         }
     }
 }
