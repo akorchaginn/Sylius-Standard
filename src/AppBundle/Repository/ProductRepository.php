@@ -21,7 +21,7 @@ use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\Component\Core\Model\TaxonInterface;
 use Sylius\Component\Core\Repository\ProductRepositoryInterface;
 use Sylius\Bundle\CoreBundle\Doctrine\ORM\AssociationHydrator;
-
+use Sylius\Component\Core\Model\ProductInterface as ProductInterface;
 
 
 /**
