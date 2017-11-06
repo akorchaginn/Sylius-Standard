@@ -101,7 +101,7 @@ class ProductRepository extends BaseProductRepository implements ProductReposito
     /**
      * {@inheritdoc}
      */
-    public function findLatestByChannel(ChannelInterface $channel, string $locale, int $count): QueryBuilder
+    public function findLatestByChannel(ChannelInterface $channel, string $locale, int $count): array
     {
         return $this->createQueryBuilder('o')
             ->addSelect('translation')
@@ -120,7 +120,7 @@ class ProductRepository extends BaseProductRepository implements ProductReposito
     /**
      * {@inheritdoc}
      */
-    public function findOneByChannelAndSlug(ChannelInterface $channel, string $locale, string $slug): QueryBuilder
+    public function findOneByChannelAndSlug(ChannelInterface $channel, string $locale, string $slug): ?ProductInterface
     {
         $product = $this->createQueryBuilder('o')
             ->addSelect('translation')
@@ -151,7 +151,7 @@ class ProductRepository extends BaseProductRepository implements ProductReposito
     /**
      * {@inheritdoc}
      */
-    public function findOneByCode(string $code): QueryBuilder
+    public function findOneByCode(string $code): ?ProductInterface
     {
         return $this->createQueryBuilder('o')
             ->where('o.code = :code')
