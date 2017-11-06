@@ -116,27 +116,41 @@ ongr_filter_manager:
         search_list: #
             repository: es.manager.default.product
 
-nelmio_cors:
-    defaults:
-        allow_credentials: false
-        allow_origin: []
-        allow_headers: []
-        allow_methods: []
-        expose_headers: []
-        max_age: 0
-        hosts: []
-        origin_regex: false
-        forced_allow_origin_value: ~
-    paths:
-        '^/shop-api/':
-            allow_origin: ['*']
-            allow_headers: ['Content-Type']
-            allow_methods: ['POST', 'PUT', 'GET', 'DELETE']
-            max_age: 3600
-        '^/':
-            origin_regex: true
-            allow_origin: ['^http://localhost:[0-9]+']
-            allow_headers: ['X-Custom-Auth']
-            allow_methods: ['POST', 'PUT', 'GET', 'DELETE']
-            max_age: 3600
-            hosts: ['^api\.']
+#nelmio_cors:
+#    defaults:
+#        allow_credentials: false
+#        allow_origin: []
+#        allow_headers: []
+#        allow_methods: []
+#        expose_headers: []
+#        max_age: 0
+#        hosts: []
+#        origin_regex: false
+#        forced_allow_origin_value: ~
+#    paths:
+#        '^/shop-api/':
+#            allow_origin: ['*']
+#            allow_headers: ['Content-Type']
+#            allow_methods: ['POST', 'PUT', 'GET', 'DELETE']
+#            max_age: 3600
+#        '^/':
+#            origin_regex: true
+#            allow_origin: ['^http://localhost:[0-9]+']
+#            allow_headers: ['X-Custom-Auth']
+#            allow_methods: ['POST', 'PUT', 'GET', 'DELETE']
+#            max_age: 3600
+#            hosts: ['^api\.']
+sitemap:
+    providers:
+        products: true
+        taxons: true
+        static: false
+#    template:             '@SitemapPlugin/show.xml.twig'
+#    index_template:       '@SitemapPlugin/index.xml.twig'
+#    exclude_taxon_root:   true
+#    absolute_url:         true
+#    hreflang:             true
+    static_routes:
+        - { route: sylius_shop_homepage, parameters: [], locales: [] }
+        - { route: sylius_shop_contact_request, parameters: [], locales: [] }
+        - { route: app_news, parameters: [], locales: [] }        
