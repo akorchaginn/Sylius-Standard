@@ -32,9 +32,10 @@ news:
     
 static_content:
     resource: 'routing/static_content.yml'
-#urbanara_catalog_plugin:
-#    resource: "@CatalogPromotionPlugin/Resources/config/routing.yml"
-#    prefix: /admin
+
+urbanara_catalog_plugin:
+    resource: "@CatalogPromotionPlugin/Resources/config/routing.yml"
+    prefix: /admin
     
 sylius_shop_product_by_channel_and_taxonid:
     resource: 'routing/product_repository.yml'
@@ -42,3 +43,9 @@ sylius_shop_product_by_channel_and_taxonid:
 sylius_order_restore:
     prefix: /admin
     resource: 'routing/restore_order.yml'
+    
+sylius_sitemap:
+     resource: "@SitemapPlugin/Resources/config/routing.yml"
+     
+sylius_shop_api:
+    resource: "@ShopApiPlugin/Resources/config/routing.yml"

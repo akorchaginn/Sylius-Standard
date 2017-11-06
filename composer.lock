@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f535dacd8d5bf0671313d33981a0463a",
+    "content-hash": "38696952c8bab39e710fa0b4754703f2",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -5506,6 +5506,44 @@
                 "time"
             ],
             "time": "2017-09-14T10:52:04+00:00"
+        },
+        {
+            "name": "stefandoorn/sitemap-plugin",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stefandoorn/sitemap-plugin.git",
+                "reference": "fcb6c292f3a166862fdeb9eeadbdea271a587098"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stefandoorn/sitemap-plugin/zipball/fcb6c292f3a166862fdeb9eeadbdea271a587098",
+                "reference": "fcb6c292f3a166862fdeb9eeadbdea271a587098",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1",
+                "sylius/sylius": "^1.0"
+            },
+            "require-dev": {
+                "kint-php/kint": "^2.2",
+                "lakion/api-test-case": "^1.1",
+                "matthiasnoback/symfony-dependency-injection-test": "^1.1",
+                "phpspec/phpspec": "^3.2",
+                "phpunit/phpunit": "^5.0"
+            },
+            "type": "sylius-plugin",
+            "autoload": {
+                "psr-4": {
+                    "SitemapPlugin\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Sitemap Plugin for Sylius",
+            "time": "2017-10-29T09:35:42+00:00"
         },
         {
             "name": "stfalcon/tinymce-bundle",
