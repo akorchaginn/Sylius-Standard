@@ -20,9 +20,8 @@ use Sylius\Bundle\ProductBundle\Doctrine\ORM\ProductRepository as BaseProductRep
 use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\Component\Core\Model\TaxonInterface;
 use Sylius\Component\Core\Repository\ProductRepositoryInterface;
-use Sylius\Bundle\CoreBundle\Doctrine\ORM\AssociationHydrator;
 use Sylius\Component\Core\Model\ProductInterface as ProductInterface;
-
+use SyliusLabs\AssociationHydrator\AssociationHydrator;
 
 /**
  * @author Paweł Jędrzejewski <pawel@sylius.org>
