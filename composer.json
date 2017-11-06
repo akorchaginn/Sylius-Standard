@@ -22,7 +22,9 @@
     "require": {
         "php": "^7.1",
 
-        "sylius/sylius": "^1.0"
+        "sylius/sylius": "^1.0",
+        "urbanara/catalog-promotion-plugin": "^1.0@alpha",
+        "stfalcon/tinymce-bundle": "^2.1"
     },
     "require-dev": {
         "behat/behat": "^3.2",
