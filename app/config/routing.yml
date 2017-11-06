@@ -24,14 +24,17 @@ sylius_shop_default_locale:
     defaults:
         _controller: sylius.controller.shop.locale_switch:switchAction
 
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"
+
 news:
     resource: 'routing/news.yml'
     
 static_content:
     resource: 'routing/static_content.yml'
-urbanara_catalog_plugin:
-    resource: "@CatalogPromotionPlugin/Resources/config/routing.yml"
-    prefix: /admin
+#urbanara_catalog_plugin:
+#    resource: "@CatalogPromotionPlugin/Resources/config/routing.yml"
+#    prefix: /admin
     
 sylius_shop_product_by_channel_and_taxonid:
     resource: 'routing/product_repository.yml'

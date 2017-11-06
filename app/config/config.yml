@@ -3,7 +3,7 @@ imports:
     - { resource: "@SyliusAdminBundle/Resources/config/app/config.yml" }
     - { resource: "@SyliusShopBundle/Resources/config/app/config.yml" }
     - { resource: "@SyliusAdminApiBundle/Resources/config/app/config.yml" }
-    - { resource: "@CatalogPromotionPlugin/Resources/config/app/grid.yml" }
+#    - { resource: "@CatalogPromotionPlugin/Resources/config/app/grid.yml" }
 
     - { resource: "parameters.yml" }
     - { resource: "security.yml" }
@@ -56,6 +56,7 @@ doctrine:
         dbname: "%database_name%"
         user: "%database_user%"
         password: "%database_password%"
+        server_version: "5.5"
         charset: UTF8
 
 doctrine_migrations:
@@ -86,22 +87,22 @@ fos_rest:
         rules:
             - { path: '^/api', priorities: ['json', 'xml'], fallback_format: json, prefer_extension: true }
             - { path: '^/', stop: true }
-stfalcon_tinymce:
-    include_jquery: true
-    tinymce_jquery: true
-    selector: ""
-    language: "ru"
+#stfalcon_tinymce:
+#    include_jquery: true
+#    tinymce_jquery: true
+#    selector: ""
+#    language: "ru"
 
-ongr_elasticsearch:
-    managers:
-        default:
-            index:
-                index_name: sylius
-            mappings:
-                CatalogPromotionPlugin:
-                    document_dir: ElasticSearch\Document
+#ongr_elasticsearch:
+#    managers:
+#        default:
+#            index:
+#                index_name: sylius
+#            mappings:
+#                CatalogPromotionPlugin:
+#                    document_dir: ElasticSearch\Document
 
-ongr_filter_manager:
-    managers:
-        search_list: #
-            repository: es.manager.default.product
+#ongr_filter_manager:
+#    managers:
+#        search_list: #
+#            repository: es.manager.default.product
