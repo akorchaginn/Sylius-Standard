@@ -153,4 +153,4 @@ sitemap:
     static_routes:
         - { route: sylius_shop_homepage, parameters: [], locales: [] }
         - { route: sylius_shop_contact_request, parameters: [], locales: [] }
-        - { route: app_news, parameters: [], locales: [] }        
+        - { route: sylius_shop_news_index, parameters: [], locales: [] }        
