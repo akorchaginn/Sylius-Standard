@@ -65,6 +65,8 @@ doctrine:
         password: "%database_password%"
         server_version: "5.5"
         charset: UTF8
+        mapping_types:
+            json: json_array
 
 doctrine_migrations:
     dir_name: "%kernel.root_dir%/migrations"
