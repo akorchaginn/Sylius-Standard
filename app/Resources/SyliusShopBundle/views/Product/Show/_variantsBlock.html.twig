@@ -33,10 +33,10 @@
                                     <p class="text-danger">{{ 'sylius.ui.variant_delivery_is_expected'|trans }}</p>
                                 {% else %}
                                         {{ 'sylius.ui.variant_onhand'|trans }}: {{ variant.onhand - variant.onhold }}
+                                        <input type="number" id="{{ variant.code }}" class="sylius_add_to_cart_cartItem_quantity" required="required" min="1" max="{{ variant.onhand - variant.onhold }}" value="1">
+                                        <button name="submit" id="{{ variant.code }}" class="ui icon button"><i class="cart icon"></i></button>                                        
                                 {% endif %}
-                            </div>    
-                               <input type="number" id="{{ variant.code }}" class="sylius_add_to_cart_cartItem_quantity" required="required" min="1" max="{{ variant.onhand - variant.onhold }}" value="1">
-                               <button name="submit" id="{{ variant.code }}" class="ui icon button"><i class="cart icon"></i></button>
+                            </div>
                         </div>                
                     </div>            
                 </div>
