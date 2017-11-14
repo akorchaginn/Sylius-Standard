@@ -23,12 +23,13 @@ gulp.task('shop', function() {
 });
 */
 gulp.task('app_shop', function() {
-    gulp.src('src/AppBundle/Gulpfile.js', { read: false })
+    gulp.src('src/AppBundle/GulpFile.js', { read: false })
         .pipe(chug({ args: config }))
     ;
 });
 
 gulp.task('app_admin', function() {
+    
     gulp.src('src/AppBundle/GulpFile-admin.js', { read: false })
         .pipe(chug({ args: config }))
     ;
