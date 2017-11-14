@@ -5,21 +5,15 @@
 <div class="ui segment" id="sylius-product-selecting-variant">
     {{ sonata_block_render_event('sylius.shop.product.show.before_add_to_cart', {'product': product, 'order_item': order_item}) }}
 
-    {{ form_start(form, {'action': path('sylius_shop_ajax_cart_add_item', {'productId': product.id}), 'attr': {'id': 'sylius-product-adding-to-cart', 'class': 'ui loadable form', 'novalidate': 'novalidate', 'data-redirect': path(configuration.getRedirectRoute('summary'))}}) }}
+    {{ form_start(form, {'action': path('sylius_shop_ajax_cart_add_item', {'productId': product.id}), 'attr': {'id': 'sylius-product-adding-to-cart', 'class': 'ui loadable form', 'novalidate': 'novalidate', 'data-redirect': path('sylius_shop_product_show', {'slug': product.slug})}}) }}
     {{ form_errors(form) }}
     <div class="ui red label bottom pointing hidden sylius-validation-error" id="sylius-cart-validation-error"></div>
     {% if not product.simple %}
         {% if product.variantSelectionMethodChoice %}
             {% include '@SyliusShop/Product/Show/_variantsBlock.html.twig' %}
-        {% else %}
-            {% include '@SyliusShop/Product/Show/_options.html.twig' %}
         {% endif %}
-        <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <input type="hidden" id="sylius_add_to_cart_cartItem_quantity" name="sylius_add_to_cart[cartItem][quantity]" required="required" min="1" value="1">
-                <input type="hidden" id="sylius_add_to_cart_cartItem_variant" name="sylius_add_to_cart[cartItem][variant]" required="required" value="">
-            </div>
-        </div>        
+            <input type="hidden" id="sylius_add_to_cart_cartItem_quantity" name="sylius_add_to_cart[cartItem][quantity]" required="required" min="1" value="1">
+            <input type="hidden" id="sylius_add_to_cart_cartItem_variant" name="sylius_add_to_cart[cartItem][variant]" required="required" value="">
     {% else %}
         <div class="sylius-variant-onhand">
             {% if product.variants[0].onhand - product.variants[0].onhold <= 0 %}
