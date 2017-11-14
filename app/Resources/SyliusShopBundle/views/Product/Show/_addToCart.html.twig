@@ -20,10 +20,10 @@
                 <p class="text-danger">{{ 'sylius.ui.variant_delivery_is_expected'|trans }}</p>
             {% else %}
                 {{ 'sylius.ui.variant_onhand'|trans }}: {{ product.variants[0].onhand - product.variants[0].onhold }}
+                <input type="number" id="sylius_add_to_cart_cartItem_quantity" name="sylius_add_to_cart[cartItem][quantity]" required="required" max="{{ product.variants[0].onhand - product.variants[0].onhold }}" min="1" value="1">
+                <button name="submit" class="ui icon button"><i class="cart icon"></i></button>
             {% endif %}
         </div>
-        <input type="number" id="sylius_add_to_cart_cartItem_quantity" name="sylius_add_to_cart[cartItem][quantity]" required="required" max="{{ product.variants[0].onhand - product.variants[0].onhold }}" min="1" value="1">
-        <button name="submit" class="ui icon button"><i class="cart icon"></i></button>
     {% endif %}
 
     {{ sonata_block_render_event('sylius.shop.product.show.add_to_cart_form', {'product': product, 'order_item': order_item}) }} 
