@@ -1,0 +1,101 @@
+.logo{
+ border-radius: 75px;
+ display:inline-block !important;
+}
+.logocontainer {
+ padding-left: 10px;
+ background-color: #9ac9cf!important;
+ margin-top: 50px;
+}
+
+#menu{
+ margin:0px;
+}
+
+@import "_fonts.scss";
+
+.brand{
+ font-family:footbal;
+ font-size:9em;
+ color: white;
+}
+.brand_container{
+ text-align:center;
+ vertical-align:middle;
+ display:inline-block;
+ width:88%;
+}
+.logo_container{
+ width:10%;
+ display:inline-block;
+}
+
+@media only screen and (min-width : 320px) and (max-width : 740px) {
+ .brand{
+ font-size:4em !important;
+}
+
+}
+.row>div{
+ padding-top:4px;
+}
+.contact{
+  text-align: center;
+  padding: 5px 0px;
+  position: fixed;
+  z-index: 9999;
+  background-color: rgba(249, 250, 251, 0.85);
+  width: 100% !important;
+  border-bottom: 1px solid rgba(223, 230, 236, 0.82);
+}
+
+#tel{
+ vertical-align: -webkit-baseline-middle;
+}
+#search_button{
+ left: 58px;
+}
+
+.news{
+ padding-bottom: 20px;
+}
+
+.news_content{
+  border-top: 1px solid rgba(223, 230, 236, 0.82);
+  height: 140px;
+}
+
+.news_header {
+  background-color: #9ac9cf!important;
+  color: white !important;
+  text-align: center;
+  height: 60px;
+}
+.clickable-row{
+ cursor: pointer;
+}
+div.ui.segment{
+ background: none!important;
+ box-shadow: none!important;
+ border: none!important;
+}
+.ui.card{
+ background: #fcfcfe!important;
+}
+
+.ui.card>.content {
+ border-top: none!important;
+}
+.ui.blue.menu {
+ border: 0 solid transparent;
+ background: #F9FAFB!important;
+ box-shadow: none;
+}
+.ui.menu .item:before {
+    height: 0%;
+    width: 0px;
+    background: rgba(255, 255, 255, 0s);
+}
+.ui.form input[type=number] {
+    width: auto;
+}
