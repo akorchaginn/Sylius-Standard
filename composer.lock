@@ -6860,12 +6860,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/akorchaginn/UrbanaraCatalogPromotionPlugin.git",
-                "reference": "58042d10056a3cdf7d51b9fa18c1402e9f649764"
+                "reference": "e9f5336cbb8d76f97f963a4451768c93386a38ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/akorchaginn/UrbanaraCatalogPromotionPlugin/zipball/58042d10056a3cdf7d51b9fa18c1402e9f649764",
-                "reference": "58042d10056a3cdf7d51b9fa18c1402e9f649764",
+                "url": "https://api.github.com/repos/akorchaginn/UrbanaraCatalogPromotionPlugin/zipball/e9f5336cbb8d76f97f963a4451768c93386a38ce",
+                "reference": "e9f5336cbb8d76f97f963a4451768c93386a38ce",
                 "shasum": ""
             },
             "require": {
