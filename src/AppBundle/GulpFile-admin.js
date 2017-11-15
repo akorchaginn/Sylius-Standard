@@ -25,7 +25,8 @@ var paths = {
             nodeModulesPath + 'jquery/dist/jquery.min.js',
             nodeModulesPath + 'semantic-ui-css/semantic.min.js',
             vendorUiPath + 'Resources/private/js/**',
-            vendorAdminPath + 'Resources/private/js/**'
+            vendorAdminPath + 'Resources/private/js/**',
+            '../../vendor/urbanara/catalog-promotion-plugin/src/Resources/public/**'
         ],
         sass: [
             vendorUiPath + 'Resources/private/sass/**',
