@@ -4,7 +4,10 @@ imports:
     - { resource: "@SyliusShopBundle/Resources/config/app/config.yml" }
     - { resource: "@SyliusAdminApiBundle/Resources/config/app/config.yml" }
     - { resource: "@CatalogPromotionPlugin/Resources/config/app/grid.yml" }
-
+    - { resource: "@SitemapPlugin/Resources/config/config.yml" }
+    - { resource: "@ShopApiPlugin/Resources/config/app/config.yml" }
+    
+    
     - { resource: "parameters.yml" }
     - { resource: "security.yml" }
     - { resource: "emails.yml" }
@@ -29,6 +32,10 @@ sylius_order:
             classes:
                 controller: AppBundle\Controller\OrderRestoreController
 
+sylius_shop:
+    checkout_resolver:
+        pattern: "%sylius.security.shop_regex%/checkout/.+"
+
 framework:
     translator: { fallbacks: ["%locale%"] }
     secret: "%secret%"
@@ -52,7 +59,10 @@ doctrine:
         dbname: "%database_name%"
         user: "%database_user%"
         password: "%database_password%"
+        server_version: "5.5"
         charset: UTF8
+        mapping_types:
+            json: json_array
 
 doctrine_migrations:
     dir_name: "%kernel.root_dir%/migrations"
@@ -80,8 +90,10 @@ fos_rest:
         empty_content: 204
     format_listener:
         rules:
+            - { path: '^/shop-api', priorities: ['json'], fallback_format: json, prefer_extension: true }
             - { path: '^/api', priorities: ['json', 'xml'], fallback_format: json, prefer_extension: true }
             - { path: '^/', stop: true }
+            
 stfalcon_tinymce:
     include_jquery: true
     tinymce_jquery: true
@@ -101,3 +113,28 @@ ongr_filter_manager:
     managers:
         search_list: #
             repository: es.manager.default.product
+
+sitemap:
+    providers:
+        products: true
+        taxons: true
+        static: false
+#    template:             '@SitemapPlugin/show.xml.twig'
+#    index_template:       '@SitemapPlugin/index.xml.twig'
+#    exclude_taxon_root:   true
+#    absolute_url:         true
+#    hreflang:             true
+    static_routes:
+        - { route: sylius_shop_homepage, parameters: [], locales: [] }
+        - { route: sylius_shop_contact_request, parameters: [], locales: [] }
+        - { route: sylius_shop_news_index, parameters: [], locales: [] }        
+
+lexik_maintenance:
+    authorized:
+        path: /admin                                                         # Optional. Authorized path, accepts regexs
+    driver:
+        class: '\Lexik\Bundle\MaintenanceBundle\Drivers\FileDriver'                # class for file driver
+        options: {file_path: %kernel.cache_dir%/lock}                         # file_path is the complete path for create the file
+    response:
+        code: 503
+        status: "Service Temporarily Unavailable"

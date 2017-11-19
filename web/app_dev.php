@@ -34,7 +34,7 @@ if (!getenv("SYLIUS_APP_DEV_PERMITTED") && (
 */
 /** @var \Composer\Autoload\ClassLoader $loade  r */
 $loader = require __DIR__.'/../app/autoload.php';
-include_once __DIR__.'/../var/bootstrap.php.cache';
+//include_once __DIR__.'/../var/bootstrap.php.cache';
 
 Debug::enable();
 
