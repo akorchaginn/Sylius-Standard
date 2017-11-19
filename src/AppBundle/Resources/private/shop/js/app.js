@@ -2,6 +2,7 @@ $(document).ready(function () {
     $('.cart.button')
         .popup({
             position: "bottom left",
+            lastResort: 'bottom left',
             popup: $('.cart.popup'),
             on: 'click',
         })
@@ -14,5 +15,5 @@ $(document).ready(function () {
         
     $(".clickable-row").click(function() {
         window.location = $(this).data("href");
-    });        
+    });
 });
