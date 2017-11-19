@@ -42,7 +42,9 @@ class AppKernel extends Kernel
             new \ONGR\FilterManagerBundle\ONGRFilterManagerBundle(),
             new \SimpleBus\SymfonyBridge\SimpleBusCommandBusBundle(),
             new \SimpleBus\SymfonyBridge\SimpleBusEventBusBundle(),
-            new SitemapPlugin\SitemapPlugin()
+            new SitemapPlugin\SitemapPlugin(),
+            
+            new Lexik\Bundle\MaintenanceBundle\LexikMaintenanceBundle()
         ];
 
         return array_merge(parent::registerBundles(), $bundles);
