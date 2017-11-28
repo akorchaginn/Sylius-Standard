@@ -104,7 +104,16 @@ stfalcon_tinymce:
     tinymce_jquery: true
     selector: ""
     language: "ru"
-
+    theme:
+        simple:
+            plugins:
+                - "advlist autolink lists link charmap preview hr anchor pagebreak"
+                - "visualblocks visualchars code fullscreen"
+                - "nonbreaking table contextmenu directionality"
+                - "paste textcolor"
+            toolbar1: "insertfile undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link"
+            toolbar2: "preview | forecolor backcolor"
+            
 ongr_elasticsearch:
     managers:
         default:
