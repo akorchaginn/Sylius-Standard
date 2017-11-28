@@ -1,8 +1,8 @@
 $(document).ready(function () {
     $('.cart.button')
         .popup({
-            position: "bottom left",
-            lastResort: 'bottom left',
+            position: "bottom right",
+            lastResort: 'bottom right',
             popup: $('.cart.popup'),
             on: 'click',
         })

@@ -20,6 +20,11 @@ imports:
 parameters:
     locale: ru_RU
 
+twig:
+    globals: 
+        version: "%assets_version%"
+ 
+
 sylius_product:
     resources:
         product:

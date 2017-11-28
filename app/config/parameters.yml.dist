@@ -15,5 +15,5 @@ parameters:
 
     secret: EDITME
     liip_quality: ~
-
+    assets_version: 0
     secret: EDITME

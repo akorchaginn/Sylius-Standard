@@ -99,3 +99,7 @@ div.ui.segment{
 .ui.form input[type=number] {
     width: auto;
 }
+.cart>.ui.list{
+    max-height: 200px;
+    overflow: auto;
+}
