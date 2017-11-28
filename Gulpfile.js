@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var chug = require('gulp-chug');
 var argv = require('yargs').argv;
+var exec = require('child_process').exec;
 
 config = [
     '--rootPath',
@@ -35,5 +36,12 @@ gulp.task('app_admin', function() {
     ;
 });
 
+gulp.task('updateVersion', function () {
+    exec('php bin/console assets:update-version', output);
+});
 
-gulp.task('default', ['app_shop', 'app_admin']);
+var output = function (err, stdout, stderr) {
+    console.log('Update assets version..' + stdout + stderr);
+}
+    
+gulp.task('default', ['app_shop', 'app_admin', 'updateVersion']);

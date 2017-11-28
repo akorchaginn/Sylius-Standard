@@ -6,4 +6,6 @@ services:
     app.listener.admin.order.show.menu_builder:
         class: AppBundle\Menu\AdminOrderShowMenuListener
         tags:
-            - { name: kernel.event_listener, event: sylius.menu.admin.order.show, method: addAdminOrderShowMenuItems }            
+            - { name: kernel.event_listener, event: sylius.menu.admin.order.show, method: addAdminOrderShowMenuItems }
+    app.updater_version:
+        class: AppBundle\Utils\UpdaterAssetsVersion
