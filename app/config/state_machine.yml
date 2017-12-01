@@ -9,6 +9,9 @@ winzou_state_machine:
             recancel:
                 from: [reopen]
                 to: cancelled
+            fulfill:
+                from: [reopen]
+                to: fulfilled    
         callbacks:
             after:
                 sylius_send_email:
