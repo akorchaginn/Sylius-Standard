@@ -9,3 +9,12 @@ services:
             - { name: kernel.event_listener, event: sylius.menu.admin.order.show, method: addAdminOrderShowMenuItems }
     app.updater_version:
         class: AppBundle\Utils\UpdaterAssetsVersion
+    app.sitemap_provider.static_content:
+        class: AppBundle\Provider\StaticContentUrlProvider
+        tags:
+            - { name: sylius.sitemap_provider }
+        arguments:
+            - '@app.repository.static_content'
+            - '@router'
+            - '@sylius.sitemap_url_factory'
+            - '@sylius.locale_provider'
