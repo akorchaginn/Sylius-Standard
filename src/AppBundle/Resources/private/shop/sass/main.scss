@@ -111,3 +111,7 @@ div.ui.segment{
 .ui.icon.button{
     width: 30%;
 }
+
+.ui.menu .dropdown.item .menu {
+    min-width: max-content;
+}
