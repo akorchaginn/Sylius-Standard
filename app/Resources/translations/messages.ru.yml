@@ -49,7 +49,10 @@ sylius:
                 taxons: Категории  
     payum_gateway_factory:
         paypal_express_checkout: Оплата через Paypal
-        stripe_checkout: Оплата через Stripe            
+        stripe_checkout: Оплата через Stripe
+    payum_action:
+        payment:
+            description: Оплата содержит %items% элемент в общей сложности %total% | Оплата содержит %items% элемента в общей сложности %total% | Оплата содержит %items% элементов в общей сложности %total%
     ui:
         abandoned: 'Отменен'
         about: 'О нас'
