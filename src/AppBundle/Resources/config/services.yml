@@ -18,3 +18,10 @@ services:
             - '@router'
             - '@sylius.sitemap_url_factory'
             - '@sylius.locale_provider'
+    app.grid.filter.states:
+            class: AppBundle\Grid\Filter\StateMachineFilter
+            tags:
+                -
+                    name: sylius.grid_filter
+                    type: states
+                    form_type: AppBundle\Form\Type\Filter\StateMachineFilterType

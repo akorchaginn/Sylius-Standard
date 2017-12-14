@@ -385,7 +385,7 @@ sylius:
         from_the_oldest: 'От старых к новым'
         from_z_to_a: 'От Я до А'
         fulfill: 'Завершён'
-        fulfilled: 'Заполненные'
+        fulfilled: 'Завершён'
         gateway: 'Терминал'
         gateway_configuration: 'Конфигурация шлюза'
         general_info: 'Общая информация'
@@ -946,3 +946,4 @@ sylius:
         zone_consisting_of_provinces: 'Зона, состоящая из областей'
         zone_details: 'Информация о зоне'
         zones: 'Зоны'
+State: 'Статус заказа'
