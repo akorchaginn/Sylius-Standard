@@ -24,7 +24,7 @@
 
         "urbanara/catalog-promotion-plugin": "^1.0@alpha",
         "stfalcon/tinymce-bundle": "^2.1",
-        "stefandoorn/sitemap-plugin": "^1.0"
+        "stefandoorn/sitemap-plugin": "^1.0",
 
         "sylius/sylius": "^1.1@dev"
     },
