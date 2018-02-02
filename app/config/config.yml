@@ -141,13 +141,3 @@ sitemap:
     static_routes:
         - { route: sylius_shop_contact_request, parameters: [], locales: [] }
         - { route: sylius_shop_news_index, parameters: [], locales: [] }
-
-lexik_maintenance:
-    authorized:
-        path: /admin                                                         # Optional. Authorized path, accepts regexs
-    driver:
-        class: '\Lexik\Bundle\MaintenanceBundle\Drivers\FileDriver'                # class for file driver
-        options: {file_path: %kernel.cache_dir%/lock}                         # file_path is the complete path for create the file
-    response:
-        code: 503
-        status: "Service Temporarily Unavailable"
