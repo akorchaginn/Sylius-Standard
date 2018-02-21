@@ -176,6 +176,7 @@ sylius:
         company: 'Компания'
         complete: 'Завершено'
         completed: 'Завершен'
+        confidential: 'Политика конфиденциальности'
         configurable_product: 'Настраиваемый продукт'
         configuration: 'Конфигурация'
         configure_channels_available_in_your_store: 'Настройка каналов, доступных в вашем магазине'
