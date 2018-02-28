@@ -71,7 +71,8 @@
     },
     "autoload": {
         "psr-4": {
-            "AppBundle\\": "src/AppBundle/"
+            "AppBundle\\": "src/AppBundle/",
+            "ImageBundle\\": "src/ImageBundle/"
         },
         "classmap": ["app/AppKernel.php", "app/AppCache.php"]
     },

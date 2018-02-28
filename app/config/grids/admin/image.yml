@@ -1,0 +1,37 @@
+sylius_grid:
+    grids:
+        image_admin:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: ImageBundle\Entity\Slide
+            limits: [15, 30, 45, 100]
+            fields:
+                description:
+                    type: string
+                    label: sylius.ui.description                
+                    position: 0
+                position:
+                    type: string
+                    label: sylius.ui.position
+                    sortable: true
+                    position: 1
+                created_at:
+                    type: datetime
+                    label: sylius.ui.created_at
+                    sortable: true
+                    position: 2
+                updated_at:
+                    type: datetime
+                    label: sylius.ui.updated
+                    sortable: true
+                    position: 3
+            actions:
+                main:
+                    create:
+                        type: create
+                item:
+                    update:
+                        type: update
+                    delete:
+                        type: delete

@@ -1,0 +1,16 @@
+parameters:
+    image.model.slide.class: ImageBundle\Entity\Slide
+services:
+    image.utils:
+        class: ImageBundle\Utils\ImageUtils
+        
+    image.listener.admin.menu_builder:
+        class: ImageBundle\Menu\AdminMenuListener
+        tags:
+            - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addAdminMenuItems }
+    
+    image.slide.form.type:
+        class: ImageBundle\Form\Type\SlideType
+        arguments: ['%image.model.slide.class%', ['sylius']]
+        tags:
+            - { name: form.type}

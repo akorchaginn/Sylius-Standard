@@ -35,6 +35,7 @@ class AppKernel extends Kernel
             new \League\Tactician\Bundle\TacticianBundle(),
             
             new \AppBundle\AppBundle(),
+            new \ImageBundle\ImageBundle(),
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
             new \Urbanara\CatalogPromotionPlugin\CatalogPromotionPlugin(),
             new \Sylius\ElasticSearchPlugin\SyliusElasticSearchPlugin(),

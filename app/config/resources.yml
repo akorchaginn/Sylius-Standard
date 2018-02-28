@@ -8,3 +8,8 @@ sylius_resource:
             driver: doctrine/orm
             classes:
                 model: AppBundle\Entity\StaticContent
+        image.slide:
+            driver: doctrine/orm
+            classes:
+                model: ImageBundle\Entity\Slide
+                form: ImageBundle\Form\Type\SlideType
