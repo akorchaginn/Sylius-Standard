@@ -7,7 +7,7 @@
 
     {{ sonata_block_render_event('sylius.shop.checkout.complete.after_steps', {'order': order}) }}
 
-    <div class="ui padded segment">
+    <div class="body__select-complete ui padded segment">
         {% include '@SyliusShop/Checkout/Complete/_header.html.twig' %}
 
         {{ sonata_block_render_event('sylius.shop.checkout.complete.after_content_header', {'order': order}) }}

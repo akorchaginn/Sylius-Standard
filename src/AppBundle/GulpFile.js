@@ -59,6 +59,7 @@ gulp.task('shop-js', function () {
 gulp.task('shop-css', function() {
     gulp.src([nodeModulesPath + 'semantic-ui-css/themes/**/*']).pipe(gulp.dest(shopRootPath + 'css/themes/'));
 
+
     var cssStream = gulp.src(paths.shop.css)
             .pipe(concat('css-files.css'))
         ;
@@ -67,6 +68,9 @@ gulp.task('shop-css', function() {
             .pipe(sass())
             .pipe(concat('sass-files.scss'))
         ;
+
+
+    console.log(777, paths.shop.sass);
 
     return merge(cssStream, sassStream)
         .pipe(order(['css-files.css', 'sass-files.scss']))

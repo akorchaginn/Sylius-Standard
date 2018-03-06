@@ -7,7 +7,7 @@
 
     {{ sonata_block_render_event('sylius.shop.checkout.select_payment.after_steps', {'order': order}) }}
 
-    <div class="ui stackable grid">
+    <div class="body__select-payment ui stackable grid">
         <div class="eleven wide column">
             <div class="ui padded segment" id="sylius-payment-methods">
                 {{ sonata_block_render_event('sylius.shop.checkout.select_payment.before_form', {'order': order}) }}

@@ -1,0 +1,9 @@
+{% if product.variants.empty() or product.simple and not sylius_inventory_is_available(product.variants.first) %}
+    {% include '@SyliusShop/Product/Show/_outOfStock.html.twig' %}
+{% else %}
+    {% if product.simple and place == 'description' %}
+        {{ render(url('sylius_shop_partial_cart_add_item', {'template': '@SyliusShop/Product/Show/_addToCartSimple.html.twig', 'productId': product.id})) }}
+    {% elseif not product.simple and place == 'default' %}
+        {{ render(url('sylius_shop_partial_cart_add_item', {'template': '@SyliusShop/Product/Show/_addToCart.html.twig', 'productId': product.id})) }}
+    {% endif %}
+{% endif %}    
