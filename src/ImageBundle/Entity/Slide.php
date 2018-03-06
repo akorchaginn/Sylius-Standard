@@ -5,14 +5,20 @@ namespace ImageBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Sylius\Component\Resource\Model\ResourceInterface as RI;
+use Sylius\Component\Core\Model\ImagesAwareInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Sylius\Component\Core\Model\ImageInterface;
+use ImageBundle\Form\Type\SlideImageType;
 
 /**
  * Image
  *
  * @ORM\Table(name="slide")
  * @ORM\Entity(repositoryClass="ImageBundle\Repository\ImageRepository")
+ * 
  */
-class Slide implements RI
+class Slide implements RI, ImagesAwareInterface
 {
     /**
      * @var int
@@ -86,7 +92,18 @@ class Slide implements RI
      * @ORM\Column(name="updated_at", type="datetime")
      */
     private $updatedAt;
-    
+
+    /**
+     * @var Collection|ImageInterface[]
+     * @ORM\OneToMany(targetEntity="ImageBundle\Entity\SlideImage", mappedBy="owner", orphanRemoval=true, cascade={"all"})
+     */
+    protected $images;
+
+    public function __construct()
+    {
+
+    $this->images = new ArrayCollection();
+    }    
     
     /**
      * Get id
@@ -312,5 +329,59 @@ class Slide implements RI
     public function getEnabled()
     {
         return $this->enabled;
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getImagesByType(string $type): Collection
+    {
+        return $this->images->filter(function (ImageInterface $image) use ($type) {
+            return $type === $image->getType();
+        });
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasImages(): bool
+    {
+        return !$this->images->isEmpty();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasImage(ImageInterface $image): bool
+    {
+        return $this->images->contains($image);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addImage(ImageInterface $image): void
+    {
+        $image->setOwner($this);
+        $this->images->add($image);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function removeImage(ImageInterface $image): void
+    {
+        if ($this->hasImage($image)) {
+            $image->setOwner(null);
+            $this->images->removeElement($image);
+        }
     }
 }

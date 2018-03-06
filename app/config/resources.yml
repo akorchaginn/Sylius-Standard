@@ -13,3 +13,7 @@ sylius_resource:
             classes:
                 model: ImageBundle\Entity\Slide
                 form: ImageBundle\Form\Type\SlideType
+        image.slide_image:
+            classes:
+                model: ImageBundle\Entity\SlideImage
+                form: ImageBundle\Form\Type\SlideImageType

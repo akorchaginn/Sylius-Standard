@@ -16,8 +16,10 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use ImageBundle\Form\Type\SlideImageType;
 
-final class SlideType extends AbstractResourceType{
+final class SlideType extends AbstractResourceType {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -55,6 +57,12 @@ final class SlideType extends AbstractResourceType{
                     'label' => 'sylius.ui.is_enabled',
                     'data' => true,
                     ]
-                );
+                )->add('images', CollectionType::class, [
+                    'entry_type' => SlideImageType::class,
+                    'allow_add' => true,
+                    'allow_delete' => true,
+                    'by_reference' => false,
+                    'label' => 'image.ui.slide',
+                ]);
     }
 }

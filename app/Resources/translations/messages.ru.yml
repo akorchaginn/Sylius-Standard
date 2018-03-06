@@ -23,6 +23,7 @@ image:
         new_slide: Новый слайд
         url: Ссылка
         alt: Подпись
+        slide: Слайд
 sylius:
     menu:
         admin:

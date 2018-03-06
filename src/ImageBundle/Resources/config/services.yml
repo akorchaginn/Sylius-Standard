@@ -1,5 +1,6 @@
 parameters:
     image.model.slide.class: ImageBundle\Entity\Slide
+    image.model.slide_image.class: ImageBundle\Entity\SlideImage
 services:
     image.utils:
         class: ImageBundle\Utils\ImageUtils
@@ -14,3 +15,18 @@ services:
         arguments: ['%image.model.slide.class%', ['sylius']]
         tags:
             - { name: form.type}
+    image.slide_image.form.type:
+            class: ImageBundle\Form\Type\SlideImageType
+            tags:
+                - { name: form.type }
+            arguments: ['%image.model.slide_image.class%']
+    sylius.listener.images_upload:
+        class: Sylius\Bundle\CoreBundle\EventListener\ImagesUploadListener
+        arguments: ['@sylius.image_uploader']
+        tags:
+            - { name: kernel.event_listener, event: "sylius.product.pre_create", method: "uploadImages" }
+            - { name: kernel.event_listener, event: "sylius.product.pre_update", method: "uploadImages" }
+            - { name: kernel.event_listener, event: "sylius.taxon.pre_create", method: "uploadImages" }
+            - { name: kernel.event_listener, event: "sylius.taxon.pre_update", method: "uploadImages" }
+            - { name: kernel.event_listener, event: "image.slide.pre_create", method: "uploadImages" }
+            - { name: kernel.event_listener, event: "image.slide.pre_update", method: "uploadImages" }            
