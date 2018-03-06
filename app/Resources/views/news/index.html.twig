@@ -4,17 +4,18 @@
 
 {% block content %}
 {% include 'news/helper/_breadcrumb.html.twig' %}
-<h1 class="ui monster section dividing header">{{ 'app.ui.uncost'|trans }}</h1>
-    <div class="container-fluid">
-            {% if news|length > 0 %}
-                {% for new in news %}
-                    <div class="news">
-                        <span class="text-muted">{{ new.createdAt|date("Y.m.d") }}</span> - <b>{{ new.header }}</b>
-                        <p>{{ new.shortText }}</p>
-                    </div>
-                {% endfor %}
-            {% else %}    
-                {{ messages.info('sylius.ui.no_results_to_display') }}
-            {% endif %} 
-    </div>
+<div class="col-xs-12">
+<h1 class="news-title ui monster section dividing header">{{ 'app.ui.uncost'|trans }}</h1>
+
+    {% if news|length > 0 %}
+    {% for new in news %}
+        <div class="news">
+            <span class="text-muted">{{ new.createdAt|date("Y.m.d") }}</span> - <b>{{ new.header }}</b>
+            <p>{{ new.shortText }}</p>
+        </div>
+    {% endfor %}
+    {% else %}    
+    {{ messages.info('sylius.ui.no_results_to_display') }}
+    {% endif %} 
+</div>
 {% endblock %}

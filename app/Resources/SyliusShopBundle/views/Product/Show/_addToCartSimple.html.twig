@@ -1,0 +1,27 @@
+{% set product = order_item.variant.product %}
+
+{% form_theme form 'SyliusUiBundle:Form:theme.html.twig' %}
+
+<div class="ui segment" id="sylius-product-selecting-variant">
+    {{ sonata_block_render_event('sylius.shop.product.show.before_add_to_cart', {'product': product, 'order_item': order_item}) }}
+
+    {{ form_start(form, {'action': path('sylius_shop_ajax_cart_add_item', {'productId': product.id}), 'attr': {'id': 'sylius-product-adding-to-cart', 'class': 'ui loadable form', 'novalidate': 'novalidate', 'data-redirect': path('sylius_shop_product_show', {'slug': product.slug})}}) }}
+    {{ form_errors(form) }}
+    <div class="ui red label bottom pointing hidden sylius-validation-error" id="sylius-cart-validation-error"></div>
+   
+    <div class="sylius__info-wrap">
+        <div class="sylius-variant-onhand">
+            {% if product.variants[0].onhand - product.variants[0].onhold <= 0 %}
+                <p class="text-danger">{{ 'sylius.ui.variant_delivery_is_expected'|trans }}</p>
+            {% else %}
+                {{ 'sylius.ui.variant_onhand'|trans }}: {{ product.variants[0].onhand - product.variants[0].onhold }}
+                <input type="number" class="sylius__info-input" id="sylius_add_to_cart_cartItem_quantity" name="sylius_add_to_cart[cartItem][quantity]" required="required" max="{{ product.variants[0].onhand - product.variants[0].onhold }}" min="1" value="1">
+                <button name="submit" class="ui icon button"><i class="cart icon"></i></button>
+            {% endif %}
+        </div>
+    </div>
+
+    {{ sonata_block_render_event('sylius.shop.product.show.add_to_cart_form', {'product': product, 'order_item': order_item}) }} 
+    {{ form_row(form._token) }}
+    {{ form_end(form, {'render_rest': false}) }}
+</div>

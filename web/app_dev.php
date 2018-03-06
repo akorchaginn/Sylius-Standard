@@ -11,7 +11,7 @@
 
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;
-
+umask(0006);
 /*
  * Sylius front controller.
  * Dev environment.

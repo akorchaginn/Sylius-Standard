@@ -7,7 +7,7 @@
 
     {{ sonata_block_render_event('sylius.shop.checkout.select_shipping.after_steps', {'order': order}) }}
 
-    <div class="ui stackable grid">
+    <div class="body__select-shipping ui stackable grid">
         <div class="eleven wide column">
             <div class="ui padded segment" id="sylius-shipping-methods">
                 {{ sonata_block_render_event('sylius.shop.checkout.select_shipping.before_form', {'order': order}) }}

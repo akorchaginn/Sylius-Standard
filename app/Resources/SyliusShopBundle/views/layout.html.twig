@@ -8,7 +8,13 @@
     <title>{% block title %}{{ 'sylius.ui.shop_name'|trans }}{% endblock %}</title>
 
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    
+    {% block stylesheets %}
+        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/style.css'} %}    
+        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/bootstrap/bootstrap.min.css'} %}
+        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/bootstrap/bootstrap-theme.min.css'} %}
+        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/font-awesome.min.css'} %}
+        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/bootstrap/bootstrap-social.css'} %}
+    {% endblock %}  
     {% block metatags %}
     {% endblock %}   
 </head>
@@ -23,20 +29,24 @@
         </div>
         
         <div id="menu" class="ui large sticky blue stackable menu"> 
-            <div class="ui container">
+            <div class="container">
                 {{ render(url('sylius_shop_partial_taxon_index_by_code', {'code': 'category', 'template': '@SyliusShop/Taxon/_horizontalMenu.html.twig'})) }}
                 {{ render(controller('sylius.controller.shop.currency_switch:renderAction')) }}
                 {{ render(controller('sylius.controller.shop.locale_switch:renderAction')) }}
             </div>
         </div>
+        <div id="mobile-menu"></div>
     {% endblock %}
+    
+    <div class="home-page">
+        <div class="container">
+            <div class="row">
+                {% include '@SyliusUi/_flashes.html.twig' %}
 
-    <div class="ui container">
-        {% include '@SyliusUi/_flashes.html.twig' %}
-
-        {% block content %}
-        {% endblock %}
-            <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                {% block content %}
+                {% endblock %}
+            </div>
+            <div class="a2a_kit a2a_kit_size_32 a2a_default_style social-netoworks">
                 <a class="a2a_button_vk"></a>
                 <a class="a2a_button_twitter"></a>
                 <a class="a2a_button_mail_ru"></a>
@@ -49,6 +59,7 @@
                 a2a_config.num_services = 14;
             </script>
             <script async src="https://static.addtoany.com/menu/page.js"></script>
+        </div>
     </div>
 
     {% block footer %}
@@ -56,18 +67,47 @@
     {% endblock %}
 </div>
 {% include '@SyliusUi/Modal/_confirmation.html.twig' %}
-</body>
-{% block stylesheets %}
-    {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/style.css'} %}    
-    {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/bootstrap/bootstrap.min.css'} %}
-    {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/bootstrap/bootstrap-theme.min.css'} %}
-    {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/font-awesome.min.css'} %}
-    {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/bootstrap/bootstrap-social.css'} %}
-{% endblock %}    
+</body>  
 {% block javascripts %}
     {% include '@SyliusUi/_javascripts.html.twig' with {'path': 'assets/shop/js/app.js'} %}
     <!-- Yandex.Metrika counter --> <script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter44477557 = new Ya.Metrika({ id:44477557, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/44477557" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
     <!-- Google.Analytics counter --> <script type="text/javascript"> !function(a,b,c,d,e,f,g){a.GoogleAnalyticsObject=e,a[e]=a[e]||function(){(a[e].q=a[e].q||[]).push(arguments)},a[e].l=1*new Date,f=b.createElement(c),g=b.getElementsByTagName(c)[0],f.async=1,f.src=d,g.parentNode.insertBefore(f,g)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-98335457-1","auto"),ga("send","pageview");</script> <!-- /Google.Analytics counter -->
 {% endblock %}    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/jquery.slicknav.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/slicknav.min.css" />
+<script>
+	$(function(){
+        $('#menu').slicknav({
+            appendTo: '#mobile-menu',
+            label: 'Меню',
+            init: function() {
+                var menu = $('#mobile-menu');
+                
+                $(menu).find('.ui.dropdown.item').click(function(evt) {
+                    evt.stopPropagation();
 
+                    var currentTarget = evt.currentTarget;
+                    var dropdown = $(currentTarget).find('> .menu');
+
+                    if (dropdown.length) {
+                        $(dropdown).slideToggle();
+                    }
+                });
+            }
+        });
+
+        $('.menu-catalog__title').on('click', function(evt) {
+            var text = $(evt.currentTarget).text();
+
+            console.log(text);
+
+            $(evt.currentTarget).text(
+                text == "Открыть каталог" ? "Закрыть каталог" : "Открыть каталог");
+
+            $('.catalog-menu__wrap').toggleClass('menu-catalog-hide');
+
+            return false;
+        });
+	});
+</script>
 </html>

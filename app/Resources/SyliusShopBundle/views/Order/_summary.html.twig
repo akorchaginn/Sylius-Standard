@@ -1,5 +1,6 @@
 {% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
 
+<div class="body__sum ">
 <h1 class="ui header">
     <i class="circular cart icon"></i>
     <div class="content">
@@ -23,3 +24,5 @@
     {% include '@SyliusShop/Order/Summary/_totals.html.twig' %}
     <p class="text-right"><strong>{{ 'sylius.ui.subtotal'|trans }}</strong>: {{ money.format(order.itemsTotal ,order.currencyCode) }}</p>
 </div>
+</div>
+
