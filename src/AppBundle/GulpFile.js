@@ -69,9 +69,6 @@ gulp.task('shop-css', function() {
             .pipe(concat('sass-files.scss'))
         ;
 
-
-    console.log(777, paths.shop.sass);
-
     return merge(cssStream, sassStream)
         .pipe(order(['css-files.css', 'sass-files.scss']))
         .pipe(concat('style.css'))

@@ -434,7 +434,7 @@ sylius:
         it_seems_you_have_an_account_already: 'Кажется, что у вас уже есть учетная запись'
         item: 'Товар'
         items: 'Элементы'
-        item.choice: "{0} |{1}, 1 пункт |] 1, Inf], %count% элементы"
+        item.choice: "{0} |{1}, 1 элемент |] 1, Inf], %count% элементы"
         items_total: 'Всего товаров'
         jump_to_page: 'Перейти на страницу'
         label: 'Метка'
