@@ -956,6 +956,23 @@ div.ui.segment{
 }
 
 
+.header__right-btns {
+  display: flex;
+  align-items: center;
+    a:first-child {
+      margin-right: 5px;
+    }
+}
+
+
+.header__user-name {
+  margin-right: 12px !important;
+  display: inline-block;
+  line-height: 14px;
+  font-size: 12px;
+}
+
+
 .ui.header>.icon+.content {
   font-size: 18px !important;
 }

@@ -1,5 +1,5 @@
     {% if is_granted('ROLE_USER') %}
-        <a href="{{ path('sylius_shop_account_dashboard') }}">{{ app.user.customer.fullName }}</a>
+        <a class="header__user-name" href="{{ path('sylius_shop_account_dashboard') }}">{{ app.user.customer.fullName }}</a>
         <a href="{{ path('sylius_shop_logout') }}" class="btn btn-default sylius-logout-button">{{ 'sylius.ui.logout'|trans }}</a>
     {% else %}
         <a href="{{ path('sylius_shop_login') }}" class="btn btn-default">{{ 'sylius.ui.login'|trans }}</a>
