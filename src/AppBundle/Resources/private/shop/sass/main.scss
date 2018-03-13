@@ -488,6 +488,9 @@ div.ui.segment{
   .menu-catalog__title {
     display: none !important;
   }
+  .ui.small.image, .ui.small.images .image, .ui.small.images img, .ui.small.images svg {
+    width: 125px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -982,4 +985,8 @@ h1.ui.header .sub.header, h2.ui.header .sub.header {
 
 .social-networks__footer {
   margin-left: -15px;
+}
+
+.main-image {
+    max-width: 430px;
 }
