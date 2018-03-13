@@ -906,7 +906,7 @@ sylius:
         value: 'Значение'
         values: 'Значения'
         variant: 'Вариант'
-        variant_onhand: 'В наличии (шт)'
+        variant_onhand: 'В наличии (шт/гр)'
         variant_delivery_is_expected: Ожидается
         variant_choice: 'Вариант выбора'
         variant_selection_method: 'Метод выбора вариантов'
