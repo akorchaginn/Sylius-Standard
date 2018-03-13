@@ -59,10 +59,18 @@ final class SlideType extends AbstractResourceType {
                     ]
                 )->add('images', CollectionType::class, [
                     'entry_type' => SlideImageType::class,
-                    'allow_add' => true,
-                    'allow_delete' => true,
+                    'allow_add' => false,
+                    'allow_delete' => false,
                     'by_reference' => false,
                     'label' => 'image.ui.slide',
                 ]);
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function getBlockPrefix(): string
+    {
+        return 'slide';
     }
 }

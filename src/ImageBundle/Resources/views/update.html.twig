@@ -1,0 +1,20 @@
+{% extends 'SyliusAdminBundle:Crud:update.html.twig' %}
+
+
+{% block content %}
+    {{ sonata_block_render_event(event_prefix ~ '.before_header', {'resource': resource}) }}
+
+    {% include '@SyliusAdmin/Crud/Update/_header.html.twig' %}
+
+    {{ sonata_block_render_event(event_prefix ~ '.after_header', {'resource': resource}) }}
+{% form_theme form '@Image/imagesTheme.html.twig' %}
+    {% include '@SyliusAdmin/Crud/Update/_content.html.twig' %} 
+    
+    {{ sonata_block_render_event(event_prefix ~ '.form', {'resource': resource}) }}
+    {{ form_row(form._token) }}
+    {{ form_end(form, {'render_rest': false}) }}
+</div>
+
+
+
+{% endblock %}
