@@ -25,6 +25,7 @@ class AppKernel extends Kernel
     public function registerBundles()
     {
         $bundles = [
+            
             new \Sylius\Bundle\AdminBundle\SyliusAdminBundle(),
             new \Sylius\Bundle\ShopBundle\SyliusShopBundle(),
 
@@ -36,6 +37,7 @@ class AppKernel extends Kernel
             
             new \AppBundle\AppBundle(),
             new \ImageBundle\ImageBundle(),
+            
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
             new \Urbanara\CatalogPromotionPlugin\CatalogPromotionPlugin(),
             new \Sylius\ElasticSearchPlugin\SyliusElasticSearchPlugin(),

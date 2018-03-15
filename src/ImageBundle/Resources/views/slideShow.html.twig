@@ -1,0 +1,5 @@
+{% for slide in slides %}
+    <a href="{{ slide.url }}" target="_blank">
+        <img class="ui small bordered image" src="{{ slide.images[0].path|imagine_filter('sylius_shop_product_original') }}" alt="{{ slide.alt }}" title="{{ slide.description }}"/>
+    </a>
+{% endfor %}

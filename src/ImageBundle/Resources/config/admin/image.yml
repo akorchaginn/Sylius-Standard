@@ -1,5 +1,4 @@
 image_admin_slide:
-    prefix: /admin
     resource: |
         alias: image.slide
         section: admin

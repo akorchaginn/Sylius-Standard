@@ -7,7 +7,6 @@ imports:
     - { resource: "@SitemapPlugin/Resources/config/config.yml" }
     - { resource: "@ShopApiPlugin/Resources/config/app/config.yml" }
     
-    
     - { resource: "parameters.yml" }
     - { resource: "security.yml" }
     - { resource: "emails.yml" }
@@ -15,7 +14,6 @@ imports:
     - { resource: "resources.yml" }
     - { resource: "grids/grids.yml" }    
     - { resource: "grids/product.yml" }
-    - { resource: "grids/admin/image.yml" }    
     - { resource: "liip_config.yml" }
 
 parameters:

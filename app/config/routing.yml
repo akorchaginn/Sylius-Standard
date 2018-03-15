@@ -34,7 +34,7 @@ static_content:
     resource: 'routing/static_content.yml'
 
 image:
-    resource: 'routing/admin/image.yml'
+    resource: '@ImageBundle/Resources/config/routing.yml'
 
 urbanara_catalog_plugin:
     resource: "@CatalogPromotionPlugin/Resources/config/routing.yml"

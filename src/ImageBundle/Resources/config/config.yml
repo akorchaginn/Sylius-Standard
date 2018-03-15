@@ -16,16 +16,22 @@ sylius_grid:
                     label: sylius.ui.position
                     sortable: true
                     position: 1
-                created_at:
+                date_start:
                     type: datetime
-                    label: sylius.ui.created_at
+                    label: sylius.ui.start_date
                     sortable: true
                     position: 2
-                updated_at:
+                date_finish:
                     type: datetime
-                    label: sylius.ui.updated
+                    label: sylius.ui.end_date
                     sortable: true
                     position: 3
+                enabled:
+                    type: twig
+                    label: sylius.ui.is_enabled
+                    position: 4
+                    options:
+                        template: "@SyliusUi/Grid/Field/enabled.html.twig"
             actions:
                 main:
                     create:

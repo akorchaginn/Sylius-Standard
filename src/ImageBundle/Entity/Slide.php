@@ -15,7 +15,7 @@ use ImageBundle\Form\Type\SlideImageType;
  * Image
  *
  * @ORM\Table(name="slide")
- * @ORM\Entity(repositoryClass="ImageBundle\Repository\ImageRepository")
+ * @ORM\Entity(repositoryClass="ImageBundle\Repository\SlideRepository")
  * 
  */
 class Slide implements RI, ImagesAwareInterface
