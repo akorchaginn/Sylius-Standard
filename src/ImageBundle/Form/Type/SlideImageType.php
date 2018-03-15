@@ -16,6 +16,6 @@ final class SlideImageType extends ImageType{
      */
     public function getBlockPrefix()
     {
-        return 'app_shipping_method_image';
+        return 'slide_image';
     }
 }

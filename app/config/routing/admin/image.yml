@@ -9,15 +9,10 @@ image_admin_slide:
         vars:
             index:
                 icon: 'icon newspaper'
+            create:
+                templates:
+                    form: ImageBundle::_content.html.twig
+            update:
+                templates:
+                    form: ImageBundle::_content.html.twig
     type: sylius.resource
-    
-image_admin_slide_update:
-    path: /admin/slides/{id}/edit
-    methods: [GET, PUT, PATCH]
-    defaults:
-        _controller: image.controller.slide:updateAction
-        _sylius:
-            section: admin
-            permission: true
-            template: ImageBundle::update.html.twig
-            redirect: image_admin_slide_update
