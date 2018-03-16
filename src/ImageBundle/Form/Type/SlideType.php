@@ -54,8 +54,7 @@ final class SlideType extends AbstractResourceType {
                     ]
                 )->add('enabled', CheckboxType::class, [
                     'required' => true,
-                    'label' => 'sylius.ui.is_enabled',
-                    'data' => true,
+                    'label' => 'sylius.ui.is_enabled'
                     ]
                 )->add('images', CollectionType::class, [
                     'entry_type' => SlideImageType::class,

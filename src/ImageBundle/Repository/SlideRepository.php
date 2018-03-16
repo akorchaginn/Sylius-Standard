@@ -19,14 +19,14 @@ class SlideRepository extends EntityRepository implements SlideInterface
     public function getSlides() {
         $now = (new \DateTime())->format('Y-m-d h:i:s');
         $slides = $this->createQueryBuilder('o')
-            ->andWhere('o.enabled = :enabled')
-                
+            ->andWhere('o.enabled = :enabled')    
             ->andWhere('o.date_start <= :now and o.date_finish >= :now')
                 
             ->setParameter('enabled', 'true')
             ->setParameter('now', $now)
             ->orderBy('o.position', 'ASC')
-            ->orderBy('o.updatedAt', 'DESC')
+            ->addOrderBy('o.updatedAt', 'DESC')
+                
             ->getQuery()
             ->getResult()
         ;

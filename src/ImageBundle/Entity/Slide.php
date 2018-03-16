@@ -104,7 +104,7 @@ class Slide implements RI, ImagesAwareInterface
 
         $this->images = new ArrayCollection();
         $this->addImage(new SlideImage());
-    
+        $this->setEnabled(true);
     }    
     
     /**
