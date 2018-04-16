@@ -1,0 +1,10 @@
+services:
+    static.sitemap_provider.static_content:
+        class: Marinewool\StaticBundle\Provider\StaticContentUrlProvider
+        tags:
+            - { name: sylius.sitemap_provider }
+        arguments:
+            - '@static.repository.static_content'
+            - '@router'
+            - '@sylius.sitemap_url_factory'
+            - '@sylius.locale_provider'

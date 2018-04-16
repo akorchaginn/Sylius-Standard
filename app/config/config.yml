@@ -6,16 +6,16 @@ imports:
     - { resource: "@CatalogPromotionPlugin/Resources/config/app/grid.yml" }
     - { resource: "@SitemapPlugin/Resources/config/config.yml" }
     - { resource: "@ShopApiPlugin/Resources/config/app/config.yml" }
-    
+
+    - { resource: "Override/ProductBundle/Resources/config/config.yml" }
+    - { resource: "Common/AppBundle/Resources/config/config.yml" }
+    - { resource: "Marinewool/StaticBundle/Resources/config/config.yml" }        
+    - { resource: "Marinewool/MailBundle/Resources/config/config.yml" }
     
     - { resource: "parameters.yml" }
     - { resource: "security.yml" }
-    - { resource: "emails.yml" }
-    - { resource: "state_machine.yml" }
     - { resource: "resources.yml" }
-    - { resource: "grids/grids.yml" }    
-    - { resource: "grids/product.yml" }
-    - { resource: "liip_config.yml" }    
+
 
 parameters:
     locale: ru_RU
@@ -29,13 +29,13 @@ sylius_product:
     resources:
         product:
             classes:
-                repository: AppBundle\Repository\ProductRepositoryExt
+                repository: Override\ProductBundle\Repository\ProductRepositoryExt
 
 sylius_order:
     resources:
         order:
             classes:
-                controller: AppBundle\Controller\OrderRestoreController
+                controller: Common\AppBundle\Controller\OrderRestoreController
 
 sylius_shop:
     checkout_resolver:
