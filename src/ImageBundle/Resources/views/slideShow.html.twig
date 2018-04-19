@@ -1,5 +1,13 @@
-{% for slide in slides %}
-    <a href="{{ slide.url }}" target="_blank">
-        <img class="ui small bordered image" src="{{ slide.images[0].path|imagine_filter('sylius_shop_product_original') }}" alt="{{ slide.alt }}" title="{{ slide.description }}"/>
-    </a>
-{% endfor %}
+<div class="slider-big">
+  <div class="slider-big__inner">
+    <div class="js-slider">
+      {% for slide in slides %}              
+          <div class="slider-big__item">
+              <a href="{{ slide.url }}" target="_blank">
+                  <img class="slider-big__item-img" src="{{ slide.images[0].path|imagine_filter('image_bundle_slide_normal') }}" alt="{{ slide.alt }}" title="{{ slide.description }}"/>
+              </a>                
+          </div>
+      {% endfor %}    
+    </div>
+  </div>
+</div>

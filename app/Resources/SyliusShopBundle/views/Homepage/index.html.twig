@@ -2,9 +2,9 @@
 
 {% block content %}
 {{ render(url('slide_images_show', {'template': '@Image/slideShow.html.twig'})) }}
-    <h2 class="ui horizontal section divider header">
-        {{ 'sylius.ui.latest_products'|trans }}
-    </h2>
+    <div class="section-title">
+        <h2 class="section-title__h2">{{ 'sylius.ui.latest_products'|trans }}</h2>
+    </div>
 {{ render(url('sylius_shop_partial_product_index_latest', {'count': 8, 'template': '@SyliusShop/Product/_horizontalList.html.twig'})) }}
 {% include 'news/partialNews.html.twig' %}
 {% endblock %}

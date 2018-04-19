@@ -1,4 +1,4 @@
 imports:
     - { resource: 'admin/news.yml' }
     - { resource: 'admin/static_content.yml' }
-    - { resource: "@ImageBundle/Resources/config/config.yml" }
+    - { resource: "@ImageBundle/Resources/config/grids.yml" }

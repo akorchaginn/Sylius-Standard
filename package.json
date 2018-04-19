@@ -2,7 +2,9 @@
   "dependencies": {
     "jquery": "^3.2.0",
     "lightbox2": "^2.9.0",
-    "semantic-ui-css": "^2.2.0"
+    "semantic-ui-css": "^2.2.0",
+    "slick-carousel": "*",
+    "slicknav":"*"
   },
   "devDependencies": {
     "gulp": "^3.9.0",

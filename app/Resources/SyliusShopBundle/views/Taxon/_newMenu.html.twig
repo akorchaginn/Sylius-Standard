@@ -1,0 +1,65 @@
+{% macro item(taxon)%}
+    {% import _self as macros %}
+    {% if taxon.children|length > 0 %}
+        <div class="item">
+            <i class="dropdown icon"></i>
+            {{ taxon.name }}
+            <div class="menu">
+                {% for childTaxon in taxon.children %}
+                    {{ macros.item(childTaxon) }}
+                {% endfor %}
+            </div>
+        </div>
+    {% else %}
+        <a href="{{ path('sylius_shop_product_index', {'slug': taxon.slug}) }}" class="item"> {{ taxon.name }} </a>
+    {% endif %}
+{% endmacro %}
+
+{% macro item_li(taxon) %}
+    {% import _self as macros %}
+
+    {% if taxon.children|length > 0 %}
+        <li class="main-menu__li">
+            <div class="ui dropdown">
+                <div class="main-menu__a text">{{ taxon.name }}</div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        {% for childTaxon in taxon.children %}
+                            {{ macros.item(childTaxon) }}
+                        {% endfor %}
+                    </div>
+            </div>
+        </li>                    
+    {% elseif taxon.slug == 'glavnoie-menu/news' %}
+        <li class="main-menu__li">
+            <a href="{{ path('sylius_shop_news_index') }}" class="main-menu__a">{{ taxon.name }}</a>
+        </li>
+        
+    {% elseif taxon.slug == 'glavnoie-menu/glavnaia' %}
+        <li class="main-menu__li">
+            <a href="{{ path('sylius_shop_homepage') }}" class="main-menu__a">{{ taxon.name }}</a>
+        </li>
+        
+    {% elseif taxon.slug == 'glavnoie-menu/kontakty' %}
+        <li class="main-menu__li">
+            <a href="{{ path('sylius_shop_static_content_slug_show', {'slug': 'contacts'}) }}" class="main-menu__a">{{ taxon.name }}</a>
+        </li>
+        
+    {% else %}
+        <li class="main-menu__li">
+            <a href="{{ path('sylius_shop_product_index', {'slug': taxon.slug}) }}" class="main-menu__a">{{ taxon.name }}</a>
+        </li>
+    {% endif %}
+{% endmacro %}
+
+{% import _self as macros %}
+
+{% if taxons|length > 0 %}
+<div class="main-menu">
+    <ul id="menu-mob" class="main-menu__ul">
+        {% for taxon in taxons %}
+            {{ macros.item_li(taxon) }}
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}

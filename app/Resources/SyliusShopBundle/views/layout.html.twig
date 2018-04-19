@@ -14,23 +14,21 @@
 </head>
 
 <body class="pushable">
-<div class="pusher">
+    <div class="pusher">
     {% block top %}
            {% include '@SyliusShop/_contact.html.twig' with {'path': 'assets/shop/css/style.css'} %} 
-        <div class="logocontainer">
-            <div class="logo_container"><a href="{{ path('sylius_shop_homepage') }}"><img src="{{ asset('assets/shop/img/logo.jpg') }}" alt="MarineWool logo" class="logo ui small image" /></a></div>
-            <div class="brand_container"><span class="brand">MarineWool</span></div>
-        </div>
-        
-        <div id="menu" class="ui large sticky blue stackable menu"> 
+        <!--div id="menu" class="ui large sticky blue stackable menu"> 
             <div class="ui container">
                 {{ render(url('sylius_shop_partial_taxon_index_by_code', {'code': 'category', 'template': '@SyliusShop/Taxon/_horizontalMenu.html.twig'})) }}
                 {{ render(controller('sylius.controller.shop.currency_switch:renderAction')) }}
                 {{ render(controller('sylius.controller.shop.locale_switch:renderAction')) }}
             </div>
-        </div>
+        </div -->
     {% endblock %}
-
+  <main class="main-content">
+    <div class="main-content__container">
+    {% include '@SyliusShop/_banner.html.twig' %}
+    {{ render(url('sylius_shop_partial_taxon_index_by_code', {'code': 'category', 'template': '@SyliusShop/Taxon/_newMenu.html.twig'})) }}
     <div class="ui container">
         {% include '@SyliusUi/_flashes.html.twig' %}
 
@@ -50,12 +48,13 @@
             </script>
             <script async src="https://static.addtoany.com/menu/page.js"></script>
     </div>
-
+    </div>
+  </main>
     {% block footer %}
         {% include '@SyliusShop/_footer.html.twig' %}
     {% endblock %}
-</div>
 {% include '@SyliusUi/Modal/_confirmation.html.twig' %}
+</div>
 </body>
 {% block stylesheets %}
     {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/style.css'} %}    
