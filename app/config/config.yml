@@ -6,7 +6,7 @@ imports:
     - { resource: "@CatalogPromotionPlugin/Resources/config/app/grid.yml" }
     - { resource: "@SitemapPlugin/Resources/config/config.yml" }
     - { resource: "@ShopApiPlugin/Resources/config/app/config.yml" }
-    
+    - { resource: "@ImageBundle/Resources/config/config.yml" }    
     
     - { resource: "parameters.yml" }
     - { resource: "security.yml" }
@@ -15,7 +15,7 @@ imports:
     - { resource: "resources.yml" }
     - { resource: "grids/grids.yml" }    
     - { resource: "grids/product.yml" }
-    - { resource: "liip_config.yml" }    
+    - { resource: "liip_config.yml" }
 
 parameters:
     locale: ru_RU

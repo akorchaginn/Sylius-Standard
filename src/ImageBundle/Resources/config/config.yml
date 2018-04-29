@@ -1,0 +1,2 @@
+imports:
+    - { resource: "liip_config.yml" }

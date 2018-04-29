@@ -1,5 +1,6 @@
-<h2 class="ui horizontal section divider header"> <a href="{{ path('sylius_shop_news_index') }}" class="section">{{ 'app.ui.uncost'|trans }}</a> </h2>
-<div class="home__news">
+    <div class="section-title">
+        <h2 class="section-title__h2"><a href="{{ path('sylius_shop_news_index') }}" class="section">{{ 'app.ui.uncost'|trans }}</a></h2>
+    </div>
 {{ render(url('sylius_shop_partial_news_index_latest', {'count': 10, 'template': 'news/helper/_tableNews.html.twig'})) }}
 </div>
 

@@ -1,0 +1,19 @@
+{% form_theme form 'SyliusUiBundle:Form:imagesTheme.html.twig' %}        
+    <div class="ui three column stackable grid segment">
+        <div class="column">
+            {{ form_row(form.url) }}
+            {{ form_row(form.alt) }}
+            {{ form_row(form.description) }}
+        </div>
+        <div class="column">
+        {{ form_row(form.date_start) }}
+        {{ form_row(form.date_finish) }}
+        </div>
+        <div class="column">
+            {{ form_row(form.position) }}
+            {{ form_row(form.enabled) }}        
+        </div>
+    </div>
+    <div class="ui segment">
+        {{ form_row(form.images) }}
+    </div>

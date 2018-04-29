@@ -1,0 +1,17 @@
+image_admin_slide:
+    resource: |
+        alias: image.slide
+        section: admin
+        templates: SyliusAdminBundle:Crud
+        redirect: update
+        grid: image_admin
+        vars:
+            index:
+                icon: 'icon newspaper'
+            create:
+                templates:
+                    form: ImageBundle::_content.html.twig
+            update:
+                templates:
+                    form: ImageBundle::_content.html.twig
+    type: sylius.resource

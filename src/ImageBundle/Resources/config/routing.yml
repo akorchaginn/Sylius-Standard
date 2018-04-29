@@ -1,0 +1,6 @@
+app_admin:
+    resource: 'admin/image.yml'
+    prefix: /admin
+    
+app_news:
+    resource: 'shop/image.yml'

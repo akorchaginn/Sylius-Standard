@@ -1,0 +1,16 @@
+ImageBundle\Entity\SlideImage:
+  properties:
+    file:
+      - NotBlank:
+          groups: [sylius]
+      - Image:
+          groups: [sylius]
+          minHeight: 300
+          maxSize: 10240000
+          minWidth: 700
+          mimeTypes:
+            - "image/png"
+            - "image/jpg"
+            - "image/jpeg"
+            - "image/gif"
+          mimeTypesMessage: 'Этот формат файла не поддерживается. Используйте PNG, JPG или GIF.'

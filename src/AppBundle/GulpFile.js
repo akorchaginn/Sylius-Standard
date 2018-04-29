@@ -13,10 +13,12 @@ var argv = require('yargs').argv;
 
 var rootPath = argv.rootPath;
 var shopRootPath = rootPath + 'shop/';
+var imageBundlePath = '../ImageBundle/';
 var vendorPath = argv.vendorPath || '../../vendor/sylius/sylius/src/Sylius/Bundle/';
 var vendorShopPath = '' === vendorPath ? '' : vendorPath + 'ShopBundle/';
 var vendorUiPath = '' === vendorPath ? '../UiBundle/' : vendorPath + 'UiBundle/';
 var nodeModulesPath = argv.nodeModulesPath;
+
 
 var paths = {
     shop: {
@@ -24,25 +26,30 @@ var paths = {
             nodeModulesPath + 'jquery/dist/jquery.min.js',
             nodeModulesPath + 'semantic-ui-css/semantic.min.js',
             nodeModulesPath + 'lightbox2/dist/js/lightbox.js',
+            nodeModulesPath + 'slick-carousel/slick/slick.js',
+            nodeModulesPath + 'slicknav/dist/jquery.slicknav.js',
             vendorUiPath + 'Resources/private/js/**',
             vendorShopPath + 'Resources/private/js/**',
             'Resources/private/shop/js/**'
         ],
         sass: [
-            vendorUiPath + 'Resources/private/sass/**',
-            vendorShopPath + 'Resources/private/sass/**',
+            //vendorUiPath + 'Resources/private/sass/**',
+            //vendorShopPath + 'Resources/private/sass/**',
             'Resources/private/shop/sass/**'
         ],
         css: [
             nodeModulesPath + 'semantic-ui-css/semantic.min.css',
             nodeModulesPath + 'lightbox2/dist/css/lightbox.css',
+            nodeModulesPath + 'slicknav/dist/slicknav.css',
             vendorUiPath + 'Resources/private/css/**',
             vendorShopPath + 'Resources/private/css/**',
-            vendorShopPath + 'Resources/private/scss/**'
+            vendorShopPath + 'Resources/private/scss/**',
+            imageBundlePath + 'Resources/private/css/**'
         ],
         img: [
             vendorShopPath + 'Resources/private/img/**',
-            'Resources/private/shop/img/**'
+            'Resources/private/shop/img/**',
+            imageBundlePath + 'Resources/private/img/**'
         ]
     }
 };
@@ -80,7 +87,7 @@ gulp.task('shop-css', function() {
 });
 
 gulp.task('shop-img', function() {
-    gulp.src([nodeModulesPath + 'lightbox2/dist/images/*']).pipe(gulp.dest(shopRootPath + 'images/'));
+    gulp.src([nodeModulesPath + 'lightbox2/dist/images/*']).pipe(gulp.dest(shopRootPath + 'images/'));    
     
     return gulp.src(paths.shop.img)
         .pipe(sourcemaps.write('./'))

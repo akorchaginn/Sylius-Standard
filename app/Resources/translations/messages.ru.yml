@@ -1,6 +1,3 @@
-# This file is part of the Sylius package.
-# (c) Paweł Jędrzejewski
-
 app:
     ui:
         news: 'Список новостей'
@@ -16,12 +13,23 @@ app:
         static_contents: 'Список страниц'
         maintenance: Система находится на обслуживании. Обслуживание продлиться не дольше 20 минут. Приносим изменения за неудобства.
 
+image:
+    ui:
+        main: Управление изображениями
+        image: Галерея
+        slides: Список слайдов
+        cache: Кэш
+        edit_slide: Изменение слайда
+        new_slide: Новый слайд
+        url: Ссылка
+        alt: Подпись
+        slide: Слайд
 sylius:
     menu:
         admin:
             main:
                 catalog:
-                    taxons: Категории    
+                    taxons: Категории
     form:
         login:
             username: 'Логин'
@@ -434,7 +442,7 @@ sylius:
         it_seems_you_have_an_account_already: 'Кажется, что у вас уже есть учетная запись'
         item: 'Товар'
         items: 'Элементы'
-        item.choice: "{0} |{1}, 1 элемент |] 1, Inf], %count% элементы"
+        item.choice: "{0} |{1}1 позиция|]1, 4] %count% позиции|]4, Inf] %count% позиций"
         items_total: 'Всего товаров'
         jump_to_page: 'Перейти на страницу'
         label: 'Метка'
@@ -934,6 +942,7 @@ sylius:
         you_have_no_new_orders: 'У вас нет новых заказов'
         you_may_also_like: 'Вам также может понравиться'
         your_cart_is_empty: 'Ваша корзина пуста'
+        cart_is_empty: 'Корзина пуста'
         your_default_address: 'Ваш адрес по умолчанию'
         your_last_5_orders: '5 последних заказов'
         your_order_has_been_shipped: 'Ваш заказ был отправлен'
