@@ -942,6 +942,7 @@ sylius:
         you_have_no_new_orders: 'У вас нет новых заказов'
         you_may_also_like: 'Вам также может понравиться'
         your_cart_is_empty: 'Ваша корзина пуста'
+        cart_is_empty: 'Корзина пуста'
         your_default_address: 'Ваш адрес по умолчанию'
         your_last_5_orders: '5 последних заказов'
         your_order_has_been_shipped: 'Ваш заказ был отправлен'

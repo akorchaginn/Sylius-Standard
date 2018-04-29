@@ -19,6 +19,7 @@ var vendorShopPath = '' === vendorPath ? '' : vendorPath + 'ShopBundle/';
 var vendorUiPath = '' === vendorPath ? '../UiBundle/' : vendorPath + 'UiBundle/';
 var nodeModulesPath = argv.nodeModulesPath;
 
+
 var paths = {
     shop: {
         js: [
@@ -43,7 +44,7 @@ var paths = {
             vendorUiPath + 'Resources/private/css/**',
             vendorShopPath + 'Resources/private/css/**',
             vendorShopPath + 'Resources/private/scss/**',
-            imageBundlePath + 'Resources/private/css/**',
+            imageBundlePath + 'Resources/private/css/**'
         ],
         img: [
             vendorShopPath + 'Resources/private/img/**',

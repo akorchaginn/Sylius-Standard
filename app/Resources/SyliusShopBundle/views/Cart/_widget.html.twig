@@ -5,8 +5,12 @@
 
     <a class="header-small__cart" href="#">
         <img class="header-small__cart-icon" src="/assets/shop/img/cart.png" alt="">
-        {{ money.convertAndFormat(cart.itemsTotal) }}<br>
-        {% transchoice cart.items|length %}sylius.ui.item.choice{% endtranschoice %}
+        {% if cart.empty %}
+            {{ 'sylius.ui.cart_is_empty'|trans }}
+        {% else %}
+            {{ money.convertAndFormat(cart.itemsTotal) }}<br>
+            {% transchoice cart.items|length %}sylius.ui.item.choice{% endtranschoice %}
+        {% endif %}
     </a>
     {{ sonata_block_render_event('sylius.shop.partial.cart.summary.after_widget_content', {'cart': cart}) }}
 </div>
