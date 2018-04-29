@@ -5,9 +5,9 @@ ImageBundle\Entity\SlideImage:
           groups: [sylius]
       - Image:
           groups: [sylius]
-          minHeight: 400
+          minHeight: 300
           maxSize: 10240000
-          minWidth: 800
+          minWidth: 700
           mimeTypes:
             - "image/png"
             - "image/jpg"
