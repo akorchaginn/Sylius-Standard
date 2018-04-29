@@ -20,33 +20,27 @@
 </head>
 
 <body class="pushable">
-<div class="pusher">
+    <div class="pusher">
     {% block top %}
            {% include '@SyliusShop/_contact.html.twig' with {'path': 'assets/shop/css/style.css'} %} 
-        <div class="logocontainer">
-            <div class="logo_container"><a href="{{ path('sylius_shop_homepage') }}"><img src="{{ asset('assets/shop/img/logo.jpg') }}" alt="MarineWool logo" class="logo ui small image" /></a></div>
-            <div class="brand_container"><span class="brand">MarineWool</span></div>
-        </div>
-        
-        <div id="menu" class="ui large sticky blue stackable menu"> 
-            <div class="container">
+        <!--div id="menu" class="ui large sticky blue stackable menu"> 
+            <div class="ui container">
                 {{ render(url('sylius_shop_partial_taxon_index_by_code', {'code': 'category', 'template': '@SyliusShop/Taxon/_horizontalMenu.html.twig'})) }}
                 {{ render(controller('sylius.controller.shop.currency_switch:renderAction')) }}
                 {{ render(controller('sylius.controller.shop.locale_switch:renderAction')) }}
             </div>
-        </div>
-        <div id="mobile-menu"></div>
+        </div -->
     {% endblock %}
-    
-    <div class="home-page">
-        <div class="container">
-            <div class="row">
-                {% include '@SyliusUi/_flashes.html.twig' %}
+  <main class="main-content">
+    <div class="main-content__container">
+    {% include '@SyliusShop/_banner.html.twig' %}
+    {{ render(url('sylius_shop_partial_taxon_index_by_code', {'code': 'category', 'template': '@SyliusShop/Taxon/_newMenu.html.twig'})) }}
+    <div class="ui container">
+        {% include '@SyliusUi/_flashes.html.twig' %}
 
-                {% block content %}
-                {% endblock %}
-            </div>
-            <div class="a2a_kit a2a_kit_size_32 a2a_default_style social-netoworks">
+        {% block content %}
+        {% endblock %}
+            <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
                 <a class="a2a_button_vk"></a>
                 <a class="a2a_button_twitter"></a>
                 <a class="a2a_button_mail_ru"></a>
@@ -61,11 +55,11 @@
             <script async src="https://static.addtoany.com/menu/page.js"></script>
         </div>
     </div>
-
+    </div>
+  </main>
     {% block footer %}
         {% include '@SyliusShop/_footer.html.twig' %}
     {% endblock %}
-</div>
 {% include '@SyliusUi/Modal/_confirmation.html.twig' %}
 </body>  
 {% block javascripts %}

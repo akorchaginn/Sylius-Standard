@@ -11,6 +11,7 @@ imports:
     - { resource: "Common/AppBundle/Resources/config/config.yml" }
     - { resource: "Marinewool/StaticBundle/Resources/config/config.yml" }        
     - { resource: "Marinewool/MailBundle/Resources/config/config.yml" }
+    - { resource: "@ImageBundle/Resources/config/config.yml" }    
     
     - { resource: "parameters.yml" }
     - { resource: "security.yml" }

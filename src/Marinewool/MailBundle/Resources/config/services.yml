@@ -2,4 +2,3 @@ services:
     marinewool_mail.email_manager.order_confirm_admin:
         class: Marinewool\MailBundle\EmailManager\OrderComfirmAdminEmailManager
         arguments: ['@sylius.email_sender', '@sylius.availability_checker']
-        

@@ -1,0 +1,9 @@
+slide_images_show:
+    path: /slide_show/
+    methods: [GET]
+    defaults:
+        _controller: image.controller.slide:indexAction
+        _sylius:
+            template: $template
+            repository:
+                method: getSlides

@@ -1,0 +1,13 @@
+<div class="slider-big">
+  <div class="slider-big__inner">
+    <div class="js-slider">
+      {% for slide in slides %}              
+          <div class="slider-big__item">
+              <a href="{{ slide.url }}" target="_blank">
+                  <img class="slider-big__item-img" src="{{ slide.images[0].path|imagine_filter('image_bundle_slide_normal') }}" alt="{{ slide.alt }}" title="{{ slide.description }}"/>
+              </a>                
+          </div>
+      {% endfor %}    
+    </div>
+  </div>
+</div>

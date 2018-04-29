@@ -16,4 +16,17 @@ $(document).ready(function () {
     $(".clickable-row").click(function() {
         window.location = $(this).data("href");
     });
+    
+    $('.js-slider').slick({
+        dots: true
+    });
+
+    $('#menu-mob').slicknav({
+        appendTo: '.main-menu',
+        label: ''
+    });
+
+    $('.ui.dropdown').dropdown({
+        action: 'hide'
+    });    
 });

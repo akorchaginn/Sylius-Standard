@@ -30,6 +30,9 @@ _liip_imagine:
 news:
     resource: 'Marinewool/StaticBundle/config/routing.yml'
 
+image:
+    resource: '@ImageBundle/Resources/config/routing.yml'
+
 urbanara_catalog_plugin:
     resource: "@CatalogPromotionPlugin/Resources/config/routing.yml"
     prefix: /admin
