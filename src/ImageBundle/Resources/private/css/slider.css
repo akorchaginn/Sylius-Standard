@@ -567,9 +567,7 @@ a:hover {
   .slider-big__inner {
     max-width: 100%; }
   .section-title__h2 {
-    font-size: 24px !important;
-    font-weight: 700 !important;
-    font-size: 16px; }
+    font-size: 16px !important;}
   .section-title {
     background-position: 0 32px; }
   .main-menu__ul {
