@@ -2,12 +2,11 @@
   "dependencies": {
     "jquery": "^3.2.0",
     "lightbox2": "^2.9.0",
-    "semantic-ui-css": "^2.2.0",
+    "semantic-ui-css": "^2.3.1",
     "slick-carousel": "*",
     "slicknav":"*",
-    "gulp-postcss": "*"
-  },
-  "devDependencies": {
+    "gulp-postcss": "*",
+    "node-sass": "^4.9.0",
     "gulp": "^3.9.0",
     "gulp-chug": "^0.5",
     "gulp-concat": "^2.6.0",
@@ -18,8 +17,9 @@
     "gulp-sass": "^2.3.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.1",
-    "gulp-uglifycss": "^1.0.5",
-    "gulp-postcss": "*",
+    "gulp-uglifycss": "^1.0.5"
+  },
+  "devDependencies": {
     "merge-stream": "^1.0.0",
     "yargs": "^6.4.0"
   },
