@@ -28,10 +28,7 @@ _liip_imagine:
     resource: "@LiipImagineBundle/Resources/config/routing.xml"
 
 news:
-    resource: 'routing/news.yml'
-    
-static_content:
-    resource: 'routing/static_content.yml'
+    resource: 'Marinewool/StaticBundle/config/routing.yml'
 
 image:
     resource: '@ImageBundle/Resources/config/routing.yml'
@@ -41,11 +38,11 @@ urbanara_catalog_plugin:
     prefix: /admin
     
 sylius_shop_product_by_channel_and_taxonid:
-    resource: 'routing/product_repository.yml'
+    resource: 'Override/ProductBundle/Resources/config/routing.yml'
 
 sylius_order_restore:
     prefix: /admin
-    resource: 'routing/restore_order.yml'
+    resource: 'Override/OrderBundle/Resources/config/routing.yml'
     
 sylius_sitemap:
      resource: "@SitemapPlugin/Resources/config/routing.yml"

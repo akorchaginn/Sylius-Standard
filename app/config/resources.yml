@@ -3,7 +3,7 @@ sylius_resource:
         app.news:
             driver: doctrine/orm
             classes:
-                model: AppBundle\Entity\News
+                model: Marinewool\StaticBundle\Entity\News
         app.static_content:
             driver: doctrine/orm
             classes:
