@@ -25,3 +25,7 @@ services:
                     name: sylius.grid_filter
                     type: states
                     form_type: AppBundle\Form\Type\Filter\StateMachineFilterType
+    sylius.order_processing.order_original_prive_fill:
+        class: AppBundle\OrderProcessing\OrderOriginalPriceAggregator
+        tags:
+            - { name: sylius.order_processor }

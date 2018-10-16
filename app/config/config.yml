@@ -36,6 +36,10 @@ sylius_order:
         order:
             classes:
                 controller: AppBundle\Controller\OrderRestoreController
+        order_item:
+            classes:
+                model: AppBundle\Entity\OrderItem
+
 
 sylius_shop:
     checkout_resolver:
