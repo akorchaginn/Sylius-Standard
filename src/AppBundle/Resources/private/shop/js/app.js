@@ -18,7 +18,9 @@ $(document).ready(function () {
     });
     
     $('.js-slider').slick({
-        dots: true
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 2000
     });
 
     $('#menu-mob').slicknav({
