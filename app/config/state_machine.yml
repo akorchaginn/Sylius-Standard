@@ -9,6 +9,9 @@ winzou_state_machine:
             recancel:
                 from: [reopen]
                 to: cancelled
+            cancel:
+                from: [fulfilled]
+                to: cancelled
             fulfill:
                 from: [reopen]
                 to: fulfilled    
@@ -71,18 +74,30 @@ winzou_state_machine:
             restore_shipment:
                 from: [cancelled]
                 to: ready
+            cancel:
+                from: [shipped]
+                to: cancelled
     sylius_order_payment:
         transitions:
             restore_payment:
                 from: [cancelled]
                 to: awaiting_payment
+            cancel:
+                from: [paid]
+                to: cancelled
     sylius_shipment:
         transitions:
             restore_shipment:
                 from: [cancelled]
                 to: ready
+            cancel:
+                from: [shipped]
+                to: cancelled
     sylius_payment:
         transitions:
             restore_payment:
                 from: [cancelled]
                 to: new
+            cancel:
+                from: [completed]
+                to: cancelled
