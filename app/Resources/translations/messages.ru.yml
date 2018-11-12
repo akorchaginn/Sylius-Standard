@@ -459,6 +459,7 @@ sylius:
         links: 'Ссылки'
         list_coupons: 'Список купонов'
         list_variants: 'Список вариантов'
+        list_variants_of_product: 'Список вариантов продукта'
         locale: 'Язык'
         locales: 'Языки'
         lock: 'Блокировать'
