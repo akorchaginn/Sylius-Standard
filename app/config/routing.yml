@@ -52,3 +52,12 @@ sylius_sitemap:
      
 sylius_shop_api:
     resource: "@ShopApiPlugin/Resources/config/routing.yml"
+
+sylius_shop_password_reset:
+    path: /forgotten-password/{token}
+    methods: [GET, POST]
+    defaults:
+        _controller: sylius.controller.shop_user:resetPasswordAction
+        _sylius:
+            template: "@SyliusShop/Account/resetPassword.html.twig"
+            redirect: sylius_shop_login

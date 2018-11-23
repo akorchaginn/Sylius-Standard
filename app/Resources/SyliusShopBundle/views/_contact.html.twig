@@ -7,8 +7,13 @@
       <div class="header-small__right">
         <div class="header-small__right-left">
           <div class="header-small__auth">
-            <a class="header-small__auth-a" href="{{ path('sylius_shop_login') }}">Вход</a> /
-            <a class="header-small__auth-a" href="{{ path('sylius_shop_register') }}">Регистрация</a>
+          {% if is_granted('ROLE_USER') %}
+              <a class="header-small__auth-a" title="{{ app.user.customer.FullName }}" href="{{ path('sylius_shop_account_dashboard') }}">{{ app.user.customer.FirstName }} {{ app.user.customer.LastName|first }}.</a> /
+              <a class="header-small__auth-a" href="{{ path('sylius_shop_logout') }}">{{ 'sylius.ui.logout'|trans }}</a>
+          {% else %}
+              <a class="header-small__auth-a" href="{{ path('sylius_shop_login') }}">{{ 'sylius.ui.login'|trans }}</a> /
+              <a class="header-small__auth-a" href="{{ path('sylius_shop_register') }}">{{ 'sylius.ui.register'|trans }}</a>
+          {% endif %}
           </div>
           <!--div class="header-small__search">
             <form method="post" action="">

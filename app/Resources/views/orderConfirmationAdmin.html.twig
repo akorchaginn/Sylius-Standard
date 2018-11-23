@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block templ0 %}
-    {% set url = order.channel.hostname is not null ? 'http://' ~ order.channel.hostname ~ path('sylius_admin_order_show', {'orderId': order.id}) : url('sylius_admin_order_show', {'orderId': order.id}) %}
+    {% set url = order.channel.hostname is not null ? 'https://' ~ order.channel.hostname ~ path('sylius_admin_order_show', {'orderId': order.id}) : url('sylius_admin_order_show', {'orderId': order.id}) %}
     {% autoescape %}
         Зарегистрирован новый заказ №{{ order.number }}.
         <br/>

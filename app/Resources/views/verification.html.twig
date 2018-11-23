@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block templ0 %}
-    {% set url = channel.hostname is not null ? 'http://' ~ channel.hostname ~ path('sylius_shop_user_verification', { 'token': user.emailVerificationToken}) : url('sylius_shop_user_verification', { 'token': user.emailVerificationToken}) %}
+    {% set url = channel.hostname is not null ? 'https://' ~ channel.hostname ~ path('sylius_shop_user_verification', { 'token': user.emailVerificationToken}) : url('sylius_shop_user_verification', { 'token': user.emailVerificationToken}) %}
     {% autoescape %}
         Для подтверждения email-адреса перейдите по <a style="color: rgba(153, 200, 206, 1)" target="_blank" href="{{ url|raw }}">ссылке</a>
     {% endautoescape %}
