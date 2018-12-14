@@ -39,3 +39,8 @@ sylius_grid:
                         fields: [translation.name]
                     form_options:
                         type: contains
+        sylius_admin_customer:
+            filters:
+                search:
+                    options:
+                        fields: [email, firstName, lastName, phoneNumber]
