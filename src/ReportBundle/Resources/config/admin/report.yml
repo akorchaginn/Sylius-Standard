@@ -1,0 +1,5 @@
+income_show:
+    path: /income/
+    methods: [GET, POST]
+    defaults:
+        _controller: report.controller:incomeAction

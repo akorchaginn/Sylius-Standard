@@ -61,6 +61,10 @@ sylius:
     payum_action:
         payment:
             description: Оплата содержит %items% элемент в общей сложности %total% | Оплата содержит %items% элемента в общей сложности %total% | Оплата содержит %items% элементов в общей сложности %total%
+    report:
+        income: Выручка
+        apply: Сформировать
+        no_data: По заданным условиям заказов не найдено
     ui:
         abandoned: 'Отменен'
         about: 'О нас'
@@ -376,6 +380,7 @@ sylius:
         exchange_rates: 'Обменный курс'
         exclusive: 'Эксклюзив'
         existing_customer: 'Существующий клиент'
+        expiration_and_usage_limits: 'Окончание срока действия и ограничения использования'
         expiration_and_usage_limits: 'Окончание срока действия и ограничения использования'
         expires_at: 'Истекает'
         extra_information: 'Дополнительная информация'

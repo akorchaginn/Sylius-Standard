@@ -36,6 +36,9 @@ static_content:
 image:
     resource: '@ImageBundle/Resources/config/routing.yml'
 
+report:
+    resource: '@ReportBundle/Resources/config/routing.yml'
+
 urbanara_catalog_plugin:
     resource: "@CatalogPromotionPlugin/Resources/config/routing.yml"
     prefix: /admin
