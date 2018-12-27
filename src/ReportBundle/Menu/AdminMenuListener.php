@@ -1,0 +1,33 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: akorc_000
+ * Date: 25.12.2018
+ * Time: 8:03
+ */
+
+namespace ReportBundle\Menu;
+
+use Sylius\Bundle\UiBundle\Menu\Event\MenuBuilderEvent;
+
+final class AdminMenuListener
+{
+    /**
+     * @param MenuBuilderEvent $event
+     */
+    public function addAdminMenuItems(MenuBuilderEvent $event)
+    {
+        $menu = $event->getMenu();
+
+        $newsMenu = $menu
+            ->addChild('reports')
+            ->setLabel('sylius.ui.reports')
+        ;
+        $newsMenu
+            ->addChild('income', ['route' => 'income_show'])
+            ->setLabel('sylius.report.income')
+            ->setLabelAttribute('icon', 'newspaper')
+        ;
+    }
+}
+

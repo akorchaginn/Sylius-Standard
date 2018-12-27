@@ -37,6 +37,7 @@ class AppKernel extends Kernel
             
             new \AppBundle\AppBundle(),
             new \ImageBundle\ImageBundle(),
+
             
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
             new \Urbanara\CatalogPromotionPlugin\CatalogPromotionPlugin(),
@@ -47,7 +48,8 @@ class AppKernel extends Kernel
             new \SimpleBus\SymfonyBridge\SimpleBusEventBusBundle(),
             new SitemapPlugin\SitemapPlugin(),
             
-            new Lexik\Bundle\MaintenanceBundle\LexikMaintenanceBundle()
+            new Lexik\Bundle\MaintenanceBundle\LexikMaintenanceBundle(),
+            new ReportBundle\ReportBundle(),
         ];
 
         return array_merge(parent::registerBundles(), $bundles);
