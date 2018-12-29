@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: akorc_000
+ * User: akorchagin
  * Date: 25.12.2018
  * Time: 7:54
  */
@@ -9,76 +9,8 @@
 namespace ReportBundle\Provider;
 
 
-use Doctrine\DBAL\Connection;
-use Symfony\Component\VarDumper\VarDumper;
-
-class IncomeProvider
+class IncomeProvider extends AbstractProvider
 {
-
-    /**
-     * @var \DateTime
-     */
-    private $dateFrom;
-
-    /**
-     * @var \DateTime
-     */
-    private $dateTo;
-
-    /**
-     * @var Connection
-     */
-    private $doctrineConnection;
-
-    /**
-     * @param Connection $doctrineConnection
-     *
-     * @return IncomeProvider
-     */
-    public function setDoctrineConnection(Connection $doctrineConnection): IncomeProvider
-    {
-        $this->doctrineConnection = $doctrineConnection;
-        return $this;
-    }
-
-    /**
-     * @param \DateTime $dateFrom
-     *
-     * @return IncomeProvider
-     */
-    public function setDateFrom(\DateTime $dateFrom): IncomeProvider
-    {
-        $this->dateFrom = $dateFrom;
-        return $this;
-    }
-
-    /**
-     * @param \DateTime $dateTo
-     *
-     * @return IncomeProvider
-     */
-    public function setDateTo(\DateTime $dateTo): IncomeProvider
-    {
-        $this->dateTo = $dateTo;
-        return $this;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getDateFrom(): \DateTime
-    {
-        return $this->dateFrom;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getDateTo(): \DateTime
-    {
-        return $this->dateTo;
-    }
-
     /**
      * @return array
      * @throws \Doctrine\DBAL\DBALException
@@ -100,12 +32,12 @@ class IncomeProvider
     protected function getQuery()
     {
         $query = <<<SQL
-            select  spt.name as "product",
+            select  spt.name as "item",
                     spvt.name as "variant",
                     soi.quantity as "quantity",
-                    cast (soi.unit_price as float8) / 100 as "price",
+                    cast (soi.unit_price as float8) / 100 as "unit_price",
                     cast (soi.quantity * soi.unit_price as float8) / 100 as "total",
-                    so.checkout_completed_at as "order_date"
+                    so.checkout_completed_at as "creation_time"
             from sylius_order so
             inner join sylius_order_item soi on soi.order_id = so.id
             inner join sylius_product_variant_translation spvt on spvt.id = soi.variant_id

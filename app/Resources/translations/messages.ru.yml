@@ -414,6 +414,7 @@ sylius:
         grand_total: 'Всего в корзине'
         greater_than: 'Больше, чем'
         group_membership: 'Членство в группе'
+        grossProfit: Валовая выручка
         guest: 'Гость'
         guest_customer: 'Гость'
         have_an_account_already: 'Уже есть учетная запись?'
@@ -676,6 +677,7 @@ sylius:
         process_your_orders: 'Обработать ваши заказы'
         processing: 'Обрабатывается'
         product: 'Товар'
+        product_id: 'Идентификатор товара'
         product_association_index: 'Взаимосвязи'
         product_association_type_index: 'Типы взаимосвязи'
         product_association_types: 'Типы взаимосвязей продуктов'
@@ -730,7 +732,7 @@ sylius:
         reopen: 'Переоткрыт'
         repeat_new_password: 'Повторите новый пароль'
         report_details: 'Сведения об отчете'
-        reports: 'Отчеты'
+        reports: 'Отчёты'
         reserved: 'Зарезервировано'
         reset: 'Сбросить'
         reset_button: 'Сбросить'
@@ -920,6 +922,7 @@ sylius:
         value: 'Значение'
         values: 'Значения'
         variant: 'Вариант'
+        variant_id: 'Идентификатор варианта'
         variant_onhand: 'В наличии (шт/гр)'
         variant_delivery_is_expected: Ожидается
         variant_choice: 'Вариант выбора'
