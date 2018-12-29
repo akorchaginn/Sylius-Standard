@@ -17,16 +17,18 @@
 
     <div class="ui segment report-data">
         <table class="table table-hover">
-            <thead>
-            <tr>
-                <th scope="col">{{ 'sylius.ui.number'|trans }}</th>
-                {% for row in data|slice(0,1) %}
-                    {% for key, data in row  %}
-                        <th scope="col">{{ ('sylius.ui.'~key)|trans }}</th>
+            {% if data|length > 0 %}
+                <thead>
+                <tr>
+                    <th scope="col">{{ 'sylius.ui.number'|trans }}</th>
+                    {% for row in data|slice(0,1) %}
+                        {% for key, data in row  %}
+                            <th scope="col">{{ ('sylius.ui.'~key)|trans }}</th>
+                        {% endfor %}
                     {% endfor %}
-                {% endfor %}
-            </tr>
-            </thead>
+                </tr>
+                </thead>
+            {% endif %}
                 <tbody>
                 {% for row in data %}
                     <tr>
