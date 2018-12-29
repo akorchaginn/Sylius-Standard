@@ -36,7 +36,8 @@ var paths = {
         css: [
             nodeModulesPath + 'semantic-ui-css/semantic.min.css',
             vendorUiPath + 'Resources/private/css/**',
-            vendorAdminPath + 'Resources/private/css/**'
+            vendorAdminPath + 'Resources/private/css/**',
+            '../ReportBundle/Resources/private/css/**'
         ],
         img: [
             vendorUiPath + 'Resources/private/img/**',

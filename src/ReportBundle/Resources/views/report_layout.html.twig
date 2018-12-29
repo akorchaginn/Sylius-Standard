@@ -1,0 +1,45 @@
+{% extends 'SyliusAdminBundle::layout.html.twig' %}
+
+{% block content %}
+    {{ form_start(form, {'attr': {'class': 'ui form'}}) }}
+    <div class="ui three column stackable grid segment">
+        <div class="column">
+            {{ form_row(form.date_from) }}
+        </div>
+        <div class="column">
+            {{ form_row(form.date_to) }}
+        </div>
+        <div class="column">
+            {{ form_row(form.submit) }}
+        </div>
+    </div>
+    {{ form_end(form) }}
+
+    <div class="ui segment report-data">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">{{ 'sylius.ui.number'|trans }}</th>
+                {% for row in data|slice(0,1) %}
+                    {% for key, data in row  %}
+                        <th scope="col">{{ ('sylius.ui.'~key)|trans }}</th>
+                    {% endfor %}
+                {% endfor %}
+            </tr>
+            </thead>
+                <tbody>
+                {% for row in data %}
+                    <tr>
+                        <th scope="row">{{ loop.index }}</th>
+                        {% for key, data in row  %}
+                            <td>{{ data }}</td>
+                        {% endfor %}
+                    </tr>
+                {% else %}
+                    <tr><td>{{ 'sylius.report.no_data'|trans }}</td></tr>
+                {% endfor %}
+                </tbody>
+            </table>
+    </div>
+
+{% endblock %}

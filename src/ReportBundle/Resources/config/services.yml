@@ -22,3 +22,13 @@ services:
 
     report.provider.income:
         class: ReportBundle\Provider\IncomeProvider
+
+    report.grossProfit.form:
+          class: Symfony\Component\Form\Form
+          factory: ["@form.factory", createNamed]
+          arguments:
+            - 'gross_profit'
+            - 'ReportBundle\Form\Type\GrossProfitType'
+
+    report.provider.grossProfit:
+        class: ReportBundle\Provider\GrossProfitProvider

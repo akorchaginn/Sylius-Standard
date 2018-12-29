@@ -3,3 +3,8 @@ income_show:
     methods: [GET, POST]
     defaults:
         _controller: report.controller:incomeAction
+gross_profit_show:
+    path: /gross_profit/
+    methods: [GET, POST]
+    defaults:
+        _controller: report.controller:grossProfitAction
