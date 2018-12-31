@@ -30,7 +30,7 @@ final class AdminMenuListener
         ;
         $newsMenu
             ->addChild('grossProfit', ['route' => 'gross_profit_show'])
-            ->setLabel('sylius.report.grossProfit')
+            ->setLabel('sylius.ui.grossProfit')
             ->setLabelAttribute('icon', 'ruble-sign')
         ;
     }

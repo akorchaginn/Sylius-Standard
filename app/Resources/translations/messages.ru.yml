@@ -65,7 +65,6 @@ sylius:
         income: Выручка
         apply: Сформировать
         no_data: По заданным условиям заказов не найдено
-        grossProfit: Валовая выручка
     ui:
         abandoned: 'Отменен'
         about: 'О нас'
@@ -414,6 +413,7 @@ sylius:
         go_to_dashboard: 'Перейти в панель управления'
         grand_total: 'Всего в корзине'
         greater_than: 'Больше, чем'
+        grossProfit: Валовая выручка
         group_membership: 'Членство в группе'
         guest: 'Гость'
         guest_customer: 'Гость'
