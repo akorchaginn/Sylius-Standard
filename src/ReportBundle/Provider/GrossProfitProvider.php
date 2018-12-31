@@ -48,7 +48,7 @@ class GrossProfitProvider extends AbstractProvider
                     from sylius_order so
                     inner join sylius_order_item soi on so.id = soi.order_id
                     where	
-                        so.created_at between ? and ?
+                        so.checkout_completed_at between ? and ?
                         and
                         so.state = 'fulfilled'
                     group by soi.variant_id, soi.unit_price
@@ -58,7 +58,8 @@ class GrossProfitProvider extends AbstractProvider
                 inner join sylius_channel_pricing scp on scp.product_variant_id = base.variant_id
                 inner join sylius_product sp on sp.id = spv.product_id
                 inner join sylius_product_variant_translation spvt on spvt.id = base.variant_id
-                inner join sylius_product_translation spt on sp.id = spt.id;
+                inner join sylius_product_translation spt on sp.id = spt.id
+                order by spt.name;
 
 SQL;
 

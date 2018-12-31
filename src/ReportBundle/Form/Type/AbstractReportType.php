@@ -39,11 +39,6 @@ class AbstractReportType extends AbstractType
             'date_widget' => 'single_text',
             'time_widget' => 'single_text',
             'data'       =>  $now->modify('-1day')->setTime(23,59,59),
-        ])->add('submit', SubmitType::class, [
-            'label' => 'sylius.report.apply',
-            'attr' => [
-                'class' => 'ui labeled icon button  primary'
-            ]
         ]);
     }
 }
