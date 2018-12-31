@@ -43,9 +43,10 @@ class IncomeProvider extends AbstractProvider
             inner join sylius_product_variant_translation spvt on spvt.id = soi.variant_id
             inner join sylius_product_variant spv on spv.id = soi.variant_id
             inner join sylius_product_translation spt on spt.id = spv.product_id
-            where so.created_at between ? and ?
+            where so.checkout_completed_at between ? and ?
               and
-                so.state = 'fulfilled';
+                so.state = 'fulfilled'
+            order by so.checkout_completed_at;
 SQL;
 
         return $this->doctrineConnection->prepare($query);

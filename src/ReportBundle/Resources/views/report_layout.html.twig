@@ -1,18 +1,25 @@
 {% extends 'SyliusAdminBundle::layout.html.twig' %}
 
 {% block content %}
+
     {{ form_start(form, {'attr': {'class': 'ui form'}}) }}
-    <div class="ui three column stackable grid segment">
-        <div class="column">
-            {{ form_row(form.date_from) }}
+    <div class="ui segment">
+        <div class="ui five column stackable grid">
+            <div class="column">
+                {{ form_row(form.date_from) }}
+            </div>
+            <div class="column">
+                {{ form_row(form.date_to) }}
+            </div>
         </div>
-        <div class="column">
-            {{ form_row(form.date_to) }}
+        <div class="ui segment">
+            <button class="ui blue labeled icon button" type="submit">
+                <i class="icon search"></i> {{ 'sylius.report.apply'|trans }}
+            </button>
         </div>
-        <div class="column">
-            {{ form_row(form.submit) }}
-        </div>
+
     </div>
+
     {{ form_end(form) }}
 
     <div class="ui segment report-data">
@@ -34,7 +41,11 @@
                     <tr>
                         <th scope="row">{{ loop.index }}</th>
                         {% for key, data in row  %}
-                            <td>{{ data }}</td>
+                            {% if key == 'product_id' %}
+                                <td><a href="{{ path('sylius_admin_product_update', {'id': data}) }}" class="sylius-product-name">{{ data }}</a></td>
+                            {% else %}
+                                <td>{{ data }}</td>
+                            {% endif %}
                         {% endfor %}
                     </tr>
                 {% else %}

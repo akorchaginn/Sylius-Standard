@@ -26,12 +26,12 @@ final class AdminMenuListener
         $newsMenu
             ->addChild('income', ['route' => 'income_show'])
             ->setLabel('sylius.report.income')
-            ->setLabelAttribute('icon', 'newspaper')
+            ->setLabelAttribute('icon', 'shopping-basket')
         ;
         $newsMenu
             ->addChild('grossProfit', ['route' => 'gross_profit_show'])
-            ->setLabel('sylius.ui.grossProfit')
-            ->setLabelAttribute('icon', 'newspaper')
+            ->setLabel('sylius.report.grossProfit')
+            ->setLabelAttribute('icon', 'ruble-sign')
         ;
     }
 }
