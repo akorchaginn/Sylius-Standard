@@ -9,6 +9,7 @@
 namespace ReportBundle\Provider;
 
 use Doctrine\DBAL\Connection;
+use Symfony\Component\VarDumper\VarDumper;
 
 class AbstractProvider
 {
@@ -35,7 +36,7 @@ class AbstractProvider
      */
     public function setDateTo(\DateTime $dateTo): AbstractProvider
     {
-        $this->dateTo = $dateTo;
+        $this->dateTo = $dateTo->setTime(23,59,59);
         return $this;
     }
 
@@ -46,7 +47,7 @@ class AbstractProvider
      */
     public function setDateFrom(\DateTime $dateFrom): AbstractProvider
     {
-        $this->dateFrom = $dateFrom;
+        $this->dateFrom = $dateFrom->setTime(0,0,0);
         return $this;
     }
 

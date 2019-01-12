@@ -9,6 +9,7 @@
 namespace ReportBundle\Provider;
 
 use ReportBundle\Provider\AbstractProvider as AbstractProvider;
+use Symfony\Component\VarDumper\VarDumper;
 
 class GrossProfitProvider extends AbstractProvider
 {
@@ -19,8 +20,8 @@ class GrossProfitProvider extends AbstractProvider
     public function getData()
     {
         $query = $this->getQuery();
-        $query->bindValue(1, $this->getDateFrom()->format('Y-m-d H:m:s'));
-        $query->bindValue(2, $this->getDateTo()->format('Y-m-d H:m:s'));
+        $query->bindValue(1, $this->getDateFrom()->format('Y-m-d H:i:s'));
+        $query->bindValue(2, $this->getDateTo()->format('Y-m-d H:i:s'));
         $query->execute();
 
         return $query->fetchAll();
@@ -40,18 +41,18 @@ class GrossProfitProvider extends AbstractProvider
                     base.quantity as "quantity",
                     cast(base.unit_price / 100 as float8) as "retail_price",
                     (base.quantity * cast(base.unit_price as float8)/100) as "total",
-                    cast (scp.original_price as float8) / 100 as "original_price",
-                    cast(base.unit_price - scp.original_price as float8) * base.quantity / 100 as "grossProfit"
+                    cast (base.original_price as float8) / 100 as "original_price",
+                    cast(base.unit_price - base.original_price as float8) * base.quantity / 100 as "grossProfit"
                 from 
                 (
-                    select soi.variant_id, soi.unit_price, SUM(soi.quantity) as quantity
+                    select soi.variant_id, soi.unit_price, soi.original_price, SUM(soi.quantity) as quantity
                     from sylius_order so
                     inner join sylius_order_item soi on so.id = soi.order_id
                     where	
                         so.checkout_completed_at between ? and ?
                         and
                         so.state = 'fulfilled'
-                    group by soi.variant_id, soi.unit_price
+                    group by soi.variant_id, soi.unit_price, soi.original_price
                     
                 ) as base
                 inner join sylius_product_variant spv on spv.id = base.variant_id

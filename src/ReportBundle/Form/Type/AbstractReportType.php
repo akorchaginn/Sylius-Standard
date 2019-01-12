@@ -32,13 +32,13 @@ class AbstractReportType extends AbstractType
             'label' => 'sylius.ui.start_date',
             'date_widget' => 'single_text',
             'time_widget' => 'single_text',
-            'data'       =>  $yearAgo->setTime(0,0, 0),
+            'data'       =>  $yearAgo->setTime(0,0),
         ])->add('date_to', DateTimeType::class, [
             'required' => true,
             'label' => 'sylius.ui.end_date',
             'date_widget' => 'single_text',
             'time_widget' => 'single_text',
-            'data'       =>  $now->modify('-1day')->setTime(23,59,59),
+            'data'       =>  $now->modify('-1day')->setTime(23,59),
         ]);
     }
 }
