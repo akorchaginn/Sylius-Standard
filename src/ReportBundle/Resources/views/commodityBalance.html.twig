@@ -1,0 +1,56 @@
+{% extends 'SyliusAdminBundle::layout.html.twig' %}
+{% import '@SyliusUi/Macro/headers.html.twig' as headers %}
+
+{% block title %}{{ 'sylius.ui.shop_name'|trans }} | {{ 'sylius.ui.reports'|trans }} | {{ 'sylius.ui.commodityBalance'|trans }}{% endblock %}
+
+{% block pre_content %}
+    {{ headers.default('sylius.ui.commodityBalance'|trans, 'cart') }}
+{% endblock %}
+
+{% block content %}
+
+    {{ form_start(form, {'attr': {'class': 'ui form'}}) }}
+    <div class="ui segment">
+        <div class="ui segment">
+            <button class="ui blue labeled icon button" type="submit">
+                <i class="icon search"></i> {{ 'sylius.report.apply'|trans }}
+            </button>
+        </div>
+    </div>
+
+    {{ form_end(form) }}
+
+    <div class="ui segment report-data">
+        <table class="table table-hover">
+            {% if data|length > 0 %}
+                <thead>
+                <tr>
+                    <th scope="col">{{ 'sylius.ui.number'|trans }}</th>
+                    {% for row in data|slice(0,1) %}
+                        {% for key, data in row  %}
+                            <th scope="col">{{ ('sylius.ui.'~key)|trans }}</th>
+                        {% endfor %}
+                    {% endfor %}
+                </tr>
+                </thead>
+            {% endif %}
+                <tbody>
+            {% for row in data %}
+                    <tr>
+                        <th scope="row">{{ loop.index }}</th>
+                        {% for key, data in row  %}
+                            {% if key == 'product_id' %}
+                                <td><a href="{{ path('sylius_admin_product_update', {'id': data}) }}" class="sylius-product-name">{{ data }}</a></td>
+                            {% else %}
+                                <td>{{ data }}</td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+            {% else %}
+                    <tr><td>{{ 'sylius.report.no_data'|trans }}</td></tr>
+            {% endfor %}
+                </tbody>
+        </table>
+    </div>
+
+{% endblock %}

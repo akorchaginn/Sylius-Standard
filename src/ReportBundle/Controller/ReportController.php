@@ -92,4 +92,32 @@ class ReportController extends Controller
                 'form' => $form->createView()]
         );
     }
+
+    /**
+     * @param Request $request
+     *
+     * @return Response
+     */
+    public function commodityBalanceAction(Request $request)
+    {
+        $data = '';
+        $form = $this->get('report.commodityBalance.form');
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+
+            $provider = $this->get('report.provider.commodityBalance');
+
+            $data = $provider->setDoctrineConnection($this->getDoctrine()->getConnection()
+            )->getData();
+
+        }
+
+        return $this->templatingEngine->renderResponse(
+            '@ReportBundle/Resources/views/commodityBalance.html.twig',
+            ['data' => $data,
+                'form' => $form->createView()]
+        );
+    }
 }
