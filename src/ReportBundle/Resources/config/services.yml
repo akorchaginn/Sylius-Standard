@@ -32,3 +32,13 @@ services:
 
     report.provider.grossProfit:
         class: ReportBundle\Provider\GrossProfitProvider
+
+    report.commodityBalance.form:
+          class: Symfony\Component\Form\Form
+          factory: ["@form.factory", createNamed]
+          arguments:
+            - 'gross_profit'
+            - 'ReportBundle\Form\Type\CommodityBalanceType'
+
+    report.provider.commodityBalance:
+        class: ReportBundle\Provider\CommodityBalanceProvider

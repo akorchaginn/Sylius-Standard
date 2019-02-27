@@ -33,6 +33,11 @@ final class AdminMenuListener
             ->setLabel('sylius.ui.grossProfit')
             ->setLabelAttribute('icon', 'ruble-sign')
         ;
+        $newsMenu
+            ->addChild('commodityBalance', ['route' => 'commodity_balance_show'])
+            ->setLabel('sylius.ui.commodityBalance')
+            ->setLabelAttribute('icon', 'stocking')
+        ;
     }
 }
 

@@ -8,3 +8,8 @@ gross_profit_show:
     methods: [GET, POST]
     defaults:
         _controller: report.controller:grossProfitAction
+commodity_balance_show:
+    path: /commodity_balance/
+    methods: [GET, POST]
+    defaults:
+        _controller: report.controller:commodityBalanceAction
