@@ -33,11 +33,10 @@ class CommodityBalanceProvider extends AbstractProvider
             select  spt.name as "item",
                     spvt.name as "variant",
                     spv.on_hand as "available_on_hand",
-                    spv.on_hold as "on_hold",
                     cast (scp.original_price as float8) / 100 as "original_price",
                     cast (scp.price as float8) / 100 as "unit_price",
-                    cast ((spv.on_hand+spv.on_hold) * scp.original_price as float8) / 100 as "by_original_price",
-                    cast ((spv.on_hand+spv.on_hold) * scp.price as float8) / 100 as "by_retail_price"
+                    cast ((spv.on_hand) * scp.original_price as float8) / 100 as "by_original_price",
+                    cast ((spv.on_hand) * scp.price as float8) / 100 as "by_retail_price"
             from sylius_product_variant spv
             inner join sylius_product_translation spt on spt.id = spv.product_id
             inner join sylius_product_variant_translation spvt on spvt.id = spv.id
