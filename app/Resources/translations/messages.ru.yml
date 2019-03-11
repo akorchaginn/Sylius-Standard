@@ -927,7 +927,7 @@ sylius:
         variant: 'Вариант'
         variant_id: 'Идентификатор варианта'
         variant_onhand: 'В наличии (шт/гр)'
-        variant_delivery_is_expected: Ожидается
+        variant_delivery_is_expected: Нет в наличии
         variant_choice: 'Вариант выбора'
         variant_selection_method: 'Метод выбора вариантов'
         variants: 'Варианты'
