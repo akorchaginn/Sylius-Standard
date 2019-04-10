@@ -39,6 +39,10 @@ image:
 report:
     resource: '@ReportBundle/Resources/config/routing.yml'
 
+integration:
+    resource: '@IntegrationBundle/Resources/config/routing.yml'
+    prefix: /api
+
 urbanara_catalog_plugin:
     resource: "@CatalogPromotionPlugin/Resources/config/routing.yml"
     prefix: /admin

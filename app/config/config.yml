@@ -8,7 +8,7 @@ imports:
     - { resource: "@ShopApiPlugin/Resources/config/app/config.yml" }
     - { resource: "@ImageBundle/Resources/config/config.yml" }
     - { resource: "@ReportBundle/Resources/config/config.yml" }
-    
+
     - { resource: "parameters.yml" }
     - { resource: "security.yml" }
     - { resource: "emails.yml" }

@@ -1,0 +1,11 @@
+marinewool_api_customer_index:
+    path: /customer/index/
+    methods: [GET, POST]
+    defaults:
+        _controller: integration.controller.customer:customerIndex
+
+marinewool_api_product_index:
+    path: /product/index/
+    methods: [GET, POST]
+    defaults:
+        _controller: integration.controller.product:productIndex

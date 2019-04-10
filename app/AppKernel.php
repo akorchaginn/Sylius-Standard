@@ -50,6 +50,7 @@ class AppKernel extends Kernel
             
             new Lexik\Bundle\MaintenanceBundle\LexikMaintenanceBundle(),
             new ReportBundle\ReportBundle(),
+            new IntegrationBundle\IntegrationBundle(),
         ];
 
         return array_merge(parent::registerBundles(), $bundles);
