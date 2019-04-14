@@ -9,8 +9,6 @@
 namespace IntegrationBundle\Repository;
 
 use IntegrationBundle\Model\Customer;
-use IntegrationBundle\Model\Product;
-use IntegrationBundle\Model\ProductVariant;
 use Sylius\Component\Resource\Repository\RepositoryInterface as BaseRepository;
 use IntegrationBundle\Model\Factory;
 use Sylius\Component\Customer\Model\CustomerInterface;
@@ -68,6 +66,7 @@ class IntegrationRepository
             $integrationCustomer = $this->factory->createCustomer();
 
             $integrationCustomer->setId($customer->getId())
+                ->setId1c($customer->getId1c())
                 ->setFirstName($customer->getFirstName())
                 ->setLastName($customer->getLastName())
                 ->setGender($customer->getGender())
@@ -95,16 +94,13 @@ class IntegrationRepository
          */
         foreach ($syliusProducts as $product)
         {
-            /**
-             * @var Product
-             */
             $integrationProduct = $this->factory->createProduct();
 
             $integrationProduct->setId($product->getId())
                 ->setName($product->getName())
                 ->setDescription($product->getDescription())
                 ->setShortDescription($product->getShortDescription())
-                //->setId1c($product->getId1c())
+                ->setId1c($product->getId1c())
                 ->isSimple($product->isSimple());
 
             $integrationProduct->setTaxon(is_object($product->getMainTaxon()) ? $product->getMainTaxon()->getId() : null);
@@ -117,16 +113,13 @@ class IntegrationRepository
 
                 foreach ($product->getVariants() as $variant)
                 {
-                    /**
-                     * @var ProductVariant
-                     */
                     $integrationProductVariant = $this->factory->createProductVariant();
 
                     $integrationProductVariant->setId($variant->getId())
                         ->setPrice($variant->getChannelPricings()->first()->getPrice())
                         ->setOnHand($variant->getOnHand())
-                        ->setName($variant->getName());
-                    //->setId1c($variant->getId1C);
+                        ->setName($variant->getName())
+                        ->setId1c($variant->getId1C);
 
                     $integrationProduct->addProductVariant($integrationProductVariant);
                 }

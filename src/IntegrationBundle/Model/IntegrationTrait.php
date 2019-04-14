@@ -16,13 +16,13 @@ trait IntegrationTrait
     private $id;
 
     /**
-     * @var integer|null
+     * @var string|null
      */
     private $id_1c;
 
     /**
      * @param mixed $id
-     * @return IntegrationTrait
+     * @return $this
      */
     public function setId($id)
     {
@@ -31,10 +31,10 @@ trait IntegrationTrait
     }
 
     /**
-     * @param int|null $id_1c
-     * @return IntegrationTrait
+     * @param string|null $id_1c
+     * @return $this
      */
-    public function setId1c(?int $id_1c): IntegrationTrait
+    public function setId1c(?string $id_1c)
     {
         $this->id_1c = $id_1c;
         return $this;
