@@ -11,10 +11,10 @@ namespace IntegrationBundle\Model;
 use Doctrine\ORM\EntityManager;
 
 /**
- * Class CustomerFactory
+ * Class Factory
  * @package IntegrationBundle\Model
  */
-class CustomerFactory
+class Factory
 {
     /**
      * @var EntityManager
@@ -22,7 +22,7 @@ class CustomerFactory
     private $entityManager;
 
     /**
-     * CustomerFactory constructor.
+     * Factory constructor.
      *
      * @param EntityManager $em
      */
@@ -39,5 +39,25 @@ class CustomerFactory
         $customer = new Customer();
 
         return $customer;
+    }
+
+    /**
+     * @return ProductVariant
+     */
+    public function createProductVariant()
+    {
+        $productVariant = new ProductVariant();
+
+        return $productVariant;
+    }
+
+    /**
+     * @return Product
+     */
+    public function createProduct()
+    {
+        $product = new Product();
+
+        return $product;
     }
 }

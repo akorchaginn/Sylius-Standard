@@ -4,12 +4,13 @@ services:
 
     integration.controller.product:
         class: IntegrationBundle\Controller\ProductIntegrationController
-    integration.customer.factory:
-        class: IntegrationBundle\Model\CustomerFactory
+
+    integration.factory:
+        class: IntegrationBundle\Model\Factory
         arguments:
             - "@doctrine.orm.entity_manager"
 
-    integration.customer.repository:
-        class: IntegrationBundle\Repository\CustomerRepository
+    integration.repository:
+        class: IntegrationBundle\Repository\IntegrationRepository
         arguments:
-            - "@integration.customer.factory"
+            - "@integration.factory"

@@ -10,6 +10,7 @@ namespace IntegrationBundle\Controller;
 
 use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @param Request $request
@@ -22,9 +23,9 @@ class IntegrationController extends FOSRestController
     /**
      * @param $data
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
-    protected function returnResponse($data)
+    protected function getResponse($data)
     {
         $view = $this->view($data, 200);
         return $this->handleView($view);

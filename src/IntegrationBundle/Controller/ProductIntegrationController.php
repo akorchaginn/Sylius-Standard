@@ -9,21 +9,23 @@
 namespace IntegrationBundle\Controller;
 
 
+use Symfony\Component\HttpFoundation\Response;
+
 class ProductIntegrationController extends IntegrationController
 {
 
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function productIndex()
     {
 
-        $customerRepository = $this->container->get('integration.customer.repository');
-        $customerRepository->setSyliusCustomerRepo($this->container->get('sylius.repository.customer'));
+        $repository = $this->container->get('integration.repository');
+        $repository->setSyliusEntityRepo($this->container->get('sylius.repository.product'));
 
-        $data = $customerRepository->getCustomers();
+        $data = $repository->getProducts();
 
-        return parent::returnResponse($data);
+        return parent::getResponse($data);
     }
 
 }

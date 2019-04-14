@@ -8,20 +8,12 @@
 
 namespace IntegrationBundle\Model;
 
+use DateTimeInterface;
 use \Sylius\Component\Customer\Model\CustomerInterface;
 
 class Customer
 {
-    /**
-     * @var mixed
-     */
-    private $id;
-
-    /**
-     * @var integer|null
-     */
-    private $id_1c;
-
+    use IntegrationTrait;
 
     /**
      * @var string|null
@@ -39,7 +31,7 @@ class Customer
     private $lastName;
 
     /**
-     * @var \DateTimeInterface|null
+     * @var DateTimeInterface|null
      */
     private $birthday;
 
@@ -52,18 +44,6 @@ class Customer
      * @var string|null
      */
     private $phone_number;
-
-
-    /**
-     * @param mixed $id
-     *
-     * @return Customer
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-        return $this;
-    }
 
     /**
      * @param null|string $email
@@ -99,11 +79,11 @@ class Customer
     }
 
     /**
-     * @param \DateTimeInterface|null $birthday
+     * @param DateTimeInterface|null $birthday
      *
      * @return Customer
      */
-    public function setBirthday(?\DateTimeInterface $birthday): Customer
+    public function setBirthday(?DateTimeInterface $birthday): Customer
     {
         $this->birthday = $birthday;
         return $this;
@@ -130,17 +110,5 @@ class Customer
         $this->phone_number = $phone_number;
         return $this;
     }
-
-    /**
-     * @param int|null $id_1c
-     *
-     * @return Customer
-     */
-    public function setId1c(?int $id_1c): Customer
-    {
-        $this->id_1c = $id_1c;
-        return $this;
-    }
-
 
 }

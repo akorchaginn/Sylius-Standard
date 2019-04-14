@@ -9,21 +9,23 @@
 namespace IntegrationBundle\Controller;
 
 
+use Symfony\Component\HttpFoundation\Response;
+
 class CustomerIntegrationController extends IntegrationController
 {
 
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function customerIndex()
     {
 
-        $customerRepository = $this->container->get('integration.customer.repository');
-        $customerRepository->setSyliusCustomerRepo($this->container->get('sylius.repository.customer'));
+        $customerRepository = $this->container->get('integration.repository');
+        $customerRepository->setSyliusEntityRepo($this->container->get('sylius.repository.customer'));
 
         $data = $customerRepository->getCustomers();
 
-        return parent::returnResponse($data);
+        return parent::getResponse($data);
     }
 
 }
