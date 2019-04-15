@@ -4,6 +4,7 @@
 namespace IntegrationBundle\Entity;
 
 use Sylius\Component\Core\Model\ProductVariant as ParentProductVariant;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Class ProductVariant

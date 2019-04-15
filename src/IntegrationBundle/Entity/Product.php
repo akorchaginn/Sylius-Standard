@@ -4,7 +4,7 @@
 namespace IntegrationBundle\Entity;
 
 use Sylius\Component\Core\Model\Product as ParentProduct;
-
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Class Product
