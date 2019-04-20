@@ -12,3 +12,9 @@ sylius_customer:
     customer:
       classes:
         model: IntegrationBundle\Entity\Customer
+
+sylius_order:
+  resources:
+    order:
+      classes:
+        model: IntegrationBundle\Entity\Order

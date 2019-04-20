@@ -60,4 +60,44 @@ class Factory
 
         return $product;
     }
+
+    /**
+     * @return Order
+     */
+    public function createOrder()
+    {
+        $order = new Order();
+
+        return $order;
+    }
+
+    /**
+     * @return Shipping
+     */
+    public function createShipping()
+    {
+        $shipping = new Shipping();
+
+        return $shipping;
+    }
+
+    /**
+     * @return OrderItem
+     */
+    public function createOrderItem()
+    {
+        $orderItem = new OrderItem();
+
+        return $orderItem;
+    }
+
+    /**
+     * @return Payment
+     */
+    public function createPayment()
+    {
+        $payment = new Payment();
+
+        return $payment;
+    }
 }

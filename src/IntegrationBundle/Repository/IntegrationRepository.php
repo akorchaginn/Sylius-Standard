@@ -8,11 +8,14 @@
 
 namespace IntegrationBundle\Repository;
 
-use IntegrationBundle\Model\Customer;
+use AppBundle\Entity\OrderItemInterface;
+use IntegrationBundle\Entity\ProductInterface;
+use IntegrationBundle\Entity\OrderInterface;
+use IntegrationBundle\Entity\CustomerInterface;
+use Sylius\Component\Payment\Model\Payment;
 use Sylius\Component\Resource\Repository\RepositoryInterface as BaseRepository;
 use IntegrationBundle\Model\Factory;
-use Sylius\Component\Customer\Model\CustomerInterface;
-use Sylius\Component\Product\Model\ProductInterface;
+use Sylius\Component\Core\Model\AdjustmentInterface;
 
 /**
  * Class IntegrationRepository
@@ -40,8 +43,10 @@ class IntegrationRepository
         $this->factory = $factory;
     }
 
-
-    public function setSyliusEntityRepo($repository)
+    /**
+     * @param BaseRepository $repository
+     */
+    public function setSyliusEntityRepo(BaseRepository $repository)
     {
         $this->syliusEntityRepository = $repository;
     }
@@ -60,9 +65,6 @@ class IntegrationRepository
          */
         foreach ($syliusCustomers as $customer)
         {
-            /**
-             * @var Customer
-             */
             $integrationCustomer = $this->factory->createCustomer();
 
             $integrationCustomer->setId($customer->getId())
@@ -130,5 +132,82 @@ class IntegrationRepository
         }
 
         return $integrationProducts;
+    }
+
+    /**
+     * @return array
+     */
+    public function getOrders()
+    {
+        $integrationOrders = [];
+        $syliusOrdersAll = $this->syliusEntityRepository->findAll();
+        $syliusOrders = array_filter($syliusOrdersAll, (function (OrderInterface $order){
+            return !is_null($order->getNumber());
+        }));
+
+        /**
+         * @var OrderInterface $syliusOrder
+         */
+        foreach ($syliusOrders as $syliusOrder)
+        {
+            $integrationOrder = $this->factory->createOrder();
+            $customer = $this->factory->createCustomer();
+            $customer->setId($syliusOrder->getCustomer()->getId())
+                ->setId1c($syliusOrder->getCustomer()->getId1c());
+
+            $integrationOrder->setId($syliusOrder->getId())
+                ->setNumber($syliusOrder->getNumber())
+                ->setCustomer($customer)
+                ->setId1c($syliusOrder->getId1c());
+
+            /**
+             * @var Payment $syliusPayment
+             */
+            foreach ($syliusPayments = $syliusOrder->getPayments() as $syliusPayment)
+            {
+                $payment = $this->factory->createPayment();
+                $payment->setAmount($syliusPayment->getAmount())
+                    ->setMethodCode($syliusPayment->getMethod()->getCode());
+
+                $integrationOrder->setPayment($payment);
+            }
+
+            /**
+             * @var OrderItemInterface $syliusOrderItem
+             */
+            foreach ($syliusOrderItems = $syliusOrder->getItems() as $syliusOrderItem)
+            {
+                $item = $this->factory->createOrderItem();
+                $item->setId($syliusOrderItem->getId())
+                    ->setQuantity($syliusOrderItem->getQuantity())
+                    ->setVariantId($syliusOrderItem->getVariant()->getId());
+                $integrationOrder->addItems($item);
+            }
+
+            if ($shippingAdjustments = $syliusOrder->getAdjustments(AdjustmentInterface::SHIPPING_ADJUSTMENT)) {
+
+                /**
+                 * @var AdjustmentInterface $syliusShipping
+                 */
+                $syliusShipping = $shippingAdjustments->first();
+                $address =  $syliusOrder->getShippingAddress()->getPostcode() . ', '.
+                    $syliusOrder->getShippingAddress()->getCountryCode() . ', '.
+                    $syliusOrder->getShippingAddress()->getCity() . ', '.
+                    $syliusOrder->getShippingAddress()->getProvinceName() . ', '.
+                    $syliusOrder->getShippingAddress()->getStreet();
+
+                $shipping = $this->factory->createShipping();
+                $shipping->setType(AdjustmentInterface::SHIPPING_ADJUSTMENT)
+                    ->setLabel($syliusShipping->getLabel())
+                    ->setAmount($syliusShipping->getAmount())
+                    ->setAddress($address);
+
+                $integrationOrder->setShipping($shipping);
+            }
+
+            $integrationOrders[] = $integrationOrder;
+        }
+
+        return $integrationOrders;
     }
 }

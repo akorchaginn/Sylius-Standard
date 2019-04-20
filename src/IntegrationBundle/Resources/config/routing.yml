@@ -9,3 +9,9 @@ marinewool_api_product_index:
     methods: [GET, POST]
     defaults:
         _controller: integration.controller.product:productIndex
+
+marinewool_api_order_index:
+    path: /order/index/
+    methods: [GET, POST]
+    defaults:
+        _controller: integration.controller.order:orderIndex

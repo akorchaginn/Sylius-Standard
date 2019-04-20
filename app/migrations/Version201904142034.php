@@ -21,6 +21,7 @@ class Version201904142034 extends AbstractMigration
         $this->addSql('ALTER TABLE sylius_product ADD id_1c VARCHAR(255)');
         $this->addSql('ALTER TABLE sylius_product_variant ADD id_1c VARCHAR(255)');
         $this->addSql('ALTER TABLE sylius_customer ADD id_1c VARCHAR(255)');
+        $this->addSql('ALTER TABLE sylius_order ADD id_1c VARCHAR(255)');
     }
 
     /**
@@ -35,6 +36,7 @@ class Version201904142034 extends AbstractMigration
         $this->addSql('ALTER TABLE sylius_product DROP id_1c');
         $this->addSql('ALTER TABLE sylius_product_variant DROP id_1c');
         $this->addSql('ALTER TABLE sylius_customer DROP id_1c');
+        $this->addSql('ALTER TABLE sylius_order DROP id_1c');
     }
 
 }

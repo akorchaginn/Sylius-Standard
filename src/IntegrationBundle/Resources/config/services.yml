@@ -5,6 +5,9 @@ services:
     integration.controller.product:
         class: IntegrationBundle\Controller\ProductIntegrationController
 
+    integration.controller.order:
+        class: IntegrationBundle\Controller\OrderIntegrationController
+
     integration.factory:
         class: IntegrationBundle\Model\Factory
         arguments:
