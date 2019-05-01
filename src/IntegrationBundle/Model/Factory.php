@@ -100,4 +100,14 @@ class Factory
 
         return $payment;
     }
+
+    /**
+     * @return Attribute
+     */
+    public function createAttribute()
+    {
+        $attribute = new Attribute();
+
+        return $attribute;
+    }
 }

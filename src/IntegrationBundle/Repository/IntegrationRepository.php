@@ -9,13 +9,16 @@
 namespace IntegrationBundle\Repository;
 
 use AppBundle\Entity\OrderItemInterface;
+use DateTime;
 use IntegrationBundle\Entity\ProductInterface;
 use IntegrationBundle\Entity\OrderInterface;
 use IntegrationBundle\Entity\CustomerInterface;
+use Sylius\Component\Attribute\Model\AttributeInterface;
 use Sylius\Component\Payment\Model\Payment;
 use Sylius\Component\Resource\Repository\RepositoryInterface as BaseRepository;
 use IntegrationBundle\Model\Factory;
 use Sylius\Component\Core\Model\AdjustmentInterface;
+use Symfony\Component\VarDumper\VarDumper;
 
 /**
  * Class IntegrationRepository
@@ -75,7 +78,6 @@ class IntegrationRepository
                 ->setBirthday($customer->getBirthday())
                 ->setEmail($customer->getEmail())
                 ->setPhoneNumber($customer->getPhoneNumber());
-
             $integrationCustomers[] = $integrationCustomer;
         }
 
@@ -97,11 +99,11 @@ class IntegrationRepository
         foreach ($syliusProducts as $product)
         {
             $integrationProduct = $this->factory->createProduct();
+            $integrationAttributes = [];
 
             $integrationProduct->setId($product->getId())
                 ->setName($product->getName())
-                ->setDescription($product->getDescription())
-                ->setShortDescription($product->getShortDescription())
+                ->setShortDescription(strip_tags ($product->getShortDescription()))
                 ->setId1c($product->getId1c())
                 ->isSimple($product->isSimple());
 
@@ -127,6 +129,18 @@ class IntegrationRepository
                 }
             }
 
+            /**
+             * @var AttributeInterface $syliusAttribute
+             */
+            foreach ($syliusAttributes = $product->getAttributes() as $syliusAttribute)
+            {
+                $integrationAttribute = $this->factory->createAttribute();
+                $integrationAttribute->setName($syliusAttribute->getName())
+                    ->setValue($syliusAttribute->getValue());
+                $integrationProduct->addAttribute($integrationAttribute);
+            }
+
+
             $integrationProducts[] = $integrationProduct;
 
         }
@@ -135,14 +149,19 @@ class IntegrationRepository
     }
 
     /**
+     * @param DateTime $lastSynchronized
      * @return array
      */
-    public function getOrders()
+    public function getOrders(DateTime $lastSynchronized)
     {
         $integrationOrders = [];
         $syliusOrdersAll = $this->syliusEntityRepository->findAll();
-        $syliusOrders = array_filter($syliusOrdersAll, (function (OrderInterface $order){
-            return !is_null($order->getNumber());
+        $syliusOrders = array_filter($syliusOrdersAll, (function (OrderInterface $order) use ($lastSynchronized) {
+            if (!is_null($order->getNumber()) and $order->getCheckoutCompletedAt() > $lastSynchronized)
+            {
+                return true;
+            }
+            return false;
         }));
 
         /**

@@ -53,6 +53,11 @@ class Product
     private $price;
 
     /**
+     * @var array
+     */
+    private $attributes;
+
+    /**
      * @param string $name
      * @return Product
      */
@@ -139,6 +144,24 @@ class Product
     {
         $this->price = $price;
         return $this;
+    }
+
+    /**
+     * @param Attribute $attribute
+     * @return Product
+     */
+    public function addAttribute(Attribute $attribute): Product
+    {
+        $this->attributes[] = $attribute;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAttributes(): array
+    {
+        return $this->attributes;
     }
 
 

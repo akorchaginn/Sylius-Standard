@@ -11,6 +11,10 @@ namespace IntegrationBundle\Model;
 use DateTimeInterface;
 use \Sylius\Component\Customer\Model\CustomerInterface;
 
+/**
+ * Class Customer
+ * @package IntegrationBundle\Model
+ */
 class Customer
 {
     use IntegrationTrait;

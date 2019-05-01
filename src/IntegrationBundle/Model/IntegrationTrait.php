@@ -40,5 +40,21 @@ trait IntegrationTrait
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getId1c(): ?string
+    {
+        return $this->id_1c;
+    }
+
 
 }
