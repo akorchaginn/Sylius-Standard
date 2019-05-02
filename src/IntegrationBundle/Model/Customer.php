@@ -115,4 +115,52 @@ class Customer
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getFirstName(): ?string
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getLastName(): ?string
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * @return DateTimeInterface|null
+     */
+    public function getBirthday(): ?DateTimeInterface
+    {
+        return $this->birthday;
+    }
+
+    /**
+     * @return string
+     */
+    public function getGender(): string
+    {
+        return $this->gender;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPhoneNumber(): ?string
+    {
+        return $this->phone_number;
+    }
+
 }

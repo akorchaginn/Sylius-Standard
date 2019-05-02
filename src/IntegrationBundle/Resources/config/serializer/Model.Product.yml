@@ -1,0 +1,4 @@
+IntegrationBundle\Model\Product:
+  xml_root_name: product
+  accessor_order: custom
+  custom_accessor_order: [id, id1c]

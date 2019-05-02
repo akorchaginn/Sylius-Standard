@@ -25,7 +25,8 @@
         "sylius/sylius": "^1.0",
         "urbanara/catalog-promotion-plugin": "^1.0@alpha",
         "stfalcon/tinymce-bundle": "^2.1",
-        "stefandoorn/sitemap-plugin": "^1.0"
+        "stefandoorn/sitemap-plugin": "^1.0",
+        "sensio/framework-extra-bundle": ">=2.0.17"
     },
     "require-dev": {
         "behat/behat": "^3.2",

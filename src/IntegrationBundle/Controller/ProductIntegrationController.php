@@ -25,7 +25,8 @@ class ProductIntegrationController extends IntegrationController
 
         $data = $repository->getProducts();
 
-        return parent::getResponse($data);
+        $response['data'] = $data;
+        return parent::getResponse($response);
     }
 
 }

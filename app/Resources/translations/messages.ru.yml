@@ -331,7 +331,7 @@ sylius:
         edit_tax_rate: 'Редактирование налоговой ставки'
         edit_taxon: 'Редактировать категорию'
         edit_your_items_apply_coupon_or_proceed_to_the_checkout: 'Отредактируйте заказ, примените купон или перейдите к оформлению заказа'
-        edit_your_personal_information: 'Edit my personal information'
+        edit_your_personal_information: 'Редактировать мою персональную информацию'
         edit_zone: 'Редактирование зоны'
         editing_attribute: 'Редактирование атрибута'
         editing_channel: 'Редактировать каналы'
