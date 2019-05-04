@@ -18,7 +18,6 @@ use Sylius\Component\Payment\Model\Payment;
 use Sylius\Component\Resource\Repository\RepositoryInterface as BaseRepository;
 use IntegrationBundle\Model\Factory;
 use Sylius\Component\Core\Model\AdjustmentInterface;
-use Symfony\Component\VarDumper\VarDumper;
 
 /**
  * Class IntegrationRepository
@@ -99,7 +98,6 @@ class IntegrationRepository
         foreach ($syliusProducts as $product)
         {
             $integrationProduct = $this->factory->createProduct();
-            $integrationAttributes = [];
 
             $integrationProduct->setId($product->getId())
                 ->setName($product->getName())
@@ -140,7 +138,6 @@ class IntegrationRepository
                     ->setValue($syliusAttribute->getValue());
                 $integrationProduct->addAttribute($integrationAttribute);
             }
-
 
             $integrationProducts[] = $integrationProduct;
 

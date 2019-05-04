@@ -5,6 +5,7 @@ namespace IntegrationBundle\Controller;
 
 
 use DateTime;
+use Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -13,7 +14,7 @@ class OrderIntegrationController extends IntegrationController
     /**
      * @param Request $request
      * @return Response
-     * @throws \Exception
+     * @throws Exception
      */
     public function orderIndex(Request $request)
     {

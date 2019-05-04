@@ -9,7 +9,7 @@
 namespace IntegrationBundle\Controller;
 
 use Doctrine\ORM\EntityManager;
-use FOS\RestBundle\Controller\FOSRestController;
+use FOS\RestBundle\Controller\AbstractFOSRestController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\Response;
  *
  * @return Response
  */
-class IntegrationController extends FOSRestController
+class IntegrationController extends AbstractFOSRestController
 {
 
     /**

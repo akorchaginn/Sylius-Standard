@@ -9,6 +9,9 @@
 namespace IntegrationBundle\Controller;
 ;
 
+use DateTime;
+use Doctrine\ORM\OptimisticLockException;
+use Doctrine\ORM\ORMException;
 use IntegrationBundle\Entity\Customer as CustomerEntity;
 use IntegrationBundle\Model\Customer;
 use Sylius\Bundle\UserBundle\UserEvents;
@@ -16,7 +19,6 @@ use Sylius\Component\Core\Model\ShopUser;
 use Sylius\Component\User\Security\Generator\UniqueTokenGenerator;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 
@@ -48,11 +50,12 @@ class CustomerIntegrationController extends IntegrationController
     }
 
     /**
+     * @param array $customers
      * @ParamConverter("customers", class="array<IntegrationBundle\Model\Customer>", converter="fos_rest.request_body")
      * @return Response
      *
-     * @throws \Doctrine\ORM\ORMException
-     * @throws \Doctrine\ORM\OptimisticLockException
+     * @throws ORMException
+     * @throws OptimisticLockException
      */
     public function customerCreateOrUpdate(array $customers)
     {
@@ -67,6 +70,9 @@ class CustomerIntegrationController extends IntegrationController
          */
         foreach ($customers as $customer)
         {
+            /**
+             * @var CustomerEntity $syliusCustomer
+             */
             if ($syliusCustomer = $this->em->getRepository(CustomerEntity::class)->findOneBy(['id' => $customer->getId()]))
             {
                 $this->update($syliusCustomer, $customer);
@@ -95,7 +101,7 @@ class CustomerIntegrationController extends IntegrationController
     /**
      * @param CustomerEntity $syliusCustomer
      * @param Customer $customer
-     * @throws \Doctrine\ORM\ORMException
+     * @throws ORMException
      */
     private function update(CustomerEntity $syliusCustomer, Customer $customer)
     {
@@ -113,19 +119,19 @@ class CustomerIntegrationController extends IntegrationController
     /**
      * @todo Добавить валидатор email
      * @param Customer $customer
-     * @throws \Doctrine\ORM\ORMException
+     * @throws ORMException
      */
     private function create(Customer $customer)
     {
         /**
          * @var CustomerEntity $syliusCustomer
          */
-        $syliusCustomer = $this->container->get('sylius.factory.customer')->createNew(CustomerEntity::class);
+        $syliusCustomer = $this->container->get('sylius.factory.customer')->createNew();
 
         /**
          * @var ShopUser $syliusShopUser
          */
-        $syliusShopUser = $this->container->get('sylius.factory.shop_user')->createNew(ShopUser::class);
+        $syliusShopUser = $this->container->get('sylius.factory.shop_user')->createNew();
 
         $syliusCustomer->setId1c($customer->getId1c());
         $syliusCustomer->setEmail($customer->getEmail());
@@ -138,8 +144,8 @@ class CustomerIntegrationController extends IntegrationController
         $syliusShopUser->setCustomer($syliusCustomer);
         $syliusShopUser->setEmail($customer->getEmail());
         $syliusShopUser->setUsername($customer->getEmail());
-        $syliusShopUser->setPlainPassword('1z2s#E4r%G^N');
-        $syliusShopUser->setPasswordRequestedAt(new \DateTime());
+        $syliusShopUser->setPlainPassword('b/vbb+B8G=Y54_yP');
+        $syliusShopUser->setPasswordRequestedAt(new DateTime());
         $syliusShopUser->setEmailVerificationToken($this->emailTokenGenerator->generate());
         $syliusShopUser->setPasswordResetToken($this->passwordTokenGenerator->generate());
 
