@@ -108,6 +108,7 @@ class IntegrationRepository
                 ->isSimple($product->isSimple());
 
             $integrationProduct->setTaxon(is_object($product->getMainTaxon()) ? $product->getMainTaxon()->getId() : null);
+            $integrationProduct->setTaxonName(is_object($product->getMainTaxon()) ? $product->getMainTaxon()->getName() : null);
 
             if ($product->isSimple())
             {

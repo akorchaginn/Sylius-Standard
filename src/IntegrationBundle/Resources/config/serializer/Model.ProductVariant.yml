@@ -1,0 +1,25 @@
+IntegrationBundle\Model\ProductVariant:
+  xml_root_name: product_variant
+  accessor_order: custom
+  custom_accessor_order: [id, name, price, onHand]
+  properties:
+    id:
+      expose: true
+      type: integer
+    id_1c:
+      expose: true
+      type: string
+      serialized_name: id1c
+      xml_element:
+        cdata: false
+    name:
+      expose: true
+      type: integer
+      xml_element:
+        cdata: false
+    price:
+      expose: true
+      type: integer
+    onHand:
+      expose: true
+      type: integer

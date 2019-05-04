@@ -10,18 +10,12 @@ class Attribute
     /**
      * @var string|null
      */
-    private $code;
-
-    /**
-     * @var string|null
-     */
     private $value;
 
     /**
      * @var string|null
      */
     private $name;
-
 
     /**
      * @param string|null $value

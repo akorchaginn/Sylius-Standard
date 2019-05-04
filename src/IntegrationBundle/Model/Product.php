@@ -35,12 +35,17 @@ class Product
     /**
      * @var array
      */
-    private $productVariants = [];
+    private $productVariants;
 
     /**
      * @var int|null
      */
     private $taxon;
+
+    /**
+     * @var string|null
+     */
+    private $taxonName;
 
     /**
      * @var int|null
@@ -125,6 +130,26 @@ class Product
         $this->taxon = $taxon;
         return $this;
     }
+
+    /**
+     * @return string|null
+     */
+    public function getTaxonName(): ?string
+    {
+        return $this->taxonName;
+    }
+
+    /**
+     * @param string|null $taxonName
+     * @return Product
+     */
+    public function setTaxonName(?string $taxonName): Product
+    {
+        $this->taxonName = $taxonName;
+        return $this;
+    }
+
+
 
     /**
      * @param int|null $onHand

@@ -10,6 +10,8 @@ namespace IntegrationBundle\Controller;
 
 
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\VarDumper\VarDumper;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class ProductIntegrationController extends IntegrationController
 {
@@ -29,4 +31,17 @@ class ProductIntegrationController extends IntegrationController
         return parent::getResponse($response);
     }
 
+    /**
+     * @param array $products
+     * @ParamConverter("products", class="array<IntegrationBundle\Model\Product>", converter="fos_rest.request_body")
+     * @return Response
+     *
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function productCreateOrUpdate(array $products)
+    {
+        VarDumper::dump($products);
+        die();
+    }
 }
