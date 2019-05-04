@@ -1,0 +1,30 @@
+marinewool_api_customer_index:
+    path: /customer/index/
+    methods: [GET, POST]
+    defaults:
+        _controller: integration.controller.customer:customerIndex
+
+marinewool_api_customer_create_or_update:
+    path: /customer/add/
+    methods: [POST]
+    defaults:
+        _controller: integration.controller.customer:customerCreateOrUpdate
+
+
+marinewool_api_product_index:
+    path: /product/index/
+    methods: [GET, POST]
+    defaults:
+        _controller: integration.controller.product:productIndex
+
+marinewool_api_product_create_or_update:
+    path: /product/add/
+    methods: [POST]
+    defaults:
+        _controller: integration.controller.product:productCreateOrUpdate
+
+marinewool_api_order_index:
+    path: /order/index/
+    methods: [GET, POST]
+    defaults:
+        _controller: integration.controller.order:orderIndex

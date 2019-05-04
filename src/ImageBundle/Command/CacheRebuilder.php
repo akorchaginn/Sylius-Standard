@@ -14,7 +14,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Liip\ImagineBundle\Command\AbstractCacheCommand;
 use Symfony\Component\VarDumper\VarDumper;
 
-class CacheRebuilderCommand extends AbstractCacheCommand{
+class CacheRebuilder extends AbstractCacheCommand{
 
     protected function configure()
     {

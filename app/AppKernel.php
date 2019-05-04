@@ -25,19 +25,16 @@ class AppKernel extends Kernel
     public function registerBundles(): array
     {
         $bundles = [
-            
+
             new \Sylius\Bundle\AdminBundle\SyliusAdminBundle(),
             new \Sylius\Bundle\ShopBundle\SyliusShopBundle(),
-
             new \FOS\OAuthServerBundle\FOSOAuthServerBundle(), // Required by SyliusApiBundle
             new \Sylius\Bundle\AdminApiBundle\SyliusAdminApiBundle(),
-            
             new \Sylius\ShopApiPlugin\ShopApiPlugin(),
             new \League\Tactician\Bundle\TacticianBundle(),
-            
+
             new \AppBundle\AppBundle(),
             new \ImageBundle\ImageBundle(),
-
             
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
             new \Urbanara\CatalogPromotionPlugin\CatalogPromotionPlugin(),
@@ -47,9 +44,10 @@ class AppKernel extends Kernel
             new \SimpleBus\SymfonyBridge\SimpleBusCommandBusBundle(),
             new \SimpleBus\SymfonyBridge\SimpleBusEventBusBundle(),
             new SitemapPlugin\SitemapPlugin(),
-            
-            new Lexik\Bundle\MaintenanceBundle\LexikMaintenanceBundle(),
+
             new ReportBundle\ReportBundle(),
+            new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+            new IntegrationBundle\IntegrationBundle(),
         ];
 
         return array_merge(parent::registerBundles(), $bundles);

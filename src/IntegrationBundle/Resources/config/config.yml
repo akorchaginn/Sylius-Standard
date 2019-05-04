@@ -1,0 +1,20 @@
+sylius_product:
+  resources:
+    product:
+      classes:
+        model: IntegrationBundle\Entity\Product
+    product_variant:
+      classes:
+        model: IntegrationBundle\Entity\ProductVariant
+
+sylius_customer:
+  resources:
+    customer:
+      classes:
+        model: IntegrationBundle\Entity\Customer
+
+sylius_order:
+  resources:
+    order:
+      classes:
+        model: IntegrationBundle\Entity\Order

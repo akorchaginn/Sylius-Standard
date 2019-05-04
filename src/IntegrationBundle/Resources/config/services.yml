@@ -1,0 +1,19 @@
+services:
+    integration.controller.customer:
+        class: IntegrationBundle\Controller\CustomerIntegrationController
+
+    integration.controller.product:
+        class: IntegrationBundle\Controller\ProductIntegrationController
+
+    integration.controller.order:
+        class: IntegrationBundle\Controller\OrderIntegrationController
+
+    integration.factory:
+        class: IntegrationBundle\Model\Factory
+        arguments:
+            - "@doctrine.orm.entity_manager"
+
+    integration.repository:
+        class: IntegrationBundle\Repository\IntegrationRepository
+        arguments:
+            - "@integration.factory"

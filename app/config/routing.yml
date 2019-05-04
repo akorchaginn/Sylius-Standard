@@ -25,7 +25,7 @@ sylius_shop_default_locale:
         _controller: sylius.controller.shop.locale_switch:switchAction
 
 _liip_imagine:
-    resource: "@LiipImagineBundle/Resources/config/routing.xml"
+    resource: "@LiipImagineBundle/Resources/config/routing.yaml"
 
 news:
     resource: 'routing/news.yml'
@@ -38,6 +38,10 @@ image:
 
 report:
     resource: '@ReportBundle/Resources/config/routing.yml'
+
+integration:
+    resource: '@IntegrationBundle/Resources/config/routing.yml'
+    prefix: /api
 
 urbanara_catalog_plugin:
     resource: "@CatalogPromotionPlugin/Resources/config/routing.yml"

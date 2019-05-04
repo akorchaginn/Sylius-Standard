@@ -8,7 +8,8 @@ imports:
     - { resource: "@ShopApiPlugin/Resources/config/app/config.yml" }
     - { resource: "@ImageBundle/Resources/config/config.yml" }
     - { resource: "@ReportBundle/Resources/config/config.yml" }
-    
+    - { resource: "@IntegrationBundle/Resources/config/config.yml"}
+
     - { resource: "parameters.yml" }
     - { resource: "security.yml" }
     - { resource: "emails.yml" }
@@ -103,7 +104,13 @@ fos_rest:
             - { path: '^/shop-api', priorities: ['json'], fallback_format: json, prefer_extension: true }
             - { path: '^/api', priorities: ['json', 'xml'], fallback_format: json, prefer_extension: true }
             - { path: '^/', stop: true }
-            
+    body_converter:
+        enabled: true
+
+jms_serializer:
+    metadata:
+        auto_detection: true
+
 stfalcon_tinymce:
     include_jquery: true
     tinymce_jquery: true
@@ -147,12 +154,6 @@ sitemap:
         - { route: sylius_shop_contact_request, parameters: [], locales: [] }
         - { route: sylius_shop_news_index, parameters: [], locales: [] }
 
-lexik_maintenance:
-    authorized:
-        path: /admin                                                         # Optional. Authorized path, accepts regexs
-    driver:
-        class: '\Lexik\Bundle\MaintenanceBundle\Drivers\FileDriver'                # class for file driver
-        options: {file_path: %kernel.cache_dir%/lock}                         # file_path is the complete path for create the file
-    response:
-        code: 503
-        status: "Service Temporarily Unavailable"
+sensio_framework_extra:
+    request:
+        converters: true
