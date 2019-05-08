@@ -20,6 +20,7 @@ class Version201904142034 extends AbstractMigration
 
         $this->addSql('ALTER TABLE sylius_product ADD id_1c VARCHAR(255)');
         $this->addSql('ALTER TABLE sylius_product_variant ADD id_1c VARCHAR(255)');
+        $this->addSql('ALTER TABLE sylius_product_variant ADD enabled boolean NOT NULL DEFAULT TRUE');
         $this->addSql('ALTER TABLE sylius_customer ADD id_1c VARCHAR(255)');
         $this->addSql('ALTER TABLE sylius_order ADD id_1c VARCHAR(255)');
         $this->addSql('ALTER TABLE sylius_order_item ADD product_name VARCHAR(255) DEFAULT NULL');
@@ -39,6 +40,7 @@ class Version201904142034 extends AbstractMigration
 
         $this->addSql('ALTER TABLE sylius_product DROP id_1c');
         $this->addSql('ALTER TABLE sylius_product_variant DROP id_1c');
+        $this->addSql('ALTER TABLE sylius_product_variant DROP enabled');
         $this->addSql('ALTER TABLE sylius_customer DROP id_1c');
         $this->addSql('ALTER TABLE sylius_order DROP id_1c');
         $this->addSql('DROP INDEX IDX_16C8119EE551C011');

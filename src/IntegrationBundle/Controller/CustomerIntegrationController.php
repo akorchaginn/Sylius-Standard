@@ -12,8 +12,10 @@ namespace IntegrationBundle\Controller;
 use DateTime;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
-use IntegrationBundle\Entity\Customer as CustomerEntity;
+use Exception;
+use IntegrationBundle\Entity\CustomerInterface as CustomerInterface;
 use IntegrationBundle\Model\Customer;
+use IntegrationBundle\Model\ResponseData;
 use Sylius\Bundle\UserBundle\UserEvents;
 use Sylius\Component\Core\Model\ShopUser;
 use Sylius\Component\User\Security\Generator\UniqueTokenGenerator;
@@ -36,6 +38,7 @@ class CustomerIntegrationController extends IntegrationController
 
     /**
      * @return Response
+     * @throws Exception
      */
     public function customerIndex()
     {
@@ -43,9 +46,13 @@ class CustomerIntegrationController extends IntegrationController
         $customerRepository = $this->container->get('integration.repository');
         $customerRepository->setSyliusEntityRepo($this->container->get('sylius.repository.customer'));
 
+        $dateTime = new DateTime();
         $data = $customerRepository->getCustomers();
 
-        $response['data'] = $data;
+        $response = new ResponseData();
+
+        $response->setDateTime($dateTime);
+        $response->setData($data);
         return parent::getResponse($response);
     }
 
@@ -71,13 +78,13 @@ class CustomerIntegrationController extends IntegrationController
         foreach ($customers as $customer)
         {
             /**
-             * @var CustomerEntity $syliusCustomer
+             * @var CustomerInterface $syliusCustomer
              */
-            if ($syliusCustomer = $this->em->getRepository(CustomerEntity::class)->findOneBy(['id' => $customer->getId()]))
+            if ($syliusCustomer = $this->em->getRepository(CustomerInterface::class)->findOneBy(['id' => $customer->getId()]))
             {
                 $this->update($syliusCustomer, $customer);
                 $updatedCounter++;
-            }elseif ($customer->getId1c() && $syliusCustomer = $this->em->getRepository(CustomerEntity::class)->findOneBy(['id_1c' => $customer->getId1c()]))
+            }elseif ($customer->getId1c() && $syliusCustomer = $this->em->getRepository(CustomerInterface::class)->findOneBy(['id_1c' => $customer->getId1c()]))
             {
                 $this->update($syliusCustomer, $customer);
                 $updatedCounter++;
@@ -99,11 +106,11 @@ class CustomerIntegrationController extends IntegrationController
     }
 
     /**
-     * @param CustomerEntity $syliusCustomer
+     * @param CustomerInterface $syliusCustomer
      * @param Customer $customer
      * @throws ORMException
      */
-    private function update(CustomerEntity $syliusCustomer, Customer $customer)
+    private function update(CustomerInterface $syliusCustomer, Customer $customer)
     {
         $syliusCustomer->setId1c($customer->getId1c());
         $syliusCustomer->setEmail($customer->getEmail());
@@ -124,7 +131,7 @@ class CustomerIntegrationController extends IntegrationController
     private function create(Customer $customer)
     {
         /**
-         * @var CustomerEntity $syliusCustomer
+         * @var CustomerInterface $syliusCustomer
          */
         $syliusCustomer = $this->container->get('sylius.factory.customer')->createNew();
 

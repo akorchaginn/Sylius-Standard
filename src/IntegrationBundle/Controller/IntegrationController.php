@@ -10,6 +10,7 @@ namespace IntegrationBundle\Controller;
 
 use Doctrine\ORM\EntityManager;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
+use IntegrationBundle\Model\ResponseData;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -32,15 +33,14 @@ class IntegrationController extends AbstractFOSRestController
     }
 
     /**
-     * @param $data
-     *
+     * @param ResponseData $responseData
      * @return Response
      */
-    protected function getResponse($data)
+    protected function getResponse(ResponseData $responseData)
     {
-        $statusCode = !empty($data['data']) ? 200 : 204;
+        $statusCode = !empty($responseData->getData()) ? 200 : 204;
 
-        $view = $this->view($data, $statusCode);
+        $view = $this->view($responseData, $statusCode);
         return $this->handleView($view);
     }
 }

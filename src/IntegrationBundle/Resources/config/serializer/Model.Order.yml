@@ -2,3 +2,31 @@ IntegrationBundle\Model\Order:
   xml_root_name: order
   accessor_order: custom
   custom_accessor_order: [id, id1c]
+  properties:
+    id:
+      expose: true
+      type: integer
+    number:
+      expose: true
+      type: string
+      xml_element:
+        cdata: false
+    customer:
+      expose: true
+      type: IntegrationBundle\Model\Customer
+    payment:
+      expose: true
+      type: IntegrationBundle\Model\Payment
+      xml_element:
+        cdata: false
+    shipping:
+      expose: true
+      type: IntegrationBundle\Model\Shipping
+      xml_element:
+        cdata: false
+    items:
+      expose: true
+      type: array<IntegrationBundle\Model\OrderItem>
+      xml_list:
+        inline: false
+        entry_name: item

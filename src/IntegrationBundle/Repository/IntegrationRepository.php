@@ -13,6 +13,7 @@ use DateTime;
 use IntegrationBundle\Entity\ProductInterface;
 use IntegrationBundle\Entity\OrderInterface;
 use IntegrationBundle\Entity\CustomerInterface;
+use IntegrationBundle\Entity\ProductVariantInterface;
 use Sylius\Component\Attribute\Model\AttributeInterface;
 use Sylius\Component\Payment\Model\Payment;
 use Sylius\Component\Resource\Repository\RepositoryInterface as BaseRepository;
@@ -103,6 +104,7 @@ class IntegrationRepository
                 ->setName($product->getName())
                 ->setShortDescription(strip_tags ($product->getShortDescription()))
                 ->setId1c($product->getId1c())
+                ->setEnabled($product->isEnabled())
                 ->isSimple($product->isSimple());
 
             $integrationProduct->setTaxon(is_object($product->getMainTaxon()) ? $product->getMainTaxon()->getId() : null);
@@ -110,19 +112,25 @@ class IntegrationRepository
 
             if ($product->isSimple())
             {
-                $integrationProduct->setPrice($product->getVariants()->first()->getChannelPricings()->first()->getPrice())
+                $integrationProduct->setPriceRegular($product->getVariants()->first()->getChannelPricings()->first()->getPrice())
+                    ->setPricePromotion($product->getVariants()->first()->getChannelPricings()->first()->getPrice())
                     ->setOnHand($product->getVariants()->first()->getOnHand());
             } else{
 
+                /**
+                 * @var ProductVariantInterface $variant
+                 */
                 foreach ($product->getVariants() as $variant)
                 {
                     $integrationProductVariant = $this->factory->createProductVariant();
 
                     $integrationProductVariant->setId($variant->getId())
-                        ->setPrice($variant->getChannelPricings()->first()->getPrice())
+                        ->setPriceRegular($variant->getChannelPricings()->first()->getPrice())
+                        ->setPricePromotion($variant->getChannelPricings()->first()->getPrice())
                         ->setOnHand($variant->getOnHand())
                         ->setName($variant->getName())
-                        ->setId1c($variant->getId1C());
+                        ->setId1c($variant->getId1C())
+                        ->setEnabled($variant->isEnabled());
 
                     $integrationProduct->addProductVariant($integrationProductVariant);
                 }

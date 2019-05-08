@@ -1,4 +1,5 @@
 IntegrationBundle\Model\Attribute:
+  exclusion_policy: ALL
   xml_root_name: attribute
   accessor_order: custom
   custom_accessor_order: [name, value]

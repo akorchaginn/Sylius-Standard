@@ -12,6 +12,12 @@ services:
         class: IntegrationBundle\Model\Factory
         arguments:
             - "@doctrine.orm.entity_manager"
+            - "@sylius.custom_factory.product"
+            - "@sylius.custom_factory.product_variant"
+            - "@sylius.factory.product_attribute"
+            - "@sylius.generator.slug"
+            - "@sylius.factory.product_attribute_value"
+            - "@sylius.factory.channel_pricing"
 
     integration.repository:
         class: IntegrationBundle\Repository\IntegrationRepository

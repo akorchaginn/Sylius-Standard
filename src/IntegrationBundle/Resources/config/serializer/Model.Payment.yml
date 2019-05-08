@@ -1,0 +1,14 @@
+IntegrationBundle\Model\Payment:
+  exclusion_policy: ALL
+  xml_root_name: payment
+  accessor_order: custom
+  custom_accessor_order: [methodCode, amount]
+  properties:
+    methodCode:
+      expose: true
+      type: string
+      xml_element:
+        cdata: false
+    amount:
+      expose: true
+      type: int

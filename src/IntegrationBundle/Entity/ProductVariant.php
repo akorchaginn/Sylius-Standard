@@ -15,4 +15,27 @@ use Doctrine\ORM\Mapping as ORM;
 class ProductVariant extends ParentProductVariant implements ProductVariantInterface
 {
     use IntegrationTrait;
+
+    /**
+     * @var bool
+     * @ORM\Column(name="enabled", type="boolean", nullable=false)
+     */
+    private $enabled;
+
+    /**
+     * @return bool
+     */
+    public function isEnabled(): bool
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * @param bool $enabled
+     */
+    public function setEnabled(bool $enabled): void
+    {
+        $this->enabled = $enabled;
+    }
+
 }

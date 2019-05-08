@@ -1,7 +1,8 @@
 IntegrationBundle\Model\Product:
+  exclusion_policy: ALL
   xml_root_name: product
   accessor_order: custom
-  custom_accessor_order: [taxon, taxonName, id, id1c, name, isSimple, shortDescription, attributes, productVariants]
+  custom_accessor_order: [taxon, taxonName, id, id1c, name, enabled, isSimple, shortDescription, attributes, productVariants]
   properties:
     id:
       expose: true
@@ -44,7 +45,10 @@ IntegrationBundle\Model\Product:
       xml_list:
         inline: false
         entry_name: productVariant
-    price:
+    priceRegular:
+      expose: true
+      type: integer
+    pricePromotion:
       expose: true
       type: integer
     onHand:
@@ -56,3 +60,6 @@ IntegrationBundle\Model\Product:
       xml_list:
         inline: false
         entry_name: attribute
+    enabled:
+      expose: true
+      type: boolean
