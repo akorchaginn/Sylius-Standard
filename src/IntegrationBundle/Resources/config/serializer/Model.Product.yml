@@ -51,6 +51,9 @@ IntegrationBundle\Model\Product:
     pricePromotion:
       expose: true
       type: integer
+    originalPrice:
+      expose: true
+      type: integer
     onHand:
       expose: true
       type: integer

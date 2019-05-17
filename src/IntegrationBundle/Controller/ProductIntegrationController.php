@@ -11,14 +11,13 @@ namespace IntegrationBundle\Controller;
 use DateTime;
 use Doctrine\ORM\ORMException;
 use Exception;
-use IntegrationBundle\Entity\Product as SyliusProduct;
-use IntegrationBundle\Entity\ProductInterface;
 use IntegrationBundle\Model\Factory;
 use IntegrationBundle\Model\Product;
 use IntegrationBundle\Model\ResponseData;
 use Sylius\Component\Core\Model\Channel;
 use Sylius\Component\Core\Model\ProductTaxon;
 use Sylius\Component\Core\Model\Taxon;
+use Sylius\Component\Core\Model\TaxonInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
@@ -29,6 +28,7 @@ class ProductIntegrationController extends IntegrationController
      * @var Factory
      */
     private $integrationFactory;
+
     /**
      * @return Response
      * @throws Exception
@@ -61,71 +61,32 @@ class ProductIntegrationController extends IntegrationController
         $this->integrationFactory = $this->container->get("integration.factory");
         $this->setEntityManager();
 
+        /**
+         * @var TaxonInterface $mainTaxon
+         */
         $mainTaxon = $this->em->getRepository(Taxon::class)->findOneBy(['id' => $this->container->getParameter('default_taxon')]);
         $productTaxon = new ProductTaxon();
         $productTaxon->setTaxon($mainTaxon);
 
         $defaultChannel = $this->em->getRepository(Channel::class)->findAll()[0];
-
         $this->integrationFactory->setDefaults($defaultChannel, $productTaxon);
-
-        $updatedCounter = 0;
-        $createdCounter = 0;
 
         /**
          * @var Product $product
          */
         foreach ($products as $product)
         {
-
-            /**
-             * @var ProductInterface $syliusProduct
-             */
-            if (
-                $syliusProduct = $this->em->getRepository(SyliusProduct::class)->findOneBy(["id" => $product->getId()]) or
-                ($syliusProduct = $this->em->getRepository(SyliusProduct::class)->findOneBy(["id" => $product->getId1c()]))
-                )
-            {
-                $this->update($syliusProduct, $product);
-                $updatedCounter++;
-
-            }else
-            {
-                $this->create($product);
-                $createdCounter++;
-            }
+            $product = $this->integrationFactory->createSyliusProduct($product);
+            $this->em->persist($product);
         }
-
         $this->em->flush();
 
+        $dateTime = new DateTime();
         $response = new ResponseData();
 
-
-        $data['created'] = 'created:' . $createdCounter;
-        $data['updated'] = 'updated:' . $updatedCounter;
-        $data['data'] = $updatedCounter + $createdCounter;
-
-        $response->setData($data);
+        $response->setDateTime($dateTime);
+        $response->setData(["ok"]);
         return parent::getResponse($response);
-    }
-
-    /**
-     * @param ProductInterface $syliusProduct
-     * @param Product $product
-     */
-    private function update(ProductInterface $syliusProduct, Product $product)
-    {
-
-    }
-
-    /**
-     * @param Product $product
-     * @throws ORMException
-     */
-    private function create(Product $product)
-    {
-        $product = $this->integrationFactory->createSyliusProduct($product);
-        $this->em->persist($product);
     }
 
 }

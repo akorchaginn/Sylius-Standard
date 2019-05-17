@@ -63,6 +63,11 @@ class Product
     private $pricePromotion;
 
     /**
+     * @var int|null
+     */
+    private $originalPrice;
+
+    /**
      * @var array
      */
     private $attributes;
@@ -168,6 +173,24 @@ class Product
     }
 
     /**
+     * @return int|null
+     */
+    public function getOriginalPrice(): ?int
+    {
+        return $this->originalPrice;
+    }
+
+    /**
+     * @param null|int $originalPrice
+     * @return Product
+     */
+    public function setOriginalPrice(?int $originalPrice): Product
+    {
+        $this->originalPrice = $originalPrice;
+        return $this;
+    }
+
+    /**
      * @param string|null $taxonName
      * @return Product
      */
@@ -176,8 +199,6 @@ class Product
         $this->taxonName = $taxonName;
         return $this;
     }
-
-
 
     /**
      * @param int|null $onHand

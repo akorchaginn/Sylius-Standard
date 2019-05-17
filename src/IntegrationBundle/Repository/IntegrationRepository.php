@@ -105,7 +105,8 @@ class IntegrationRepository
                 ->setShortDescription(strip_tags ($product->getShortDescription()))
                 ->setId1c($product->getId1c())
                 ->setEnabled($product->isEnabled())
-                ->isSimple($product->isSimple());
+                ->isSimple($product->isSimple())
+                ->setOriginalPrice($product->getVariants()->first()->getChannelPricings()->first()->getOriginalPrice());
 
             $integrationProduct->setTaxon(is_object($product->getMainTaxon()) ? $product->getMainTaxon()->getId() : null);
             $integrationProduct->setTaxonName(is_object($product->getMainTaxon()) ? $product->getMainTaxon()->getName() : null);

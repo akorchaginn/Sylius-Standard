@@ -12,3 +12,5 @@ IntegrationBundle\Model\ResponseData:
     data:
       expose: true
       type: array
+      xml_element:
+        cdata: false
