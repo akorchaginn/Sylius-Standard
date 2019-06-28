@@ -13,12 +13,12 @@ use DateTime;
 use IntegrationBundle\Entity\ProductInterface;
 use IntegrationBundle\Entity\OrderInterface;
 use IntegrationBundle\Entity\CustomerInterface;
+use IntegrationBundle\Entity\ProductVariantInterface;
 use Sylius\Component\Attribute\Model\AttributeInterface;
 use Sylius\Component\Payment\Model\Payment;
 use Sylius\Component\Resource\Repository\RepositoryInterface as BaseRepository;
 use IntegrationBundle\Model\Factory;
 use Sylius\Component\Core\Model\AdjustmentInterface;
-use Symfony\Component\VarDumper\VarDumper;
 
 /**
  * Class IntegrationRepository
@@ -99,32 +99,39 @@ class IntegrationRepository
         foreach ($syliusProducts as $product)
         {
             $integrationProduct = $this->factory->createProduct();
-            $integrationAttributes = [];
 
             $integrationProduct->setId($product->getId())
                 ->setName($product->getName())
                 ->setShortDescription(strip_tags ($product->getShortDescription()))
                 ->setId1c($product->getId1c())
-                ->isSimple($product->isSimple());
+                ->setEnabled($product->isEnabled())
+                ->isSimple($product->isSimple())
+                ->setOriginalPrice($product->getVariants()->first()->getChannelPricings()->first()->getOriginalPrice());
 
             $integrationProduct->setTaxon(is_object($product->getMainTaxon()) ? $product->getMainTaxon()->getId() : null);
             $integrationProduct->setTaxonName(is_object($product->getMainTaxon()) ? $product->getMainTaxon()->getName() : null);
 
             if ($product->isSimple())
             {
-                $integrationProduct->setPrice($product->getVariants()->first()->getChannelPricings()->first()->getPrice())
+                $integrationProduct->setPriceRegular($product->getVariants()->first()->getChannelPricings()->first()->getPrice())
+                    ->setPricePromotion($product->getVariants()->first()->getChannelPricings()->first()->getPrice())
                     ->setOnHand($product->getVariants()->first()->getOnHand());
             } else{
 
+                /**
+                 * @var ProductVariantInterface $variant
+                 */
                 foreach ($product->getVariants() as $variant)
                 {
                     $integrationProductVariant = $this->factory->createProductVariant();
 
                     $integrationProductVariant->setId($variant->getId())
-                        ->setPrice($variant->getChannelPricings()->first()->getPrice())
+                        ->setPriceRegular($variant->getChannelPricings()->first()->getPrice())
+                        ->setPricePromotion($variant->getChannelPricings()->first()->getPrice())
                         ->setOnHand($variant->getOnHand())
                         ->setName($variant->getName())
-                        ->setId1c($variant->getId1C());
+                        ->setId1c($variant->getId1c())
+                        ->setEnabled($variant->isEnabled());
 
                     $integrationProduct->addProductVariant($integrationProductVariant);
                 }
@@ -140,7 +147,6 @@ class IntegrationRepository
                     ->setValue($syliusAttribute->getValue());
                 $integrationProduct->addAttribute($integrationAttribute);
             }
-
 
             $integrationProducts[] = $integrationProduct;
 

@@ -12,8 +12,26 @@ services:
         class: IntegrationBundle\Model\Factory
         arguments:
             - "@doctrine.orm.entity_manager"
+            - "@sylius.custom_factory.product"
+            - "@sylius.custom_factory.product_variant"
+            - "@sylius.factory.product_attribute"
+            - "@sylius.generator.slug"
+            - "@sylius.factory.product_attribute_value"
+            - "@sylius.factory.channel_pricing"
+            - "@urbanara_catalog_promotion.factory.catalog_promotion"
+            - "@urbanara_catalog_promotion.factory.catalog_rule"
 
     integration.repository:
         class: IntegrationBundle\Repository\IntegrationRepository
         arguments:
             - "@integration.factory"
+
+    jms_serializer.xml_serialization_visitor:
+        class: IntegrationBundle\Handler\SerializationHandler
+        arguments:
+            - "@jms_serializer.naming_strategy"
+            - "@jms_serializer.accessor_strategy"
+        tags:
+            - { name: jms_serializer.serialization_visitor, format: xml }
+        calls:
+            - ["setFormatOutput", ["%jms_serializer.xml_serialization_visitor.format_output%"]]

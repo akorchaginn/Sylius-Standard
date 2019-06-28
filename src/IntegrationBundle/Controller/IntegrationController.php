@@ -9,7 +9,8 @@
 namespace IntegrationBundle\Controller;
 
 use Doctrine\ORM\EntityManager;
-use FOS\RestBundle\Controller\FOSRestController;
+use FOS\RestBundle\Controller\AbstractFOSRestController;
+use IntegrationBundle\Model\ResponseData;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -18,29 +19,28 @@ use Symfony\Component\HttpFoundation\Response;
  *
  * @return Response
  */
-class IntegrationController extends FOSRestController
+class IntegrationController extends AbstractFOSRestController
 {
 
     /**
-     * @var EntityManager $em
+     * @var EntityManager $entityManager
      */
-    protected $em;
+    protected $entityManager;
 
     public function setEntityManager()
     {
-        $this->em = $this->container->get('doctrine.orm.entity_manager');
+        $this->entityManager = $this->container->get('doctrine.orm.entity_manager');
     }
 
     /**
-     * @param $data
-     *
+     * @param ResponseData $responseData
      * @return Response
      */
-    protected function getResponse($data)
+    protected function getResponse(ResponseData $responseData)
     {
-        $statusCode = !empty($data['data']) ? 200 : 204;
+        $statusCode = !empty($responseData->getData()) ? 200 : 204;
 
-        $view = $this->view($data, $statusCode);
+        $view = $this->view($responseData, $statusCode);
         return $this->handleView($view);
     }
 }

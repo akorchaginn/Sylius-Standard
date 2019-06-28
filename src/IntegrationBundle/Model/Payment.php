@@ -3,7 +3,10 @@
 
 namespace IntegrationBundle\Model;
 
-
+/**
+ * Class Payment
+ * @package IntegrationBundle\Model
+ */
 class Payment
 {
     /**

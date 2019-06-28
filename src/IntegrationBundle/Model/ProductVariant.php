@@ -8,6 +8,10 @@
 
 namespace IntegrationBundle\Model;
 
+/**
+ * Class ProductVariant
+ * @package IntegrationBundle\Model
+ */
 class ProductVariant
 {
     use IntegrationTrait;
@@ -20,12 +24,22 @@ class ProductVariant
     /**
      * @var int
      */
-    private $price;
+    private $priceRegular;
+
+    /**
+     * @var int
+     */
+    private $pricePromotion;
 
     /**
      * @var int
      */
     private $onHand;
+
+    /**
+     * @var boolean|null
+     */
+    private $enabled;
 
     /**
      * @param string|null $name
@@ -38,12 +52,12 @@ class ProductVariant
     }
 
     /**
-     * @param int $price
+     * @param int $priceRegular
      * @return ProductVariant
      */
-    public function setPrice(int $price): ProductVariant
+    public function setPriceRegular(int $priceRegular): ProductVariant
     {
-        $this->price = $price;
+        $this->priceRegular = $priceRegular;
         return $this;
     }
 
@@ -57,5 +71,72 @@ class ProductVariant
         return $this;
     }
 
+    /**
+     * @return bool|null
+     */
+    public function isEnabled(): ?bool
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * @param bool|null $enabled
+     * @return ProductVariant
+     */
+    public function setEnabled(?bool $enabled): ProductVariant
+    {
+        $this->enabled = $enabled;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPricePromotion(): int
+    {
+        return $this->pricePromotion;
+    }
+
+    /**
+     * @param int $pricePromotion
+     * @return ProductVariant
+     */
+    public function setPricePromotion(int $pricePromotion): ProductVariant
+    {
+        $this->pricePromotion = $pricePromotion;
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPriceRegular(): int
+    {
+        return $this->priceRegular;
+    }
+
+    /**
+     * @return int
+     */
+    public function getOnHand(): int
+    {
+        return $this->onHand;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getEnabled(): ?bool
+    {
+        return $this->enabled;
+    }
 
 }

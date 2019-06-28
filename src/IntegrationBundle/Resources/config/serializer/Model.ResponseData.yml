@@ -1,0 +1,13 @@
+IntegrationBundle\Model\ResponseData:
+  xml_root_name: response
+  accessor_order: custom
+  custom_accessor_order: [dateTime, data]
+  properties:
+    dateTime:
+      type: DateTime<"Y-m-d H:i:s">
+      xml_element:
+        cdata: false
+    data:
+      type: array
+      xml_element:
+        cdata: false

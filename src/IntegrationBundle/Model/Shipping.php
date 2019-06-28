@@ -3,7 +3,10 @@
 
 namespace IntegrationBundle\Model;
 
-
+/**
+ * Class Shipping
+ * @package IntegrationBundle\Model
+ */
 class Shipping
 {
     /**

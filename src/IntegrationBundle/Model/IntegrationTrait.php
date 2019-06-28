@@ -8,6 +8,10 @@
 
 namespace IntegrationBundle\Model;
 
+/**
+ * Trait IntegrationTrait
+ * @package IntegrationBundle\Model
+ */
 trait IntegrationTrait
 {
     /**
@@ -18,7 +22,7 @@ trait IntegrationTrait
     /**
      * @var string|null
      */
-    private $id_1c;
+    private $id1c;
 
     /**
      * @param mixed $id
@@ -31,12 +35,12 @@ trait IntegrationTrait
     }
 
     /**
-     * @param string|null $id_1c
+     * @param string|null $id1c
      * @return $this
      */
-    public function setId1c(?string $id_1c)
+    public function setId1c(?string $id1c)
     {
-        $this->id_1c = $id_1c;
+        $this->id1c = $id1c;
         return $this;
     }
 
@@ -53,7 +57,7 @@ trait IntegrationTrait
      */
     public function getId1c(): ?string
     {
-        return $this->id_1c;
+        return $this->id1c;
     }
 
 

@@ -10,9 +10,11 @@ namespace IntegrationBundle\Model;
 
 use DateTimeInterface;
 use \Sylius\Component\Customer\Model\CustomerInterface;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
  * Class Customer
+ * @Serializer\XmlRoot("option")
  * @package IntegrationBundle\Model
  */
 class Customer

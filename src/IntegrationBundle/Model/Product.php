@@ -8,6 +8,10 @@
 
 namespace IntegrationBundle\Model;
 
+/**
+ * Class Product
+ * @package IntegrationBundle\Model
+ */
 class Product
 {
     use IntegrationTrait;
@@ -55,12 +59,27 @@ class Product
     /**
      * @var int|null
      */
-    private $price;
+    private $priceRegular;
+
+    /**
+     * @var int
+     */
+    private $pricePromotion;
+
+    /**
+     * @var int|null
+     */
+    private $originalPrice;
 
     /**
      * @var array
      */
     private $attributes;
+
+    /**
+     * @var boolean|null
+     */
+    private $enabled;
 
     /**
      * @param string $name
@@ -140,6 +159,42 @@ class Product
     }
 
     /**
+     * @return int
+     */
+    public function getPricePromotion(): int
+    {
+        return $this->pricePromotion;
+    }
+
+    /**
+     * @param int $pricePromotion
+     * @return Product
+     */
+    public function setPricePromotion(int $pricePromotion): Product
+    {
+        $this->pricePromotion = $pricePromotion;
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getOriginalPrice(): ?int
+    {
+        return $this->originalPrice;
+    }
+
+    /**
+     * @param null|int $originalPrice
+     * @return Product
+     */
+    public function setOriginalPrice(?int $originalPrice): Product
+    {
+        $this->originalPrice = $originalPrice;
+        return $this;
+    }
+
+    /**
      * @param string|null $taxonName
      * @return Product
      */
@@ -148,8 +203,6 @@ class Product
         $this->taxonName = $taxonName;
         return $this;
     }
-
-
 
     /**
      * @param int|null $onHand
@@ -162,12 +215,12 @@ class Product
     }
 
     /**
-     * @param int|null $price
+     * @param int|null $priceRegular
      * @return Product
      */
-    public function setPrice(?int $price): Product
+    public function setPriceRegular(?int $priceRegular): Product
     {
-        $this->price = $price;
+        $this->priceRegular = $priceRegular;
         return $this;
     }
 
@@ -187,6 +240,72 @@ class Product
     public function getAttributes(): array
     {
         return $this->attributes;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getShortDescription(): ?string
+    {
+        return $this->shortDescription;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getTaxon(): ?int
+    {
+        return $this->taxon;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getOnHand(): ?int
+    {
+        return $this->onHand;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getPriceRegular(): ?int
+    {
+        return $this->priceRegular;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function isEnabled(): ?bool
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * @param bool|null $enabled
+     * @return Product
+     */
+    public function setEnabled(?bool $enabled): Product
+    {
+        $this->enabled = $enabled;
+        return $this;
     }
 
 

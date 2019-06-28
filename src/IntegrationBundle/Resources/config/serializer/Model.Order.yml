@@ -2,3 +2,25 @@ IntegrationBundle\Model\Order:
   xml_root_name: order
   accessor_order: custom
   custom_accessor_order: [id, id1c]
+  properties:
+    id:
+      type: integer
+    number:
+      type: string
+      xml_element:
+        cdata: false
+    customer:
+      type: IntegrationBundle\Model\Customer
+    payment:
+      type: IntegrationBundle\Model\Payment
+      xml_element:
+        cdata: false
+    shipping:
+      type: IntegrationBundle\Model\Shipping
+      xml_element:
+        cdata: false
+    items:
+      type: array<IntegrationBundle\Model\OrderItem>
+      xml_list:
+        inline: false
+        entry_name: item

@@ -1,15 +1,14 @@
 IntegrationBundle\Model\Attribute:
+  exclusion_policy: ALL
   xml_root_name: attribute
   accessor_order: custom
   custom_accessor_order: [name, value]
   properties:
     name:
-      expose: true
       type: string
       xml_element:
         cdata: false
     value:
-      expose: true
       type: string
       xml_element:
         cdata: false

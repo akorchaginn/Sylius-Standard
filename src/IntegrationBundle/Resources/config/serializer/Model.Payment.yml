@@ -1,0 +1,11 @@
+IntegrationBundle\Model\Payment:
+  xml_root_name: payment
+  accessor_order: custom
+  custom_accessor_order: [methodCode, amount]
+  properties:
+    methodCode:
+      type: string
+      xml_element:
+        cdata: false
+    amount:
+      type: int

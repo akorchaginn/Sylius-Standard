@@ -5,15 +5,21 @@ namespace IntegrationBundle\Controller;
 
 
 use DateTime;
+use Exception;
+use IntegrationBundle\Model\ResponseData;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Class OrderIntegrationController
+ * @package IntegrationBundle\Controller
+ */
 class OrderIntegrationController extends IntegrationController
 {
     /**
      * @param Request $request
      * @return Response
-     * @throws \Exception
+     * @throws Exception
      */
     public function orderIndex(Request $request)
     {
@@ -25,9 +31,10 @@ class OrderIntegrationController extends IntegrationController
         $dateTime = new DateTime();
         $data = $orderRepository->getOrders(new DateTime($lastSynchronize));
 
+        $response = new ResponseData();
 
-        $response['datetime'] = $dateTime->format('Y-m-d H:i:s');
-        $response['data'] = $data;
+        $response->setDateTime($dateTime);
+        $response->setData($data);
 
         return parent::getResponse($response);
     }

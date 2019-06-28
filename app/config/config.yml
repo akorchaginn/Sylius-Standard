@@ -106,6 +106,8 @@ fos_rest:
             - { path: '^/', stop: true }
     body_converter:
         enabled: true
+    serializer:
+        serialize_null: true
 
 jms_serializer:
     metadata:

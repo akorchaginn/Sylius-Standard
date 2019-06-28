@@ -1,0 +1,19 @@
+IntegrationBundle\Model\Shipping:
+  xml_root_name: shipping
+  accessor_order: custom
+  custom_accessor_order: [type, label, amount, address]
+  properties:
+    amount:
+      type: integer
+    type:
+      type: string
+      xml_element:
+        cdata: false
+    label:
+      type: string
+      xml_element:
+        cdata: false
+    address:
+      type: string
+      xml_element:
+        cdata: false

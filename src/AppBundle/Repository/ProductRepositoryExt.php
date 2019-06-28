@@ -12,8 +12,6 @@ use AppBundle\Repository\ProductRepository as BaseProductRepository;
 use Sylius\Component\Core\Model\ChannelInterface;
 
 
-
-
 /**
  * Description of ProductRepositoryExt
  * Date 08.10.2017

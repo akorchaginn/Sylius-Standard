@@ -10,6 +10,10 @@ namespace IntegrationBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
+/**
+ * Class IntegrationBundle
+ * @package IntegrationBundle
+ */
 class IntegrationBundle extends Bundle
 {
 

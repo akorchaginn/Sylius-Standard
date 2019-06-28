@@ -45,6 +45,7 @@ sylius:
             tracked: 'Отслеживаемая'
             shipping_required: 'Требуется ли доставка?'
         product:
+            name: Название
             taxons: Категории
             main_taxon: Основная категория
             short_description: Краткое описание

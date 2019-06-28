@@ -3,7 +3,10 @@
 
 namespace IntegrationBundle\Model;
 
-
+/**
+ * Class Attribute
+ * @package IntegrationBundle\Model
+ */
 class Attribute
 {
 
@@ -36,4 +39,21 @@ class Attribute
         $this->name = $name;
         return $this;
     }
+
+    /**
+     * @return string|null
+     */
+    public function getValue(): ?string
+    {
+        return $this->value;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
 }
