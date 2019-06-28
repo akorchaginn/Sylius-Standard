@@ -23,7 +23,10 @@ use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
-
+/**
+ * Class CustomerIntegrationController
+ * @package IntegrationBundle\Controller
+ */
 class CustomerIntegrationController extends IntegrationController
 {
     /**
@@ -80,11 +83,11 @@ class CustomerIntegrationController extends IntegrationController
             /**
              * @var CustomerInterface $syliusCustomer
              */
-            if ($syliusCustomer = $this->em->getRepository(CustomerInterface::class)->findOneBy(['id' => $customer->getId()]))
+            if ($syliusCustomer = $this->entityManager->getRepository(CustomerInterface::class)->findOneBy(['id' => $customer->getId()]))
             {
                 $this->update($syliusCustomer, $customer);
                 $updatedCounter++;
-            }elseif ($customer->getId1c() && $syliusCustomer = $this->em->getRepository(CustomerInterface::class)->findOneBy(['id_1c' => $customer->getId1c()]))
+            }elseif ($customer->getId1c() && $syliusCustomer = $this->entityManager->getRepository(CustomerInterface::class)->findOneBy(['id_1c' => $customer->getId1c()]))
             {
                 $this->update($syliusCustomer, $customer);
                 $updatedCounter++;
@@ -97,7 +100,7 @@ class CustomerIntegrationController extends IntegrationController
 
         }
 
-        $this->em->flush();
+        $this->entityManager->flush();
 
         $response['created'] = 'created:' . $createdCounter;
         $response['updated'] = 'updated:' . $updatedCounter;
@@ -120,7 +123,7 @@ class CustomerIntegrationController extends IntegrationController
         $syliusCustomer->setGender($customer->getGender());
         $syliusCustomer->setPhoneNumber($customer->getPhoneNumber());
 
-        $this->em->persist($syliusCustomer);
+        $this->entityManager->persist($syliusCustomer);
     }
 
     /**
@@ -157,8 +160,8 @@ class CustomerIntegrationController extends IntegrationController
         $syliusShopUser->setPasswordResetToken($this->passwordTokenGenerator->generate());
 
 
-        $this->em->persist($syliusShopUser);
-        $this->em->flush();
+        $this->entityManager->persist($syliusShopUser);
+        $this->entityManager->flush();
 
         $eventDispatcher = $this->container->get('event_dispatcher');
         $eventDispatcher->dispatch(UserEvents::REQUEST_VERIFICATION_TOKEN, new GenericEvent($syliusShopUser));

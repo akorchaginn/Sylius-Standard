@@ -23,6 +23,12 @@ marinewool_api_product_create_or_update:
     defaults:
         _controller: integration.controller.product:productCreateOrUpdate
 
+marinewool_api_product_create_promo:
+    path: /product/promo/
+    methods: [GET]
+    defaults:
+        _controller: integration.controller.product:createPromo
+
 marinewool_api_order_index:
     path: /order/index/
     methods: [GET, POST]

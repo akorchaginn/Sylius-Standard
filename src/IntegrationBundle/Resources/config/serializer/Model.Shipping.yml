@@ -1,24 +1,19 @@
 IntegrationBundle\Model\Shipping:
-  exclusion_policy: ALL
   xml_root_name: shipping
   accessor_order: custom
   custom_accessor_order: [type, label, amount, address]
   properties:
     amount:
-      expose: true
       type: integer
     type:
-      expose: true
       type: string
       xml_element:
         cdata: false
     label:
-      expose: true
       type: string
       xml_element:
         cdata: false
     address:
-      expose: true
       type: string
       xml_element:
         cdata: false

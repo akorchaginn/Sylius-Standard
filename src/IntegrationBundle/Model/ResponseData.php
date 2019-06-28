@@ -6,6 +6,10 @@ namespace IntegrationBundle\Model;
 
 use DateTime;
 
+/**
+ * Class ResponseData
+ * @package IntegrationBundle\Model
+ */
 class ResponseData
 {
 

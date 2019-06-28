@@ -21,6 +21,10 @@ use Sylius\Component\Core\Model\TaxonInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
+/**
+ * Class ProductIntegrationController
+ * @package IntegrationBundle\Controller
+ */
 class ProductIntegrationController extends IntegrationController
 {
 
@@ -58,17 +62,18 @@ class ProductIntegrationController extends IntegrationController
      */
     public function productCreateOrUpdate(array $products)
     {
+        $counter= 0;
         $this->integrationFactory = $this->container->get("integration.factory");
         $this->setEntityManager();
 
         /**
          * @var TaxonInterface $mainTaxon
          */
-        $mainTaxon = $this->em->getRepository(Taxon::class)->findOneBy(['id' => $this->container->getParameter('default_taxon')]);
+        $mainTaxon = $this->entityManager->getRepository(Taxon::class)->findOneBy(['id' => $this->container->getParameter('default_taxon')]);
         $productTaxon = new ProductTaxon();
         $productTaxon->setTaxon($mainTaxon);
 
-        $defaultChannel = $this->em->getRepository(Channel::class)->findAll()[0];
+        $defaultChannel = $this->entityManager->getRepository(Channel::class)->findAll()[0];
         $this->integrationFactory->setDefaults($defaultChannel, $productTaxon);
 
         /**
@@ -77,9 +82,16 @@ class ProductIntegrationController extends IntegrationController
         foreach ($products as $product)
         {
             $product = $this->integrationFactory->createSyliusProduct($product);
-            $this->em->persist($product);
+            $this->entityManager->persist($product);
+
+            $counter++;
+            if ($counter >= 50)
+            {
+                $this->entityManager->flush();
+                $counter = 0;
+            }
         }
-        $this->em->flush();
+        $this->entityManager->flush();
 
         $dateTime = new DateTime();
         $response = new ResponseData();
@@ -88,5 +100,4 @@ class ProductIntegrationController extends IntegrationController
         $response->setData(["ok"]);
         return parent::getResponse($response);
     }
-
 }

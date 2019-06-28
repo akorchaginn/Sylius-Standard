@@ -24,14 +24,10 @@
 
         {{ sonata_block_render_event('sylius.shop.product.show.after_product_header', {'product': product}) }}
 
-        {% include '@SyliusShop/Product/Show/_reviews.html.twig' %}
-
-        {{ sonata_block_render_event('sylius.shop.product.show.after_reviews', {'product': product}) }}
-
         <div class="ui stackable grid">
             <div class="four wide column">
                 {% if not product.variants.empty() %}
-                {% include '@SyliusShop/Product/Show/_price.html.twig' %}
+                    {% include '@SyliusShop/Product/Show/_price.html.twig' %}
                 {% endif %}
             </div>
         </div>
@@ -39,8 +35,9 @@
         {{ sonata_block_render_event('sylius.shop.product.show.after_price', {'product': product}) }}
 
         <div class="ui basic segment">
-            <h3>{{ 'sylius.form.product.short_description'|trans }}</h3>
-            <p>{{ product.shortDescription|raw }}</p>
+            <!--h3>{{ 'sylius.form.product.short_description'|trans }}</h3>
+            <p>{{ product.shortDescription|raw }}</p-->
+            {% include '@SyliusShop/Product/Show/Tabs/_attributes.html.twig' %}
             {% include '@SyliusShop/Product/Show/_inventory.html.twig' with {'place': 'description'}  %}
         </div>
         

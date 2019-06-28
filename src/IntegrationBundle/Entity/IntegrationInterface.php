@@ -3,7 +3,10 @@
 
 namespace IntegrationBundle\Entity;
 
-
+/**
+ * Interface IntegrationInterface
+ * @package IntegrationBundle\Entity
+ */
 interface IntegrationInterface
 {
     /**

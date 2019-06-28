@@ -23,13 +23,13 @@ class IntegrationController extends AbstractFOSRestController
 {
 
     /**
-     * @var EntityManager $em
+     * @var EntityManager $entityManager
      */
-    protected $em;
+    protected $entityManager;
 
     public function setEntityManager()
     {
-        $this->em = $this->container->get('doctrine.orm.entity_manager');
+        $this->entityManager = $this->container->get('doctrine.orm.entity_manager');
     }
 
     /**

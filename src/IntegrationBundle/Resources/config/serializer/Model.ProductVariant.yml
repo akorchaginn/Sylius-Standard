@@ -1,32 +1,24 @@
 IntegrationBundle\Model\ProductVariant:
-  exclusion_policy: ALL
   xml_root_name: product_variant
   accessor_order: custom
-  custom_accessor_order: [id, name, priceRegular, onHand]
+  custom_accessor_order: [id, id1c, name, priceRegular, onHand]
   properties:
     id:
-      expose: true
       type: integer
-    id_1c:
-      expose: true
+    id1c:
       type: string
       serialized_name: id1c
       xml_element:
         cdata: false
     name:
-      expose: true
       type: string
       xml_element:
         cdata: false
     priceRegular:
-      expose: true
       type: integer
     pricePromotion:
-      expose: true
       type: integer
     onHand:
-      expose: true
       type: integer
     enabled:
-      expose: true
       type: boolean

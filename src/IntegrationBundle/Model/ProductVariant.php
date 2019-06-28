@@ -8,6 +8,10 @@
 
 namespace IntegrationBundle\Model;
 
+/**
+ * Class ProductVariant
+ * @package IntegrationBundle\Model
+ */
 class ProductVariant
 {
     use IntegrationTrait;

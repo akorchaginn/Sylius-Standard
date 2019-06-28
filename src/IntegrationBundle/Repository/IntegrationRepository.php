@@ -130,7 +130,7 @@ class IntegrationRepository
                         ->setPricePromotion($variant->getChannelPricings()->first()->getPrice())
                         ->setOnHand($variant->getOnHand())
                         ->setName($variant->getName())
-                        ->setId1c($variant->getId1C())
+                        ->setId1c($variant->getId1c())
                         ->setEnabled($variant->isEnabled());
 
                     $integrationProduct->addProductVariant($integrationProductVariant);

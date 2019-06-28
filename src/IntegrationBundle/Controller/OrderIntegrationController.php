@@ -10,6 +10,10 @@ use IntegrationBundle\Model\ResponseData;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Class OrderIntegrationController
+ * @package IntegrationBundle\Controller
+ */
 class OrderIntegrationController extends IntegrationController
 {
     /**

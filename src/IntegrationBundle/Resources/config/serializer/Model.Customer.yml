@@ -1,45 +1,36 @@
 IntegrationBundle\Model\Customer:
-  exclusion_policy: ALL
   xml_root_name: customer
   accessor_order: custom
   custom_accessor_order: [id, id1c, firstName, lastName]
   properties:
     id:
-      expose: true
       type: integer
-    id_1c:
-      expose: true
+    id1c:
       type: string
       serialized_name: id1c
       xml_element:
         cdata: false
     email:
-      expose: true
       type: string
       xml_element:
         cdata: false
     firstName:
-      expose: true
       type: string
       xml_element:
         cdata: false
     lastName:
-      expose: true
       type: string
       xml_element:
         cdata: false
     birthday:
-      expose: true
       type: DateTime<"Y-m-d">
       xml_element:
         cdata: false
     gender:
-      expose: true
       type: string
       xml_element:
         cdata: false
     phone_number:
-      expose: true
       type: string
       xml_element:
         cdata: false

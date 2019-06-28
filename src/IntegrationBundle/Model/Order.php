@@ -3,7 +3,10 @@
 
 namespace IntegrationBundle\Model;
 
-
+/**
+ * Class Order
+ * @package IntegrationBundle\Model
+ */
 class Order
 {
     use IntegrationTrait;

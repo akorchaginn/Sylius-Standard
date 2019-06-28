@@ -3,7 +3,10 @@
 
 namespace IntegrationBundle\Model;
 
-
+/**
+ * Class Attribute
+ * @package IntegrationBundle\Model
+ */
 class Attribute
 {
 
