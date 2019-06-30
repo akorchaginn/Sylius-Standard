@@ -104,9 +104,7 @@ class IntegrationRepository
                 ->setName($product->getName())
                 ->setShortDescription(strip_tags ($product->getShortDescription()))
                 ->setId1c($product->getId1c())
-                ->setEnabled($product->isEnabled())
-                ->isSimple($product->isSimple())
-                ->setOriginalPrice($product->getVariants()->first()->getChannelPricings()->first()->getOriginalPrice());
+                ->isSimple($product->isSimple());
 
             $integrationProduct->setTaxon(is_object($product->getMainTaxon()) ? $product->getMainTaxon()->getId() : null);
             $integrationProduct->setTaxonName(is_object($product->getMainTaxon()) ? $product->getMainTaxon()->getName() : null);
@@ -115,7 +113,8 @@ class IntegrationRepository
             {
                 $integrationProduct->setPriceRegular($product->getVariants()->first()->getChannelPricings()->first()->getPrice())
                     ->setPricePromotion($product->getVariants()->first()->getChannelPricings()->first()->getPrice())
-                    ->setOnHand($product->getVariants()->first()->getOnHand());
+                    ->setOnHand($product->getVariants()->first()->getOnHand())
+                    ->setOriginalPrice($product->getVariants()->first()->getChannelPricings()->first()->getOriginalPrice());
             } else{
 
                 /**
@@ -128,10 +127,10 @@ class IntegrationRepository
                     $integrationProductVariant->setId($variant->getId())
                         ->setPriceRegular($variant->getChannelPricings()->first()->getPrice())
                         ->setPricePromotion($variant->getChannelPricings()->first()->getPrice())
+                        ->setOriginalPrice($variant->getChannelPricings()->first()->getOriginalPrice())
                         ->setOnHand($variant->getOnHand())
                         ->setName($variant->getName())
-                        ->setId1c($variant->getId1c())
-                        ->setEnabled($variant->isEnabled());
+                        ->setId1c($variant->getId1c());
 
                     $integrationProduct->addProductVariant($integrationProductVariant);
                 }

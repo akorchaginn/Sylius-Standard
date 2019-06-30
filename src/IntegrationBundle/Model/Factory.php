@@ -247,6 +247,7 @@ class Factory
                 $syliusProduct->getVariants()->first()->addChannelPricing($syliusChannelPricing);
                 $syliusProduct->getVariants()->first()->setCode($this->slugGenerator->generate($product->getName() . '_simpleVariant'));
                 $syliusProduct->getVariants()->first()->setTracked(true);
+                $syliusProduct->getVariants()->first()->setEnabled(false);
 
             } else {
                 $syliusProduct = $this->productFactory->createNew();
@@ -260,20 +261,15 @@ class Factory
 
         if (empty($product->getProductVariants())) {
             $variant = $syliusProduct->getVariants()->first();
+
             $variant->setOnHand($product->getOnHand());
             $variant->getChannelPricingForChannel($this->defaultChannel)->setPrice($product->getPriceRegular());
             $variant->setName($product->getName());
-            $variant->setEnabled($product->isEnabled());
-        } else {
-            foreach ($syliusProduct->getVariants() as $variant) {
-                $variant->setEnabled(false);
-            }
         }
 
         $syliusProduct->setName($product->getName());
 
         $syliusProduct->setId1C($product->getId1c());
-        $syliusProduct->setEnabled($product->isEnabled());
         $syliusProduct->setDescription($product->getDescription());
 
         foreach ($product->getProductVariants() as $variant) {
@@ -331,11 +327,11 @@ class Factory
 
         $syliusProductVariant->getChannelPricingForChannel($this->defaultChannel)->setPrice($productVariant->getPriceRegular());
         $syliusProductVariant->setName($productVariant->getName());
-        $syliusProductVariant->setEnabled($productVariant->getEnabled());
         $syliusProductVariant->setId1c($productVariant->getId1c());
         $syliusProductVariant->setOnHand($productVariant->getOnHand());
 
         $syliusProductVariant->setTracked(true);
+        $syliusProductVariant->setEnabled(true);
 
         return $syliusProductVariant;
     }
