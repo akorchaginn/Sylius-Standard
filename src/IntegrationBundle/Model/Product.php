@@ -62,7 +62,7 @@ class Product
     private $priceRegular;
 
     /**
-     * @var int
+     * @var int|null
      */
     private $pricePromotion;
 
@@ -75,11 +75,6 @@ class Product
      * @var array
      */
     private $attributes;
-
-    /**
-     * @var boolean|null
-     */
-    private $enabled;
 
     /**
      * @param string $name
@@ -159,18 +154,18 @@ class Product
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getPricePromotion(): int
+    public function getPricePromotion(): ?int
     {
         return $this->pricePromotion;
     }
 
     /**
-     * @param int $pricePromotion
+     * @param null|int $pricePromotion
      * @return Product
      */
-    public function setPricePromotion(int $pricePromotion): Product
+    public function setPricePromotion(?int $pricePromotion): Product
     {
         $this->pricePromotion = $pricePromotion;
         return $this;
@@ -289,24 +284,5 @@ class Product
     {
         return $this->priceRegular;
     }
-
-    /**
-     * @return bool|null
-     */
-    public function isEnabled(): ?bool
-    {
-        return $this->enabled;
-    }
-
-    /**
-     * @param bool|null $enabled
-     * @return Product
-     */
-    public function setEnabled(?bool $enabled): Product
-    {
-        $this->enabled = $enabled;
-        return $this;
-    }
-
 
 }

@@ -49,7 +49,7 @@ class Customer
     /**
      * @var string|null
      */
-    private $phone_number;
+    private $phoneNumber;
 
     /**
      * @param null|string $email
@@ -107,13 +107,13 @@ class Customer
     }
 
     /**
-     * @param null|string $phone_number
+     * @param null|string $phoneNumber
      *
      * @return Customer
      */
-    public function setPhoneNumber(?string $phone_number): Customer
+    public function setPhoneNumber(?string $phoneNumber): Customer
     {
-        $this->phone_number = $phone_number;
+        $this->phoneNumber = $phoneNumber;
         return $this;
     }
 
@@ -162,7 +162,7 @@ class Customer
      */
     public function getPhoneNumber(): ?string
     {
-        return $this->phone_number;
+        return $this->phoneNumber;
     }
 
 }

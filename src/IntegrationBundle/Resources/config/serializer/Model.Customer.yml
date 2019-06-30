@@ -30,7 +30,7 @@ IntegrationBundle\Model\Customer:
       type: string
       xml_element:
         cdata: false
-    phone_number:
+    phoneNumber:
       type: string
       xml_element:
         cdata: false

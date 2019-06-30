@@ -32,14 +32,14 @@ class ProductVariant
     private $pricePromotion;
 
     /**
+     * @var int|null
+     */
+    private $originalPrice;
+
+    /**
      * @var int
      */
     private $onHand;
-
-    /**
-     * @var boolean|null
-     */
-    private $enabled;
 
     /**
      * @param string|null $name
@@ -68,24 +68,6 @@ class ProductVariant
     public function setOnHand(int $onHand): ProductVariant
     {
         $this->onHand = $onHand;
-        return $this;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function isEnabled(): ?bool
-    {
-        return $this->enabled;
-    }
-
-    /**
-     * @param bool|null $enabled
-     * @return ProductVariant
-     */
-    public function setEnabled(?bool $enabled): ProductVariant
-    {
-        $this->enabled = $enabled;
         return $this;
     }
 
@@ -124,19 +106,28 @@ class ProductVariant
     }
 
     /**
+     * @return int|null
+     */
+    public function getOriginalPrice(): ?int
+    {
+        return $this->originalPrice;
+    }
+
+    /**
+     * @param int|null $originalPrice
+     * @return ProductVariant
+     */
+    public function setOriginalPrice(?int $originalPrice): ProductVariant
+    {
+        $this->originalPrice = $originalPrice;
+        return $this;
+    }
+
+    /**
      * @return int
      */
     public function getOnHand(): int
     {
         return $this->onHand;
     }
-
-    /**
-     * @return bool|null
-     */
-    public function getEnabled(): ?bool
-    {
-        return $this->enabled;
-    }
-
 }

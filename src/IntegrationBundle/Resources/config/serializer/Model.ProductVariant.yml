@@ -1,7 +1,7 @@
 IntegrationBundle\Model\ProductVariant:
   xml_root_name: product_variant
   accessor_order: custom
-  custom_accessor_order: [id, id1c, name, priceRegular, onHand]
+  custom_accessor_order: [id, id1c, name, originalPrice, priceRegular, onHand]
   properties:
     id:
       type: integer
@@ -18,7 +18,7 @@ IntegrationBundle\Model\ProductVariant:
       type: integer
     pricePromotion:
       type: integer
+    originalPrice:
+      type: integer
     onHand:
       type: integer
-    enabled:
-      type: boolean

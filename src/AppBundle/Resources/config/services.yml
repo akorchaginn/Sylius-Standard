@@ -29,3 +29,20 @@ services:
         class: AppBundle\OrderProcessing\OrderOriginalPriceAggregator
         tags:
             - { name: sylius.order_processor }
+
+    marinewool.min_price_variant_resolver:
+        class: AppBundle\Resolver\MinPriceProductVarantResolver
+
+    marinewool.templating.helper.min_price_resolver:
+        class: AppBundle\Helper\MinPriceVariantResolverHelper
+        arguments:
+            - '@marinewool.min_price_variant_resolver'
+        tags:
+            - {name: templating.helper}
+
+    marinewool.twig.extension.min_price_variant_resolver:
+        class: AppBundle\Twig\MinPriceVariantExtension
+        arguments:
+            - '@marinewool.templating.helper.min_price_resolver'
+        tags:
+            - {name: twig.extension}
