@@ -12,12 +12,12 @@ use Sylius\Component\Core\Model\ProductVariantInterface as BaseProductVariantInt
 interface ProductVariantInterface extends BaseProductVariantInterface, IntegrationInterface
 {
     /**
-     * @param bool $enabled
+     * @param bool|null $enabled
      */
-    public function setEnabled(bool $enabled): void;
+    public function setEnabled(?bool $enabled): void;
 
     /**
-     * @return bool
+     * @return bool|null
      */
-    public function isEnabled(): bool;
+    public function isEnabled(): ?bool;
 }

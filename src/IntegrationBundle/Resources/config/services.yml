@@ -35,3 +35,8 @@ services:
             - { name: jms_serializer.serialization_visitor, format: xml }
         calls:
             - ["setFormatOutput", ["%jms_serializer.xml_serialization_visitor.format_output%"]]
+
+    integration.form.extension.type.product_variant:
+        class: IntegrationBundle\Form\Type\ProductVariantTypeExtension
+        tags:
+            - { name: form.type_extension, extended_type: Sylius\Bundle\ProductBundle\Form\Type\ProductVariantType }
