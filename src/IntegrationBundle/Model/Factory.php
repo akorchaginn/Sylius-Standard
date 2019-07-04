@@ -256,6 +256,7 @@ class Factory
             $syliusProduct->setSlug($this->slugGenerator->generate($product->getName() . '_' . $product->getId1c()));
             $syliusProduct->addProductTaxon($this->defaultTaxon);
             $syliusProduct->addChannel($this->defaultChannel);
+            $syliusProduct->setEnabled(false);
 
         }
 

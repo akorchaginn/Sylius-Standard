@@ -17,7 +17,7 @@ class ProductVariant extends ParentProductVariant implements ProductVariantInter
     use IntegrationTrait;
 
     /**
-     * @var bool
+     * @var bool|nuul
      * @ORM\Column(name="enabled", type="boolean", nullable=false)
      */
     private $enabled;
@@ -25,15 +25,15 @@ class ProductVariant extends ParentProductVariant implements ProductVariantInter
     /**
      * @return bool
      */
-    public function isEnabled(): bool
+    public function isEnabled(): ?bool
     {
         return $this->enabled;
     }
 
     /**
-     * @param bool $enabled
+     * @param bool|null $enabled
      */
-    public function setEnabled(bool $enabled): void
+    public function setEnabled(?bool $enabled): void
     {
         $this->enabled = $enabled;
     }

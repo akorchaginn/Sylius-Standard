@@ -25,7 +25,7 @@
         {{ sonata_block_render_event('sylius.shop.product.show.after_product_header', {'product': product}) }}
 
         <div class="ui stackable grid">
-            <div class="four wide column">
+            <div class="nine wide column">
                 {% if not product.variants.empty() %}
                     {% include '@SyliusShop/Product/Show/_price.html.twig' %}
                 {% endif %}
