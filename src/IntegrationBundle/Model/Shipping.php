@@ -30,6 +30,12 @@ class Shipping
     private $address;
 
     /**
+     * @var string|null
+     */
+    private $receiver;
+
+
+    /**
      * @param string $type
      * @return Shipping
      */
@@ -68,4 +74,15 @@ class Shipping
         $this->address = $address;
         return $this;
     }
+
+    /**
+     * @param string|null $receiver
+     * @return Shipping
+     */
+    public function setReceiver(?string $receiver): Shipping
+    {
+        $this->receiver = $receiver;
+        return $this;
+    }
+
 }

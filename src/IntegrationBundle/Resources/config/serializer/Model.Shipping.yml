@@ -1,7 +1,7 @@
 IntegrationBundle\Model\Shipping:
   xml_root_name: shipping
   accessor_order: custom
-  custom_accessor_order: [type, label, amount, address]
+  custom_accessor_order: [type, label, amount, address, receiver]
   properties:
     amount:
       type: integer
@@ -14,6 +14,10 @@ IntegrationBundle\Model\Shipping:
       xml_element:
         cdata: false
     address:
+      type: string
+      xml_element:
+        cdata: false
+    receiver:
       type: string
       xml_element:
         cdata: false
