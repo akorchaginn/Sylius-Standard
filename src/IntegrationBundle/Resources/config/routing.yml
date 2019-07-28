@@ -4,6 +4,14 @@ marinewool_api_customer_index:
     defaults:
         _controller: integration.controller.customer:customerIndex
 
+marinewool_api_customer_by_id:
+    path: /customer/{id}
+    requirements:
+        id: '\d+'
+    methods: [GET]
+    defaults:
+        _controller: integration.controller.customer:getCustomer
+
 marinewool_api_customer_create_or_update:
     path: /customer/add/
     methods: [POST]

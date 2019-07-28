@@ -60,6 +60,27 @@ class CustomerIntegrationController extends IntegrationController
     }
 
     /**
+     * @param $id
+     * @return Response
+     * @throws Exception
+     */
+    public function getCustomer($id)
+    {
+
+        $customerRepository = $this->container->get('integration.repository');
+        $customerRepository->setSyliusEntityRepo($this->container->get('sylius.repository.customer'));
+
+        $dateTime = new DateTime();
+        $data = $customerRepository->getCustomers($id);
+
+        $response = new ResponseData();
+
+        $response->setDateTime($dateTime);
+        $response->setData($data);
+        return parent::getResponse($response);
+    }
+
+    /**
      * @param array $customers
      * @ParamConverter("customers", class="array<IntegrationBundle\Model\Customer>", converter="fos_rest.request_body")
      * @return Response
@@ -154,6 +175,10 @@ class CustomerIntegrationController extends IntegrationController
         $syliusShopUser->setCustomer($syliusCustomer);
         $syliusShopUser->setEmail($customer->getEmail());
         $syliusShopUser->setUsername($customer->getEmail());
+
+        /**
+         * @todo Убрать этот ужас из кода и вынести в настройки...
+         */
         $syliusShopUser->setPlainPassword('b/vbb+B8G=Y54_yP');
         $syliusShopUser->setPasswordRequestedAt(new DateTime());
         $syliusShopUser->setEmailVerificationToken($this->emailTokenGenerator->generate());

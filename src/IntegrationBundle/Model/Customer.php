@@ -52,6 +52,11 @@ class Customer
     private $phoneNumber;
 
     /**
+     * @var bool
+     */
+    protected $subscribedToNews = false;
+
+    /**
      * @param null|string $email
      *
      * @return Customer
@@ -163,6 +168,24 @@ class Customer
     public function getPhoneNumber(): ?string
     {
         return $this->phoneNumber;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isSubscribedToNews(): bool
+    {
+        return $this->subscribedToNews;
+    }
+
+    /**
+     * @param bool $subscribedToNews
+     * @return Customer
+     */
+    public function setSubscribedToNews(bool $subscribedToNews): Customer
+    {
+        $this->subscribedToNews = $subscribedToNews;
+        return $this;
     }
 
 }

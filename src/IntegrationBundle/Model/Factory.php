@@ -10,6 +10,7 @@ namespace IntegrationBundle\Model;
 
 use DateTime;
 use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException as ORMException;
 use Sylius\Component\Attribute\Factory\AttributeFactory;
 use Sylius\Component\Attribute\Model\AttributeInterface;
@@ -131,7 +132,7 @@ class Factory
      * @param ChannelInterface $defaultChannel
      * @param ProductTaxonInterface $defaultTaxon
      */
-    public function setDefaults(ChannelInterface $defaultChannel, ProductTaxonInterface $defaultTaxon)
+    public function setDefaults(ChannelInterface $defaultChannel, ProductTaxonInterface $defaultTaxon): void
     {
         $this->defaultChannel = $defaultChannel;
         $this->defaultTaxon = $defaultTaxon;
@@ -140,7 +141,7 @@ class Factory
     /**
      * @return Customer
      */
-    public function createCustomer()
+    public function createCustomer(): Customer
     {
         $customer = new Customer();
 
@@ -150,7 +151,7 @@ class Factory
     /**
      * @return ProductVariant
      */
-    public function createProductVariant()
+    public function createProductVariant(): ProductVariant
     {
         $productVariant = new ProductVariant();
 
@@ -160,7 +161,7 @@ class Factory
     /**
      * @return Product
      */
-    public function createProduct()
+    public function createProduct(): Product
     {
         $product = new Product();
 
@@ -170,7 +171,7 @@ class Factory
     /**
      * @return Order
      */
-    public function createOrder()
+    public function createOrder(): Order
     {
         $order = new Order();
 
@@ -180,7 +181,7 @@ class Factory
     /**
      * @return Shipping
      */
-    public function createShipping()
+    public function createShipping(): Shipping
     {
         $shipping = new Shipping();
 
@@ -190,7 +191,7 @@ class Factory
     /**
      * @return OrderItem
      */
-    public function createOrderItem()
+    public function createOrderItem(): OrderItem
     {
         $orderItem = new OrderItem();
 
@@ -200,7 +201,7 @@ class Factory
     /**
      * @return Payment
      */
-    public function createPayment()
+    public function createPayment(): Payment
     {
         $payment = new Payment();
 
@@ -210,7 +211,7 @@ class Factory
     /**
      * @return Attribute
      */
-    public function createAttribute()
+    public function createAttribute(): Attribute
     {
         $attribute = new Attribute();
 
@@ -219,7 +220,7 @@ class Factory
 
     /**
      * @param Product $product
-     * @return ProductInterface|\Sylius\Component\Product\Model\ProductInterface
+     * @return SyliusProduct|ProductInterface|object|\Sylius\Component\Product\Model\ProductInterface|null
      * @throws ORMException
      */
     public function createSyliusProduct(Product $product)
@@ -264,6 +265,7 @@ class Factory
             $variant = $syliusProduct->getVariants()->first();
 
             $variant->setOnHand($product->getOnHand());
+            $variant->setOnHold(0);
             $variant->getChannelPricingForChannel($this->defaultChannel)->setPrice($product->getPriceRegular());
             $variant->setName($product->getName());
         }
@@ -330,6 +332,7 @@ class Factory
         $syliusProductVariant->setName($productVariant->getName());
         $syliusProductVariant->setId1c($productVariant->getId1c());
         $syliusProductVariant->setOnHand($productVariant->getOnHand());
+        $syliusProductVariant->setOnHold(0);
 
         $syliusProductVariant->setTracked(true);
         $syliusProductVariant->setEnabled(true);
@@ -367,8 +370,9 @@ class Factory
 
     /**
      * @param string $attributeName
-     * @return AttributeInterface|ProductAttribute
+     * @return object|AttributeInterface|ProductAttribute|null
      * @throws ORMException
+     * @throws OptimisticLockException
      */
     private function createSyliusAttribute(string $attributeName)
     {
@@ -390,7 +394,7 @@ class Factory
      * @param SyliusProduct $syliusProduct
      * @throws ORMException
      */
-    private function applyCatalogPromotion(Product $product, SyliusProduct $syliusProduct)
+    private function applyCatalogPromotion(Product $product, SyliusProduct $syliusProduct): void
     {
         if (!empty($product->getProductVariants()))
         {
