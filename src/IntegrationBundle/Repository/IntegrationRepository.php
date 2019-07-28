@@ -14,7 +14,6 @@ use IntegrationBundle\Entity\ProductInterface;
 use IntegrationBundle\Entity\OrderInterface;
 use IntegrationBundle\Entity\CustomerInterface;
 use IntegrationBundle\Entity\ProductVariantInterface;
-use IntegrationBundle\Model\OrderItem;
 use Sylius\Component\Attribute\Model\AttributeInterface;
 use Sylius\Component\Core\Model\AddressInterface;
 use Sylius\Component\Payment\Model\Payment;
@@ -208,32 +207,47 @@ class IntegrationRepository
                 $item = $this->factory->createOrderItem();
                 $item->setProductId($syliusOrderItem->getVariant()->getProduct()->getId())
                      ->setProductId1c($syliusOrderItem->getVariant()->getProduct()->getId1c())
-                     ->setVariantId($syliusOrderItem->getVariant()->getId())
-                     ->setVariantId1c($syliusOrderItem->getVariant()->getId1c())
                      ->setQuantity($syliusOrderItem->getQuantity())
                      ->setPrice($syliusOrderItem->getUnitPrice());
+
+                if (!$syliusOrderItem->getProduct()->isSimple())
+                {
+                    $item->setVariantId($syliusOrderItem->getVariant()->getId())
+                        ->setVariantId1c($syliusOrderItem->getVariant()->getId1c());
+                }
+
                 $integrationOrder->addItems($item);
             }
 
             if ($shippingAdjustments = $syliusOrder->getAdjustments(AdjustmentInterface::SHIPPING_ADJUSTMENT)) {
 
                 /**
+                 * @var AddressInterface $shippingAddress
+                 */
+                $shippingAddress = $syliusOrder->getShippingAddress();
+                /**
                  * @var AdjustmentInterface $syliusShipping
                  */
                 $syliusShipping = $shippingAdjustments->first();
-                $address =  $syliusOrder->getShippingAddress()->getPostcode() . ', '.
-                            $syliusOrder->getShippingAddress()->getCountryCode() . ', '.
-                            $syliusOrder->getShippingAddress()->getCity() . ', '.
-                            $syliusOrder->getShippingAddress()->getProvinceName() . ', '.
-                            $syliusOrder->getShippingAddress()->getStreet();
+                $address =  $shippingAddress->getPostcode() . ', '.
+                            $shippingAddress->getCountryCode() . ', '.
+                            $shippingAddress->getCity() . ', '.
+                            $shippingAddress->getProvinceName() . ', '.
+                            $shippingAddress->getStreet();
+
+                $receiver = $shippingAddress->getFirstName() . ' '.
+                            $shippingAddress->getLastName() . ', '.
+                            $shippingAddress->getPhoneNumber();
 
                 $shipping = $this->factory->createShipping();
                 $shipping->setType(AdjustmentInterface::SHIPPING_ADJUSTMENT)
                     ->setLabel($syliusShipping->getLabel())
                     ->setAmount($syliusShipping->getAmount())
-                    ->setAddress($address);
+                    ->setAddress($address)
+                    ->setReceiver($receiver);
 
                 $integrationOrder->setShipping($shipping);
+
             }
 
             $integrationOrders[] = $integrationOrder;
