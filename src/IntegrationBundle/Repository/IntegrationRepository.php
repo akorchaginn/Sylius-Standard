@@ -14,7 +14,9 @@ use IntegrationBundle\Entity\ProductInterface;
 use IntegrationBundle\Entity\OrderInterface;
 use IntegrationBundle\Entity\CustomerInterface;
 use IntegrationBundle\Entity\ProductVariantInterface;
+use IntegrationBundle\Model\OrderItem;
 use Sylius\Component\Attribute\Model\AttributeInterface;
+use Sylius\Component\Core\Model\AddressInterface;
 use Sylius\Component\Payment\Model\Payment;
 use Sylius\Component\Resource\Repository\RepositoryInterface as BaseRepository;
 use IntegrationBundle\Model\Factory;
@@ -49,19 +51,22 @@ class IntegrationRepository
     /**
      * @param BaseRepository $repository
      */
-    public function setSyliusEntityRepo(BaseRepository $repository)
+    public function setSyliusEntityRepo(BaseRepository $repository): void
     {
         $this->syliusEntityRepository = $repository;
     }
 
     /**
-     * @return array|null
+     * @param int|null $id
+     * @return array
      */
-    public function getCustomers()
+    public function getCustomers(int $id = null): array
     {
         $integrationCustomers = [];
 
-        $syliusCustomers = $this->syliusEntityRepository->findAll();
+        $syliusCustomers = !is_null($id) ? $this->syliusEntityRepository->findBy(['id' => $id ]) : $this->getActiveCustomers();
+
+        $syliusCustomers = $this->processCustomers($syliusCustomers);
 
         /**
          * @var CustomerInterface $customer
@@ -77,6 +82,7 @@ class IntegrationRepository
                 ->setGender($customer->getGender())
                 ->setBirthday($customer->getBirthday())
                 ->setEmail($customer->getEmail())
+                ->setSubscribedToNews($customer->isSubscribedToNewsletter())
                 ->setPhoneNumber($customer->getPhoneNumber());
             $integrationCustomers[] = $integrationCustomer;
         }
@@ -87,7 +93,7 @@ class IntegrationRepository
     /**
      * @return array|null
      */
-    public function getProducts()
+    public function getProducts(): ?array
     {
         $integrationProducts = [];
 
@@ -158,7 +164,7 @@ class IntegrationRepository
      * @param DateTime $lastSynchronized
      * @return array
      */
-    public function getOrders(DateTime $lastSynchronized)
+    public function getOrders(DateTime $lastSynchronized): array
     {
         $integrationOrders = [];
         $syliusOrdersAll = $this->syliusEntityRepository->findAll();
@@ -176,13 +182,10 @@ class IntegrationRepository
         foreach ($syliusOrders as $syliusOrder)
         {
             $integrationOrder = $this->factory->createOrder();
-            $customer = $this->factory->createCustomer();
-            $customer->setId($syliusOrder->getCustomer()->getId())
-                ->setId1c($syliusOrder->getCustomer()->getId1c());
 
             $integrationOrder->setId($syliusOrder->getId())
                 ->setNumber($syliusOrder->getNumber())
-                ->setCustomer($customer)
+                ->setCustomerId($syliusOrder->getCustomer()->getId())
                 ->setId1c($syliusOrder->getId1c());
 
             /**
@@ -203,9 +206,12 @@ class IntegrationRepository
             foreach ($syliusOrderItems = $syliusOrder->getItems() as $syliusOrderItem)
             {
                 $item = $this->factory->createOrderItem();
-                $item->setId($syliusOrderItem->getId())
-                    ->setQuantity($syliusOrderItem->getQuantity())
-                    ->setVariantId($syliusOrderItem->getVariant()->getId());
+                $item->setProductId($syliusOrderItem->getVariant()->getProduct()->getId())
+                     ->setProductId1c($syliusOrderItem->getVariant()->getProduct()->getId1c())
+                     ->setVariantId($syliusOrderItem->getVariant()->getId())
+                     ->setVariantId1c($syliusOrderItem->getVariant()->getId1c())
+                     ->setQuantity($syliusOrderItem->getQuantity())
+                     ->setPrice($syliusOrderItem->getUnitPrice());
                 $integrationOrder->addItems($item);
             }
 
@@ -216,10 +222,10 @@ class IntegrationRepository
                  */
                 $syliusShipping = $shippingAdjustments->first();
                 $address =  $syliusOrder->getShippingAddress()->getPostcode() . ', '.
-                    $syliusOrder->getShippingAddress()->getCountryCode() . ', '.
-                    $syliusOrder->getShippingAddress()->getCity() . ', '.
-                    $syliusOrder->getShippingAddress()->getProvinceName() . ', '.
-                    $syliusOrder->getShippingAddress()->getStreet();
+                            $syliusOrder->getShippingAddress()->getCountryCode() . ', '.
+                            $syliusOrder->getShippingAddress()->getCity() . ', '.
+                            $syliusOrder->getShippingAddress()->getProvinceName() . ', '.
+                            $syliusOrder->getShippingAddress()->getStreet();
 
                 $shipping = $this->factory->createShipping();
                 $shipping->setType(AdjustmentInterface::SHIPPING_ADJUSTMENT)
@@ -234,5 +240,53 @@ class IntegrationRepository
         }
 
         return $integrationOrders;
+    }
+
+    /**
+     * @return array|null
+     */
+    private function getActiveCustomers(): ?array
+    {
+        $customers = array_filter($this->syliusEntityRepository->findBy([]), (function (CustomerInterface $customer) {
+            if (!is_null($customer->getUser()) && $customer->getUser()->isVerified())
+            {
+                return true;
+            }
+            return false;
+        }));
+        return $customers;
+    }
+
+    /**
+     * @param array $syliusCustomers
+     * @return array
+     */
+    private function processCustomers(array $syliusCustomers): array
+    {
+        $customers = array_map(function(CustomerInterface $customer) {
+            if ((empty($customer->getFirstName()) or empty($customer->getPhoneNumber()))) {
+                $conditions = (count($customer->getOrders()) > 0 && count($customer->getOrders()->first()->getShippingAddress()) > 0);
+            } else {
+                $conditions = false;
+            }
+
+            if (empty($customer->getFirstName()) && $conditions)
+            {
+                /**
+                 * @var AddressInterface $address
+                 */
+                $address = $customer->getOrders()->first()->getShippingAddress();
+                $customer->setFirstName($address->getFirstName());
+                $customer->setLastName($address->getLastName());
+            }
+            if (empty($customer->getPhoneNumber()) && $conditions)
+            {
+                $address = $customer->getOrders()->first()->getShippingAddress();
+                $customer->setPhoneNumber($address->getPhoneNumber());
+            }
+
+            return $customer;
+        }, $syliusCustomers);
+        return $customers;
     }
 }

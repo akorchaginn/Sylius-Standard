@@ -1,7 +1,7 @@
 IntegrationBundle\Model\Order:
   xml_root_name: order
   accessor_order: custom
-  custom_accessor_order: [id, id1c]
+  custom_accessor_order: [id, id1c, customerId]
   properties:
     id:
       type: integer
@@ -9,8 +9,8 @@ IntegrationBundle\Model\Order:
       type: string
       xml_element:
         cdata: false
-    customer:
-      type: IntegrationBundle\Model\Customer
+    customerId:
+      type: integer
     payment:
       type: IntegrationBundle\Model\Payment
       xml_element:

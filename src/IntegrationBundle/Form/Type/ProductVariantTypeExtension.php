@@ -8,6 +8,10 @@ use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 
+/**
+ * Class ProductVariantTypeExtension
+ * @package IntegrationBundle\Form\Type
+ */
 class ProductVariantTypeExtension extends AbstractTypeExtension
 {
     /**

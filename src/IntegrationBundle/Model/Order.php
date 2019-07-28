@@ -22,9 +22,9 @@ class Order
     private $items = [];
 
     /**
-     * @var Customer
+     * @var int
      */
-    private $customer;
+    private $customerId;
 
     /**
      * @var Payment
@@ -66,16 +66,6 @@ class Order
     }
 
     /**
-     * @param Customer $customer
-     * @return Order
-     */
-    public function setCustomer(Customer $customer): Order
-    {
-        $this->customer = $customer;
-        return $this;
-    }
-
-    /**
      * @param Payment $payment
      * @return Order
      */
@@ -92,6 +82,24 @@ class Order
     public function setShipping(Shipping $shipping): Order
     {
         $this->shipping = $shipping;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCustomerId(): int
+    {
+        return $this->customerId;
+    }
+
+    /**
+     * @param int $customerId
+     * @return Order
+     */
+    public function setCustomerId(int $customerId): Order
+    {
+        $this->customerId = $customerId;
         return $this;
     }
 

@@ -17,7 +17,7 @@ class ProductVariant extends ParentProductVariant implements ProductVariantInter
     use IntegrationTrait;
 
     /**
-     * @var bool|nuul
+     * @var bool|null
      * @ORM\Column(name="enabled", type="boolean", nullable=false)
      */
     private $enabled;
