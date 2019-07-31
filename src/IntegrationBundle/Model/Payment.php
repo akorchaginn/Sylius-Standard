@@ -12,7 +12,7 @@ class Payment
     /**
      * @var string
      */
-    private $methodCode;
+    private $methodLabel;
 
     /**
      * @var int
@@ -20,12 +20,12 @@ class Payment
     private $amount;
 
     /**
-     * @param string $methodCode
+     * @param string $methodLabel
      * @return Payment
      */
-    public function setMethodCode(string $methodCode): Payment
+    public function setMethodLabel(string $methodLabel): Payment
     {
-        $this->methodCode = $methodCode;
+        $this->methodLabel = $methodLabel;
         return $this;
     }
 

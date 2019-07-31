@@ -194,7 +194,7 @@ class IntegrationRepository
             {
                 $payment = $this->factory->createPayment();
                 $payment->setAmount($syliusPayment->getAmount())
-                    ->setMethodCode($syliusPayment->getMethod()->getCode());
+                    ->setMethodLabel($syliusPayment->getMethod()->getTranslation()->getName());
 
                 $integrationOrder->setPayment($payment);
             }
@@ -208,7 +208,8 @@ class IntegrationRepository
                 $item->setProductId($syliusOrderItem->getVariant()->getProduct()->getId())
                      ->setProductId1c($syliusOrderItem->getVariant()->getProduct()->getId1c())
                      ->setQuantity($syliusOrderItem->getQuantity())
-                     ->setPrice($syliusOrderItem->getUnitPrice());
+                     ->setPriceCurrent($syliusOrderItem->getUnitPrice())
+                     ->setPriceRegular($syliusOrderItem->getVariant()->getChannelPricings()->first()->getPrice());
 
                 if (!$syliusOrderItem->getProduct()->isSimple())
                 {

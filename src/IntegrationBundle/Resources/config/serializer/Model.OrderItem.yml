@@ -1,7 +1,7 @@
 IntegrationBundle\Model\OrderItem:
   xml_root_name: order
   accessor_order: custom
-  custom_accessor_order: [productId, productId1c, variantId, variantId1c, quantity, price]
+  custom_accessor_order: [productId, productId1c, variantId, variantId1c, quantity, priceCurrent, priceRegular]
   properties:
     productId:
       type: integer
@@ -17,5 +17,7 @@ IntegrationBundle\Model\OrderItem:
         cdata: false
     quantity:
       type: integer
-    price:
+    priceCurrent:
+      type: integer
+    priceRegular:
       type: integer

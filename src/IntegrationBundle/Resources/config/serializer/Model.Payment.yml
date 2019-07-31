@@ -1,9 +1,9 @@
 IntegrationBundle\Model\Payment:
   xml_root_name: payment
   accessor_order: custom
-  custom_accessor_order: [methodCode, amount]
+  custom_accessor_order: [methodLabel, amount]
   properties:
-    methodCode:
+    methodLabel:
       type: string
       xml_element:
         cdata: false

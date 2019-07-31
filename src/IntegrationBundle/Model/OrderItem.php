@@ -37,7 +37,12 @@ class OrderItem
     /**
      * @var int
      */
-    private $price;
+    private $priceCurrent;
+
+    /**
+     * @var int
+     */
+    private $priceRegular;
 
     /**
      * @param int $quantity
@@ -70,12 +75,12 @@ class OrderItem
     }
 
     /**
-     * @param int $price
+     * @param int $priceCurrent
      * @return OrderItem
      */
-    public function setPrice(int $price): OrderItem
+    public function setPriceCurrent(int $priceCurrent): OrderItem
     {
-        $this->price = $price;
+        $this->priceCurrent = $priceCurrent;
         return $this;
     }
 
@@ -96,6 +101,16 @@ class OrderItem
     public function setVariantId1c(?string $variantId1c): OrderItem
     {
         $this->variantId1c = $variantId1c;
+        return $this;
+    }
+
+    /**
+     * @param int $priceRegular
+     * @return OrderItem
+     */
+    public function setPriceRegular(int $priceRegular): OrderItem
+    {
+        $this->priceRegular = $priceRegular;
         return $this;
     }
 
