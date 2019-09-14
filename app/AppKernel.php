@@ -48,6 +48,8 @@ class AppKernel extends Kernel
             new ReportBundle\ReportBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new IntegrationBundle\IntegrationBundle(),
+            new Override\CoreBundle\CoreBundle(),
+            new Override\AddressingBundle\AddressingBundle(),
         ];
 
         return array_merge(parent::registerBundles(), $bundles);

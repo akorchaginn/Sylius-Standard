@@ -46,17 +46,18 @@ var paths = {
     }
 };
 
-gulp.task('admin-js', function () {
+gulp.task('admin-js', done => {
     return gulp.src(paths.admin.js)
         .pipe(concat('app.js'))
         .pipe(gulpif(env === 'prod', uglify()))
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(adminRootPath + 'js/'))
     ;
+    done();
 });
 
 
-gulp.task('admin-css', function() {
+gulp.task('admin-css', done => {
     gulp.src([
             nodeModulesPath+'semantic-ui-css/themes/**/*'
         ]).pipe(gulp.dest(adminRootPath + 'css/themes/'));
@@ -78,23 +79,16 @@ gulp.task('admin-css', function() {
         .pipe(gulp.dest(adminRootPath + 'css/'))
         .pipe(livereload())
     ;
+    done();
 });
 
-gulp.task('admin-img', function() {
+gulp.task('admin-img', done => {
     return gulp.src(paths.admin.img)
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(adminRootPath + 'img/'))
     ;
+    done();
 });
 
-gulp.task('admin-watch', function() {
-    livereload.listen();
 
-    gulp.watch(paths.admin.js, ['admin-js']);
-    gulp.watch(paths.admin.sass, ['admin-css']);
-    gulp.watch(paths.admin.css, ['admin-css']);
-    gulp.watch(paths.admin.img, ['admin-img']);
-});
-
-gulp.task('default', ['admin-js', 'admin-css', 'admin-img']);
-gulp.task('watch', ['default', 'admin-watch']);
+gulp.task('default', gulp.parallel('admin-js', 'admin-css', 'admin-img'));

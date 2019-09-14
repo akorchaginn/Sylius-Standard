@@ -54,16 +54,17 @@ var paths = {
     }
 };
 
-gulp.task('shop-js', function () {
+gulp.task('shop-js', done => {
     return gulp.src(paths.shop.js)
         .pipe(concat('app.js'))
         .pipe(gulpif(env === 'prod', uglify()))
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(shopRootPath + 'js/'))
     ;
+    done();
 });
 
-gulp.task('shop-css', function() {
+gulp.task('shop-css', done => {
     gulp.src([nodeModulesPath + 'semantic-ui-css/themes/**/*']).pipe(gulp.dest(shopRootPath + 'css/themes/'));
 
 
@@ -84,56 +85,51 @@ gulp.task('shop-css', function() {
         .pipe(gulp.dest(shopRootPath + 'css/'))
         .pipe(livereload())
     ;
+    done();
 });
 
-gulp.task('shop-img', function() {
+gulp.task('shop-img', done => {
     gulp.src([nodeModulesPath + 'lightbox2/dist/images/*']).pipe(gulp.dest(shopRootPath + 'images/'));    
     
     return gulp.src(paths.shop.img)
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(shopRootPath + 'img/'))
     ;
+    done();
 });
-
-gulp.task('shop-watch', function() {
-    livereload.listen();
-
-    gulp.watch(paths.shop.js, ['shop-js']);
-    gulp.watch(paths.shop.sass, ['shop-css']);
-    gulp.watch(paths.shop.css, ['shop-css']);
-    gulp.watch(paths.shop.img, ['shop-img']);
-});
-
 
 /**
  * TODO: Оптимизировать использование bootstrap, fonts, images!
  */
-gulp.task('bootstrap', function(){ 
+gulp.task('bootstrap', done =>{
     return gulp.src('Resources/private/shop/css/**')
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(shopRootPath + 'css/'))
     ;
+    done();
 });
 
 
-gulp.task('fonts', function(){ 
+gulp.task('fonts', done =>{
     return gulp.src('Resources/private/shop/fonts/**')
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(shopRootPath + 'fonts/'))
     ;
+    done();
 });
 
-gulp.task('images', function(){ 
+gulp.task('images', done =>{
     return gulp.src('Resources/private/shop/images/**')
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(shopRootPath + 'images/'))
     ;
+    done();
 });
 /**
  * TODO: Оптимизировать использование bootstrap, fonts, images!
  */
 
-gulp.task('catalog-promotion', function() {
+gulp.task('catalog-promotion', done => {
     return gulp.src([
         '../../node_modules/jquery/dist/jquery.min.js',
         '../../vendor/sylius/sylius/src/Sylius/Bundle/UiBundle/Resources/private/js/sylius-prototype-handler.js',
@@ -144,7 +140,7 @@ gulp.task('catalog-promotion', function() {
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('../../web/assets/catalog/' + 'js/'))
         ;
+    done();
 });
 
-gulp.task('default', ['shop-js', 'shop-css', 'shop-img', 'catalog-promotion', 'bootstrap', 'fonts','images']);
-gulp.task('watch', ['default', 'shop-watch']);
+gulp.task('default', gulp.parallel('shop-js', 'shop-css', 'shop-img', 'catalog-promotion', 'bootstrap', 'fonts','images'));

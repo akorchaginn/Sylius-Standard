@@ -993,3 +993,16 @@ h1.ui.header .sub.header, h2.ui.header .sub.header {
 .main-image {
     max-width: 430px;
 }
+
+.loading {
+  background: url(../images/loading.gif) no-repeat center transparent;
+  min-height: 32px;
+}
+.suggestion_container {
+  border-left: 1px solid rgba(34,36,38,.15);
+  border-bottom: 1px solid rgba(34,36,38,.15);
+  border-right: 1px solid rgba(34,36,38,.15);
+  margin-top: -15px;
+  min-height: 32px;
+  padding: 20px 15px;
+}

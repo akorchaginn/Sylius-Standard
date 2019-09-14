@@ -18,3 +18,4 @@ parameters:
     default_taxon: ~
     assets_version: 0
     secret: EDITME
+    dadata_token: ~
