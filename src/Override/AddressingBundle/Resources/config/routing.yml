@@ -1,0 +1,5 @@
+suggest_fias_address:
+  path: /integration/addressing/
+  methods: [GET]
+  defaults:
+    _controller: addressing.controller:addressAction

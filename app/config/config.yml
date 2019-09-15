@@ -9,6 +9,7 @@ imports:
     - { resource: "@ImageBundle/Resources/config/config.yml" }
     - { resource: "@ReportBundle/Resources/config/config.yml" }
     - { resource: "@IntegrationBundle/Resources/config/config.yml"}
+    - { resource: "@AddressingBundle/Resources/config/config.yml"}
 
     - { resource: "parameters.yml" }
     - { resource: "security.yml" }

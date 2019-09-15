@@ -1,0 +1,5 @@
+services:
+  override.core.form.type.checkout_address:
+    class: Override\CoreBundle\Form\Type\Checkout\AddressTypeExtension
+    tags:
+      - { name: form.type_extension, extended_type: Sylius\Bundle\CoreBundle\Form\Type\Checkout\AddressType}

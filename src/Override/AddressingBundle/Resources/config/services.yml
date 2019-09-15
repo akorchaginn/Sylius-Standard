@@ -1,0 +1,15 @@
+services:
+  build.address.form.subscriber:
+    #class: Sylius\Bundle\AddressingBundle\Form\EventListener\BuildAddressFormSubscriber
+    class: Override\AddressingBundle\Form\EventListener\BuildAddressFormSubscriber
+    public: false
+    arguments: ['@sylius.repository.country', '@form.factory']
+
+  override.adressing.form.type.address:
+    class: Override\AddressingBundle\Form\Type\AddressType
+    tags:
+      - { name: form.type }
+    arguments: ['%sylius.model.address.class%', ['marinewool'], '@build.address.form.subscriber']
+
+  addressing.controller:
+    class: Override\AddressingBundle\Controller\AddressController

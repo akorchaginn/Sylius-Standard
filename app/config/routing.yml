@@ -39,6 +39,9 @@ image:
 report:
     resource: '@ReportBundle/Resources/config/routing.yml'
 
+addressing:
+    resource: '@AddressingBundle/Resources/config/routing.yml'
+
 integration:
     resource: '@IntegrationBundle/Resources/config/routing.yml'
     prefix: /api

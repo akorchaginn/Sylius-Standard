@@ -23,25 +23,28 @@ gulp.task('shop', function() {
     ;
 });
 */
-gulp.task('app_shop', function() {
+gulp.task('app_shop', done => {
     gulp.src('src/AppBundle/GulpFile.js', { read: false })
         .pipe(chug({ args: config }))
     ;
+    done();
 });
 
-gulp.task('app_admin', function() {
+gulp.task('app_admin', done => {
     
     gulp.src('src/AppBundle/GulpFile-admin.js', { read: false })
         .pipe(chug({ args: config }))
     ;
+    done();
 });
 
-gulp.task('updateVersion', function () {
+gulp.task('updateVersion', done => {
     exec('php bin/console assets:update-version', output);
+    done();
 });
 
 var output = function (err, stdout, stderr) {
     console.log('Update assets version..' + stdout + stderr);
 }
     
-gulp.task('default', ['app_shop', 'app_admin', 'updateVersion']);
+gulp.task('default', gulp.parallel('app_shop', 'app_admin', 'updateVersion'));
