@@ -43,13 +43,14 @@ $(document).ready(function () {
                     $.each(data.suggestions, function(key, item) {
                         data = item.data;
                         if (null != item.data.postal_code) {fullAddress = item.data.postal_code + ', ' + item.unrestricted_value;} else fullAddress = item.unrestricted_value;
-                        $("#suggestion_container").append('<p><a href="#" ' +
-                            'data-fias="${data.fias_id}" ' +
-                            'data-country="${data.country_iso_code}" ' +
-                            'data-city="${data.city}" ' +
-                            'data-city-fias="${data.city_fias_id}" ' +
-                            'data-postcode="${data.postal_code}" ' +
-                            'data-full-address="${fullAddress}">${fullAddress}</a></p>');
+                        $("#suggestion_container").append(`<p><a href='#'
+                            data-fias='${data.fias_id}'
+                            data-country='${data.country_iso_code}'
+                            data-city='${data.city}'
+                            data-city-fias='${data.city_fias_id}'
+                            data-postcode='${data.postal_code}'
+                            data-full-address='${fullAddress}'>
+                        ${fullAddress}</a></p>`);
                     });
                 }
                 else {
