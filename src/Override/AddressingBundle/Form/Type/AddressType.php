@@ -51,6 +51,9 @@ final class AddressType extends AbstractResourceType
             ])
             ->add('street', TextType::class, [
                 'label' => 'sylius.ui.address',
+                'attr' => [
+                    'placeholder' => 'sylius.ui.address_placeholder',
+                ],
             ])
             ->add('city', TextType::class, [
             ])
