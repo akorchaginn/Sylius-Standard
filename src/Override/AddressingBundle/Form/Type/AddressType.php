@@ -53,6 +53,7 @@ final class AddressType extends AbstractResourceType
                 'label' => 'sylius.ui.address',
                 'attr' => [
                     'placeholder' => 'sylius.ui.address_placeholder',
+                    'autocomplete' => 'nope',
                 ],
             ])
             ->add('city', TextType::class, [
