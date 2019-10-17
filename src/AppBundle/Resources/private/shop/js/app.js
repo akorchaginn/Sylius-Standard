@@ -46,8 +46,8 @@ $(document).ready(function () {
                         $("#suggestion_container").append(`<p><a href='#'
                             data-fias='${data.fias_id}'
                             data-country='${data.country_iso_code}'
-                            data-city='${data.city}'
-                            data-city-fias='${data.city_fias_id}'
+                            data-city='${data.city ? data.city : data.settlement}'
+                            data-city-fias='${data.city_fias_id ? data.city_fias_id : data.settlement_fias_id}'
                             data-postcode='${data.postal_code}'
                             data-full-address='${fullAddress}'>
                         ${fullAddress}</a></p>`);
