@@ -18,3 +18,7 @@ sylius_resource:
             classes:
                 model: ImageBundle\Entity\SlideImage
                 form: ImageBundle\Form\Type\SlideImageType
+        integration.request:
+            driver: doctrine/orm
+            classes:
+                model: IntegrationBundle\Entity\Request
