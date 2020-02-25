@@ -11,7 +11,7 @@ use Sylius\Component\Resource\Model\ResourceInterface as RI;
 /**
  * Class Request
  * @package IntegrationBundle\Entity
- * @ORM\Entity(repositoryClass="AppBundle\Repository\RequestRepository")
+ * @ORM\Entity(repositoryClass="IntegrationBundle\Repository\RequestRepository")
  * @ORM\Table(name="sylius_1с_request")
  */
 class Request implements RI
