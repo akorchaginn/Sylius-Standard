@@ -22,3 +22,7 @@ IntegrationBundle\Model\ProductVariant:
       type: integer
     onHand:
       type: integer
+    disabled:
+      type: boolean
+      xml_element:
+        cdata: false

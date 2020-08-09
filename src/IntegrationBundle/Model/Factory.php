@@ -335,7 +335,7 @@ class Factory
         $syliusProductVariant->setOnHold(0);
 
         $syliusProductVariant->setTracked(true);
-        $syliusProductVariant->setEnabled(true);
+        $syliusProductVariant->setEnabled($productVariant->isDisabled());
 
         return $syliusProductVariant;
     }

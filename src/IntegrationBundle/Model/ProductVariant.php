@@ -16,30 +16,23 @@ class ProductVariant
 {
     use IntegrationTrait;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $name;
 
-    /**
-     * @var int
-     */
+    /** @var int */
     private $priceRegular;
 
-    /**
-     * @var int
-     */
+    /** @var int */
     private $pricePromotion;
 
-    /**
-     * @var int|null
-     */
+    /** @var int|null */
     private $originalPrice;
 
-    /**
-     * @var int
-     */
+    /** @var int */
     private $onHand;
+
+    /** @var bool */
+    private $disabled;
 
     /**
      * @param string|null $name
@@ -71,9 +64,7 @@ class ProductVariant
         return $this;
     }
 
-    /**
-     * @return int
-     */
+    /** @return int */
     public function getPricePromotion(): int
     {
         return $this->pricePromotion;
@@ -89,25 +80,19 @@ class ProductVariant
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
+    /** @return string|null */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @return int
-     */
+    /** @return int */
     public function getPriceRegular(): int
     {
         return $this->priceRegular;
     }
 
-    /**
-     * @return int|null
-     */
+    /** @return int|null */
     public function getOriginalPrice(): ?int
     {
         return $this->originalPrice;
@@ -123,11 +108,26 @@ class ProductVariant
         return $this;
     }
 
-    /**
-     * @return int
-     */
+    /** @return int */
     public function getOnHand(): int
     {
         return $this->onHand;
     }
+
+    /** @return bool */
+    public function isDisabled(): bool
+    {
+        return $this->disabled;
+    }
+
+    /**
+     * @param bool $disabled
+     * @return ProductVariant
+     */
+    public function setDisabled(bool $disabled): ProductVariant
+    {
+        $this->disabled = $disabled;
+        return $this;
+    }
+
 }

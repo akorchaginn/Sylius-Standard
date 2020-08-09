@@ -16,65 +16,44 @@ class Product
 {
     use IntegrationTrait;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $name;
 
-    /**
-     * @var bool
-     */
+    /** @var bool */
     private $isSimple;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $description;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $shortDescription;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     private $productVariants;
 
-    /**
-     * @var int|null
-     */
+    /** @var int|null */
     private $taxon;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $taxonName;
 
-    /**
-     * @var int|null
-     */
+    /** @var int|null */
     private $onHand;
 
-    /**
-     * @var int|null
-     */
+    /** @var int|null */
     private $priceRegular;
 
-    /**
-     * @var int|null
-     */
+    /** @var int|null */
     private $pricePromotion;
 
-    /**
-     * @var int|null
-     */
+    /** @var int|null */
     private $originalPrice;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     private $attributes;
+
+    /** @var bool */
+    private $disabled;
 
     /**
      * @param string $name
@@ -127,9 +106,7 @@ class Product
         return $this;
     }
 
-    /**
-     * @return array
-     */
+    /** @return array */
     public function getProductVariants(): array
     {
         return $this->productVariants;
@@ -145,17 +122,13 @@ class Product
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
+    /** @return string|null */
     public function getTaxonName(): ?string
     {
         return $this->taxonName;
     }
 
-    /**
-     * @return int|null
-     */
+    /** @return int|null */
     public function getPricePromotion(): ?int
     {
         return $this->pricePromotion;
@@ -171,9 +144,7 @@ class Product
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
+    /** @return int|null */
     public function getOriginalPrice(): ?int
     {
         return $this->originalPrice;
@@ -229,60 +200,61 @@ class Product
         return $this;
     }
 
-    /**
-     * @return array
-     */
+    /** @return array */
     public function getAttributes(): array
     {
         return $this->attributes;
     }
 
-    /**
-     * @return string
-     */
+    /** @return string */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @return string|null
-     */
+    /** @return string|null */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @return string|null
-     */
+    /** @return string|null */
     public function getShortDescription(): ?string
     {
         return $this->shortDescription;
     }
 
-    /**
-     * @return int|null
-     */
+    /** @return int|null */
     public function getTaxon(): ?int
     {
         return $this->taxon;
     }
 
-    /**
-     * @return int|null
-     */
+    /** @return int|null */
     public function getOnHand(): ?int
     {
         return $this->onHand;
     }
 
-    /**
-     * @return int|null
-     */
+    /** @return int|null */
     public function getPriceRegular(): ?int
     {
         return $this->priceRegular;
     }
 
+    /** @return bool */
+    public function isDisabled(): bool
+    {
+        return $this->disabled;
+    }
+
+    /**
+     * @param bool $disabled
+     * @return Product
+     */
+    public function setDisabled(bool $disabled): Product
+    {
+        $this->disabled = $disabled;
+        return $this;
+    }
 }

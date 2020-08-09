@@ -9,6 +9,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Sylius\Component\Resource\Model\ResourceInterface as RI;
 
 /**
+ * @deprecated
  * Class Request
  * @package IntegrationBundle\Entity
  * @ORM\Entity(repositoryClass="IntegrationBundle\Repository\RequestRepository")
