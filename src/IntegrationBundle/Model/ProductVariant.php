@@ -31,7 +31,7 @@ class ProductVariant
     /** @var int */
     private $onHand;
 
-    /** @var bool */
+    /** @var bool|null */
     private $disabled;
 
     /**
@@ -114,17 +114,19 @@ class ProductVariant
         return $this->onHand;
     }
 
-    /** @return bool */
-    public function isDisabled(): bool
+    /**
+     * @return bool|null
+     */
+    public function getDisabled(): ?bool
     {
         return $this->disabled;
     }
 
     /**
-     * @param bool $disabled
+     * @param bool|null $disabled
      * @return ProductVariant
      */
-    public function setDisabled(bool $disabled): ProductVariant
+    public function setDisabled(?bool $disabled): ProductVariant
     {
         $this->disabled = $disabled;
         return $this;

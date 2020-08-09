@@ -52,7 +52,7 @@ class Product
     /** @var array */
     private $attributes;
 
-    /** @var bool */
+    /** @var bool|null */
     private $disabled;
 
     /**
@@ -242,19 +242,22 @@ class Product
         return $this->priceRegular;
     }
 
-    /** @return bool */
-    public function isDisabled(): bool
+    /**
+     * @return bool|null
+     */
+    public function getDisabled(): ?bool
     {
         return $this->disabled;
     }
 
     /**
-     * @param bool $disabled
+     * @param bool|null $disabled
      * @return Product
      */
-    public function setDisabled(bool $disabled): Product
+    public function setDisabled(?bool $disabled): Product
     {
         $this->disabled = $disabled;
         return $this;
     }
+
 }
