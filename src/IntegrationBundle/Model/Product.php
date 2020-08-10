@@ -245,7 +245,7 @@ class Product
     /**
      * @return bool|null
      */
-    public function getDisabled(): ?bool
+    public function isDisabled(): ?bool
     {
         return $this->disabled;
     }
