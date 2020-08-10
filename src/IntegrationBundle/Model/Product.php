@@ -243,11 +243,11 @@ class Product
     }
 
     /**
-     * @return bool|null
+     * @return bool
      */
-    public function isDisabled(): ?bool
+    public function isDisabled(): bool
     {
-        return $this->disabled;
+        return $this->disabled ?? false;
     }
 
     /**
