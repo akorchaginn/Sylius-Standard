@@ -9,58 +9,32 @@
 
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     {% block stylesheets %}
-        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/bootstrap/bootstrap.min.css'} %}
-        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/bootstrap/bootstrap-theme.min.css'} %}
-        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/font-awesome.min.css'} %}
-        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/bootstrap/bootstrap-social.css'} %}
-        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/style.css'} %}
-    {% endblock %}  
+{#        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css_old/bootstrap/bootstrap.min.css'} %}#}
+{#        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css_old/bootstrap/bootstrap-theme.min.css'} %}#}
+        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css_old/font-awesome.min.css'} %}
+{#        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css_old/bootstrap/bootstrap-social.css'} %}#}
+{#        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css_old/style.css'} %}#}
+        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/main.css'} %}
+        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/bootstrap.min.css'} %}
+    {% endblock %}
     {% block metatags %}
     {% endblock %}   
 </head>
 
 <body class="pushable">
     <div class="pusher">
-    {% block top %}
-           {% include '@SyliusShop/_contact.html.twig' with {'path': 'assets/shop/css/style.css'} %} 
-        <!--div id="menu" class="ui large sticky blue stackable menu"> 
-            <div class="ui container">
-                {{ render(url('sylius_shop_partial_taxon_index_by_code', {'code': 'category', 'template': '@SyliusShop/Taxon/_horizontalMenu.html.twig'})) }}
-                {{ render(controller('sylius.controller.shop.currency_switch:renderAction')) }}
-                {{ render(controller('sylius.controller.shop.locale_switch:renderAction')) }}
-            </div>
-        </div -->
-    {% endblock %}
-  <main class="main-content">
-    <div class="main-content__container">
-    {% include '@SyliusShop/_banner.html.twig' %}
-    {{ render(url('sylius_shop_partial_taxon_index_by_code', {'code': 'category', 'template': '@SyliusShop/Taxon/_newMenu.html.twig'})) }}
-    <div class="ui container">
-        {% include '@SyliusUi/_flashes.html.twig' %}
+        <header class="header">
+            <div class="container">
+                {% include '@SyliusShop/_contact.html.twig' with {'path': 'assets/shop/css/style.css'} %}
 
-        {% block content %}
-        {% endblock %}
-            <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-                <a class="a2a_button_vk"></a>
-                <a class="a2a_button_twitter"></a>
-                <a class="a2a_button_mail_ru"></a>
-                <a class="a2a_button_odnoklassniki"></a>
-                <a class="a2a_button_telegram"></a>
-            </div>
-            <script>
-                var a2a_config = a2a_config || {};
-                a2a_config.locale = "ru";
-                a2a_config.num_services = 14;
-            </script>
-            <script async src="https://static.addtoany.com/menu/page.js"></script>
-        </div>
+                    {% block content %}
+                    {% endblock %}
     </div>
-    </div>
-  </main>
     {% block footer %}
+        {% include '@SyliusShop/_subscribe.html.twig' %}
         {% include '@SyliusShop/_footer.html.twig' %}
     {% endblock %}
-{% include '@SyliusUi/Modal/_confirmation.html.twig' %}
+{#{% include '@SyliusUi/Modal/_confirmation.html.twig' %}#}
 </body>  
 {% block javascripts %}
     {% include '@SyliusUi/_javascripts.html.twig' with {'path': 'assets/shop/js/app.js'} %}

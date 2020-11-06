@@ -1,28 +1,72 @@
-  <header class="header-small">
-    <div class="header-small__container">
-      <div class="header-small__left">
-        <img class="header-small__phone-icon" src="/assets/shop/img/phone.png" alt="">
-        <a class="header-small__phone" href="tel:79833958613">+7-983-395-86-13</a>
-      </div>
-      <div class="header-small__right">
-        <div class="header-small__right-left">
-          <div class="header-small__auth">
-          {% if is_granted('ROLE_USER') %}
-              <a class="header-small__auth-a" title="{{ app.user.customer.FullName }}" href="{{ path('sylius_shop_account_dashboard') }}">{{ app.user.customer.FirstName }} {{ app.user.customer.LastName|first }}.</a> /
-              <a class="header-small__auth-a" href="{{ path('sylius_shop_logout') }}">{{ 'sylius.ui.logout'|trans }}</a>
-          {% else %}
-              <a class="header-small__auth-a" href="{{ path('sylius_shop_login') }}">{{ 'sylius.ui.login'|trans }}</a> /
-              <a class="header-small__auth-a" href="{{ path('sylius_shop_register') }}">{{ 'sylius.ui.register'|trans }}</a>
-          {% endif %}
-          </div>
-          <!--div class="header-small__search">
-            <form method="post" action="">
-              <input class="header-small__search-input" placeholder="Поиск по магазину.." type="text">
-              <button class="header-small__search-btn"></button>
-            </form>
-          </div-->
+    <div class="row">
+        <div class="col-lg-2 phoneright">
+            <img src="/assets/shop/img/phone.png" class="imgmenu" alt="">
         </div>
-        {{ render(url('sylius_shop_partial_cart_summary', {'template': '@SyliusShop/Cart/_widget.html.twig'})) }}
-      </div>
+        <div class="col-lg-2 phoneleft">
+            +7 983 395 86 13
+            <div><p>Барнаул</p></div>
+        </div>
+        <div class="col-lg-3 ml-auto href center">
+            {% if is_granted('ROLE_USER') %}
+                <a class="header-small__auth-a" title="{{ app.user.customer.FullName }}" href="{{ path('sylius_shop_account_dashboard') }}">{{ app.user.customer.FirstName }} {{ app.user.customer.LastName|first }}.</a> /
+                <a class="header-small__auth-a" href="{{ path('sylius_shop_logout') }}">{{ 'sylius.ui.logout'|trans }}</a>
+            {% else %}
+                <img src="/assets/shop/img/padlock.png" class="imgmenu" alt="">
+                <a href="{{ path('sylius_shop_login') }}">{{ 'sylius.ui.login'|trans }}</a> •  <a href="{{ path('sylius_shop_register') }}">{{ 'sylius.ui.register'|trans }}</a>
+            {% endif %}
+
+        </div>
+        <div class="col-lg-2 href">
+            <a href="cart.html">
+                <div class="row d-flex">
+                    <div><img src="/assets/shop/img/shoppingbasket.png" class="imgbasket" alt=""></div>
+                    <div class="cartposition">{{ 'sylius.ui.cart'|trans }}</div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-1 ">
+        </div>
     </div>
-  </header>
+    <div class="row">
+        <div class="col-lg-12 logo">
+            <a href="/"><img src="/assets/shop/img/MarineWool.png" class="logoimg" alt=""></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 logo2">
+            <h2 class="text2">{{ sylius.channel.name|raw|upper }}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <nav>
+                <ul class="menu d-flex justify-content-center">
+                    <li class="menu__item">
+                        <div class="href"><a href="catalog.html"><img src="/assets/shop/img/yarn.png" alt="">
+                                <div class="ellipse"><img src="/assets/shop/img/Ellipse.png" alt=""></div>
+                                Пряжа</div></a>
+                    </li>
+                    <li class="menu__item">
+                        <div class="href"><a href=""><img src="/assets/shop/img/needles.png" alt="">
+                                <div class="ellipse"><img src="/assets/shop/img/Ellipse.png" alt=""></div>
+                                Спицы и крючки</div></a>
+                    </li>
+                    <li class="menu__item">
+                        <div class="href"><a href=""><img src="/assets/shop/img/scissors.png" alt="">
+                                <div class="ellipse"><img src="/assets/shop/img/Ellipse.png" alt=""></div>
+                                Аксессуары</div></a>
+                    </li>
+                    <li class="menu__item">
+                        <div class="href"><a href=""><img src="/assets/shop/img/soap.png" alt="">
+                                <div class="ellipse"><img src="/assets/shop/img/Ellipse.png" alt=""></div>
+                                Товары для вязания</div></a>
+                    </li>
+                    <li class="menu__item">
+                        <div class="href"><a href=""><img src="/assets/shop/img/stocks.png" alt="">
+                                <div class="ellipse"><img src="/assets/shop/img/Ellipse.png" alt=""></div>
+                                Акции</div></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>

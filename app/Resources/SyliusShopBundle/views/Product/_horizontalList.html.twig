@@ -1,0 +1,68 @@
+{% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
+
+{% set block %}
+    <div class="row">
+        <div class="col-lg-12">
+            <nav>
+                <ul class="menu d-flex justify-content-center">
+                    %data%
+                </ul>
+            </nav>
+        </div>
+    </div>
+{% endset %}
+
+{% set title = [] %}
+{% set point = [] %}
+{% set price = [] %}
+
+{% for product in products %}
+{#    {% include '@SyliusShop/Product/_box.html.twig' %}#}
+    {% set product_title %}
+        <li class="menu__new">
+            <a href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}">
+                {% include '@SyliusShop/Product/_mainImage.html.twig' with {'product': product} %}
+            </a>
+            <div class="href divnew"><a href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}" class="">{{ product.name }}</a></div>
+        </li>
+    {% endset %}
+    {% set title = title|merge([product_title]) %}
+
+    {% set product_point %}
+        <li class="menu__ellips">
+            <div class="ellipsenew"><img src="/assets/shop/img/Ellipse 2.png" alt=""></div>
+        </li>
+    {% endset %}
+    {% set point = point|merge([product_point]) %}
+
+    {% set product_price %}
+        <li class="menu__price">
+            <div class="ellipsenew"><p>от <span class="price">{{ money.getPrice(product|marinewool_resolve_min_price_variant) }} ₽</span></p></div>
+        </li>
+    {% endset %}
+    {% set price = price|merge([product_price]) %}
+
+{% endfor %}
+
+<div class="row justify-content-center">
+    <div class="col-lg-9 justify-content-center center maxwdth100">
+        <div class="row">
+            <div class="new d-flex justify-content-end">
+                <div class="col-lg-4">
+                    <h1 class="text1">{{ 'sylius.ui.latest_products'|trans|upper }}</h1>
+                </div>
+                <div class="col-lg-2">
+                </div>
+                <div class="col-lg-2 right paddingtop15">
+                    <button class="button1" type="button">{{ 'sylius.ui.all_latest_products'|trans|upper }} <img class="arrow" src="/assets/shop/img/arrow-point-to-right.png" alt=""></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ block|replace({'%data%': title|join})|raw }}
+{{ block|replace({'%data%': point|join})|raw }}
+{{ block|replace({'%data%': price|join})|raw }}
+
+{% include '@SyliusShop/_headerCloser.html.twig' %}

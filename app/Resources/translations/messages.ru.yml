@@ -2,6 +2,7 @@ app:
     ui:
         news: 'Список новостей'
         uncost: 'Новости'
+        all_news: 'Новости'
         edit_news: 'Редактирование новостей'
         new_news: 'Создание новости'
         header: 'Заголовок'
@@ -12,6 +13,7 @@ app:
         edit_static_content: 'Редактирование страницы'
         static_contents: 'Список страниц'
         maintenance: Система находится на обслуживании. Обслуживание продлиться не дольше 20 минут. Приносим изменения за неудобства.
+        subscribe: 'Подпишитесь на нашу рассылку'
 
 image:
     ui:
@@ -386,7 +388,6 @@ sylius:
         exclusive: 'Эксклюзив'
         existing_customer: 'Существующий клиент'
         expiration_and_usage_limits: 'Окончание срока действия и ограничения использования'
-        expiration_and_usage_limits: 'Окончание срока действия и ограничения использования'
         expires_at: 'Истекает'
         extra_information: 'Дополнительная информация'
         extra_notes: 'Дополнительные заметки'
@@ -465,7 +466,8 @@ sylius:
         last_week_revenue: 'Доход прошлой недели'
         lastname: 'Фамилия'
         latest_orders: 'Заказы'
-        latest_products: 'Новые продукты'
+        latest_products: 'Новинки'
+        all_latest_products: 'Все новинки'
         less_than: 'Менее, чем'
         links: 'Ссылки'
         list_coupons: 'Список купонов'

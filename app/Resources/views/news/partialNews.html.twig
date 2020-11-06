@@ -1,6 +1,23 @@
-    <div class="section-title">
-        <h2 class="section-title__h2"><a href="{{ path('sylius_shop_news_index') }}" class="section">{{ 'app.ui.uncost'|trans }}</a></h2>
-    </div>
-{{ render(url('sylius_shop_partial_news_index_latest', {'count': 10, 'template': 'news/helper/_tableNews.html.twig'})) }}
-</div>
+<div class="newss">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9 justify-content-center center maxwdth100">
+                <div class="row">
+                    <div class="new d-flex justify-content-end">
+                        <div class="col-lg-4">
+                            <h1 class="text1">{{ 'app.ui.uncost'|trans|upper }}</h1>
+                        </div>
+                        <div class="col-lg-2">
+                        </div>
+                        <div class="col-lg-2 right paddingtop15">
+                            <a href="{{ path('sylius_shop_news_index') }}"><button class="button1" type="button">{{ 'app.ui.all_news'|trans|upper }} <img class="arrow" src="/assets/shop/img/arrow-point-to-right.png" alt=""></button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include '@SyliusShop/_headerCloser.html.twig' %}
 
+        {{ render(url('sylius_shop_partial_news_index_latest', {'count': 3, 'template': 'news/helper/_tableNews.html.twig'})) }}
+    </div>
+</div>
