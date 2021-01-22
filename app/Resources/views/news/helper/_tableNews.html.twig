@@ -1,35 +1,16 @@
-{% set block %}
-    <div class="row">
-        <div class="col-lg-12">
-            <nav>
-                <ul class="menu d-flex justify-content-center">
-                    %data%
-                </ul>
-            </nav>
-        </div>
-    </div>
-{% endset %}
-
-{% set img = [] %}
-{% set title = [] %}
-
-{% for new in news %}
-    {% set news_img %}
-        <li class="menu__new">
-{#            {{ new.createdAt|date("Y.m.d") }}#}
-            <a href=""><a href=""><img src="http://placehold.it/288x288" class="imgblog" alt=""></a>
-        </li>
-    {% endset %}
-    {% set img = img|merge([news_img]) %}
-
-    {% set news_title %}
-        <li class="menu__blog">
-            <div class="hrefbold divblog"><a href="" class="">{{ new.shortText }}</a></div>
-        </li>
-    {% endset %}
-    {% set title = title|merge([news_title]) %}
-
-{% endfor %}
-
-{{ block|replace({'%data%': img|join})|raw }}
-{{ block|replace({'%data%': title|join})|raw }}
+  <div class="news__images">
+      {% for new in news %}
+           <ul class="news__image">
+                <li class="news__list">
+                    <div class="news__img news__img_one"></div>
+{#                    Картинка подключается в класс news__img_one#}
+                    <div class="news__calendar">
+                        <h5 class="news__title">15 августа</h5>
+                    </div>
+                        <li class="news__list-info">
+                            <a href="#" target="_blank" class="news__img_link">{{ new.shortText }}</a>
+                        </li>
+                </li>
+           </ul>
+      {% endfor %}
+  </div>

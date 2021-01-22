@@ -5,7 +5,13 @@
 {% elseif product.images.first %}
     {% set path = product.images.first.path|imagine_filter(filter|default('sylius_shop_product_thumbnail')) %}
 {% else %}
-    {% set path = 'http://placehold.it/200x200' %}
+    {% set path = 'http://placehold.it/270x270' %}
 {% endif %}
 
-<img src="{{ path }}" alt="" class="imgnew" />
+{% if custom_class is defined %}
+    <img src="{{ path }}" alt="" class="{{ custom_class }}"/>
+{% else %}
+    <img src="{{ path }}" alt="" class="yarn__img"/>
+{% endif %}
+
+

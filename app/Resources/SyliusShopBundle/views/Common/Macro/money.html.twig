@@ -13,7 +13,7 @@
     {% if price.basePrice == price.currentPrice %}
         {{- convertAndFormat(price.basePrice) -}}
     {% else %}
-        <s class="old-price">{{- convertAndFormat(price.basePrice) -}}</s> <span class="new-price">{{- convertAndFormat(price.currentPrice) -}}</span>
+        <span class="promotional__price">{{- convertAndFormat(price.basePrice) -}}</span> <p class="yarn__price yarn__price_card">{{- convertAndFormat(price.currentPrice) -}}</p>
     {% endif %}
 {%- endmacro -%}
 
@@ -23,6 +23,6 @@
     {% if price.basePrice == price.currentPrice %}
         {{- (price.basePrice / 100)|number_format(0, '.', ' ') -}}
     {% else %}
-        <s class="old-price">{{- (price.basePrice / 100)|number_format(0, '.', ' ') -}}</s> <span class="new-price">{{- (price.currentPrice / 100)|number_format(0, '.', ' ') -}}</span>
+        <span class="promotional__price">{{- (price.basePrice / 100)|number_format(0, '.', ' ') -}}</span> <p class="yarn__price yarn__price_card">{{- (price.currentPrice / 100)|number_format(0, '.', ' ') -}}</p>
     {% endif %}
 {%- endmacro -%}

@@ -1,24 +1,34 @@
 {% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
 
 {{ sonata_block_render_event('sylius.shop.product.index.before_box', {'product': product}) }}
+{#    <figure class="yarn__container">#}
 
-<div class="ui fluid card">
-    <a href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}" class="blurring dimmable image">
-        <div class="ui dimmer">
-            <div class="content">
-                <div class="center">
-                    <div class="ui inverted button">{{ 'sylius.ui.view_more'|trans }}</div>
-                </div>
-            </div>
-        </div>
-        {% include '@SyliusShop/Product/_mainImage.html.twig' with {'product': product} %}
-    </a>
-    <div class="content">
-        <a href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}" class="header sylius-product-name">{{ product.name }}</a>
-        {% if not product.variants.empty() %}
-            <div class="sylius-product-price">{{ 'sylius.ui.from'|trans|lower }} {{ money.calculatePrice(product|marinewool_resolve_min_price_variant) }}</div>
-        {% endif %}
-    </div>
-</div>
+        <a href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}">
+            {% include '@SyliusShop/Product/_mainImage.html.twig' with {'product': product} %}
+        </a>
+        <a href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}" class="yarn__title"> {{ product.name }}</a>
+        <img src="/assets/shop/img/ellipse-green.svg" class="yarn__ellipse" alt="">
+       {% if not product.variants.empty() %}
+            <p class="yarn__price"><span class="yarn__price_accent">{{ 'sylius.ui.from'|trans|lower }}</span> {{ money.calculatePrice(product|marinewool_resolve_min_price_variant) }}</p>
+       {% endif %}
+
+
+{#    </figure>#}
+{#<a href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}" class="blurring dimmable image"></a>#}
+{#        <div class="ui dimmer">#}
+{#            <div class="content">#}
+{#                <div class="center">#}
+{#                    <div class="ui inverted button">{{ 'sylius.ui.view_more'|trans }}</div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        {% include '@SyliusShop/Product/_mainImage.html.twig' with {'product': product} %}#}
+{#    <div class="content">#}
+{#        <a href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}" class="header sylius-product-name">{{ product.name }}</a>#}
+{#        {% if not product.variants.empty() %}#}
+{#            <div class="sylius-product-price">{{ 'sylius.ui.from'|trans|lower }} {{ money.calculatePrice(product|marinewool_resolve_min_price_variant) }}</div>#}
+{#        {% endif %}#}
+{#    </div>#}
+{#</div>#}
 
 {{ sonata_block_render_event('sylius.shop.product.index.after_box', {'product': product}) }}

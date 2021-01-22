@@ -1,13 +1,17 @@
-<div class="ui breadcrumb">
-    <a href="{{ path('sylius_shop_homepage') }}" class="section">{{ 'sylius.ui.home'|trans }}</a>
-    <div class="divider"> / </div>
-            {% if news.header is defined %}
-                <a href="{{ path('sylius_shop_news_index') }}" class="section">{{ 'app.ui.uncost'|trans }}</a>
-            {% else %}
-                {{ 'app.ui.uncost'|trans  }}
-            {% endif %}
-        {% if news.header is defined %}
-            <div class="divider"> / </div>
-            <div class="active section">{{ news.header }}</div>
-        {% endif %}
+<div class="new__container new__container-catalog">
+    <p class="basket__arrow"><a href="{{ path('sylius_shop_homepage') }}" class="new__link">{{ 'sylius.ui.home'|trans }}</a></p>
+    <p class="basket__arrow"><a href="#" class="new__link">Пряжа</a></p>
+    <h2 class="new__title catalog__title">{{ product.name }}</h2>
 </div>
+
+{#    <div class="divider"> / </div>#}
+{#            {% if news.header is defined %}#}
+{#                <a href="{{ path('sylius_shop_news_index') }}" class="section">{{ 'app.ui.uncost'|trans }}</a>#}
+{#            {% else %}#}
+{#                {{ 'app.ui.uncost'|trans  }}#}
+{#            {% endif %}#}
+{#        {% if news.header is defined %}#}
+{#            <div class="divider"> / </div>#}
+{#            <div class="active section">{{ news.header }}</div>#}
+{#        {% endif %}#}
+{#</div>#}

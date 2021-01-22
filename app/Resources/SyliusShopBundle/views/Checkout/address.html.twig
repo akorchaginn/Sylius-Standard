@@ -1,42 +1,63 @@
-{% extends '@SyliusShop/Checkout/layout.html.twig' %}
+{% extends '@SyliusShop/layout.html.twig' %}
 
 {% form_theme form '@SyliusUi/Form/theme.html.twig' %}
 
 {% block content %}
-    {% include '@SyliusShop/Checkout/_steps.html.twig' %}
 
-    {{ sonata_block_render_event('sylius.shop.checkout.address.after_steps', {'order': order}) }}
+        {% include '@SyliusShop/Product/Show/_breadcrumb.html.twig' %}
+<section class="new order section">
+        <h2 class="new__title order__title">оформление заказа</h2>
+    {#    {% include '@SyliusShop/Checkout/_steps.html.twig' %}#}
 
-    <div class="body__cart-address ui stackable grid">
-        <div class="eleven wide column">
-            <div class="ui segment">
-                {{ sonata_block_render_event('sylius.shop.checkout.address.before_form', {'order': order}) }}
+{#    {{ sonata_block_render_event('sylius.shop.checkout.address.after_steps', {'order': order}) }}#}
+<div class="order__form">
+        {{ sonata_block_render_event('sylius.shop.checkout.address.before_form', {'order': order}) }}
+        {{ form_start(form, {'action': path('sylius_shop_checkout_address'), 'attr': {'class': 'form__order', 'novalidate': 'novalidate'}}) }}
+                  {{ form_errors(form) }}
+                  <input type="hidden" name="_method" value="PUT" />
+{#        {% include '@SyliusShop/Common/Form/_login.html.twig' with {'form': form.customer}%}#}
+        {% include '@SyliusShop/Checkout/Address/_form.html.twig' %}
+       {% include '@SyliusShop/Checkout/complete.html.twig' %}
 
-                {{ form_start(form, {'action': path('sylius_shop_checkout_address'), 'attr': {'class': 'ui loadable form', 'novalidate': 'novalidate'}}) }}
-                {{ form_errors(form) }}
-                    <input type="hidden" name="_method" value="PUT" />
+</div>
+    {% include '@SyliusShop/Checkout/selectShipping.html.twig' %}
+    {% include '@SyliusShop/Checkout/_comments.html.twig' %}
 
-                    {% include '@SyliusShop/Checkout/Address/_form.html.twig' %}
-                    <div class="ui divider"></div>
+    {{ form_row(form._token) }}
+    {{ form_end(form, {'render_rest': false}) }}
 
-                    {{ sonata_block_render_event('sylius.shop.checkout.address.before_navigation', {'order': order}) }}
 
-                    {% include '@SyliusShop/Checkout/Address/_navigation.html.twig' %}
+    {#    <div class="body__cart-address ui stackable grid">#}
+{#        <div class="eleven wide column">#}
+{#            <div class="ui segment">#}
+{#                {{ sonata_block_render_event('sylius.shop.checkout.address.before_form', {'order': order}) }}#}
 
-                    {{ form_row(form._token) }}
-                {{ form_end(form, {'render_rest': false}) }}
-            </div>
-        </div>
-        <div class="five wide column">
-            {{ sonata_block_render_event('sylius.shop.checkout.address.before_summary', {'order': order}) }}
+{#                {{ form_start(form, {'action': path('sylius_shop_checkout_address'), 'attr': {'class': 'ui loadable form', 'novalidate': 'novalidate'}}) }}#}
+{#                {{ form_errors(form) }}#}
+{#                    <input type="hidden" name="_method" value="PUT" />#}
 
-            {% include '@SyliusShop/Checkout/_summary.html.twig' with {'order': order} %}
+{#                    {% include '@SyliusShop/Checkout/Address/_form.html.twig' %}#}
+{#                    <div class="ui divider"></div>#}
 
-            {{ sonata_block_render_event('sylius.shop.checkout.address.before_support', {'order': order}) }}
+{#                    {{ sonata_block_render_event('sylius.shop.checkout.address.before_navigation', {'order': order}) }}#}
 
-            {% include '@SyliusShop/Checkout/_support.html.twig' %}
+{#                    {% include '@SyliusShop/Checkout/Address/_navigation.html.twig' %}#}
 
-            {{ sonata_block_render_event('sylius.shop.checkout.address.after_support', {'order': order}) }}
-        </div>
-    </div>
+{#                    {{ form_row(form._token) }}#}
+{#                {{ form_end(form, {'render_rest': false}) }}#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="five wide column">#}
+{#            {{ sonata_block_render_event('sylius.shop.checkout.address.before_summary', {'order': order}) }}#}
+
+{#            {% include '@SyliusShop/Checkout/_summary.html.twig' with {'order': order} %}#}
+
+{#            {{ sonata_block_render_event('sylius.shop.checkout.address.before_support', {'order': order}) }}#}
+
+{#            {% include '@SyliusShop/Checkout/_support.html.twig' %}#}
+
+{#            {{ sonata_block_render_event('sylius.shop.checkout.address.after_support', {'order': order}) }}#}
+{#        </div>#}
+{#    </div>#}
+</section>
 {% endblock %}

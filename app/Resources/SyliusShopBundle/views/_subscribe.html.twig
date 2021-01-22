@@ -1,14 +1,13 @@
-<div class="subscribe">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="subpad">
-                <h1 class="text1">{{ 'app.ui.subscribe'|trans|upper }}</h1>
-                <p>Узнавайте об акциях и новинках первым! Получайте советы и идеи для вдохновения!</p>
-                <div class="d-flex subpadinput">
-                    <input class="subinput" type="text" required name="sub" value="" placeholder="Ваш email">
-                    <input type="submit" class="submail" value="ПОДПИСАТЬСЯ">
-                </div>
+<section class="mail section">
+    <div class="mail__container">
+        <h4 class="mail__title">{{ 'app.ui.subscribe'|trans|upper }}</h4>
+        <p class="mail__subtitle">Узнавайте об акциях и новинках первым! Получайте советы и идеи для
+            вдохновения!</p>
+        <form action="#" class="mail__form">
+            <div class="mail__form-box">
+                <input name="name" type="text" placeholder="Ваш email" class="mail__form-input">
+                <button type="submit" class="form__submit-button form__submit-button_mail">Подписаться</button>
             </div>
-        </div>
+        </form>
     </div>
-</div>
+</section>

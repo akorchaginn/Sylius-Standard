@@ -1,42 +1,60 @@
-<div class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-2">
-            </div>
-            <div class="col-lg-2">
-                <p class="textboltfooter"><a href="">Каталог</a></p>
-                <p class="textnormalfooter"><a href="">Пряжа</a></p>
-                <p class="textnormalfooter"><a href="">Спицы и крючки</a></p>
-                <p class="textnormalfooter"><a href="">Аксессуары</a></p>
-                <p class="textnormalfooter"><a href="">Товары для визания</a></p>
-                <p class="textnormalfooter"><a href="">Акции</a></p>
-            </div>
-            <div class="col-lg-3">
-                <p class="textboltfooter"><a href=" {{ path('sylius_shop_static_content_slug_show', {'slug': 'about'}) }} " class="item">{{ 'sylius.ui.about'|trans }}</a></p>
-                <p class="textboltfooter"><a href="{{ path('sylius_shop_news_index') }}" class="main-menu__a">{{ 'app.ui.uncost'|trans }}</a></p>
-                <p class="textboltfooter"><a href="">Блог</a></p>
-                <p class="textboltfooter"><a href=" {{ path('sylius_shop_static_content_slug_show', {'slug': 'shipping'}) }} " class="item">{{ 'sylius.ui.delivery_and_shipping'|trans  }}</a></p>
-                <p class="textboltfooter"><a href=" {{ path('sylius_shop_static_content_slug_show', {'slug': 'contacts'}) }} " class="item">{{ 'sylius.ui.contacts'|trans }}</a></p>
-            </div>
-            <div class="col-lg-3">
-                <p class="textboltfooter"><img src="/assets/shop/img/map-pin-silhouette.png" class="imgfooter" alt=""> Барнаул, улица Шумакова 46</p>
-                <p class="textnormalfooter leftpadfoot">(ТЦ Лидер, нижний торговый зал)</p>
-                <p class="textboltfooter"><img src="/assets/shop/img/call-answer.png" class="imgfooter" alt=""><a href="tel:+7 983 395 86 13"> +7 983 395 86 13</a></p>
-                <p class="textboltfooter"><img src="/assets/shop/img/mail-black-envelope-symbol.png" class="imgfooter" alt=""><a href="mailto:shop@marinewool.ru">shop@marinewool.ru</a></p>
-                <p class="textboltfooter"><img src="/assets/shop/img/clock.png" class="imgfooter" alt=""> Ежедневно с 10.00 - 20.00</p>
-                <p class="textnormalfooter"><img src="/assets/shop/img/in.png" class="imgfooter" alt=""> <img src="/assets/shop/img/whatsapp.png" class="imgfooter" alt=""><a href="whatsapp://send?phone=+79133680420">+7 983 395 86 13</a></p>
-            </div>
-        </div>
-        <div class="row footerlogopad">
-            <div class="col-lg-2">
-            </div>
-            <div class="col-lg-2">
-                <a href=""><img src="/assets/shop/img/MarineWool.png" class="foterlogo" alt=""></a>
-            </div>
-            <div class="col-lg-5 linehsmall">
-                <p class="textsmallfooter">© 2019 Магазин пряжи MarineWool. Все права защищены.</p>
-                <p class="textsmallfooter">Пожалуйста, ознакомьтесь с <a href=" {{ path('sylius_shop_static_content_slug_show', {'slug': 'confidential'}) }} " class="item">политикой конфиденциальности</a></p>
-            </div>
-        </div>
+<footer class="footer section">
+    <div class="footer__columns">
+        <nav class="footer__column ">
+            <h5 class="footer__column-heading">Каталог</h5>
+            <ul class="footer__column-links">
+                <li><a class="footer__column-link" href="#" target="_blank">Пряжа</a></li>
+                <li><a class="footer__column-link" href="#" target="_blank">Спицы и крючки</a></li>
+                <li><a class="footer__column-link" href="#" target="_blank">Аксессуары</a></li>
+                <li><a class="footer__column-link" href="#" target="_blank">Товары для вязания</a></li>
+                <li><a class="footer__column-link" href="#" target="_blank">Акции</a></li>
+            </ul>
+        </nav>
+        <nav class="footer__column">
+            <ul class="footer__column-links-nav">
+                <li><a class="footer__column-link" href=" {{ path('sylius_shop_static_content_slug_show', {'slug': 'about'}) }} ">{{ 'sylius.ui.about'|trans }}</a></li>
+                <li><a class="footer__column-link" href="{{ path('sylius_shop_news_index') }}">{{ 'app.ui.uncost'|trans }}</a></li>
+                <li><a class="footer__column-link" href="#" target="_blank">Блог</a></li>
+                <li><a class="footer__column-link" href=" {{ path('sylius_shop_static_content_slug_show', {'slug': 'shipping'}) }} ">{{ 'sylius.ui.delivery_and_shipping'|trans  }}</a></li>
+                <li><a class="footer__column-link" href=" {{ path('sylius_shop_static_content_slug_show', {'slug': 'contacts'}) }} " class="item">{{ 'sylius.ui.contacts'|trans }}</a></li>
+            </ul>
+        </nav>
+        <nav class="footer__column">
+            <ul class="footer__column-links-nav footer__column-links-nav_map">
+                <li class="footer__column-info">
+                    <img class="footer__social-icon" src="/assets/shop/img/map-pin-silhouette.png" alt=""> Барнаул, улица
+                    Шумакова 46
+                    <span class="footer__column-map">(ТЦ Лидер, нижний торговый зал)</span>
+                </li>
+                <li class="footer__column-info">
+                    <img class="footer__social-icon" src="/assets/shop/img/call-answer.png" alt=""><a href="tel:+7 983 395 86 13" class="footer__column-link">+7 983 395 86 13
+                    </a>
+                </li>
+                <li class="footer__column-info">
+                    <img class="footer__social-icon" src="/assets/shop/img/mail-black-envelope-symbol.png" alt="">
+                    <a href="mailto:shop@marinewool.ru" class="footer__column-link">
+                        shop@marinewool.ru</a>
+                </li>
+                <li class="footer__column-info">
+                    <img class="footer__social-icon" src="/assets/shop/img/clock.png" alt=""> Ежедневно с 10.00 - 20.00
+                </li>
+                <li class="footer__column-info">
+                    <img class="footer__social-icon footer__social-icon-whatsapp" src="/assets/shop/img/whatsapp.png"
+                         alt=""><a href="whatsapp://send?phone=+79133680420" class="footer__column-link" >+7 983 395 86 13</a>
+                </li>
+                <li class="footer__column-info">
+                    <img class="footer__social-icon footer__social-icon-instagram" src="/assets/shop/img/in.png" alt="">
+                    <a href="https://instagram.com/marinewool.ru" target="_blank"
+                       class="instagram__marinewool instagram__marinewool-footer">@marinewool</a>
+                </li>
+            </ul>
+        </nav>
     </div>
-</div>
+    <div class="footer__info">
+        <a href="#"><img src="/assets/shop/img/MarineWool.png" class="footer__logo" alt=""></a>
+
+        <p class="footer__info-subtitle"> &copy; 2019 Магазин пряжи MarineWool. Все права защищены.
+            <br> Пожалуйста, ознакомьтесь <a href=" {{ path('sylius_shop_static_content_slug_show', {'slug': 'confidential'}) }} "> c политикой
+                конфиденциальности</a></p>
+    </div>
+</footer>

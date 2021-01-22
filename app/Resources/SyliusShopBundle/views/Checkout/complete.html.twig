@@ -1,35 +1,84 @@
-{% extends '@SyliusShop/Checkout/layout.html.twig' %}
 
 {% form_theme form '@SyliusUi/Form/theme.html.twig' %}
 
 {% block content %}
-    {% include '@SyliusShop/Checkout/_steps.html.twig' with {'active': 'complete', 'orderTotal': order.total} %}
+{#    {% include '@SyliusShop/Checkout/_steps.html.twig' with {'active': 'complete', 'orderTotal': order.total} %}#}
 
-    {{ sonata_block_render_event('sylius.shop.checkout.complete.after_steps', {'order': order}) }}
+{#    {{ sonata_block_render_event('sylius.shop.checkout.complete.after_steps', {'order': order}) }}#}
 
-    <div class="body__select-complete ui padded segment">
-        {% include '@SyliusShop/Checkout/Complete/_header.html.twig' %}
+{#    <div class="body__select-complete ui padded segment">#}
+{#        {% include '@SyliusShop/Checkout/Complete/_header.html.twig' %}#}
 
-        {{ sonata_block_render_event('sylius.shop.checkout.complete.after_content_header', {'order': order}) }}
+{#        {{ sonata_block_render_event('sylius.shop.checkout.complete.after_content_header', {'order': order}) }}#}
 
         {% include 'SyliusUiBundle::_flashes.html.twig' %}
-
-        {{ form_start(form, {'action': path('sylius_shop_checkout_complete'), 'attr': {'class': 'ui loadable form', 'novalidate': 'novalidate'}}) }}
+        <div class="order__execution">
+        {{ form_start(form, {'action': path('sylius_shop_checkout_complete'), 'attr': {'class': 'ui loadable', 'novalidate': 'novalidate'}}) }}
             {{ form_errors(form) }}
             <input type="hidden" name="_method" value="PUT" />
 
-            {{ sonata_block_render_event('sylius.shop.checkout.complete.before_summary', {'order': order, 'form': form}) }}
+            <div class="order__container">
+                <h5 class="filter__title">{{ 'sylius.ui.your_order'|trans }} № 27112</h5>
+            </div>
+            <div class="order__box">
+                <p class="">{{ 'sylius.ui.item'|trans }}</p>
+                <p class="">{{ 'sylius.ui.qty_briefly'|trans }}</p>
+                <p class="">{{ 'sylius.ui.unit_price'|trans }}</p>
+            </div>
 
-            {% include 'SyliusShopBundle:Common/Order:_summary.html.twig' %}
+            <div class="order__box-product">
+                <div>
+                    <strong class="">Drops Muskat</strong>
+                    <p class="order__item">76skyblueuni</p>
+                </div>
+                <strong class="">1</strong>
+                <strong class="">170 &#8381;</strong>
+            </div>
+            <div class="order__box-product">
+                <div>
+                    <strong class="">Drops Air</strong>
+                    <p class="order__item">76skyblueuni</p>
+                </div>
+                <strong class="">14</strong>
+                <strong class="">2100 &#8381;</strong>
+            </div>
+            <div class="order__box-product">
+                <div>
+                    <strong class="">Drops Air</strong>
+                    <p class="order__item">76skyblueuni</p>
+                </div>
+                <strong class="">8</strong>
+                <strong class="">1000 &#8381;</strong>
+            </div>
+            <p class="order__box-item">Итого: <span class="order__box-item_accent">3270 &#8381;</span></p>
+            <h3 class="order__name">Федорова Наталья Владимировна</h3>
+            <p class="order__address">Барнаул, ул. Антона Петрова 218 а, кв 150, 387387</p>
+            <div class="order__pickup">
+                <img src="/assets/shop/img/pickup.svg" alt="самовывоз" class="order__pickup-img">
+                <p class="order__pickup-title">Самовывоз</p>
+                <p class="order__pickup-item">Самовывоз находится по адресу г.Барнаул, ул.Шумакова 46 ТЦ Лидер (нижний торговый зал)</p>
+            </div>
+            <div class="order__pickup">
+                <img src="/assets/shop/img/cash.svg" alt="наличные" class="order__pickup-img">
+                <p class="order__pickup-title">Наличными при получении</p>
+                <p class="order__pickup-item">Данный способ оплаты доступен при доставке курьером по г.Барнаулу.
+                    При самовывозе в шоу руме Marinewool</p>
+            </div>
+        </div>
 
-            {{ sonata_block_render_event('sylius.shop.checkout.complete.after_summary', {'order': order}) }}
 
-            <div class="ui divider"></div>
-            {% include '@SyliusShop/Checkout/Complete/_form.html.twig' %}
+{#            {{ sonata_block_render_event('sylius.shop.checkout.complete.before_summary', {'order': order, 'form': form}) }}#}
 
-            {{ sonata_block_render_event('sylius.shop.checkout.complete.before_navigation', {'order': order}) }}
+{#            {% include 'SyliusShopBundle:Common/Order:_summary.html.twig' %}#}
 
-            {% include '@SyliusShop/Checkout/Complete/_navigation.html.twig' %}
+{#            {{ sonata_block_render_event('sylius.shop.checkout.complete.after_summary', {'order': order}) }}#}
+
+{#            <div class="ui divider"></div>#}
+{#            {% include '@SyliusShop/Checkout/Complete/_form.html.twig' %}#}
+
+{#            {{ sonata_block_render_event('sylius.shop.checkout.complete.before_navigation', {'order': order}) }}#}
+
+{#            {% include '@SyliusShop/Checkout/Complete/_navigation.html.twig' %}#}
 
             {{ form_row(form._token) }}
         {{ form_end(form, {'render_rest': false}) }}

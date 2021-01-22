@@ -1,11 +1,189 @@
-<a class="menu-catalog__title ui blue submit button" href="#">Открыть каталог</a>
-<div class="catalog-menu__wrap menu-catalog-hide">
-    <div class="ui fluid vertical menu">
-        <ul id="menu-catalog" class="list-unstyled">
-        {% for product in resources %}
-            <li class="item">    <a href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}" class="header sylius-product-name">{{ product.name }}</a> </li>
-        {% endfor %}
-        </ul>
+{#<a class="menu-catalog__title ui blue submit button" href="#">Открыть каталог</a>#}
+{#<div class="catalog-menu__wrap menu-catalog-hide">#}
+{#    <div class="ui fluid vertical menu">#}
+{#        <ul id="menu-catalog" class="list-unstyled">#}
+{#        {% for product in resources %}#}
+{#            <li class="item">    <a href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}" class="header sylius-product-name"></a> </li>#}
+{#        {% endfor %}#}
+{#        </ul>#}
+{#    </div>#}
+{#</div>#}
+<div class="catalog__filter">
+    <div class="filter">
+        <h5 class="filter__title">Фильтр товаров</h5>
+    </div>
+    <div class="filter__container">
+        <div>
+            <input id="brands" name="accordion" type="checkbox" class="filter__input">
+            <label for="brands" class="filter__label">Бренды</label>
+            <article class="filter__article">
+                <menu class="filter__menu">
+                    {% if resources is defined %}
+                        {% for product in resources %}
+                        <li class="filter__list ">
+                            <a href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}"
+                               class="filter__link">{{ product.name }}
+                                <span class="filter__list_country">{{ product.name }}</span>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if product is defined %}
+                        <li class="filter__list ">
+                            <a href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}"
+                               class="filter__link">{{ product.name }}
+                                <span class="filter__list_country">{{ product.name }}</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                </menu>
+            </article>
+            <div>
+                <input id="color" name="accordion-1" type="checkbox" class="filter__input">
+                <label for="color" class="filter__label">Состав</label>
+                <article class="filter__article">
+                    <menu class="filter__menu">
+                        <li class="filter__list">
+                            <a href="#" class="filter__link">Infinity Design
+                                <span class="filter__list_country">(Норвегия) 7</span>
+                            </a>
+                        </li>
+                        <li class="filter__list">
+                            <a href="#" class="filter__link">Lana Gatto
+                                <span class="filter__list_country">(Италия) 7</span>
+                            </a>
+                        </li>
+                        <li class="filter__list filter__list_active">
+                            <a href="#" class="filter__link filter__link_active">Fonty
+                                <span class="filter__list_country">(Франция) 6</span>
+                            </a>
+                        </li>
+                        <li class="filter__list">
+                            <a href="#" class="filter__link">BBB Filati
+                                <span class="filter__list_country">(Италия) 2</span>
+                            </a>
+                        </li>
+                        <li class="filter__list">
+                            <a href="#" class="filter__link">Filati
+                                <span class="filter__list_country">(Италия) 3</span>
+                            </a>
+                        </li>
+                        <li class="filter__list">
+                            <a href="#" class="filter__link">Infinity Design
+                                <span class="filter__list_country">(Норвегия) 7</span>
+                            </a>
+                        </li>
+                        <li class="filter__list">
+                            <a href="#" class="filter__link">Lana Gatto
+                                <span class="filter__list_country">(Италия) 7</span>
+                            </a>
+                        </li>
+                        <li class="filter__list filter__list_active">
+                            <a href="#" class="filter__link filter__link_active">Fonty
+                                <span class="filter__list_country">(Франция) 6</span>
+                            </a>
+                        </li>
+                        <li class="filter__list">
+                            <a href="#" class="filter__link">BBB Filati
+                                <span class="filter__list_country">(Италия) 2</span>
+                            </a>
+                        </li>
+                        <li class="filter__list">
+                            <a href="#" class="filter__link">Filati
+                                <span class="filter__list_country">(Италия) 3</span>
+                            </a>
+                        </li>
+                        <li class="filter__list">
+                            <a href="#" class="filter__link">Infinity Design
+                                <span class="filter__list_country">(Норвегия) 7</span>
+                            </a>
+                        </li>
+                        <li class="filter__list">
+                            <a href="#" class="filter__link">Lana Gatto
+                                <span class="filter__list_country">(Италия) 7</span>
+                            </a>
+                        </li>
+                        <li class="filter__list filter__list_active">
+                            <a href="#" class="filter__link filter__link_active">Fonty
+                                <span class="filter__list_country">(Франция) 6</span>
+                            </a>
+                        </li>
+                        <li class="filter__list">
+                            <a href="#" class="filter__link">BBB Filati
+                                <span class="filter__list_country">(Италия) 2</span>
+                            </a>
+                        </li>
+                        <li class="filter__list">
+                            <a href="#" class="filter__link">Filati
+                                <span class="filter__list_country">(Италия) 3</span>
+                            </a>
+                        </li>
+                    </menu>
+                </article>
+            </div>
+            <div>
+                <input id="structure" name="accordion-1" type="checkbox" class="filter__input">
+                <label for="structure" class="filter__label">Вес</label>
+                <article class="filter__article">
+                    <menu class="filter__menu">
+                        <li class="filter__list">
+                            <a href="#" class="filter__link">50 г.
+                            </a>
+                        </li>
+                        <li class="filter__list">
+                            <a href="#" class="filter__link">100 г.
+                            </a>
+                        </li>
+                        <li class="filter__list filter__list_active">
+                            <a href="#" class="filter__link filter__link_active">150 г.
+                            </a>
+                        </li>
+                        <li class="filter__list">
+                            <a href="#" class="filter__link">200 г.
+                            </a>
+                        </li>
+                        <li class="filter__list">
+                            <a href="#" class="filter__link">500 г.
+                            </a>
+                        </li>
+                        <li class="filter__list">
+                            <a href="#" class="filter__link">1000 г.
+                            </a>
+                        </li>
+                    </menu>
+                </article>
+            </div>
+            <div>
+                <input id="volume" name="accordion-1" type="checkbox" class="filter__input">
+                <label for="volume" class="filter__label filter__label_accent">Метраж</label>
+                <article class="filter__article">
+                    <menu class="filter__menu">
+                        <li class="filter__list">
+                            <a href="#" class="filter__link">0.5 м.</a>
+                        </li>
+                        <li class="filter__list">
+                            <a href="#" class="filter__link">1 м.</a>
+                        </li>
+                        <li class="filter__list filter__list_active">
+                            <a href="#" class="filter__link filter__link_active">1.5 м.</a>
+                        </li>
+                        <li class="filter__list">
+                            <a href="#" class="filter__link">2 м.</a>
+                        </li>
+                        <li class="filter__list">
+                            <a href="#" class="filter__link">2.5 м.</a>
+                        </li>
+                        <li class="filter__list">
+                            <a href="#" class="filter__link">3 м.</a>
+                        </li>
+                        <li class="filter__list">
+                            <a href="#" class="filter__link">5 м.</a>
+                        </li>
+                    </menu>
+                </article>
+            </div>
+        </div>
     </div>
 </div>
 

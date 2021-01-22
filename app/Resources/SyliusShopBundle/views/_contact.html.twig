@@ -1,72 +1,46 @@
-    <div class="row">
-        <div class="col-lg-2 phoneright">
-            <img src="/assets/shop/img/phone.png" class="imgmenu" alt="">
-        </div>
-        <div class="col-lg-2 phoneleft">
-            +7 983 395 86 13
-            <div><p>Барнаул</p></div>
-        </div>
-        <div class="col-lg-3 ml-auto href center">
-            {% if is_granted('ROLE_USER') %}
-                <a class="header-small__auth-a" title="{{ app.user.customer.FullName }}" href="{{ path('sylius_shop_account_dashboard') }}">{{ app.user.customer.FirstName }} {{ app.user.customer.LastName|first }}.</a> /
-                <a class="header-small__auth-a" href="{{ path('sylius_shop_logout') }}">{{ 'sylius.ui.logout'|trans }}</a>
-            {% else %}
-                <img src="/assets/shop/img/padlock.png" class="imgmenu" alt="">
-                <a href="{{ path('sylius_shop_login') }}">{{ 'sylius.ui.login'|trans }}</a> •  <a href="{{ path('sylius_shop_register') }}">{{ 'sylius.ui.register'|trans }}</a>
-            {% endif %}
-
-        </div>
-        <div class="col-lg-2 href">
-            <a href="cart.html">
-                <div class="row d-flex">
-                    <div><img src="/assets/shop/img/shoppingbasket.png" class="imgbasket" alt=""></div>
-                    <div class="cartposition">{{ 'sylius.ui.cart'|trans }}</div>
-                </div>
-            </a>
-        </div>
-        <div class="col-lg-1 ">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12 logo">
-            <a href="/"><img src="/assets/shop/img/MarineWool.png" class="logoimg" alt=""></a>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12 logo2">
-            <h2 class="text2">{{ sylius.channel.name|raw|upper }}</h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <nav>
-                <ul class="menu d-flex justify-content-center">
-                    <li class="menu__item">
-                        <div class="href"><a href="catalog.html"><img src="/assets/shop/img/yarn.png" alt="">
-                                <div class="ellipse"><img src="/assets/shop/img/Ellipse.png" alt=""></div>
-                                Пряжа</div></a>
-                    </li>
-                    <li class="menu__item">
-                        <div class="href"><a href=""><img src="/assets/shop/img/needles.png" alt="">
-                                <div class="ellipse"><img src="/assets/shop/img/Ellipse.png" alt=""></div>
-                                Спицы и крючки</div></a>
-                    </li>
-                    <li class="menu__item">
-                        <div class="href"><a href=""><img src="/assets/shop/img/scissors.png" alt="">
-                                <div class="ellipse"><img src="/assets/shop/img/Ellipse.png" alt=""></div>
-                                Аксессуары</div></a>
-                    </li>
-                    <li class="menu__item">
-                        <div class="href"><a href=""><img src="/assets/shop/img/soap.png" alt="">
-                                <div class="ellipse"><img src="/assets/shop/img/Ellipse.png" alt=""></div>
-                                Товары для вязания</div></a>
-                    </li>
-                    <li class="menu__item">
-                        <div class="href"><a href=""><img src="/assets/shop/img/stocks.png" alt="">
-                                <div class="ellipse"><img src="/assets/shop/img/Ellipse.png" alt=""></div>
-                                Акции</div></a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
+     <div class="header__layout  header__layout_catalog">
+         <ul class="header__info">
+             <li class="header__info_call">
+                 <img class="header__info_phone" src="/assets/shop/img/phone.svg">
+                 <p class="header__info_number">+7 983 395 86 13</p>
+             </li>
+             <li class="header__info_city">Барнаул</li>
+         </ul>
+     </div>
+     <nav>
+         <ul class="header__info">
+             {% if is_granted('ROLE_USER') %}
+                 <li class="header__info_enter">
+                     <img class="header__info_padlock" src=".assets/shop/img/padlock-opened.svg">
+                     <a href="#" target="_blank" class="header__link" title="{{ app.user.customer.FullName }}"
+                        href="{{ path('sylius_shop_account_dashboard') }}">{{ app.user.customer.FirstName }} {{ app.user.customer.LastName|first }}</a>
+                     <a href="{{ path('sylius_shop_logout') }}">{{ 'sylius.ui.logout'|trans }}</a>#}
+                 </li>
+             {% else %}
+                 <li class="header__info_enter">
+                     <img class="header__info_padlock"  src="/assets/shop/img/padlock.svg">
+                     <a class="header__link profile__enter-button" href="{{ path('sylius_shop_login') }}">{{ 'sylius.ui.login'|trans }}</a>
+                     <img class="header__info_ellipse" src="/assets/shop/img//ellipse.svg">
+                     <a class="header__link profile__registration-button" href="{{ path('sylius_shop_register') }}">{{ 'sylius.ui.register'|trans }}</a>
+                 </li>
+             {% endif %}
+         </ul>
+     </nav>
+     <nav>
+         <ul class="header__info header__info-basket">
+             <li class="header__info_shoppingBasket">
+                 <img class="header__info_basket" src="/assets/shop/img/shopping-basket.svg">
+                 <a class="header__info-active">25</a>
+             </li>
+             <li>
+                 <a href="#" target="_blank" class="header__link">{{ 'sylius.ui.cart'|trans }}</a>
+                 <p class="header__info-total">750 &#8381;</p></li>
+             </li>
+         </ul>
+     </nav>
+     <div class="header__marinewool header__marinewool-catalog">
+         <a href="cart.html" class="footer__column-link">
+         <img src="/assets/shop/img/MarineWool.png" class="header__logo header__logo-catalog">
+         <h1 class="header__title header__title_catalog">{{ sylius.channel.name|raw|upper }}</h1>
+         </a>
+     </div>

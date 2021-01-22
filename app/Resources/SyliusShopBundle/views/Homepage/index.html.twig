@@ -1,7 +1,32 @@
 {% extends '@SyliusShop/layout.html.twig' %}
 
-{% block content %}
-{#{{ render(url('slide_images_show', {'template': '@Image/slideShow.html.twig'})) }}#}
-{{ render(url('sylius_shop_partial_product_index_latest', {'count': 4, 'template': '@SyliusShop/Product/_horizontalList.html.twig'})) }}
-{% include 'news/partialNews.html.twig' %}
+{% block layout %}
+    <body class="page">
+    <div class="page__content section">
+        <header class="header section">
+            <div class="header__container">
+            {% block header %}
+                    {% include '@SyliusShop/_contact_home.html.twig'%}
+                </div>
+            {% endblock %}
+        </header>
+        <main class="content">
+            {% block content %}
+                {% include '@SyliusShop/Taxon/_icon.html.twig' %}
+
+                {#{{ render(url('slide_images_show', {'template': '@Image/slideShow.html.twig'})) }}#}
+                {{ render(url('sylius_shop_partial_product_index_latest', {'count': 4, 'template': '@SyliusShop/Product/_horizontalList.html.twig'})) }}
+                {% include '@SyliusShop/Taxon/_instagram.html.twig' %}
+                {% include '@SyliusShop/Taxon/_feedback.html.twig' %}
+                {% include 'news/partialNews.html.twig' %}
+                {% include '@SyliusShop/_subscribe.html.twig' %}
+            {% endblock %}
+        </main>
+
+        {% block footer %}
+            {% include '@SyliusShop/_footer.html.twig' %}
+        {% endblock %}
+        {#{% include '@SyliusUi/Modal/_confirmation.html.twig' %}#}
+    </div>
+    </body>
 {% endblock %}

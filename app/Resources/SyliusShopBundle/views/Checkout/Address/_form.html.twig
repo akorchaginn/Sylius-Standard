@@ -1,14 +1,35 @@
-<div id="sylius-shipping-address">
-    {% include '@SyliusShop/Checkout/Address/_addressBookSelect.html.twig' %}
-    <h3 class="ui dividing header">{{ 'sylius.ui.shipping_address'|trans }}</h3>
-    {% if form.customer is defined %}
-        {% include '@SyliusShop/Common/Form/_login.html.twig' with {'form': form.customer} %}
-    {% endif %}
+<fieldset class="form__comments ">
     {% include '@SyliusShop/Common/Form/_address.html.twig' with {'form': form.shippingAddress, 'order': order} %}
+    {% include '@SyliusShop/Checkout/Address/_addressBookSelect.html.twig' %}
+    <p class="form__comments_item">{{ 'sylius.ui.your_address'|trans }}{{ 'sylius.ui.address'|trans }}</p>
+    <label>
+        <input name="name" type="text" placeholder="Ваш адрес" class="form__input-order ">
+    </label>
+
+{#    { form_row(form.street) }}#}
+{#    <div class='hidden alert alert-info' id="wrong_address" role='alert'>К сожалению, указанный адрес не найден. Адрес и стоимость доставки будет уточнена оператором.</div#}
+{#    {% include '@SyliusShop/Common/Form/_countryCode.html.twig' with {'form': form.countryCode}%}#}
+{#    <div class="province-container field" data-url="{{ path('sylius_shop_ajax_render_province_form') }}">#}
+{#        {% if form.provinceCode is defined %}#}
+{#                {{ form_row(form.provinceCode, {'attr': {'class': 'ui dropdown'}}) }}#}
+{#            {% elseif form.provinceName is defined %}#}
+{#                {{ form_row(form.provinceName) }}#}
+{#            {% endif %}#}
+{#    </div>#}
+{#        {% if form.provinceCode is defined %}#}
+{#            {{ form_errors(form) }}#}
+{#        {% endif %}#}
+
+</fieldset>
+
+{#<div id="sylius-shipping-address">#}
+{#    {% include '@SyliusShop/Checkout/Address/_addressBookSelect.html.twig' %}#}
+{#    <h3 class="ui dividing header">{{ 'sylius.ui.shipping_address'|trans }}</h3>#}
+
     {# { form_row(form.differentBillingAddress, {'attr': {'data-toggles': 'sylius-billing-address'}}) } #}
 
-    {{ sonata_block_render_event('sylius.shop.checkout.address.shipping_address_form', {'order': order}) }}
-</div>
+{#    {{ sonata_block_render_event('sylius.shop.checkout.address.shipping_address_form', {'order': order}) }}#}
+{#</div>#}
 
 <!-- div id="sylius-billing-address">
     <div class="ui hidden divider"></div>

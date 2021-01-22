@@ -1,41 +1,82 @@
-{% extends '@SyliusShop/Checkout/layout.html.twig' %}
+{#{% extends '@SyliusShop/Checkout/layout.html.twig' %}#}
 
 {% form_theme form '@SyliusUi/Form/theme.html.twig' %}
 
 {% block content %}
-    {% include '@SyliusShop/Checkout/_steps.html.twig' with {'active': 'select_shipping', 'orderTotal': order.total} %}
+<section class="new delivery section">
+    <h2 class="delivery__title">способ доставки</h2>
+    {{ sonata_block_render_event('sylius.shop.checkout.select_shipping.before_form', {'order': order}) }}
+    <div class="delivery__container" id="sylius-shipping-methods">
+        {{ form_start(form, {'action': path('sylius_shop_checkout_select_shipping'), 'attr': {'class': 'ui loadable', 'novalidate': 'novalidate'}}) }}
+        <input type="hidden" name="_method" value="PUT" />
 
-    {{ sonata_block_render_event('sylius.shop.checkout.select_shipping.after_steps', {'order': order}) }}
-
-    <div class="body__select-shipping ui stackable grid">
-        <div class="eleven wide column">
-            <div class="ui padded segment" id="sylius-shipping-methods">
-                {{ sonata_block_render_event('sylius.shop.checkout.select_shipping.before_form', {'order': order}) }}
-
-                {{ form_start(form, {'action': path('sylius_shop_checkout_select_shipping'), 'attr': {'class': 'ui loadable form', 'novalidate': 'novalidate'}}) }}
-                    <input type="hidden" name="_method" value="PUT" />
-
-                    {% include '@SyliusShop/Checkout/SelectShipping/_form.html.twig' %}
-                    <div class="ui divider"></div>
-
-                    {{ sonata_block_render_event('sylius.shop.checkout.select_shipping.before_navigation', {'order': order}) }}
-
-                    {% include '@SyliusShop/Checkout/SelectShipping/_navigation.html.twig' %}
-
-                    {{ form_row(form._token) }}
-                {{ form_end(form, {'render_rest': false}) }}
+                <ul class="delivery__box form_radio_group-item">
+                    <input type="radio" id="radio" name="radio"  value="1" class="custom-radio" checked>
+                    <label for="radio" class="delivery__label">Доставка по городу</label>
+                    <li class="delivery__item"><strong>При сумме заказа более 3000 руб. доставка бесплатно!</strong>
+                        Сумма доставки расчитана по г.Барнаул.
+                        Сумма доставки в отдалённые районы вы можете найти в разделе (Оплата и Доставка)</li>
+                    <li class="basket__title delivery__price">150 &#8381;</li>
+                </ul>
+                <ul class="delivery__box">
+                    <input type="radio" id="radio-two" name="radio"  class="custom-radio" checked>
+                    <label for="radio-two" class="delivery__label">Самовывоз</label>
+                    <li class="delivery__item">Самовывоз находится по адресу
+                        г.Барнаул, ул.Шумакова 46 ТЦ Лидер
+                        (нижний торговый зал)</li>
+                    <li class="basket__title delivery__price">0 &#8381;</li>
+                </ul>
             </div>
-        </div>
-        <div class="five wide column">
-            {{ sonata_block_render_event('sylius.shop.checkout.select_shipping.before_summary', {'order': order}) }}
+            <div class="delivery__container">
+                <ul class="delivery__box form_radio_group-item">
+                    <input type="radio" id="radio-three" name="radio"  class="custom-radio" checked>
+                    <label for="radio-three" class="delivery__label">СДЭК</label>
+                    <li class="delivery__item">Расчет стоимости расчитывается индивидуально</li>
+                    <li class="basket__title delivery__price">0 &#8381;</li>
+                </ul>
+                <ul class="delivery__box form_radio_group-item">
+                    <input type="radio" id="radio-four" name="radio"  class="custom-radio" checked>
+                    <label for="radio-four" class="delivery__label">Почта России</label>
+                    <li class="basket__title delivery__price">290 &#8381;</li>
+                </ul>
+            </div>
+    {{ form_row(form._token) }}
+    {{ form_end(form, {'render_rest': false}) }}
+        </section>
 
-            {% include '@SyliusShop/Checkout/_summary.html.twig' with {'order': order} %}
+{#    {% include '@SyliusShop/Checkout/_steps.html.twig' with {'active': 'select_shipping', 'orderTotal': order.total} %}#}
 
-            {{ sonata_block_render_event('sylius.shop.checkout.select_shipping.before_support', {'order': order}) }}
+{#    {{ sonata_block_render_event('sylius.shop.checkout.select_shipping.after_steps', {'order': order}) }}#}
 
-            {% include '@SyliusShop/Checkout/_support.html.twig' %}
+{#    <div class="body__select-shipping ui stackable grid">#}
+{#        <div class="eleven wide column">#}
+{#            <div class="ui padded segment" id="sylius-shipping-methods">#}
+{#                {{ sonata_block_render_event('sylius.shop.checkout.select_shipping.before_form', {'order': order}) }}#}
 
-            {{ sonata_block_render_event('sylius.shop.checkout.select_shipping.after_support', {'order': order}) }}
-        </div>
-    </div>
+{#                {{ form_start(form, {'action': path('sylius_shop_checkout_select_shipping'), 'attr': {'class': 'ui loadable form', 'novalidate': 'novalidate'}}) }}#}
+{#                    <input type="hidden" name="_method" value="PUT" />#}
+
+{#                    {% include '@SyliusShop/Checkout/SelectShipping/_form.html.twig' %}#}
+{#                    <div class="ui divider"></div>#}
+
+{#                    {{ sonata_block_render_event('sylius.shop.checkout.select_shipping.before_navigation', {'order': order}) }}#}
+
+{#                    {% include '@SyliusShop/Checkout/SelectShipping/_navigation.html.twig' %}#}
+
+{#                    {{ form_row(form._token) }}#}
+{#                {{ form_end(form, {'render_rest': false}) }}#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="five wide column">#}
+{#            {{ sonata_block_render_event('sylius.shop.checkout.select_shipping.before_summary', {'order': order}) }}#}
+
+{#            {% include '@SyliusShop/Checkout/_summary.html.twig' with {'order': order} %}#}
+
+{#            {{ sonata_block_render_event('sylius.shop.checkout.select_shipping.before_support', {'order': order}) }}#}
+
+{#            {% include '@SyliusShop/Checkout/_support.html.twig' %}#}
+
+{#            {{ sonata_block_render_event('sylius.shop.checkout.select_shipping.after_support', {'order': order}) }}#}
+{#        </div>#}
+{#    </div>#}
 {% endblock %}
