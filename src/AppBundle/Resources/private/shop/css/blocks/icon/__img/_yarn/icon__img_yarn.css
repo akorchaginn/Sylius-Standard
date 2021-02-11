@@ -1,0 +1,28 @@
+.icon__img_yarn {
+    background-image: url("../../../../../img/yarn.svg");
+    width: 53px;
+    height: 67px;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 800px) {
+    .icon__img_yarn {
+        width: 37px;
+        height: 47px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .icon__img_yarn {
+        width: 28px;
+        height: 35px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .icon__img_yarn {
+        width: 22px;
+        height: 28px;
+        margin-bottom: 0;
+    }
+}

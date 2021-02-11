@@ -1,0 +1,12 @@
+.order__container {
+    background: linear-gradient(90deg, #8A95DA -23.61%, #39E6ED 102.12%);
+    color: #FFFEF6;
+    border-radius: 10px 10px 0 0;
+    padding: 2% 0;
+}
+
+@media screen and (max-width: 1100px) {
+    .order__container {
+        width: 100%;
+    }
+}

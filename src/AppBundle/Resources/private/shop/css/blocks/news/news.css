@@ -1,0 +1,45 @@
+@import url(__img/news__img.css);
+@import url(__images/news__images.css);
+@import url(__image/news__image.css);
+@import url(__calendar/news__calendar.css);
+@import url(__list/news__list.css);
+@import url(__list-info/news__list-info.css);
+@import url(__title/news__title.css);
+
+
+.news {
+    margin: 0 auto;
+    font-family: "Roboto", Arial, sans-serif;
+    max-width: 1136px;
+}
+
+
+@media screen and (max-width: 1030px) {
+    .news {
+        width: 92%;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .news {
+        width: 381px;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .news {
+        width: 440px;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .news {
+        width: 320px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .news {
+        width: 297px;
+    }
+}

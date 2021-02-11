@@ -1,19 +1,22 @@
 {#<div class="ui segment">#}
     {{ form_start(form, {'action': path('sylius_shop_cart_save'), 'attr': {'novalidate': 'novalidate'}}) }}
         {{ form_errors(form) }}
-        <input type="hidden" name="_method" value="PATCH"/>
-        {{ sonata_block_render_event('sylius.shop.cart.summary.items', {'cart': cart, 'form': form}) }}
+<input type="hidden" name="_method" value="PATCH"/>
+{{ sonata_block_render_event('sylius.shop.cart.summary.items', {'cart': cart, 'form': form}) }}
 
-    <div class="basket__container">
-        <p class="basket__item">№</p>
-        <p class="basket__item">{{ 'sylius.ui.item'|trans }}</p>
-        <p class="basket__item ">{{ 'sylius.ui.unit_price'|trans }}</p>
-        <p class="basket__item ">{{ 'sylius.ui.qty'|trans }}</p>
-        <p class="basket__item">{{ 'sylius.ui.total'|trans }}</p>
-        <p class="basket__delete"> Удалить всё</p>
-        <button class="basket__delete-button"></button>
-    </div>
-
+<div id="sylius-cart-items" class="basket__container">
+    <p class="basket__item">№</p>
+    <p class="basket__item">{{ 'sylius.ui.item'|trans }}</p>
+    <p class="basket__item ">{{ 'sylius.ui.unit_price'|trans }}</p>
+    <p class="basket__item ">{{ 'sylius.ui.qty'|trans }}</p>
+    <p class="basket__item">{{ 'sylius.ui.total'|trans }}</p>
+    {#<form action="{{ path('sylius_shop_cart_clear') }}" id="deleteAllForm" >
+         <input type="hidden" name="_method" value="DELETE" />
+         <input type="hidden" name="_csrf_token" value="{{ csrf_token(cart.id) }}" />#}
+    <p class="basket__delete delete__button"> Удалить всё</p>
+    <button class="basket__delete-button delete__button" type="button" id="sylius-cart-clear"></button>
+    {#        </form>#}
+</div>
 {#        <table id="sylius-cart-items" class="ui very basic celled table">#}
 {#            <thead>#}
 {#            <tr>#}
@@ -41,3 +44,28 @@
 {#        {% include '@SyliusShop/Cart/Summary/_update.html.twig' %}#}
         {{ form_row(form._token) }}
     {{ form_end(form, {'render_rest': false}) }}
+{% block javascripts %}
+    {% include '@SyliusUi/_javascripts.html.twig' with {'path': 'assets/shop/js/app.js'} %}
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.delete__button').on('click', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    method: 'post',
+                    url: "{{ path('sylius_shop_cart_clear') }}",
+                    data: {
+                        '_method': "DELETE",
+                        '_csrf_token': "{{ csrf_token(cart.id) }}"
+                    },
+                    success: function (data) {
+                        location.reload();
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            })
+        });
+    </script>
+{% endblock %}

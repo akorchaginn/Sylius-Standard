@@ -1,0 +1,38 @@
+.basket__delete-button {
+    background-repeat: no-repeat;
+    background-image: url("../../../../img/delete-red.svg");
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    background-position: left;
+    width: 15px;
+    transition: all 0.5s ease-in-out;
+}
+
+.basket__delete-button:hover {
+    cursor: pointer;
+    opacity: 0.6;
+    transform: scale(1.4);
+}
+
+.basket__delete-button:focus {
+    outline: none;
+}
+
+
+@media screen and (max-width: 700px) {
+    .basket__delete-button {
+        height: 48px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .basket__delete-button {
+        position: absolute;
+        top: 2%;
+        right: 5%;
+    }
+}
+
+
+

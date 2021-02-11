@@ -1,0 +1,10 @@
+.form__error {
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 13px;
+    min-height: 30px;
+    margin-top: 5px;
+}
+.form__error_visible{
+    color:rgba(236, 105, 105, 1);
+}

@@ -2,16 +2,21 @@
 <section class="new section">
     <div class="new__container">
         <h2 class="new__title">{{ 'sylius.ui.latest_products'|trans|upper }}</h2>
-        <img src="/assets/shop/img/arrow-point-to-right.svg" class="new__arrow">
-        <button type="button" class="new__button">{{ 'sylius.ui.all_latest_products'|trans|upper }}</button>
+        <button type="button" class="new__button">
+            <a href="#" class="header__button-link">{{ 'sylius.ui.all_latest_products'|trans|upper }}</a>
+            <img src="/assets/shop/img/arrow-point-to-right.svg" class="new__arrow">
+        </button>
     </div>
-    <div class="yarn">
+    <div class="yarn ">
         {% for product in products %}
-            <figure class="yarn__container">
+            <figure class="yarn__img-container">
                 <a href="#"> {% include '@SyliusShop/Product/_mainImage.html.twig' with {'product': product} %}</a>
-                <a href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}" class="yarn__title"> {{ product.name }} </a>
+                <a href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}"
+                   class="yarn__title"> {{ product.name }} </a>
                 <img src="/assets/shop/img/ellipse-green.svg" class="yarn__ellipse" alt="">
-                <p class="yarn__price"><span class="yarn__price_accent">от</span>{{ money.getPrice(product|marinewool_resolve_min_price_variant) }} &#8381;</p>
+                <p class="yarn__price"><span
+                            class="yarn__price_accent">от</span>{{ money.getPrice(product|marinewool_resolve_min_price_variant) }}
+                    &#8381;</p>
             </figure>
         {% endfor %}
     </div>

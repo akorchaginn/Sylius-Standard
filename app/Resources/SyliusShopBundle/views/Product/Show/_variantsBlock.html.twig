@@ -1,5 +1,6 @@
 {% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
 
+
 <div class="color__cards" id="products">
     {% for variant in product.variants %}
         {% if variant.enabled %}
@@ -10,13 +11,15 @@
                     {% set path = image.path is not null ? image.path|imagine_filter('sylius_shop_product_small_thumbnail') : 'http://placehold.it/201x201' %}
 
                     {% for variant_images in image.productVariants %}
-                         {% if variant_images.id == variant.id %}
-                             {% set imageBlock %}
-                                <a href="{{ image.path|imagine_filter('sylius_shop_product_original') }}" data-lightbox="sylius-product-image">
-                                <img class="color__img" src="{{ path }}" data-large-thumbnail="{{ image.path|imagine_filter('sylius_shop_product_large_thumbnail') }}">
-                                    </a>
-                             {% endset %}
-                         {% endif %}
+                        {% if variant_images.id == variant.id %}
+                            {% set imageBlock %}
+                                <a href="{{ image.path|imagine_filter('sylius_shop_product_original') }}"
+                                   data-lightbox="sylius-product-image">
+                                    <img class="color__img" src="{{ path }}"
+                                         data-large-thumbnail="{{ image.path|imagine_filter('sylius_shop_product_large_thumbnail') }}">
+                                </a>
+                            {% endset %}
+                        {% endif %}
                     {% endfor %}
                 {% endfor %}
                 {% if imageBlock == '' %}
@@ -28,18 +31,22 @@
                 {% endif %}
 
                 <p class="card__price-description card__price-description_color">{{ variant.name }}</p>
-                <p class="card__price-description card__price-description_color">{{ 'sylius.ui.price'|trans }}: <strong>{{ money.calculatePrice(variant) }}</strong></p>
+                <p class="card__price-description card__price-description_color">{{ 'sylius.ui.price'|trans }}
+                    : {{ money.calculatePrice(variant) }}</p>
                 <img src="/assets/shop/img/ellipse.svg" class="yarn__ellipse" alt="">
 
                 {% if variant.onhand - variant.onhold <= 0 %}
                     <p class="card__price-description card__price-description_color card__price-description_red">{{ 'sylius.ui.variant_delivery_is_expected'|trans }}</p>
                 {% else %}
-                    <p class="card__price-description card__price-description_color">{{ 'sylius.ui.variant_onhand'|trans }} <span class="card__price-description_quantity">(гр/шт):</span>: {{ variant.onhand - variant.onhold }}</p>
+                    <p class="card__price-description card__price-description_color">{{ 'sylius.ui.variant_onhand'|trans }}
+                        <span class="card__price-description_quantity">(гр/шт):</span>: {{ variant.onhand - variant.onhold }}
+                    </p>
 
                     <div class="color__buttons">
-                        <button class="color__button" type="button">+</button>
-                        <input class="color__input-prices" type="text" id="{{ variant.code }}" value="1" required="required" min="1" max="{{ variant.onhand - variant.onhold }}">
                         <button class="color__button" type="button">-</button>
+                        <input class="color__input-prices" type="text" id="{{ variant.code }}" value="1"
+                               required="required" min="1" max="{{ variant.onhand - variant.onhold }}">
+                        <button class="color__button" type="button">+</button>
                         <button class="color__basket" name="submit" id="{{ variant.code }}"></button>
                     </div>
                 {% endif %}

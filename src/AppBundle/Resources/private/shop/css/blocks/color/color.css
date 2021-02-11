@@ -1,0 +1,15 @@
+@import url(__title/color__title.css);
+@import url(__container/color__container.css);
+@import url(__img/color__img.css);
+@import url(__button/color__button.css);
+@import url(__basket/color__basket.css);
+@import url(__input-price/color__input-price.css);
+@import url(__buttons/color__buttons.css);
+@import url(__cards/color__cards.css);
+@import url(__button-basket/color__button-basket.css);
+
+.color {
+    font-family: "Roboto", Arial, sans-serif;
+    max-width: 840px;
+    padding: 4% 0 6% 0;
+}

@@ -1,0 +1,14 @@
+@media screen and (max-width: 560px) {
+    .form__input-feedback {
+        width: 98px;
+        margin: 10px 0 0 0;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .form__input-feedback {
+        width: 265px;
+        margin-bottom: 5%;
+        font-size: 15px;
+    }
+}

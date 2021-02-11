@@ -1,0 +1,17 @@
+@media screen and (max-width: 480px) {
+    .color__button-basket {
+        margin-top: 1%;
+    }
+}
+
+@media screen and (max-width: 377px) {
+    .color__button-basket {
+        margin-top: 2%;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .color__button-basket {
+        margin-top: 1%;
+    }
+}

@@ -1,0 +1,45 @@
+.header__marinewool-basket {
+    top: 43%;
+    left: 43%;
+}
+@media screen and (max-width: 1024px){
+    .header__marinewool-basket {
+        left: 38%;
+    }
+}
+@media screen and (max-width: 1024px){
+    .header__marinewool-basket {
+        left: 38%;
+    }
+}
+@media screen and (max-width: 800px){
+    .header__marinewool-basket {
+        left: 35%;
+    }
+}
+@media screen and (max-width: 640px){
+    .header__marinewool-basket {
+        left: 31%;
+        top: 55%;
+    }
+}
+@media screen and (max-width: 490px){
+    .header__marinewool-basket {
+        left: 25%;
+    }
+}
+@media screen and (max-width: 420px){
+    .header__marinewool-basket {
+        left: 20%;
+        top:58%;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .header__marinewool-basket {
+        left: 10%;
+        top: 56%;
+
+    }
+}
+

@@ -1,0 +1,11 @@
+.yarn__price_card {
+    text-align: left;
+    padding: 0;
+    margin: 6px 0 20px 0;
+}
+
+@media screen and (max-width: 1024px){
+    .yarn__price_card {
+        margin: 6px 0;
+    }
+}

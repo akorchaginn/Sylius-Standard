@@ -1,0 +1,28 @@
+{#<div class="ui hidden divider"></div>#}
+
+{#<div class="ui two column stackable grid">#}
+{#    <div class="column">#}
+{#        <h1 class="ui header">#}
+{#            <i class="circular user icon"></i>#}
+{#            <div class="content">#}
+{#                {{ 'sylius.ui.register_in_the_store'|trans }}#}
+{#                <div class="sub header">{{ 'sylius.ui.create_a_new_customer_account'|trans }}</div>#}
+{#            </div>#}
+{#        </h1>#}
+{#    </div>#}
+{#    <div class="middle aligned column">#}
+{#        <a href="{{ path('sylius_shop_login') }}" class="ui right floated basic button">{{ 'sylius.ui.have_an_account_already'|trans }} {{ 'sylius.ui.sign_in_here'|trans }}.</a>#}
+{#    </div>#}
+{#</div>#}
+
+
+<div class="popup popup_type-registration">
+    <div class="popup__container">
+        <button type="button" class="popup__closed-icon"></button>
+        <div class="popup__registration">
+            <h5 class="popup__title">{{ 'sylius.ui.register'|trans }} </h5>
+            <a href="#" target="_blank" class="popup__subtitle">Уже регистрировались?</a>
+        </div>
+        {% include '@SyliusShop/Register/_form.html.twig' %}
+    </div>
+</div>

@@ -1,13 +1,15 @@
 <fieldset class="form__info">
     <label class="form__label">Ваше имя и фамилия
-        <input name="name_registration" type="text" placeholder="Как вас зовут?" class="form__input-item" required minlength="2" maxlength="40" autocomplete="off">
+        <input name="name_registration" type="text" placeholder="Как вас зовут?" class="form__input-item" required
+               minlength="2" maxlength="40" autocomplete="off">
         <span class="form__error form__error_visible"></span>
-        {{ form_row(form.firstName) }}
+        {#        {{ form_row(form.firstName) }}#}
     </label>
-    <label class="form__label" >Контактный телефон
-        <input name="name_phone" type="text" placeholder="+7 ___-___-__-__" class="form__input-item" required minlength="2" maxlength="40" autocomplete="off">
+    <label class="form__label">Контактный телефон
+        <input name="name_phone" type="text" placeholder="+7 ___-___-__-__" class="form__input-item" required
+               minlength="2" maxlength="40" autocomplete="off">
         <span class="form__error form__error_visible"></span>
-        {{ form_row(form.phoneNumber) }}
+        {#        {{ form_row(form.phoneNumber) }}#}
     </label>
 </fieldset>
 

@@ -1,0 +1,29 @@
+.basket__grid {
+
+}
+
+@media screen and (max-width: 1100px) {
+    .basket__grid {
+        margin: 0 auto;
+        width: 90%
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .basket__grid {
+        width: 70%
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .basket__grid {
+        width: 80%
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .basket__grid {
+        margin: 0 4%;
+        width: 90%
+    }
+}

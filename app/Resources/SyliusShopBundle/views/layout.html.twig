@@ -9,27 +9,23 @@
 
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     {% block stylesheets %}
-{#        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css_old/bootstrap/bootstrap.min.css'} %}#}
-{#        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css_old/bootstrap/bootstrap-theme.min.css'} %}#}
-{#        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css_old/font-awesome.min.css'} %}#}
-{#        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css_old/bootstrap/bootstrap-social.css'} %}#}
-{#        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css_old/style.css'} %}#}
-{#        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/main.css'} %}#}
+
         {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/index.css'} %}
-{#        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/bootstrap.min.css'} %}#}
+        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/fonts/fonts.css'} %}
+
     {% endblock %}
     {% block metatags %}
-    {% endblock %}   
+    {% endblock %}
 </head>
 
 {% block layout %}
-<body class="page">
+    <body class="page">
     <div class="page__catalog section">
         <header class="header section">
             <div class="header__container header__container-catalog">
-            {% block header %}
-                    {% include '@SyliusShop/_contact.html.twig'%}
-                </div>
+                {% block header %}
+                {% include '@SyliusShop/_contact.html.twig' %}
+            </div>
             {% endblock %}
         </header>
         <main class="content">
@@ -42,27 +38,72 @@
             {% include '@SyliusShop/_subscribe.html.twig' %}
             {% include '@SyliusShop/_footer.html.twig' %}
         {% endblock %}
-    {#{% include '@SyliusUi/Modal/_confirmation.html.twig' %}#}
+
+        {% include '@SyliusShop/Register/_header.html.twig' %}
+        {% include '@SyliusShop/Login/_header.html.twig' %}
+        {% include '@SyliusShop/Order/_thankYou.html.twig' %}
+        {% include '@SyliusShop/Product/_filterModal.html.twig' %}
+
+
+
+        {#{% include '@SyliusUi/Modal/_confirmation.html.twig' %}#}
     </div>
-</body>
+
+
+    </body>
 {% endblock %}
 
-
 {% block javascripts %}
+
     {% include '@SyliusUi/_javascripts.html.twig' with {'path': 'assets/shop/js/app.js'} %}
-    <!-- Yandex.Metrika counter --> <script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter44477557 = new Ya.Metrika({ id:44477557, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/44477557" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
-    <!-- Google.Analytics counter --> <script type="text/javascript"> !function(a,b,c,d,e,f,g){a.GoogleAnalyticsObject=e,a[e]=a[e]||function(){(a[e].q=a[e].q||[]).push(arguments)},a[e].l=1*new Date,f=b.createElement(c),g=b.getElementsByTagName(c)[0],f.async=1,f.src=d,g.parentNode.insertBefore(f,g)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-98335457-1","auto"),ga("send","pageview");</script> <!-- /Google.Analytics counter -->
-{% endblock %}    
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript"> (function (d, w, c) {
+            (w[c] = w[c] || []).push(function () {
+                try {
+                    w.yaCounter44477557 = new Ya.Metrika({
+                        id: 44477557,
+                        clickmap: true,
+                        trackLinks: true,
+                        accurateTrackBounce: true,
+                        webvisor: true
+                    });
+                } catch (e) {
+                }
+            });
+            var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
+                n.parentNode.insertBefore(s, n);
+            };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else {
+                f();
+            }
+        })(document, window, "yandex_metrika_callbacks"); </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/44477557" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript> <!-- /Yandex.Metrika counter -->
+                <!-- Google.Analytics counter -->
+    <script type="text/javascript"> !function (a, b, c, d, e, f, g) {
+            a.GoogleAnalyticsObject = e, a[e] = a[e] || function () {
+                (a[e].q = a[e].q || []).push(arguments)
+            }, a[e].l = 1 * new Date, f = b.createElement(c), g = b.getElementsByTagName(c)[0], f.async = 1, f.src = d, g.parentNode.insertBefore(f, g)
+        }(window, document, "script", "https://www.google-analytics.com/analytics.js", "ga"), ga("create", "UA-98335457-1", "auto"), ga("send", "pageview");</script> <!-- /Google.Analytics counter -->
+{% endblock %}
+<script src="/assets/shop/js/script.js"></script>
+<script src="/assets/shop/js/formValidator.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/jquery.slicknav.min.js"></script>
 <script>
-	$(function(){
+    $(function () {
         $('#menu').slicknav({
             appendTo: '#mobile-menu',
             label: 'Меню',
-            init: function() {
+            init: function () {
                 var menu = $('#mobile-menu');
-                
-                $(menu).find('.ui.dropdown.item').click(function(evt) {
+
+                $(menu).find('.ui.dropdown.item').click(function (evt) {
                     evt.stopPropagation();
 
                     var currentTarget = evt.currentTarget;
@@ -75,7 +116,7 @@
             }
         });
 
-        $('.menu-catalog__title').on('click', function(evt) {
+        $('.menu-catalog__title').on('click', function (evt) {
             var text = $(evt.currentTarget).text();
 
             console.log(text);
@@ -87,6 +128,6 @@
 
             return false;
         });
-	});
+    });
 </script>
 </html>

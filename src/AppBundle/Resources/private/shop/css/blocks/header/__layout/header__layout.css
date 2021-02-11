@@ -1,0 +1,42 @@
+.header__layout {
+    width: 100%;
+    flex-basis: 51%;
+    height: 423px;
+}
+
+.header__layout_catalog {
+    height: 200px;
+}
+
+@media screen and (max-width: 1024px) {
+    .header__layout {
+        flex-basis: 39%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header__layout {
+        flex-basis: 34%;
+        height: 36px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .header__layout {
+        flex-basis: 20%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .header__layout {
+        flex-basis: 1%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .header__layout {
+        flex-basis: 10%;
+    }
+}
+
+

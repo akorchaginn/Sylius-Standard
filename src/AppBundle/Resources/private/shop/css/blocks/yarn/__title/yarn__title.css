@@ -1,0 +1,48 @@
+.yarn__title {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 400;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 52px;
+    text-decoration: none;
+    color: #59515A;
+    margin-top: 20px;
+
+}
+.yarn__title:hover {
+    text-decoration: underline;
+    color: #339999;
+}
+
+@media screen and (max-width: 1024px){
+    .yarn__title {
+        font-size: 17px;
+        line-height: 17px;
+        margin-top: 10px;
+    }
+}
+
+
+
+
+@media screen and (max-width: 600px){
+    .yarn__title {
+        font-size: 20px;
+        line-height: 23px;
+        font-weight: 700;
+    }
+}
+
+
+
+@media screen and (max-width: 420px){
+    .yarn__title {
+        font-size: 19px;
+        line-height: 23px;
+        font-weight: 700;
+    }
+}
+
+

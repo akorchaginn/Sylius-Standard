@@ -1,0 +1,19 @@
+@media screen and (max-width: 750px){
+    .order__execution-mobile {
+        position: inherit;
+        width: 80%;
+        margin: 0 auto;
+        font-family: "Roboto", Arial, sans-serif;
+        background: #EFEFEF;
+        border: none;
+        box-sizing: border-box;
+        border-radius: 10px;
+        font-size: 16px;
+        padding-bottom: 30px;
+    }
+}
+@media screen and (max-width: 480px){
+    .order__execution-mobile {
+        width: 92%;
+    }
+}

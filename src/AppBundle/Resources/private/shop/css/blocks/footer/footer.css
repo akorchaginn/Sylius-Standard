@@ -1,0 +1,43 @@
+@import url(__columns/footer__columns.css);
+@import url(__column/footer__column.css);
+@import url(__column-heading/footer__column-heading.css);
+@import url(__column-links/footer__column-links.css);
+@import url(__column-link/footer__column-link.css);
+@import url(__column-links-nav/footer__column-links-nav.css);
+@import url(__column-links-nav_map/footer__column-links-nav_map.css);
+@import url(__column-map/footer__column-map.css);
+@import url(__logo/footer__logo.css);
+@import url(__info-subtitle/footer__info-subtitle.css);
+@import url(__social-icon/footer__social-icon.css);
+@import url(__social-icon-instagram/footer__social-icon-instagram.css);
+@import url(__social-icon-whatsapp/footer__social-icon-whatsapp.css);
+@import url(__info/footer__info.css);
+@import url(__link/footer__link.css);
+@import url(__column-map-mobile/footer__column-map-mobile.css);
+
+
+.footer {
+    background-image: url("../../../img/footerfon.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #535353;
+    padding-top: 70px;
+    padding-bottom: 50px;
+}
+
+@media screen and (max-width: 800px) {
+    .footer {
+        padding-top: 10px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .footer {
+        padding: 10px 25px 20px;
+    }
+}
+
+
+
+
+

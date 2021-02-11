@@ -1,0 +1,11 @@
+.form__submit-button-enter {
+    width: 146px;
+    margin: 32px auto 13px;
+}
+
+@media screen and (max-width: 420px) {
+    .form__submit-button-enter {
+        font-size: 20px;
+        padding: 16px 0;
+    }
+}

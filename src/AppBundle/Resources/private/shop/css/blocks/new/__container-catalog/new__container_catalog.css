@@ -1,0 +1,31 @@
+.new__container-catalog {
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 740px) {
+    .new__container-catalog {
+        margin-left: 5%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .new__container-catalog {
+        padding: 0 0 0 5%;
+        margin-left: auto;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .new__container-catalog {
+        padding: 0;
+        margin-left: auto;
+    }
+}
+
+
+@media screen and (max-width: 420px) {
+    .new__container-catalog {
+        margin: 0;
+    }
+}

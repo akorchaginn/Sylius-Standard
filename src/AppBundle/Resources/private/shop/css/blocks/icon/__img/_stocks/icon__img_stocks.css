@@ -1,0 +1,30 @@
+.icon__img_stocks {
+    background-image: url("../../../../../img/stocks.svg");
+    width: 54px;
+    height: 49px;
+    margin-bottom: 24px;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 800px) {
+    .icon__img_stocks {
+        width: 40px;
+        height: 37px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .icon__img_stocks {
+        width: 30px;
+        height: 27px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .icon__img_stocks {
+        width: 22px;
+        height: 22px;
+        margin-bottom: 9px;
+        margin-right: 9px;
+    }
+}

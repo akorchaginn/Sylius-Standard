@@ -1,0 +1,13 @@
+@import url(__title/about__title.css)
+;
+@media screen and (max-width: 600px) {
+    .about {
+        width: 246px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .about {
+        width: 246px;
+    }
+}

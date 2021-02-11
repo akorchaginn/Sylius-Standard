@@ -1,0 +1,16 @@
+.card__img {
+    width: 375px;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 640px) {
+    .card__img {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .card__img {
+        width: 89%;
+    }
+}

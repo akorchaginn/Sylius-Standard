@@ -1,8 +1,12 @@
+
 <section class="news section">
     <div class="new__container">
         <h4 class="new__title">{{ 'app.ui.uncost'|trans|upper }}</h4>
-        <img src="/assets/shop/img/arrow-point-to-right.svg" class="new__arrow news__arrow">
-        <button type="button" class="new__button">{{ 'app.ui.all_news'|trans|upper }}</button>
+        <button type="button" class="new__button">
+            <a href="{{ path('sylius_shop_news_index') }}"  class="header__button-link">{{ 'app.ui.all_news'|trans|upper }}
+                <img src="/assets/shop/img/arrow-point-to-right.svg" class="new__arrow">
+            </a>
+        </button>
     </div>
         {{ render(url('sylius_shop_partial_news_index_latest', {'count': 3, 'template': 'news/helper/_tableNews.html.twig'})) }}
 </section>

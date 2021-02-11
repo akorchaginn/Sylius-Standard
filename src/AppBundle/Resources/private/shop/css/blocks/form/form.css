@@ -1,0 +1,74 @@
+@import url(__item/form__item.css);
+@import url(__input/form__input.css);
+@import url(__submit-button/form__submit-button.css);
+@import url(__comments/form__comments.css);
+@import url(__info/form__info.css);
+@import url(__input-popup/form__input-popup.css);
+@import url(__input-textarea/form__input-textarea.css);
+@import url(__popup/form__popup.css);
+@import url(__popup-order/form__popup-order.css);
+@import url(__popup-enter/form__popup-enter.css);
+@import url(__input/_enter/form__input_enter.css);
+@import url(__icon-password/__icon-password.css);
+@import url(__icon-phone/form__icon-phone.css);
+@import url(__popup-fieldset/form__popup-fieldset.css);
+@import url(__popup-item/form__popup-item.css);
+@import url(__checkbox/form__checkbox.css);
+@import url(__image/form__image.css);
+@import url(__subtitle/form__subtitle.css);
+@import url(__title/form__title.css);
+@import url(__container-checkbox/form__container-checkbox.css);
+@import url(__submit-button-comments/form__submit-button-comments.css);
+@import url(__submit-button-basket/form__submit-button-basket.css);
+@import url(__label/form__label.css);
+@import url(__order/form__order.css);
+@import url(__input-item/form__input-item.css);
+@import url(__input-order/form__input-order.css);
+@import url(__submit-button-order/form__submit-button-order.css);
+@import url(__submit-button_mail/form__submit-button_mail.css);
+@import url(__input-comments/form__input-comments.css);
+@import url(__submit-button-enter/form__submit-button-enter.css);
+@import url(__submit-button-popup/form__submit-button-popup.css);
+@import url(__input-feedback/form__input-feedback.css);
+@import url(__icon-password-control/form__icon-password-control.css);
+@import url(__error/form__error.css);
+@import url(__input-password/form__input-password.css);
+
+
+.form {
+    max-width: 560px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #FFFFFF;
+}
+
+@media screen and (max-width: 1024px) {
+    .form {
+        width: 450px;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .form {
+        width: 330px;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .form {
+        width: 378px;
+        margin-left: 54px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .form {
+        width: 318px;
+        padding: 0;
+        margin-left: 8%;
+    }
+}

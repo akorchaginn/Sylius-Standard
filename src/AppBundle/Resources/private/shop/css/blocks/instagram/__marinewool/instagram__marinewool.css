@@ -1,0 +1,23 @@
+.instagram__marinewool {
+    font-family: "Amatic SC", Arial, sans-serif;
+    font-size: 55px;
+    color: #339999;
+    line-height: 69px;
+    font-weight: 700;
+    padding-top: 1%;
+    text-decoration: none;
+
+}
+
+.instagram__marinewool:hover {
+    text-decoration: none;
+    border-bottom: 2.3px solid #339999;
+}
+
+@media screen and (max-width: 600px) {
+    .instagram__marinewool {
+        font-size: 42px;
+        line-height: 48px;
+    }
+}
+

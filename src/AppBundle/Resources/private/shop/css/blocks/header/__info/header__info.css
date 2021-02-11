@@ -1,0 +1,22 @@
+@import url(_basket/header__info_basket.css);
+@import url(_call/header__info_call.css);
+@import url(_city/header__info_city.css);
+@import url(_ellipse/header__info_ellipse.css);
+@import url(_enter/header__info_enter.css);
+@import url(_number/header__info_number.css);
+@import url(_padlock/header__info_padlock.css);
+@import url(_phone/header__info_phone.css);
+@import url(_shoppingBasket/header__info_shoppingBasket.css);
+
+.header__info {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+@media screen and (max-width: 640px) {
+    .header__info {
+        padding-bottom: 2%;
+    }
+}

@@ -1,0 +1,12 @@
+.catalog__flex {
+    display: flex;
+}
+
+@media screen and (max-width: 520px) {
+    .catalog__flex {
+        justify-content: center;
+    }
+}
+
+
+

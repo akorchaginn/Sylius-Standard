@@ -1,18 +1,25 @@
 {% set product = variant.product %}
+
 <p class="">1.</p>
 {% include '@SyliusShop/Product/_mainImage.html.twig' with {'product': product,  'custom_class': 'basket__image'} %}
 <div class="">
-    <a href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}" class="basket__description basket__description-link">{{ product.name }}</a>
-{#    <p class="basket__description">Drops Muskat</p>#}
+    <a href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}"
+       class="basket__description basket__description-link">{{ product.name }}</a>
     <p class="basket__description_accent">{{ variant.code }}</p>
     {% if product.hasOptions() %}
-    {% for optionValue in variant.optionValues %}
-    <p class="basket__description  basket__description_item" data-sylius-option-name="{{ optionValue.name }}">{{ optionValue.value }}</p>
-    {% endfor %}
+        {% for optionValue in variant.optionValues %}
+            <p class="basket__description  basket__description_item"
+               data-sylius-option-name="{{ optionValue.name }}">{{ optionValue.value }}</p>
+        {% endfor %}
     {% elseif variant.name is not null %}
         <p class="basket__description basket__description_item">{{ variant.name }}</p>
     {% endif %}
 </div>
+
+
+
+
+
 {#<div class="ui header">#}
 {#    {% include '@SyliusShop/Product/_mainImage.html.twig' with {'product': product, 'filter': 'sylius_shop_product_tiny_thumbnail'} %}#}
 {#    <div class="content">#}

@@ -1,0 +1,10 @@
+.popup__title-enter {
+    padding: 52px 0 0 0 ;
+}
+
+@media screen and (max-width: 420px) {
+    .popup__title-enter {
+        width: 295px;
+        padding-top: 29px;
+    }
+}

@@ -1,0 +1,38 @@
+.form__input-popup {
+    border-radius: 40px;
+    width: 300px;
+    height: 50px;
+    margin: 2% 0;
+    padding: 0 0 0 18px;
+    outline: none;
+    border: 1px solid #E9E8E1;
+}
+
+.form__input-popup:focus {
+    outline: none;
+    border: 1px solid #BFE9F3;
+}
+
+@media screen and (max-width: 780px) {
+    .form__input-popup {
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .form__input-popup {
+        width: 204px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .form__input-popup {
+        width: 155px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .form__input-popup {
+        width: 100%
+    }
+}

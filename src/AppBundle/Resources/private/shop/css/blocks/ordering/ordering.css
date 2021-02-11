@@ -1,0 +1,10 @@
+.ordering {
+    display: none;
+}
+@media screen and (max-width: 750px){
+    .ordering {
+        display: inherit;
+        width: 100%;
+        padding-top: 5%;
+    }
+}

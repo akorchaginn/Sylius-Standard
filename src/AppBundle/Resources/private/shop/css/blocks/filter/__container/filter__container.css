@@ -1,0 +1,32 @@
+.filter__container {
+    width: 268px;
+    display: flex;
+    border: 1px solid #E3E5F4;
+    border-radius: 0 0 10px 10px;
+}
+
+@media screen and (max-width: 800px) {
+    .filter__container {
+        width: 190px;
+    }
+}
+
+@media screen and (max-width: 735px) {
+    .filter__container {
+        width: 99.8%;
+        border: none;
+    }
+}
+
+
+@media screen and (max-width: 520px) {
+    .filter__container {
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .filter__container {
+        border-radius: 0 0 36px 36px;
+    }
+}

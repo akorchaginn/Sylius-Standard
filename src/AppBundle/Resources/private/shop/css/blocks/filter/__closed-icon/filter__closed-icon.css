@@ -1,0 +1,22 @@
+.filter__closed-icon {
+    background-image: url("../../../../img/closed-icon.svg");
+    background-color: transparent;
+    width: 10px;
+    height: 10px;
+    background-size: contain;
+    position: absolute;
+    top: 13px;
+    right: 8px;
+    border: none;
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 800px) {
+    .filter__closed-icon {
+        top: 9px;
+    }
+}
+
+
+
+

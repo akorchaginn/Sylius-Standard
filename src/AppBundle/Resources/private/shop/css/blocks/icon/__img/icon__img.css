@@ -1,0 +1,20 @@
+@import url(_yarn/icon__img_yarn.css);
+@import url(_needles/icon__img_needles.css);
+@import url(_scissors/icon__img_scissors.css);
+@import url(_soap/icon__img_soap.css);
+@import url(_stocks/icon__img_stocks.css);
+
+.icon__img {
+    object-fit: cover;
+    align-self: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 18px;
+}
+
+@media screen and (max-width: 362px){
+    .icon__img {
+       margin-left: 0;
+    }
+}
+    

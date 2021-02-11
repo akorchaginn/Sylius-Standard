@@ -1,0 +1,44 @@
+.card__image {
+    width: 383px;
+    margin: 0 0 0 16px;
+}
+
+@media screen and (max-width: 480px) {
+    .card__image {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .card__image {
+        width: 250px;
+        margin: 0 0 0 16px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .card__image {
+        width: 470px;
+        margin: 0;
+    }
+}
+
+
+@media screen and (max-width: 490px) {
+    .card__image {
+        width: 300px;
+        margin-left: 6%;
+    }
+}
+@media screen and (max-width: 362px) {
+    .card__image {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .card__image {
+        width: 265px;
+        margin-left: 6%;
+    }
+}

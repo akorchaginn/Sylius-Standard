@@ -1,0 +1,8 @@
+.filter__title {
+    line-height: 30px;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Roboto", Arial, sans-serif;
+    margin: 0;
+    padding-left: 19px;
+}

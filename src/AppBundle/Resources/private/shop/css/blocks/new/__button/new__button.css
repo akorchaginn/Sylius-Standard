@@ -1,0 +1,32 @@
+.new__button {
+    background-color: #339999;
+    border: none;
+    font-family: "Roboto", Arial, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    border-radius: 40px;
+    text-align: center;
+    box-sizing: border-box;
+    height: 35px;
+    padding: 10px 12px 10px 20px;
+    cursor: pointer;
+}
+
+.new__button:hover {
+    background-color: #73497B;;
+}
+
+@media screen and (max-width: 600px) {
+    .new__button {
+        font-size: 14px;
+        line-height: 17px;
+        padding: 10px 20px 10px 20px;
+        height: 35px;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+}

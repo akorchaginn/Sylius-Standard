@@ -1,0 +1,14 @@
+@import url(__container/instagram__container.css);
+@import url(__logo/instagram__logo.css);
+@import url(__marinewool/instagram__marinewool.css);
+@import url(__info/instagram__info.css);
+@import url(__marinewool-footer/instagram__marinewool-footer.css);
+
+
+.instagram {
+    max-width: 1920px;
+    background-image: url("../../../img/blog.png");
+    background-size: cover;
+    padding-bottom: 42px;
+    object-fit: cover;
+}

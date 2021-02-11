@@ -1,0 +1,42 @@
+.form__input {
+    border-radius: 40px;
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 250px;
+    margin: 7px 20px 0 0;
+    padding: 0 0 0 18px;
+}
+
+.form__input_type_error {
+    border-bottom: 1px solid rgba(236, 105, 105, 1);
+}
+
+
+@media screen and (max-width: 1024px) {
+    .form__input {
+        height: 30px;
+        width: 170px;
+        margin: 7px 0 0 0;
+
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .form__input {
+        height: 30px;
+        width: 125px;
+        margin: 3px 0 0 0;
+        font-size: 10px;
+        padding: 0 0 0 8px;
+
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .form__input {
+        height: 30px;
+        width: 125px;
+        margin: 7px 0 0 0;
+    }
+}

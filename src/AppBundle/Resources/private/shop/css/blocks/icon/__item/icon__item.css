@@ -1,0 +1,36 @@
+.icon__item {
+    color: #FFFFFF;
+    font-size: 20px;
+    line-height: 30px;
+    margin: 0;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: bold;
+    border-right: 1px solid;
+    text-align: center;
+    cursor: pointer;
+    font-family: "Roboto", Arial, sans-serif;
+}
+
+.icon__item_accent {
+    border-right: none;
+}
+
+@media screen and (max-width: 1440px) {
+    .icon__item {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .icon__item {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .icon__item {
+        font-size: 11px;
+        line-height: 14px;
+    }
+}

@@ -1,0 +1,23 @@
+.color__img {
+    width: 201px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    object-fit: cover;
+    height: 201px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media screen and (max-width: 1030px){
+    .color__img {
+       
+    }
+}
+@media screen and (max-width: 600px){
+    .color__img {
+       
+    }
+}

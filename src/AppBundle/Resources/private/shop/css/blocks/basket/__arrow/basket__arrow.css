@@ -1,0 +1,15 @@
+.basket__arrow {
+    background-image: url("../../../../img/arrow-point-left.svg");
+    background-repeat: no-repeat;
+    background-position: left;
+    margin: 0 12px 0 0;
+}
+
+@media screen and (max-width: 420px) {
+    .basket__arrow {
+        margin: 0 12px 21px 0;
+
+    }
+}
+
+   

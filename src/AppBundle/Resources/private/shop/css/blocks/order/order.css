@@ -1,0 +1,79 @@
+@import url(__form/order__form.css);
+@import url(__container/order__container.css);
+@import url(__execution/order__execution.css);
+@import url(__box/order__box.css);
+@import url(__title/order__title.css);
+@import url(__item/order__item.css);
+@import url(__box-product/order__box-product.css);
+@import url(__name/order__name.css);
+@import url(__address/order__address.css);
+@import url(__pickup-img/__pickup-img.css);
+@import url(__pickup-title/order__pickup-title.css);
+@import url(__pickup-item/order__pickup-item.css);
+@import url(__pickup/order__pickup.css);
+@import url(__arrow/order__arrow.css);
+@import url(__link/order__link.css);
+@import url(__basket/order__basket.css);
+@import url(__total/order__total.css);
+@import url(__confirm/order__confirm.css);
+@import url(__buttons/order__buttons.css);
+@import url(__box-item/order__box-item.css);
+@import url(__link-product/order__link-product.css);
+@import url(__execution-mobile/order__execution-mobile.css);
+
+
+.order {
+    position: relative;
+
+}
+
+@media screen and (max-width: 1024px) {
+    .order {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .order {
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .order {
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .order {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .order {
+        margin: 0 0 0 13%;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .order {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 377px) {
+    .order {
+        margin: 0 0 0 5%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .order {
+        margin: 0;
+    }
+}
+
+
+

@@ -1,0 +1,23 @@
+.mail__form-box {
+    background-color: #FFFFFF;
+    width: 680px;
+    border-radius: 50px;
+}
+
+@media screen and (max-width: 800px) {
+    .mail__form-box {
+        width: 480px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .mail__form-box {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 362px) {
+    .mail__form-box {
+        width: 296px;
+    }
+}

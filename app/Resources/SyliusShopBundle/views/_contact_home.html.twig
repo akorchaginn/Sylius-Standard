@@ -18,24 +18,19 @@
             </li>
         {% else %}
             <li class="header__info_enter">
-                <img class="header__info_padlock"  src="/assets/shop/img/padlock.svg">
-                <a class="header__link profile__enter-button" href="{{ path('sylius_shop_login') }}">{{ 'sylius.ui.login'|trans }}</a>
+                <img class="header__info_padlock" src="/assets/shop/img/padlock.svg">
+                <a class="header__link profile__enter-button">{{ 'sylius.ui.login'|trans }}</a>
                 <img class="header__info_ellipse" src="/assets/shop/img//ellipse.svg">
-                <a class="header__link profile__registration-button" href="{{ path('sylius_shop_register') }}">{{ 'sylius.ui.register'|trans }}</a>
+                <a class="header__link profile__registration-button">{{ 'sylius.ui.register'|trans }}</a>
             </li>
         {% endif %}
     </ul>
 </nav>
 <nav>
-    <ul class="header__info">
-        <li class="header__info_shoppingBasket">
-            <img class="header__info_basket" src="/assets/shop/img/shopping-basket.svg">
-            <a href="#" target="_blank" class="header__link">{{ 'sylius.ui.cart'|trans }}</a>
-        </li>
-    </ul>
+    {{ render(url('sylius_shop_partial_cart_summary', {'template': '@SyliusShop/Cart/_widget.html.twig'})) }}
 </nav>
 <div class="header__marinewool">
-    <a href="cart.html" class="footer__column-link">
+    <a href="{{ path('sylius_shop_homepage') }}" class="footer__column-link">
         <img src="/assets/shop/img/MarineWool.png" class="header__logo">
         <h1 class="header__title">{{ sylius.channel.name|raw|upper }}</h1>
     </a>

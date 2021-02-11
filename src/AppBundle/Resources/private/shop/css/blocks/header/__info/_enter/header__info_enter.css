@@ -1,0 +1,41 @@
+.header__info_enter {
+     display: flex;
+     align-items: center;
+ }
+
+@media screen and (max-width: 1024px) {
+    .header__info_enter {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .header__info_enter {
+        padding-top: 5%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header__info_enter {
+        margin-top: 9%;
+        padding-top: 9%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header__info_enter {
+        margin-top: 1%;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .header__info_enter {
+        padding-top: 2%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .header__info_enter {
+        margin-top: 3%;
+    }
+}

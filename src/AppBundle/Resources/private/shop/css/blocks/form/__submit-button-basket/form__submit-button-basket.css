@@ -1,0 +1,24 @@
+.form__submit-button-basket {
+    padding: 17px 0 17px 0;
+    height: 50px;
+    margin-top: 30px;
+    width: 230px;
+}
+
+@media screen and (max-width: 700px) {
+    .form__submit-button-basket {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .form__submit-button-basket {
+        margin: 10% 0 0 0;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .form__submit-button-basket {
+        margin: 30px 0 0 0;
+    }
+}

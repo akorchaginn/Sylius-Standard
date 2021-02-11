@@ -1,0 +1,38 @@
+.promotional__container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 270px;
+    margin: 0 18px 22px 0;
+    font-family: "Roboto", Arial, sans-serif;
+}
+
+.promotional__container:nth-child(4n) {
+    margin-right: 0 !important;
+}
+
+@media screen and (max-width: 1030px) {
+    .promotional__container {
+        width: 23%;
+    }
+}
+
+@media screen and (max-width: 735px) {
+    .promotional__container {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .promotional__container {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .promotional__container {
+        max-width: 270px;
+        margin: 0 0 10% 0;
+    }
+}

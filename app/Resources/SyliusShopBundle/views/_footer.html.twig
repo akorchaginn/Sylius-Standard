@@ -3,31 +3,46 @@
         <nav class="footer__column ">
             <h5 class="footer__column-heading">Каталог</h5>
             <ul class="footer__column-links">
-                <li><a class="footer__column-link" href="#" target="_blank">Пряжа</a></li>
-                <li><a class="footer__column-link" href="#" target="_blank">Спицы и крючки</a></li>
-                <li><a class="footer__column-link" href="#" target="_blank">Аксессуары</a></li>
-                <li><a class="footer__column-link" href="#" target="_blank">Товары для вязания</a></li>
-                <li><a class="footer__column-link" href="#" target="_blank">Акции</a></li>
+                <li><a class="footer__column-link"
+                       href="{{ path('sylius_shop_homepage') }}taxons/glavnoie-menu/priazha">Пряжа</a></li>
+                <li><a class="footer__column-link"
+                       href="{{ path('sylius_shop_homepage') }}taxons/spitsy-i-kriuchki/addi-germaniia">Спицы и
+                        крючки</a></li>
+                <li><a class="footer__column-link" href="{{ path('sylius_shop_homepage') }}taxons/glavnoie-menu/tools">Аксессуары</a>
+                </li>
+                <li><a class="footer__column-link" href="{{ path('sylius_shop_homepage') }}taxons/instrumenty">Товары
+                        для вязания</a></li>
+                <li><a class="footer__column-link" href="{{ path('sylius_shop_homepage') }}taxons/glavnoie-menu/aktsii">Акции</a>
+                </li>
             </ul>
         </nav>
         <nav class="footer__column">
             <ul class="footer__column-links-nav">
-                <li><a class="footer__column-link" href=" {{ path('sylius_shop_static_content_slug_show', {'slug': 'about'}) }} ">{{ 'sylius.ui.about'|trans }}</a></li>
-                <li><a class="footer__column-link" href="{{ path('sylius_shop_news_index') }}">{{ 'app.ui.uncost'|trans }}</a></li>
-                <li><a class="footer__column-link" href="#" target="_blank">Блог</a></li>
-                <li><a class="footer__column-link" href=" {{ path('sylius_shop_static_content_slug_show', {'slug': 'shipping'}) }} ">{{ 'sylius.ui.delivery_and_shipping'|trans  }}</a></li>
-                <li><a class="footer__column-link" href=" {{ path('sylius_shop_static_content_slug_show', {'slug': 'contacts'}) }} " class="item">{{ 'sylius.ui.contacts'|trans }}</a></li>
+                <li><a class="footer__column-link"
+                       href=" {{ path('sylius_shop_static_content_slug_show', {'slug': 'about'}) }} ">{{ 'sylius.ui.about'|trans }}</a>
+                </li>
+                <li><a class="footer__column-link"
+                       href="{{ path('sylius_shop_news_index') }}">{{ 'app.ui.uncost'|trans }}</a></li>
+                <li><a class="footer__column-link"
+                       href=" {{ path('sylius_shop_static_content_slug_show', {'slug': 'shipping'}) }} ">{{ 'sylius.ui.delivery_and_shipping'|trans }}</a>
+                </li>
+                <li><a class="footer__column-link"
+                       href=" {{ path('sylius_shop_static_content_slug_show', {'slug': 'contacts'}) }} "
+                       class="item">{{ 'sylius.ui.contacts'|trans }}</a></li>
             </ul>
         </nav>
         <nav class="footer__column">
             <ul class="footer__column-links-nav footer__column-links-nav_map">
                 <li class="footer__column-info">
-                    <img class="footer__social-icon" src="/assets/shop/img/map-pin-silhouette.png" alt=""> Барнаул, улица
+                    <img class="footer__social-icon" src="/assets/shop/img/map-pin-silhouette.png" alt=""> Барнаул,
+                    улица
                     Шумакова 46
                     <span class="footer__column-map">(ТЦ Лидер, нижний торговый зал)</span>
                 </li>
+                <p class="footer__column-map-mobile">(ТЦ Лидер, нижний торговый зал)</p>
                 <li class="footer__column-info">
-                    <img class="footer__social-icon" src="/assets/shop/img/call-answer.png" alt=""><a href="tel:+7 983 395 86 13" class="footer__column-link">+7 983 395 86 13
+                    <img class="footer__social-icon" src="/assets/shop/img/call-answer.png" alt=""><a
+                            href="tel:+7 983 395 86 13" class="footer__column-link">+7 983 395 86 13
                     </a>
                 </li>
                 <li class="footer__column-info">
@@ -40,21 +55,23 @@
                 </li>
                 <li class="footer__column-info">
                     <img class="footer__social-icon footer__social-icon-whatsapp" src="/assets/shop/img/whatsapp.png"
-                         alt=""><a href="whatsapp://send?phone=+79133680420" class="footer__column-link" >+7 983 395 86 13</a>
+                         alt=""><a href="whatsapp://send?phone=+79133680420" class="footer__column-link">+7 983 395 86
+                        13</a>
                 </li>
                 <li class="footer__column-info">
                     <img class="footer__social-icon footer__social-icon-instagram" src="/assets/shop/img/in.png" alt="">
                     <a href="https://instagram.com/marinewool.ru" target="_blank"
-                       class="instagram__marinewool instagram__marinewool-footer">@marinewool</a>
+                       class="instagram__marinewool instagram__marinewool-footer">@marinewool.ru</a>
                 </li>
             </ul>
         </nav>
     </div>
     <div class="footer__info">
         <a href="#"><img src="/assets/shop/img/MarineWool.png" class="footer__logo" alt=""></a>
-
         <p class="footer__info-subtitle"> &copy; 2019 Магазин пряжи MarineWool. Все права защищены.
-            <br> Пожалуйста, ознакомьтесь <a href=" {{ path('sylius_shop_static_content_slug_show', {'slug': 'confidential'}) }} "> c политикой
+            <br> Пожалуйста, ознакомьтесь <a class="form__item_link footer__link"
+                                             href=" {{ path('sylius_shop_static_content_slug_show', {'slug': 'confidential'}) }} ">
+                c политикой
                 конфиденциальности</a></p>
     </div>
 </footer>

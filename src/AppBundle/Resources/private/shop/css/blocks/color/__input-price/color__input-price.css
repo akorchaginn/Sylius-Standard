@@ -1,0 +1,25 @@
+.color__input-price > input {
+    width: 48px;
+    border-radius: 5px;
+    outline: none;
+    height: 35px;
+    background: #FFFFFF;
+    border: 1px solid #E1E1DD;
+    box-sizing: border-box;
+    text-align: center;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.color__input-prices {
+    width: 48px;
+    border-radius: 5px;
+    outline: none;
+    height: 35px;
+    background: #FFFFFF;
+    border: 1px solid #E1E1DD;
+    box-sizing: border-box;
+    text-align: center;
+    margin-left: 2px;
+    margin-right: 2px;
+}

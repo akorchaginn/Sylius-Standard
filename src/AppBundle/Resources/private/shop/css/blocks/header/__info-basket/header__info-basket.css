@@ -1,0 +1,10 @@
+.header__info-basket {
+    display: flex;
+	margin-left: 19%;
+}
+
+@media screen and (max-width: 640px){
+    .header__info-basket {
+        margin-left: 0;
+    }
+}

@@ -1,24 +1,24 @@
-<section class="new basket section">
-<div class="new__container new__container-basket">
-    <p class="basket__arrow"><a href="{{ path('sylius_shop_homepage') }}" class="new__link">{{ 'sylius.ui.home'|trans }}</a></p>
+<div class="new__container new__container-catalog">
+    <p class="basket__arrow"><a href="{{ path('sylius_shop_homepage') }}"
+                                class="new__link">{{ 'sylius.ui.home'|trans }}</a></p>
+    {#    {% if product.mainTaxon is not null %}#}
+    {#        {% set taxon = product.mainTaxon %}#}
+    {#        {% set ancestors = taxon.ancestors|reverse %}#}
+
+    {#        {% for ancestor in ancestors %}#}
+    {#            {% if ancestor.isRoot() %}#}
+
+    {#            {% else %}#}
+    {#    <p class="basket__arrow">#}
+    {#        <a href="{{ path('sylius_shop_product_index', {'slug': ancestor.slug, '_locale': ancestor.translation.locale}) }}" class="new__link">{{ ancestor.name }}</a></p>#}
+    {#            {% endif %}#}
+
+    {#        {% endfor %}#}
+    {#        #}
+    {#    {% endif %}#}
+    {#    <h2 class="new__title catalog__title">{{ product.name }}</h2>#}
     <p class="basket__arrow"><a href="#" target="_blank" class="new__link"> Пряжа</a></p>
-    <p class="basket__arrow"><a href="#" target="_blank" class="new__link"> Страница товаров</a></p>
-{#    <div class="divider"> / </div>#}
-{#    {% if product.mainTaxon is not null %}#}
-{#        {% set taxon = product.mainTaxon %}#}
-{#        {% set ancestors = taxon.ancestors|reverse %}#}
-
-{#        {% for ancestor in ancestors %}#}
-{#            {% if ancestor.isRoot() %}#}
-{#                <div class="section">{{ ancestor.name }}</div>#}
-{#            {% else %}#}
-{#                <a href="{{ path('sylius_shop_product_index', {'slug': ancestor.slug, '_locale': ancestor.translation.locale}) }}" class="section">{{ ancestor.name }}</a>#}
-{#            {% endif %}#}
-{#            <div class="divider"> / </div>#}
-{#        {% endfor %}#}
-
-{#        <a href="{{ path('sylius_shop_product_index', {'slug': taxon.slug, '_locale': taxon.translation.locale}) }}" class="section">{{ taxon.name }}</a>#}
-{#        <div class="divider"> / </div>#}
-{#    <div class="active section">{{ product.name }}</div>#}
+    <h2 class="new__title card__title">Drops Fabel</h2>
 </div>
-</section>
+
+{#</div>#}

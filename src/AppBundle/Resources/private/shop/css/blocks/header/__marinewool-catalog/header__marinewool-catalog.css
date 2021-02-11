@@ -1,0 +1,78 @@
+.header__marinewool-catalog {
+    top: 52%;
+    left: 43%;
+}
+
+
+@media screen and (max-width: 1600px) {
+    .header__marinewool-catalog {
+        left: 41%;
+    }
+}
+
+@media screen and (max-width: 1540px) {
+    .header__marinewool-catalog {
+        left: 42%;
+    }
+}
+
+
+@media screen and (max-width: 1400px) {
+    .header__marinewool-catalog {
+        left: 40%;
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+    .header__marinewool-catalog {
+        left: 38%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .header__marinewool-catalog {
+        top: 37%;
+        left: 35%;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .header__marinewool-catalog {
+        top: 43%;
+        left: 33%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .header__marinewool-catalog {
+        top: 56%;
+        left: 30%;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .header__marinewool-catalog {
+        left: 26%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header__marinewool-catalog {
+        left: 25%;
+        top: 69%;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .header__marinewool-catalog {
+        left: 17%;
+        top: 63%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .header__marinewool-catalog {
+        left: 10%;
+    }
+}

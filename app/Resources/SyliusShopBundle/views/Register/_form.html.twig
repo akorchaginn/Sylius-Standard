@@ -1,0 +1,72 @@
+<form action="#" class="form__popup form_registration" novalidate>
+    <fieldset class="form__info">
+        <label class="form__label">Ваше имя
+            <span class="form__error form__error_visible" id="name_registration-error"></span>
+
+            <input name="name_registration" type="text" placeholder="Как вас зовут?"
+                   data-error="Поле заполнено не корректно"
+                   class="form__input-popup form__input_type form__input_type-name"
+                   required minlength="2" maxlength="40">
+        </label>
+        <label class="form__label">
+            Ваш email
+            <span class="form__error form__error_visible" id="email-error"></span>
+            <input name="email" type="email" placeholder="Email" data-error="Поле заполнено не корректно"
+                   class="form__input-popup form__input_type form__input_type-email" required minlength="6"
+                   maxlength="200">
+        </label>
+    </fieldset>
+    <fieldset class="form__info">
+        <label class="form__phone form__label">Контактный телефон
+            <span class="form__error form__error_visible" id="name_phone-error"></span>
+            <div class="form__input-password">
+                <input name="name_phone" type="tel" placeholder="+7 ___-___-__-__"
+                       data-error="Поле заполнено не корректно"
+                       class="form__input-popup form__input_type form__input_type-phone"
+                       required minlength="6" maxlength="18">
+                <a href="#" class="form__icon-phone"></a>
+            </div>
+        </label>
+        <ladel class="form__password form__label">Придумайте пароль
+            <span class="form__error form__error_visible" id="password-error"></span>
+            <div class="form__input-password">
+                <input name="password" type="password" placeholder="Пароль" data-error="Поле заполнено не корректно"
+                       class="form__input-popup form__input_type form__input_type-password"
+                       required onclick="" minlength="4" maxlength="18" autocomplete="off">
+                <a href="#" class="form__icon-password"></a>
+            </div>
+        </ladel>
+    </fieldset>
+    <fieldset class="form__comments ">
+        <p class="form__comments_item">Комментарий</p>
+        <label>
+            <span class="form__error form__error_visible" id="name-textarea-error"></span>
+            <textarea name="name-textarea" type="text" placeholder="Введите текст" class="form__input-textarea
+                    form__input_type form__popup-fieldset"
+                      required minlength="4" maxlength="18" autocomplete="off"></textarea>
+        </label>
+    </fieldset>
+    <input type="checkbox" id="checkbox" name="checkbox" class="form__checkbox" required>
+    <label for="checkbox" id="checkbox-error" class="form__container-checkbox">Подписаться на рассылку новостей</label>
+    <div class="form__popup-item">
+        <p class="form__item">Нажимая на кнопку, вы соглашаетесь на
+            <a href="#" target="_blank" class="form__item_link footer__link">обработку персональных данных</a>
+        </p>
+        <button type="submit" class="form__submit-button form__submit-button-popup
+                form__submit-button_disabled">Зарегестрироваться
+        </button>
+    </div>
+</form>
+
+
+{#<h4 class="ui dividing header">{{ 'sylius.ui.personal_information'|trans }}</h4>#}
+{#<div class="two fields">#}
+{#    {{ form_row(form.firstName) }}#}
+{#    {{ form_row(form.lastName) }}#}
+{#</div>#}
+{#{{ form_row(form.email) }}#}
+{#{{ form_row(form.phoneNumber) }}#}
+{#{{ form_row(form.subscribedToNewsletter) }}#}
+{#<h4 class="ui dividing header">{{ 'sylius.ui.account_credentials'|trans }}</h4>#}
+{#{{ form_row(form.user.plainPassword.first) }}#}
+{#{{ form_row(form.user.plainPassword.second) }}#}

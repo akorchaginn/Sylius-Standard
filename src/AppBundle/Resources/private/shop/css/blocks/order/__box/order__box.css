@@ -1,0 +1,18 @@
+.order__box {
+    display: grid;
+    grid-template-columns: 46% 27% 20%;
+    gap: 2%;
+    grid-template-rows: 50px;
+    font-family: "Roboto", Arial, sans-serif;
+    background-image: url("../../../../img/border.svg");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    margin: 0 20px;
+    font-weight: normal;
+    line-height: 36px;
+}
+@media screen and (max-width: 750px){
+    .order__box {
+        grid-template-columns: 52% 27% 20%;
+    }
+}

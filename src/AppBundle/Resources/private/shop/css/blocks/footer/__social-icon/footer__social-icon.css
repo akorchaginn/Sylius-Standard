@@ -1,0 +1,13 @@
+.footer__social-icon {
+    padding: 0;
+    width: 13px;
+    line-height: 13px;
+    margin-right: 14px;
+}
+
+@media screen and (max-width: 600px) {
+    .footer__social-icon {
+        width: 12px;
+        line-height: 12px;
+    }
+}

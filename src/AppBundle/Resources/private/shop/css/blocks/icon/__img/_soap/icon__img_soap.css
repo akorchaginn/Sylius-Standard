@@ -1,0 +1,30 @@
+.icon__img_soap {
+    background-image: url("../../../../../img/soap.svg");
+    width: 66px;
+    height: 64px;
+    margin-top: 3px;
+    margin-bottom: 17px;
+}
+
+@media screen and (max-width: 800px) {
+    .icon__img_soap {
+        width: 46px;
+        height: 46px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .icon__img_soap {
+        width: 37px;
+        height: 37px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .icon__img_soap {
+        width: 26px;
+        height: 26px;
+        margin-bottom: 0;
+        margin-left: 25px;
+    }
+}

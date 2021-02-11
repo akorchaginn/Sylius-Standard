@@ -1,0 +1,11 @@
+.card__price-structure {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 36px;
+}
+
+@media screen and (max-width: 1024px) {
+    .card__price-structure {
+        line-height: 32px;
+    }
+}

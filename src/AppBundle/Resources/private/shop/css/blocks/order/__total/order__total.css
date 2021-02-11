@@ -1,0 +1,18 @@
+.order__total {
+     display: flex;
+     justify-content: center;
+     font-family: "Roboto", Arial, sans-serif;
+     position: relative;
+ }
+
+@media screen and (max-width: 550px) {
+    .order__total {
+        margin-top: 3%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .order__total {
+        margin-left: 0;
+    }
+}

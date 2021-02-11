@@ -1,0 +1,26 @@
+@import url(__arrow/basket__arrow.css);
+@import url(__shopping/basket__shopping.css);
+@import url(__container/basket__container.css);
+@import url(__container-product/basket__container-product.css);
+@import url(__delete-button/basket__delete-button.css);
+@import url(__image/basket__image.css);
+@import url(__container-item/basket__container-item.css);
+@import url(__description/basket__description.css);
+@import url(__item/basket__item.css);
+@import url(__delete/basket__delete.css);
+@import url(__price/basket__price.css);
+@import url(__price-item/basket__price-item.css);
+@import url(__buttons/basket__buttons.css);
+@import url(__price-total/basket__price-total.css);
+@import url(__grid/basket__grid.css);
+@import url(__total/basket__total.css);
+@import url(__title/basket__title.css);
+@import url(__confirm/basket__confirm.css);
+@import url(__description-link/basket__description-link.css);
+@import url(__delete-mobile/basket__delete-mobile.css);
+@import url(__container-mobile/basket__container-mobile.css);
+@import url(__title-mobile/basket__title-mobile.css);
+
+.basket {
+    padding: 0;
+}

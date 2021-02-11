@@ -13,19 +13,19 @@
         <h5 class="filter__title">Фильтр товаров</h5>
     </div>
     <div class="filter__container">
-        <div>
+        <div class="filter__box">
             <input id="brands" name="accordion" type="checkbox" class="filter__input">
             <label for="brands" class="filter__label">Бренды</label>
             <article class="filter__article">
                 <menu class="filter__menu">
                     {% if resources is defined %}
                         {% for product in resources %}
-                        <li class="filter__list ">
-                            <a href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}"
-                               class="filter__link">{{ product.name }}
-                                <span class="filter__list_country">{{ product.name }}</span>
-                            </a>
-                        </li>
+                            <li class="filter__list ">
+                                <a href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}"
+                                   class="filter__link">{{ product.name }}
+                                    <span class="filter__list_country">{{ product.name }}</span>
+                                </a>
+                            </li>
                         {% endfor %}
                     {% endif %}
 
@@ -156,7 +156,7 @@
             </div>
             <div>
                 <input id="volume" name="accordion-1" type="checkbox" class="filter__input">
-                <label for="volume" class="filter__label filter__label_accent">Метраж</label>
+                <label for="volume" class="filter__label filter__label-accent">Метраж</label>
                 <article class="filter__article">
                     <menu class="filter__menu">
                         <li class="filter__list">

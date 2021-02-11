@@ -1,0 +1,17 @@
+.footer__social-icon-whatsapp {
+    width: 18px;
+}
+
+@media screen and (max-width: 600px) {
+    .footer__social-icon-whatsapp {
+        margin-right: 10px;
+        width: 16px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .footer__social-icon-whatsapp {
+        width: 18px;
+        margin-right: 12px;
+    }
+}

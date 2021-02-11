@@ -1,0 +1,32 @@
+@import url(__image/popup__image.css);
+@import url(__registration/popup__registration.css);
+@import url(__title/popup__title.css);
+@import url(__subtitle/popup__subtitle.css);
+@import url(__container/popup__container.css);
+@import url(__container-enter/popup__container-enter.css);
+@import url(__closed-icon/popup__closed-icon.css);
+@import url(__container-filter/popup__container-filter.css);
+@import url(__filter/popup__filter.css);
+@import url(__registration-enter/popup__registration-enter.css);
+@import url(__title-enter/popup__title-enter.css);
+@import url(__title-filter/popup__title-filter.css);
+
+.popup {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    left: 0;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility .5s, opacity .5s linear;
+    display: flex;
+}
+
+.popup_opened {
+    visibility: visible;
+    opacity: 1;
+}

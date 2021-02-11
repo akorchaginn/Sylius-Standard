@@ -1,0 +1,26 @@
+.new__container-basket {
+    justify-content: center;
+    padding-bottom: 32px;
+    margin-left: 1%;
+    padding-top: 4%;
+}
+
+@media screen and (max-width: 1600px) {
+    .new__container-basket {
+        margin-left: 0;
+        padding-top: 4%;
+    }
+}
+@media screen and (max-width: 770px) {
+    .new__container-basket {
+        margin-left: 9%;
+
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .new__container-basket {
+        margin-top: 6%;
+        margin-left: 0;
+    }
+}

@@ -2,9 +2,9 @@
 {% import '@SyliusUi/Macro/pagination.html.twig' as pagination %}
 
 {% if resources.data|length > 0 %}
-    <div class="yarn" id="products">
+    <div class="yarn yarn__box" id="products">
         {% for product in resources.data %}
-            <figure class="yarn__container">
+            <figure class="yarn__container yarn__container-catalog">
                 {% include '@SyliusShop/Product/_box.html.twig' %}
             </figure>
         {% endfor %}

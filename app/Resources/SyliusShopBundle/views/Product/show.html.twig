@@ -1,44 +1,47 @@
 {% extends '@SyliusShop/layout.html.twig' %}
+{% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
 
 {% block title %}{{ product.name }} - {{ 'sylius.ui.shop_name'|trans }}{% endblock %}
 {% block metatags %}
-<meta name="Description" content="{{ product.translation.metadescription }}">
-    <meta name="Keywords" content="{{ product.translation.metakeywords}}">
+    <meta name="Description" content="{{ product.translation.metadescription }}">
+    <meta name="Keywords" content="{{ product.translation.metakeywords }}">
 {% endblock %}
 
 
 {% block content %}
     {{ parent() }}
     <section class="new catalog catalog__card section">
-    {% include 'news/helper/_breadcrumb.html.twig' %}
+        {% include '@SyliusShop/Product/Show/_breadcrumb.html.twig' %}
         <div class="catalog__flex">
             {% include '@SyliusShop/Product/_verticalMenu.html.twig' %}
-        <div class="card">
-            <button type="button" class="filter__button">Фильтр товаров</button>
-            <div class="card__container">
-                <figure class="card__image">
-                    {% include '@SyliusShop/Product/Show/_images.html.twig' %}
-                    {{ sonata_block_render_event('sylius.shop.product.show.after_images', {'product': product}) }}
-                </figure>
-                <div class="card__description">
-                    <ul class="card__price">
-                        <li class="card__price-list">Цена:
-                    {% if not product.variants.empty() %}
-                        {% include '@SyliusShop/Product/Show/_price.html.twig' %}
-                    {% endif %}
-                            <p class="yarn__price yarn__price_card">&#8381;</p>
+            <div class="card">
+                <button type="button" class="filter__button filter__button-card">Фильтр товаров</button>
+                <div class="card__container">
+                    <figure class="card__image">
+                        {{ sonata_block_render_event('sylius.shop.product.show.before_images', {'product': product}) }}
+                        {% include '@SyliusShop/Product/Show/_images.html.twig' %}
+                        {{ sonata_block_render_event('sylius.shop.product.show.after_images', {'product': product}) }}
+                    </figure>
+                    <div class="card__description">
+                        <ul class="card__price">
+                            <li class="card__price-list">Цена:
+                                {% if not product.variants.empty() %}
+                                    {{ money.calculatePriceMain(product|marinewool_resolve_min_price_variant) }}
+                                {% endif %}
+                            </li>
                             {{ sonata_block_render_event('sylius.shop.product.show.after_price', {'product': product}) }}
-                        </li>
-                        {% include '@SyliusShop/Product/Show/Tabs/_attributes.html.twig' %}
-                    </ul>
+                            {% include '@SyliusShop/Product/Show/Tabs/_attributes.html.twig' %}
+
+                        </ul>
+                    </div>
+
                 </div>
+                <h2 class="color__title">Цвет пряжи</h2>
+                {{ sonata_block_render_event('sylius.shop.product.show.after_description', {'product': product}) }}
+                {% include '@SyliusShop/Product/Show/_inventory.html.twig' with {'place': 'default'} %}
             </div>
-            <h2 class="color__title">Цвет пряжи</h2>
-                {% include '@SyliusShop/Product/Show/_inventory.html.twig' with {'place': 'default'}   %}
         </div>
-            {{ sonata_block_render_event('sylius.shop.product.show.after_description', {'product': product}) }}
-            {
-        </div>
+        {{ sonata_block_render_event('sylius.shop.product.show.after_add_to_cart', {'product': product}) }}
     </section>
     {% include '@SyliusShop/Product/Show/_promotionalProducts.html.twig' %}
 {% endblock %}

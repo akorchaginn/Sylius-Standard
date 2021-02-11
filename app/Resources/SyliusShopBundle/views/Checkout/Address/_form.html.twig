@@ -1,10 +1,11 @@
-<fieldset class="form__comments ">
-    {% include '@SyliusShop/Common/Form/_address.html.twig' with {'form': form.shippingAddress, 'order': order} %}
+{% include '@SyliusShop/Common/Form/_address.html.twig' with {'form': form.shippingAddress, 'order': order} %}
     {% include '@SyliusShop/Checkout/Address/_addressBookSelect.html.twig' %}
+<fieldset class="form__comments ">
     <p class="form__comments_item">{{ 'sylius.ui.your_address'|trans }}{{ 'sylius.ui.address'|trans }}</p>
     <label>
         <input name="name" type="text" placeholder="Ваш адрес" class="form__input-order ">
     </label>
+</fieldset>
 
 {#    { form_row(form.street) }}#}
 {#    <div class='hidden alert alert-info' id="wrong_address" role='alert'>К сожалению, указанный адрес не найден. Адрес и стоимость доставки будет уточнена оператором.</div#}
@@ -19,8 +20,6 @@
 {#        {% if form.provinceCode is defined %}#}
 {#            {{ form_errors(form) }}#}
 {#        {% endif %}#}
-
-</fieldset>
 
 {#<div id="sylius-shipping-address">#}
 {#    {% include '@SyliusShop/Checkout/Address/_addressBookSelect.html.twig' %}#}

@@ -1,0 +1,9 @@
+.promotional__price {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    color: #A299A3;
+    text-decoration: line-through red;
+    margin: 16px 0 0 0;
+}

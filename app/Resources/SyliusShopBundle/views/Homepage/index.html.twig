@@ -5,9 +5,9 @@
     <div class="page__content section">
         <header class="header section">
             <div class="header__container">
-            {% block header %}
-                    {% include '@SyliusShop/_contact_home.html.twig'%}
-                </div>
+                {% block header %}
+                {% include '@SyliusShop/_contact_home.html.twig' %}
+            </div>
             {% endblock %}
         </header>
         <main class="content">
@@ -27,6 +27,9 @@
             {% include '@SyliusShop/_footer.html.twig' %}
         {% endblock %}
         {#{% include '@SyliusUi/Modal/_confirmation.html.twig' %}#}
+        {% include '@SyliusShop/Register/_header.html.twig' %}
+        {% include '@SyliusShop/Login/_header.html.twig' %}
+        {% include '@SyliusShop/Order/_thankYou.html.twig' %}
     </div>
     </body>
 {% endblock %}

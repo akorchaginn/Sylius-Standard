@@ -1,0 +1,21 @@
+.yarn__container-catalog {
+    margin: 0 33px 22px 0;
+}
+
+@media screen and (max-width: 800px){
+    .yarn__container-catalog {
+        margin: 0 31px 22px 0;
+    }
+}
+
+@media screen and (max-width: 740px){
+    .yarn__container-catalog {
+        margin: 0 22px 22px 0;
+    }
+}
+@media screen and (max-width: 600px){
+    .yarn__container-catalog {
+        margin: 0 0 22px 0;
+        max-width: 100%;
+    }
+}

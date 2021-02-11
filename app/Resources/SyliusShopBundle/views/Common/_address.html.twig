@@ -1,7 +1,14 @@
-<address>
-    <strong>{{ address.firstName }} {{ address.lastName }}</strong><br>
-    {% if address.phoneNumber is not null %}
-        {{ address.phoneNumber }}<br/>
-    {% endif %}
-    {{ address.street }}<br/>
-</address>
+{#<address>#}
+{#    <strong>{{ address.firstName }} {{ address.lastName }}</strong><br>#}
+{#    {% if address.phoneNumber is not null %}#}
+{#        {{ address.phoneNumber }}<br/>#}
+{#    {% endif %}#}
+{#    {{ address.street }}<br/>#}
+{#</address>#}
+
+
+<h3 class="order__name">{ address.firstName }} {{ address.lastName }}</h3>
+{% if address.phoneNumber is not null %}
+        {{ address.phoneNumber }}
+{% endif %}
+    {{ address.street }}

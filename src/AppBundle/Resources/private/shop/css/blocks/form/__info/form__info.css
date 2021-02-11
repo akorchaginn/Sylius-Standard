@@ -1,0 +1,12 @@
+.form__info {
+    display: flex;
+    padding: 0;
+    border: none;
+    margin: 0;
+}
+
+@media screen and (max-width: 420px) {
+    .form__info {
+        flex-direction: column;
+    }
+}

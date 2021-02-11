@@ -1,0 +1,71 @@
+@import url(./blocks/page/page.css);
+@import url(./blocks/section/section.css);
+@import url(./blocks/header/header.css);
+@import url(./blocks/icon/icon.css);
+@import url(./blocks/new/new.css);
+@import url(./blocks/news/news.css);
+@import url(./blocks/yarn/yarn.css);
+@import url(./blocks/yarn/_new/yarn_new.css);
+@import url(./blocks/instagram/instagram.css);
+@import url(./blocks/feedback/feedback.css);
+@import url(./blocks/form/form.css);
+@import url(./blocks/mail/mail.css);
+@import url(./blocks/catalog/catalog.css);
+@import url(./blocks/promotional/promotional.css);
+@import url(./blocks/filter/filter.css);
+@import url(./blocks/card/card.css);
+@import url(./blocks/color/color.css);
+@import url(./blocks/basket/basket.css);
+@import url(./blocks/selling/selling.css);
+@import url(./blocks/order/order.css);
+@import url(./blocks/delivery/delivery.css);
+@import url(./blocks/form/__submit-button_mail/form__submit-button_mail.css);
+@import url(./blocks/footer/footer.css);
+@import url(./blocks/popup/popup.css);
+@import url(./blocks/comments/comments.css);
+@import url(./blocks/payment/payment.css);
+@import url(./blocks/custom-radio/custom-radio.css);
+@import url(./blocks/delete__button/delete__button.css);
+@import url(./blocks/about/about.css);
+@import url(./blocks/ordering/ordering.css);
+
+body.popup_opened{
+    overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    background-color: #FFFEF6;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #C5EEF0;
+    border-radius: 10px;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+input[type="number"]:hover,
+input[type="number"]:focus {
+    -moz-appearance:number-input;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+div#lightbox {
+    display: none;
+}
+
+
+
+
+
+
