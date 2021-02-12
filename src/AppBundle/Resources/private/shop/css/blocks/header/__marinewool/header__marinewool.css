@@ -95,6 +95,12 @@
 
     }
 }
+@media screen and (max-width: 362px) {
+    .header__marinewool {
+        left: 14%;
+
+    }
+}
 
 @media screen and (max-width: 320px) {
     .header__marinewool {

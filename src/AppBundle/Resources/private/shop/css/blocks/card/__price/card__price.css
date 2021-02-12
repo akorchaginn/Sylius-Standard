@@ -44,6 +44,12 @@
         width: 90%;
     }
 }
+@media screen and (max-width: 362px) {
+    .card__price {
+        padding: 0;
+        width: 90%;
+    }
+}
 
 
 

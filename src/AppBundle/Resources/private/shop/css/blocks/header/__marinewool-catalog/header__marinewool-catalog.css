@@ -70,6 +70,12 @@
         top: 63%;
     }
 }
+@media screen and (max-width: 362px) {
+    .header__marinewool-catalog {
+        left: 14%;
+
+    }
+}
 
 @media screen and (max-width: 320px) {
     .header__marinewool-catalog {
