@@ -17,7 +17,7 @@ use Sylius\Component\Core\Model\ChannelInterface;
  * Date 08.10.2017
  * @author akorchagin
  */
-class ProductRepositoryExt extends BaseProductRepository{
+class ProductRepositoryExt extends BaseProductRepository {
     /**
      * {@inheritdoc}
      */

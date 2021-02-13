@@ -29,7 +29,7 @@ _liip_imagine:
 
 news:
     resource: 'routing/news.yml'
-    
+
 static_content:
     resource: 'routing/static_content.yml'
 
@@ -49,17 +49,17 @@ integration:
 urbanara_catalog_plugin:
     resource: "@CatalogPromotionPlugin/Resources/config/routing.yml"
     prefix: /admin
-    
+
 sylius_shop_product_by_channel_and_taxonid:
     resource: 'routing/product_repository.yml'
 
 sylius_order_restore:
     prefix: /admin
     resource: 'routing/restore_order.yml'
-    
+
 sylius_sitemap:
      resource: "@SitemapPlugin/Resources/config/routing.yml"
-     
+
 sylius_shop_api:
     resource: "@ShopApiPlugin/Resources/config/routing.yml"
 
@@ -71,3 +71,7 @@ sylius_shop_password_reset:
         _sylius:
             template: "@SyliusShop/Account/resetPassword.html.twig"
             redirect: sylius_shop_login
+
+sylius_shop_contact_request:
+    path: /
+    methods: [GET, POST]
