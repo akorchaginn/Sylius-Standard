@@ -1,0 +1,27 @@
+.header__info-active {
+    position: absolute;
+    top: 7px;
+    left: 18px;
+    width: 24px;
+    height: 19px;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 400;
+    text-align: center;
+    color: #FFFFFF;
+    padding-top: 4px;
+    border-radius: 50% 50% 50% 50%;
+    background: rgba(236, 105, 105, 1);
+}
+
+@media screen and (max-width: 1024px) {
+    .header__info-active {
+        left: 10px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .header__info-active {
+        left: 12px;
+    }
+}

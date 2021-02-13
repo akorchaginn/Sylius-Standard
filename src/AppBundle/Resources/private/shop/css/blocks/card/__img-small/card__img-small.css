@@ -1,0 +1,12 @@
+.card__img-small {
+    width: 119px;
+    margin-right: 3px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 640px) {
+    .card__img-small {
+        width: 28%;
+    }
+}

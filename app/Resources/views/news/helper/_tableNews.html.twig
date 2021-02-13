@@ -1,8 +1,15 @@
-    <table class="table table-hover table-striped">
-            {% for new in news %}
-                    <tr>
-                        <td>{{ new.createdAt|date("Y.m.d") }}</td>
-                        <td>{{ new.shortText }}</td>
-                    </tr>
-            {% endfor %}
-    </table>
+  <div class="news__images">
+      {% for new in news %}
+           <ul class="news__image">
+                <li class="news__list">
+                    <div class="news__img news__img_one"></div>
+                    <div class="news__calendar">
+                        <h5 class="news__title">15 августа</h5>
+                    </div>
+                        <li class="news__list-info">
+                            <a href="#" target="_blank" class="news__img_link">{{ new.shortText }}</a>
+                        </li>
+                </li>
+           </ul>
+      {% endfor %}
+  </div>

@@ -1,0 +1,49 @@
+@import url(__arrow/comments__arrow.css);
+@import url(__button/comments__button.css);
+
+.comments {
+    font-family: "Roboto", Arial, sans-serif;
+    padding-bottom: 90px;
+    padding-top: 28px;
+
+}
+
+@media screen and (max-width: 1150px) {
+    .comments {
+        padding: 0 0 8% 4%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .comments {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .comments {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .comments {
+        padding: 0 0 8% 0;
+        width: 366px;
+    }
+}
+
+@media screen and (max-width: 362px) {
+    .comments {
+        width: 324px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .comments {
+        width: 300px;
+    }
+}
+
+
+

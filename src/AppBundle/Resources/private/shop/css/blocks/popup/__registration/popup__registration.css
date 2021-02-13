@@ -1,0 +1,17 @@
+.popup__registration {
+    background-image: url("../../../../img/reghead-all.jpg");
+    border-radius: 35px 35px 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    height: 133px;
+}
+
+@media screen and (max-width: 420px) {
+    .popup__registration {
+        background-size: 100% 82%;
+    }
+}
+  

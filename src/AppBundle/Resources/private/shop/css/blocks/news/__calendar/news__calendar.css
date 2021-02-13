@@ -1,0 +1,18 @@
+.news__calendar {
+    background-image: url("../../../../img/calendar.svg");
+    position: absolute;
+    background-color: transparent;
+    background-size: 11px;
+    background-repeat: no-repeat;
+    top: 74%;
+    left: 10%;
+    z-index: 10;
+    background-position: left;
+}
+
+@media screen and (max-width: 420px) {
+    .news__calendar {
+        top: 68%;
+        left: 5%;
+    }
+}

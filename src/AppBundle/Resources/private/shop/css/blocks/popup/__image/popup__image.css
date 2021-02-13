@@ -1,0 +1,8 @@
+.popup__image {
+    width: 754px;
+    background-image: url("../../../images/block.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 35px 35px 0 0;
+    z-index: 1;
+}

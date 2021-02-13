@@ -1,0 +1,13 @@
+.basket__description_accent {
+    font-weight: normal;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+@media screen and (max-width: 320px) {
+    .basket__description_accent {
+        margin-left: 18%;
+    }
+}

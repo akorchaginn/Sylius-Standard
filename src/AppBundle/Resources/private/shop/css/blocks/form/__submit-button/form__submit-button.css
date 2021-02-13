@@ -1,0 +1,44 @@
+.form__submit-button {
+    border-radius: 50px;
+    color: #FFFFFF;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 23px;
+    padding: 17px 0;
+    transition: 1s linear;
+    border: none;
+    background-color: #73497B;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.form__submit-button:hover {
+    background-color: #339999;
+}
+
+.form__submit-button:focus {
+    outline: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .form__submit-button {
+        padding: 14px 0;
+        margin-top: 13px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .form__submit-button {
+        margin-top: 8px;
+        font-size: 10px;
+        line-height: 16px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .form__submit-button {
+        line-height: 8px;
+    }
+}

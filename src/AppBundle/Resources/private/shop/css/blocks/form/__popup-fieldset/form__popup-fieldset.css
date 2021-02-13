@@ -1,0 +1,30 @@
+.form__popup-fieldset {
+    width: 654px;
+    margin-bottom: 7px;
+    border: 1px solid #E9E8E1;
+}
+
+@media screen and (max-width: 780px) {
+    .form__popup-fieldset {
+        width: 565px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .form__popup-fieldset {
+        width: 465px;
+        height: 50px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .form__popup-fieldset {
+        width: 366px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .form__popup-fieldset {
+        width: 100%;
+    }
+}

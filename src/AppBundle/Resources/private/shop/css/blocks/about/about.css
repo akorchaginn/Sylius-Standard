@@ -1,0 +1,8 @@
+@import url(__title/about__title.css);
+
+
+@media screen and (max-width: 400px) {
+    .about {
+        width: 246px;
+    }
+}

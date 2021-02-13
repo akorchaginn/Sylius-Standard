@@ -1,0 +1,26 @@
+@media screen and (max-width: 900px) {
+    .catalog__card {
+        margin-left: 8%;
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .catalog__card {
+        width: 518px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .catalog__card {
+        width: 100%;
+        margin-left: 1%;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .catalog__card {
+        width: 97%;
+        margin-left: 0;
+    }
+}

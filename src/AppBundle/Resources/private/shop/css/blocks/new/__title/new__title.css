@@ -1,0 +1,54 @@
+.new__title {
+    font-family: "Amatic SC", Arial, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 55px;
+    line-height: 1.2;
+    text-align: center;
+    flex-basis: 72%;
+}
+
+
+@media screen and (max-width: 1875px) {
+    .new__title {
+        flex-basis: 73%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .new__title {
+        flex-basis: 63%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .new__title {
+        flex-basis: 52%;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .new__title {
+        flex-basis: 39%;
+    }
+}
+
+
+@media screen and (max-width: 550px) {
+    .new__title {
+        flex-basis: 42%;
+        margin-bottom: 10%;
+        font-size: 55px;
+
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .new__title {
+        flex-basis: 48px;
+        font-size: 43px;
+        margin-bottom: 10%;
+    }
+}
+
+

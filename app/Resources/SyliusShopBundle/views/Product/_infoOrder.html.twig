@@ -1,0 +1,5 @@
+{% set product = variant.product %}
+
+<a class="order__link-product" href="{{ path('sylius_admin_product_update', {'id': product.id}) }}"
+   title="{{ product.name }}">{{ product.name }}</a>
+<p class="order__item" title="{{ variant.code }}">{{ variant.code }}</p>

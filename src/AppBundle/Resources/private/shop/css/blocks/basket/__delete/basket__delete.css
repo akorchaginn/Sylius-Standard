@@ -1,0 +1,22 @@
+.basket__delete {
+    margin: 13px 5px 0 0;
+    text-align: end;
+    color: #EC6969;
+
+}
+
+@media screen and (max-width: 700px) {
+    .basket__delete {
+        font-size: 20px;
+        font-family: "Roboto", Arial, sans-serif;
+        margin-bottom: 5%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .basket__delete {
+        margin: 0;
+    }
+}
+
+

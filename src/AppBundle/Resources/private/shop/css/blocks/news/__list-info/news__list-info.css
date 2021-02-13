@@ -1,0 +1,25 @@
+.news__list-info {
+    max-width: 305px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .news__list-info {
+        width: 260px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .news__list-info {
+        width: 181px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .news__list-info {
+        width: 200px;
+        height: 55px;
+    }
+}

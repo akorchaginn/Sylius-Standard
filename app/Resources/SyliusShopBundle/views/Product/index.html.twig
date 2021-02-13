@@ -1,0 +1,24 @@
+{% extends '@SyliusShop/layout.html.twig' %}
+
+{% block content %}
+    {{ parent() }}
+    <section class="new catalog section">
+        {#         {% include '@SyliusShop/Taxon/_breadcrumb.html.twig' %}#}
+        <div class="new__container new__container-catalog">
+            <p class="basket__arrow"><a href="{{ path('sylius_shop_homepage') }}"
+                                        class="new__link">{{ 'sylius.ui.home'|trans }}</a></p>
+            <h2 class="new__title catalog__title">Пряжа</h2>
+        </div>
+
+        <div class="catalog__flex">
+            {% include '@SyliusShop/Product/Show/_sidebar.html.twig' %}
+            <div class="yarn">
+                {#                  Кнопка которая открывает модальное окно с фильтром товаров на разрешении от 740px#}
+                <button type="button" class="filter__button">Фильтр товаров</button>
+                {% include '@SyliusShop/Product/Show/_selectedHead.html.twig' %}
+                {% include '@SyliusShop/Product/Index/_main.html.twig' %}
+            </div>
+        </div>
+    </section>
+    {% include '@SyliusShop/Product/Show/_promotionalProducts.html.twig' %}
+{% endblock %}

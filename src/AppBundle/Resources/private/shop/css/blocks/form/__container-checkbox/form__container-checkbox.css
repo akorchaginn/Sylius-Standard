@@ -1,0 +1,36 @@
+.form__container-checkbox {
+    margin-top: 7px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.form__container-checkbox:before {
+    content: " ";
+    display: inline-block;
+    font: 8px/8px Arial;
+    margin-right: 8px;
+    position: relative;
+    text-align: center;
+    text-indent: 0;
+    width: 17px;
+    height: 17px;
+    background: #FFF;
+    border-image: initial;
+    vertical-align: bottom;
+    border-radius: 5px;
+    border: 1px solid #339999;
+}
+
+
+.form__checkbox:checked + .form__container-checkbox:before {
+    background-image: url("../../../../img/tick.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid #339999;
+}
+
+/* disabled */
+.form__checkbox:disabled + .form__container-checkbox:before {
+    background: #eee;
+    color: #339999;
+}

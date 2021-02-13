@@ -1,0 +1,29 @@
+.icon__img_needles {
+    background-image: url("../../../../../img/group.svg");
+    width: 59px;
+    height: 54px;
+    margin-top: 10px;
+    margin-bottom: 22px;
+}
+
+@media screen and (max-width: 800px) {
+    .icon__img_needles {
+        width: 45px;
+        height: 39px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .icon__img_needles {
+        width: 35px;
+        height: 32px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .icon__img_needles {
+        width: 28px;
+        height: 26px;
+        margin-bottom: 9px;
+    }
+}

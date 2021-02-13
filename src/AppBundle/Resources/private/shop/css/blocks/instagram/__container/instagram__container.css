@@ -1,0 +1,21 @@
+.instagram__container {
+    display: flex;
+    align-items: center;
+    max-width: 1136px;
+    margin: 0 auto;
+    padding-top: 4%;
+    padding-bottom: 2%;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 1875px) {
+    .instagram__container {
+        padding: 4% 4.6% 2% 4%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .instagram__container {
+        padding-bottom: 0;
+    }
+}

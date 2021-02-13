@@ -1,0 +1,35 @@
+.feedback__list {
+    font-family: "Amatic SC", Arial, sans-serif;
+    list-style-type: none;
+    color: #FFFFFF;
+    width: 326px;
+    margin-top: 3%;
+}
+
+@media screen and (max-width: 1024px) {
+    .feedback__list {
+        width: 214px;
+        margin-top: 2%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .feedback__list {
+        width: 166px;
+        margin-top: 4%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .feedback__list {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .feedback__list {
+        padding: 0;
+        margin-bottom: 2%;
+    }
+}

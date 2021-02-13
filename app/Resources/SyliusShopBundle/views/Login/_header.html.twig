@@ -1,0 +1,22 @@
+{#<h1 class="ui header">#}
+{#    <i class="circular user icon"></i>#}
+{#    <div class="content">#}
+{#        {{ 'sylius.ui.customer_login'|trans }}#}
+{#        <div class="sub header">{{ 'sylius.ui.access_your_store_account_or_create_a_new_one'|trans }}</div>#}
+{#    </div>#}
+{#</h1>#}
+
+
+<div class="popup popup_type-enter">
+    <div class="popup__container popup__container-enter">
+        <button type="button" class="popup__closed-icon"></button>
+        <div class="popup__registration popup__registration-enter">
+            <h5 class="popup__title"> {{ 'sylius.ui.login'|trans }}</h5>
+            <p class="popup__subtitle">{{ 'sylius.ui.no_account'|trans }} <a href="#" target="_blank"
+                                                                             class="popup__subtitle_enter">{{ 'sylius.ui.register_now'|trans }}</a>
+            </p>
+        </div>
+        {% include '@SyliusShop/Login/_form.html.twig' %}
+    </div>
+</div>
+

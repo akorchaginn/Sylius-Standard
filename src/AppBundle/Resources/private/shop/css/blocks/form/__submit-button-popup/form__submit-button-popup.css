@@ -1,0 +1,17 @@
+.form__submit-button-popup {
+    width: 191px;
+    margin: 28px auto;
+}
+
+
+@media screen and (max-width: 420px) {
+    .form__submit-button-popup {
+        font-size: 15px;
+        padding: 7%;
+        width: 75%;
+        margin: 28px auto 0;
+    }
+}
+
+
+

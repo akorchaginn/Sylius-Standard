@@ -1,0 +1,26 @@
+.news__title {
+    font-size: 16px;
+    line-height: 19px;
+    padding: 0 17px;
+    font-weight: 400;
+    margin: 0;
+    color: #FFFFFF;
+}
+
+@media screen and (max-width: 1024px) {
+    .news__title {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .news__title {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .news__title {
+        font-size: 16px;
+    }
+}

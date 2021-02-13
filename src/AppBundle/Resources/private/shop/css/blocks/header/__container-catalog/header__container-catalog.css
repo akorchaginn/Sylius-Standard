@@ -1,0 +1,22 @@
+.header__container-catalog {
+    height: 194px;
+}
+
+@media screen and (max-width: 1600px){
+    .header__container-catalog {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 430px){
+    .header__container-catalog {
+        width: 100%;
+        margin-left: 21%;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .header__container-catalog {
+        margin-left: 16%;
+    }
+}

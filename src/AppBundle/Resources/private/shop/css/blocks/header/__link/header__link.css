@@ -1,0 +1,28 @@
+.header__link {
+    font-size: 18px;
+    line-height: 21px;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: none;
+    color: #59515A;
+}
+
+.header__link:hover {
+    text-decoration: underline;
+    color: #339999;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+    .header__link {
+        font-size: 15px;
+        line-height: 5px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header__link {
+        font-size: 16px;
+    }
+}
+

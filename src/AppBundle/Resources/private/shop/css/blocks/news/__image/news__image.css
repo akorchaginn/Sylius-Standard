@@ -1,0 +1,32 @@
+.news__image {
+    position: relative;
+    padding: 0;
+    list-style-type: none;
+    margin: 0 24px 24px 0;
+}
+
+.news__image:last-child {
+    margin-right: 0 !important;
+}
+
+@media screen and (max-width: 600px) {
+    .news__image {
+        margin: 0 0 24px 0;
+
+    }
+}
+
+
+@media screen and (max-width: 420px) {
+    .news__image {
+        margin: 0 0 15% 0;
+
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .news__image:last-child {
+        margin-right: 0 !important;
+
+    }
+}

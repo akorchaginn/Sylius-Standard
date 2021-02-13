@@ -1,0 +1,7 @@
+.news__images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 75px;
+    max-width: 1146px;
+}

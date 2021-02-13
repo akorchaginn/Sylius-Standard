@@ -1,0 +1,8 @@
+@import url(_item/form__comments_item.css);
+
+.form__comments {
+    border: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}

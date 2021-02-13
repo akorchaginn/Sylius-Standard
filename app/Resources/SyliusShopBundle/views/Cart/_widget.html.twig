@@ -1,35 +1,55 @@
 {% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
 
-<div id="sylius-cart-button" class="header-small__right-cart cart button">
+<ul class="header__info header__info-basket" id="sylius-cart-button">
     {{ sonata_block_render_event('sylius.shop.partial.cart.summary.before_widget_content', {'cart': cart}) }}
-
-    <a class="header-small__cart" href="#">
-        <img class="header-small__cart-icon" src="/assets/shop/img/cart.png" alt="">
+    <li class="header__info_shoppingBasket">
+        <img class="header__info_basket" src="/assets/shop/img/shopping-basket.svg">
         {% if cart.empty %}
-            {{ 'sylius.ui.cart_is_empty'|trans }}
-        {% else %}
-            {{ money.convertAndFormat(cart.itemsTotal) }}<br>
-            {% transchoice cart.items|length %}sylius.ui.item.choice{% endtranschoice %}
-        {% endif %}
-    </a>
-    {{ sonata_block_render_event('sylius.shop.partial.cart.summary.after_widget_content', {'cart': cart}) }}
-</div>
-<div class="ui large flowing cart hidden popup">
-    {{ sonata_block_render_event('sylius.shop.partial.cart.summary.before_popup_content', {'cart': cart}) }}
-
-    {% if cart.empty %}
-        {{ 'sylius.ui.your_cart_is_empty'|trans }}.
-    {% else %}
-    <div class="ui list">
-        {% for item in cart.items %}
-        <div class="item">{{ item.quantity }} x <strong>{{ item.product }}</strong> {{ money.convertAndFormat(item.unitPrice) }}</div>
-        {% endfor %}
-        <div class="item"><strong>{{ 'sylius.ui.subtotal'|trans }}</strong>: {{ money.convertAndFormat(cart.itemsTotal) }}</div>
-    </div>
-    <a href="{{ path('sylius_shop_cart_summary') }}" class="ui fluid basic text button">{{ 'sylius.ui.view_and_edit_cart'|trans }}</a>
-    <div class="ui divider"></div>
-    <a href="{{ path('sylius_shop_checkout_start') }}" class="ui fluid primary button">{{ 'sylius.ui.checkout'|trans }}</a>
+    <li class="header__cart">
+        <a href="{{ path('sylius_shop_homepage') }}cart" class="header__link"> {{ 'sylius.ui.cart'|trans }}</a>
+    </li>
+{% else %}
+    <li>
+        <a href="{{ path('sylius_shop_cart_summary') }}" class="header__link"> {{ 'sylius.ui.cart'|trans }}</a>
+        <p class="header__info-total">
+            {{ money.convertAndFormat(cart.itemsTotal) }}</p>
+        <a class="header__info-active">{{ cart.items|length }}</a>
+    </li>
     {% endif %}
+    {{ sonata_block_render_event('sylius.shop.partial.cart.summary.after_widget_content', {'cart': cart}) }}
+    </li>
+</ul>
 
-    {{ sonata_block_render_event('sylius.shop.partial.cart.summary.after_popup_content', {'cart': cart}) }}
-</div>
+{#<div id="sylius-cart-button" class="header-small__right-cart cart button">#}
+{#    {{ sonata_block_render_event('sylius.shop.partial.cart.summary.before_widget_content', {'cart': cart}) }}#}
+
+{#    <a class="header-small__cart" href="#">#}
+{#        <img class="header-small__cart-icon" src="/assets/shop/img/cart.png" alt="">#}
+{#        {% if cart.empty %}#}
+{#            {{ 'sylius.ui.cart_is_empty'|trans }}#}
+{#        {% else %}#}
+{#            {{ money.convertAndFormat(cart.itemsTotal) }}<br>#}
+{#            {% transchoice cart.items|length %}sylius.ui.item.choice{% endtranschoice %}#}
+{#        {% endif %}#}
+{#    </a>#}
+{#    {{ sonata_block_render_event('sylius.shop.partial.cart.summary.after_widget_content', {'cart': cart}) }}#}
+{#</div>#}
+{#<div class="ui large flowing cart hidden popup">#}
+{#    {{ sonata_block_render_event('sylius.shop.partial.cart.summary.before_popup_content', {'cart': cart}) }}#}
+
+{#    {% if cart.empty %}#}
+{#        {{ 'sylius.ui.your_cart_is_empty'|trans }}.#}
+{#    {% else %}#}
+{#    <div class="ui list">#}
+{#        {% for item in cart.items %}#}
+{#        <div class="item">{{ item.quantity }} x <strong>{{ item.product }}</strong> {{ money.convertAndFormat(item.unitPrice) }}</div>#}
+{#        {% endfor %}#}
+{#        <div class="item"><strong>{{ 'sylius.ui.subtotal'|trans }}</strong>: {{ money.convertAndFormat(cart.itemsTotal) }}</div>#}
+{#    </div>#}
+{#    <a href="{{ path('sylius_shop_cart_summary') }}" class="ui fluid basic text button">{{ 'sylius.ui.view_and_edit_cart'|trans }}</a>#}
+{#    <div class="ui divider"></div>#}
+{#    <a href="{{ path('sylius_shop_checkout_start') }}" class="ui fluid primary button">{{ 'sylius.ui.checkout'|trans }}</a>#}
+{#    {% endif %}#}
+
+{#    {{ sonata_block_render_event('sylius.shop.partial.cart.summary.after_popup_content', {'cart': cart}) }}#}
+{#</div>#}

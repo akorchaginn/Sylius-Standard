@@ -1,0 +1,33 @@
+.card__container {
+    display: flex;
+    width: 830px;
+}
+
+
+@media screen and (max-width: 1100px) {
+    .card__container {
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 735px) {
+    .card__container {
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .card__container {
+        align-items: baseline;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .card__container {
+        align-items: center;
+    }
+}
+
+
+

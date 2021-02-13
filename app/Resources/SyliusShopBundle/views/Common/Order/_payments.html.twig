@@ -1,0 +1,21 @@
+{% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
+{% for payment in order.payments %}
+
+    <div class="order__pickup">
+        <img src="/assets/shop/img/pickup.svg" alt="самовывоз" class="order__pickup-img">
+        <p class="order__pickup-title" id="sylius-payment-method">{{ payment.method }}</p>
+        <p class="order__pickup-item">Данный способ оплаты доступен при доставке курьером по г.Барнаулу.
+            При самовывозе в шоу руме Marinewool</p>
+    </div>
+
+    {#{% for payment in order.payments %}#}
+    {#    <div class="ui large icon message">#}
+    {#        <i class="payment icon"></i>#}
+    {#        <div class="content">#}
+    {#            <div class="header" id="sylius-payment-method">#}
+    {#                {{ payment.method }}#}
+    {#            </div>#}
+    {#            <p>{{ money.format(payment.amount, payment.currencyCode) }}</p>#}
+    {#        </div>#}
+    {#    </div>#}
+{% endfor %}

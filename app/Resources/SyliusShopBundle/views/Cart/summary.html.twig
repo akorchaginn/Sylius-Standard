@@ -1,0 +1,60 @@
+{% extends '@SyliusShop/layout.html.twig' %}
+
+{% form_theme form '@SyliusUi/Form/theme.html.twig' %}
+
+{% import '@SyliusUi/Macro/messages.html.twig' as messages %}
+
+{% set header = 'sylius.ui.your_shopping_cart' %}
+
+{% block title %}{{ parent() }} | {{ header|trans }}{% endblock %}
+
+{% block content %}
+    <section class="new basket section">
+        <div class="new__container new__container-basket">
+            <p class="basket__arrow"><a href="{{ path('sylius_shop_homepage') }}"
+                                        class="new__link">{{ 'sylius.ui.home'|trans }}</a></p>
+            <p class="basket__arrow"><a href="#" target="_blank" class="new__link"> Пряжа</a></p>
+            <p class="basket__arrow"><a href="#" target="_blank" class="new__link"> Страница товаров</a></p>
+        </div>
+        <h2 class="new__title catalog__title">{{ 'sylius.ui.your_shopping_cart'|trans }}</h2>
+    </section>
+
+    {#    {% if not cart.empty %}#}
+    {#        {% include '@SyliusShop/Cart/Summary/_header.html.twig' %}#}
+
+    {#        {{ sonata_block_render_event('sylius.shop.cart.summary.after_content_header', {'cart': cart}) }}#}
+
+    {#        <div class="ui stackable grid">#}
+    {#            <div class="eleven wide column">#}
+
+    {% if cart.empty %}
+        <p style="text-align: center">Алексей, будьте так добры, добавьте хоть что-то в корзину прежде чем тыкать куда
+            не попадя &copy; П.Сергей</p>
+    {% else %}
+        <section class="basket__shopping">
+            <div class="basket__grid">
+                {{ sonata_block_render_event('sylius.shop.cart.summary.before_items', {'cart': cart}) }}
+                {% include '@SyliusShop/Cart/Summary/_items.html.twig' %}
+                {{ sonata_block_render_event('sylius.shop.cart.summary.after_items', {'cart': cart}) }}
+            </div>
+            <div class="basket__total">
+                {{ sonata_block_render_event('sylius.shop.cart.summary.before_totals', {'cart': cart}) }}
+                {% include '@SyliusShop/Cart/Summary/_totals.html.twig' %}
+                {{ sonata_block_render_event('sylius.shop.cart.summary.after_totals', {'cart': cart}) }}
+                {% include '@SyliusShop/Cart/Summary/_checkout.html.twig' %}
+            </div>
+        </section>
+    {% endif %}
+    {% include '@SyliusShop/Product/Show/_promotionalProducts.html.twig' %}
+
+    {#            </div>#}
+    {#        </div>#}
+
+    {#        {{ sonata_block_render_event('sylius.shop.cart.summary.before_suggestions', {'cart': cart}) }}#}
+
+    {#        {% include '@SyliusShop/Cart/Summary/_suggestions.html.twig' %}#}
+    {#    {% else %}#}
+    {#        {{ messages.info('sylius.ui.your_cart_is_empty') }}#}
+    {#    {% endif %}#}
+
+{% endblock %}

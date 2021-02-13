@@ -1,0 +1,24 @@
+<div class="new__container new__container-catalog">
+    <p class="basket__arrow"><a href="{{ path('sylius_shop_homepage') }}"
+                                class="new__link">{{ 'sylius.ui.home'|trans }}</a></p>
+    {#    {% if product.mainTaxon is not null %}#}
+    {#        {% set taxon = product.mainTaxon %}#}
+    {#        {% set ancestors = taxon.ancestors|reverse %}#}
+
+    {#        {% for ancestor in ancestors %}#}
+    {#            {% if ancestor.isRoot() %}#}
+
+    {#            {% else %}#}
+    {#    <p class="basket__arrow">#}
+    {#        <a href="{{ path('sylius_shop_product_index', {'slug': ancestor.slug, '_locale': ancestor.translation.locale}) }}" class="new__link">{{ ancestor.name }}</a></p>#}
+    {#            {% endif %}#}
+
+    {#        {% endfor %}#}
+    {#        #}
+    {#    {% endif %}#}
+    {#    <h2 class="new__title catalog__title">{{ product.name }}</h2>#}
+    <p class="basket__arrow"><a href="#" target="_blank" class="new__link"> Пряжа</a></p>
+    <h2 class="new__title card__title">Drops Fabel</h2>
+</div>
+
+{#</div>#}

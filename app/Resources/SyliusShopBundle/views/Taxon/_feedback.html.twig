@@ -1,0 +1,37 @@
+<section class="feedback section">
+    <div class="feedback__container">
+        <div class="feedback__list">
+            <h3 class="feedback__questions">Если у вас остались вопросы</h3>
+            <p class="feedback__write">{{ 'sylius.ui.contact_us'|trans }}</p>
+            <p class="feedback__contact">Мы обязательно свяжемся с вами в ближайшее время</p>
+        </div>
+        <div class="feedback__form">
+            <form action="#" class="form">
+                <fieldset class="form__info">
+                    <label>Ваше имя
+                        <input name="name_registration" type="text" placeholder="Как вас зовут?"
+                               class="form__input form__input-feedback" required minlength="2" maxlength="40"
+                               autocomplete="off">
+                        <span class="form__error form__error_visible" id=""></span>
+                    </label>
+                    <label>{{ 'sylius.ui.phone_number'|trans }}
+                        <input name="name_phone" type="number" placeholder="+7 ___-___-__-__"
+                               class="form__input form__input-feedback" required minlength="2" maxlength="40"
+                               autocomplete="off">
+                        <span class="form__error form__error_visible" id="name_phone"></span>
+                    </label>
+                </fieldset>
+                <fieldset class="form__comments">
+                    <p class="form__comments_item">{{ 'sylius.ui.comment'|trans }}</p>
+                    <textarea name="name" type="text" placeholder="Введите текст"
+                              class="form__input-textarea"></textarea>
+                </fieldset>
+                <p class="form__item">Нажимая на кнопку, вы соглашаетесь на обработку
+                    <a href="#" target="_blank" class="form__item_link">персональных данных</a></p>
+                <button type="submit"
+                        class="form__submit-button form__submit-button-comments">{{ 'sylius.ui.send'|trans }}
+                </button>
+            </form>
+        </div>
+    </div>
+</section>

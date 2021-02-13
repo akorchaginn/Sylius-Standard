@@ -1,0 +1,9 @@
+.yarn__box {
+    margin-left: 20px
+}
+
+@media screen and (max-width: 420px){
+    .yarn__box {
+        margin: 0;
+    }
+}

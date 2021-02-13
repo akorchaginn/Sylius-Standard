@@ -1,48 +1,100 @@
 {% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
-<div class="ui stackable grid">
-    <div class="four wide column">
-        {% include '@SyliusShop/Product/Show/_sidebar.html.twig' %}
-    </div>
-    <div class="twelve wide column">
-        <div class="ui four column stackable grid" id="products">
-            {% for variant in product.variants %}
-                {% if variant.enabled %}
-                    <div class="column">
-                        <div class="ui fluid card">
-                            {% for image in product.images %}
-                                {% set path = image.path is not null ? image.path|imagine_filter('sylius_shop_product_small_thumbnail') : 'http://placehold.it/200x200' %}
-                                {% for variant_images in image.productVariants %}
-                                    {% if variant_images.id == variant.id %}
-                                        <a href="{{ image.path|imagine_filter('sylius_shop_product_original') }}" data-lightbox="sylius-product-image">
-                                            <div class="ui dimmer">
-                                                <div class="content">
-                                                    <div class="center">
-                                                        <div class="ui inverted button">{{ 'sylius.ui.view_more'|trans }}</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <img class="ui bordered image centered" src="{{ path }}" data-large-thumbnail="{{ image.path|imagine_filter('sylius_shop_product_large_thumbnail') }}" />
-                                        </a>
-                                    {% endif %}
-                                {% endfor %}
-                            {% endfor %}
-                            <div class="content">
-                                <div class="header sylius-product-name">{{ variant.name }}</div>
-                                <div class="sylius-product-price">{{ 'sylius.ui.price'|trans }}: {{ money.calculatePrice(variant) }}</div>
-                                <div class="sylius-variant-onhand">
-                                    {% if variant.onhand - variant.onhold <= 0 %}
-                                        <p class="text-danger">{{ 'sylius.ui.variant_delivery_is_expected'|trans }}</p>
-                                    {% else %}
-                                            {{ 'sylius.ui.variant_onhand'|trans }}: {{ variant.onhand - variant.onhold }}
-                                            <input type="number" id="{{ variant.code }}" class="sylius_add_to_cart_cartItem_quantity" required="required" min="1" max="{{ variant.onhand - variant.onhold }}" value="1">
-                                            <button name="submit" id="{{ variant.code }}" class="ui icon button"><i class="cart icon"></i></button>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
+
+
+<div class="color__cards" id="products">
+    {% for variant in product.variants %}
+        {% if variant.enabled %}
+            <figure class="color__container">
+                {% set imageBlock  = '' %}
+                {% for image in product.images %}
+
+                    {% set path = image.path is not null ? image.path|imagine_filter('sylius_shop_product_small_thumbnail') : 'http://placehold.it/201x201' %}
+
+                    {% for variant_images in image.productVariants %}
+                        {% if variant_images.id == variant.id %}
+                            {% set imageBlock %}
+                                <a href="{{ image.path|imagine_filter('sylius_shop_product_original') }}"
+                                   data-lightbox="sylius-product-image">
+                                    <img class="color__img" src="{{ path }}"
+                                         data-large-thumbnail="{{ image.path|imagine_filter('sylius_shop_product_large_thumbnail') }}">
+                                </a>
+                            {% endset %}
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+                {% if imageBlock == '' %}
+                    <a href="#" data-lightbox="sylius-product-image">
+                        <img class="color__img" src="http://placehold.it/201x201'">
+                    </a>
+                {% else %}
+                    {{ imageBlock }}
+                {% endif %}
+
+                <p class="card__price-description card__price-description_color">{{ variant.name }}</p>
+                <p class="card__price-description card__price-description_color">{{ 'sylius.ui.price'|trans }}
+                    : {{ money.calculatePrice(variant) }}</p>
+                <img src="/assets/shop/img/ellipse.svg" class="yarn__ellipse" alt="">
+
+                {% if variant.onhand - variant.onhold <= 0 %}
+                    <p class="card__price-description card__price-description_color card__price-description_red">{{ 'sylius.ui.variant_delivery_is_expected'|trans }}</p>
+                {% else %}
+                    <p class="card__price-description card__price-description_color">{{ 'sylius.ui.variant_onhand'|trans }}
+                        <span class="card__price-description_quantity">(гр/шт):</span>: {{ variant.onhand - variant.onhold }}
+                    </p>
+
+                    <div class="color__buttons">
+                        <button class="color__button" type="button">-</button>
+                        <input class="color__input-prices" type="text" id="{{ variant.code }}" value="1"
+                               required="required" min="1" max="{{ variant.onhand - variant.onhold }}">
+                        <button class="color__button" type="button">+</button>
+                        <button class="color__basket" name="submit" id="{{ variant.code }}"></button>
                     </div>
                 {% endif %}
-            {% endfor %}
-        </div>
-    </div>
+            </figure>
+        {% endif %}
+    {% endfor %}
 </div>
+{#<div class="ui stackable grid">#}
+{#    <div class="twelve wide column">#}
+{#        <div class="ui four column stackable grid" id="products">#}
+{#            {% for variant in product.variants %}#}
+{#                {% if variant.enabled %}#}
+{#                    <div class="column">#}
+{#                        <div class="ui fluid card">#}
+{#                            {% for image in product.images %}#}
+{#                                {% set path = image.path is not null ? image.path|imagine_filter('sylius_shop_product_small_thumbnail') : 'http://placehold.it/200x200' %}#}
+{#                                {% for variant_images in image.productVariants %}#}
+{#                                    {% if variant_images.id == variant.id %}#}
+{#                                        <a href="{{ image.path|imagine_filter('sylius_shop_product_original') }}" data-lightbox="sylius-product-image">#}
+{#                                            <div class="ui dimmer">#}
+{#                                                <div class="content">#}
+{#                                                    <div class="center">#}
+{#                                                        <div class="ui inverted button">{{ 'sylius.ui.view_more'|trans }}</div>#}
+{#                                                    </div>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                            <img class="ui bordered image centered" src="{{ path }}" data-large-thumbnail="{{ image.path|imagine_filter('sylius_shop_product_large_thumbnail') }}" />#}
+{#                                        </a>#}
+{#                                    {% endif %}#}
+{#                                {% endfor %}#}
+{#                            {% endfor %}#}
+{#                            <div class="content">#}
+{#                                <div class="header sylius-product-name">{{ variant.name }}</div>#}
+{#                                <div class="sylius-product-price">{{ 'sylius.ui.price'|trans }}: {{ money.calculatePrice(variant) }}</div>#}
+{#                                <div class="sylius-variant-onhand">#}
+{#                                    {% if variant.onhand - variant.onhold <= 0 %}#}
+{#                                        <p class="text-danger">{{ 'sylius.ui.variant_delivery_is_expected'|trans }}</p>#}
+{#                                    {% else %}#}
+{#                                            {{ 'sylius.ui.variant_onhand'|trans }}: {{ variant.onhand - variant.onhold }}#}
+{#                                            <input type="number" id="{{ variant.code }}" class="sylius_add_to_cart_cartItem_quantity" required="required" min="1" max="{{ variant.onhand - variant.onhold }}" value="1">#}
+{#                                            <button name="submit" id="{{ variant.code }}" class="ui icon button"><i class="cart icon"></i></button>#}
+{#                                    {% endif %}#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                {% endif %}#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}

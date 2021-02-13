@@ -1,0 +1,13 @@
+@import url(__title/catalog__title.css);
+@import url(__filter/catalog__filter.css);
+@import url(__card/catalog__card.css);
+@import url(__products/catalog__products.css);
+@import url(__flex/catalog__flex.css);
+@import url(__products-container/catalog__products-container.css);
+
+
+@media screen and (max-width: 420px) {
+    .catalog {
+        margin: 0 auto;
+    }
+}

@@ -11,8 +11,37 @@
     {% from _self import convertAndFormat %}
     {% set price = variant|acme_catalog_price({'channel': sylius.channel}) %}
     {% if price.basePrice == price.currentPrice %}
-        {{- convertAndFormat(price.basePrice) -}}
+        <strong>{{- convertAndFormat(price.basePrice) -}}</strong>
     {% else %}
-        <s class="old-price">{{- convertAndFormat(price.basePrice) -}}</s> <span class="new-price">{{- convertAndFormat(price.currentPrice) -}}</span>
+        <strong> {{- convertAndFormat(price.currentPrice) -}}</strong>
     {% endif %}
 {%- endmacro -%}
+
+{%- macro calculatePriceMain(variant) -%}
+    {% from _self import convertAndFormat %}
+    {% set price = variant|acme_catalog_price({'channel': sylius.channel}) %}
+    {% if price.basePrice == price.currentPrice %}
+        <p class="yarn__price yarn__price_card">{{- convertAndFormat(price.basePrice) -}}</p>
+    {% else %}
+        {{ 'sylius.ui.from'|trans|lower }} <span
+            class="promotional__price">{{- convertAndFormat(price.basePrice) -}}</span>
+        <p class="yarn__price yarn__price_card">{{- convertAndFormat(price.currentPrice) -}}</p>
+    {% endif %}
+{%- endmacro -%}
+
+
+{%- macro getPrice(variant) -%}
+    {% set price = variant|acme_catalog_price({'channel': sylius.channel}) %}
+    {% if price.basePrice == price.currentPrice %}
+        {{- (price.basePrice / 100)|number_format(0, '.', ' ') -}}
+    {% else %}
+        <span class="promotional__price">{{- (price.basePrice / 100)|number_format(0, '.', ' ') -}}</span> <p
+            class="yarn__price yarn__price_card">{{- (price.currentPrice / 100)|number_format(0, '.', ' ') -}}</p>
+    {% endif %}
+{%- endmacro -%}
+
+
+{%- macro format(amount, currency_code) -%}
+    {{ amount|sylius_format_money(currency_code, sylius.localeCode) }}
+{%- endmacro -%}
+

@@ -1,0 +1,10 @@
+.basket__image {
+    background-size: contain;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    width: 100%;
+}

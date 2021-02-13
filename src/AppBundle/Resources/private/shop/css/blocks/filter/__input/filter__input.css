@@ -1,0 +1,50 @@
+.filter__input {
+    display: none;
+}
+
+.filter__input-mobile {
+    display: none;
+}
+
+.filter__input:checked + .filter__label,
+.filter__input:checked + .filter__label:hover {
+    color: #339999;
+}
+
+.filter__label:hover:before,
+.filter__input:checked + .filter__label:before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    right: 13px;
+    top: 7px;
+    background: transparent url("../../../../img/arrow-down.svg") no-repeat center center;
+}
+
+.filter__input:checked + .filter__label:before {
+    background-image: url('../../../../img/arrow-up.svg');
+}
+
+.filter__article {
+    overflow: hidden;
+    height: 0;
+    position: relative;
+    transition: height 0.3s ease-in-out,
+    box-shadow 0.6s linear;
+}
+
+.filter__input:checked ~ .filter__article {
+    transition: height 0.5s ease-in-out,
+    box-shadow 0.1s linear;
+    box-shadow: 0 0 0 1px rgba(155, 155, 155, 0.3);
+    height: 200px;
+    overflow-y: scroll;
+}
+
+.filter__input:checked ~ .filter__article_volume {
+    overflow-y: auto;
+}
+
+
+

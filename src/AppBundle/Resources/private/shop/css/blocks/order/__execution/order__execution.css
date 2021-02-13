@@ -1,0 +1,51 @@
+.order__execution {
+    width: 367px;
+    font-family: "Roboto", Arial, sans-serif;
+    background: #EFEFEF;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 16px;
+    padding-bottom: 30px;
+    position: absolute;
+    right: 0;
+    top: 37%;
+}
+
+@media screen and (max-width: 1151px) {
+    .order__execution {
+        width: 31%;
+        right: 2%;
+        top: 34%;
+    }
+}
+
+@media screen and (max-width: 1116px) {
+    .order__execution {
+        left: 65%;
+        width: 32%;
+
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .order__execution {
+        width: 40%;
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+    .order__execution {
+        width: 50%;
+        top: 113%;
+        left: 51%;
+    }
+}
+
+
+@media screen and (max-width: 750px) {
+    .order__execution {
+        display: none;
+    }
+}

@@ -1,0 +1,33 @@
+.yarn_instagram {
+    padding-bottom: 42px;
+}
+
+@media screen and (max-width: 1024px) {
+    .yarn_instagram {
+        padding: 0 4% 1% 4%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .yarn_instagram {
+        padding: 0 18% 1% 18%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .yarn_instagram {
+        padding: 0 16% 1% 16%;
+    }
+}
+
+@media screen and (max-width: 362px) {
+    .yarn_instagram {
+        padding: 0 12% 1% 12%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .yarn_instagram {
+        padding: 0 7% 1% 7%;
+    }
+}

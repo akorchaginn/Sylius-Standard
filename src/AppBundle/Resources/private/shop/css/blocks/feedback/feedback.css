@@ -1,0 +1,51 @@
+@import url(__container/feedback__container.css);
+@import url(__list/feedback__list.css);
+@import url(__questions/feedback__questions.css);
+@import url(__write/feedback__write.css);
+@import url(__contact/feedback__contact.css);
+@import url(__form/feedback__form.css);
+
+.feedback {
+    background-image: url("../../../img/mail.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: contain;
+    box-sizing: border-box;
+    padding-bottom: 52px;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .feedback {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .feedback {
+        z-index: 10;
+        position: relative;
+        background-size: cover;
+    }
+
+    .feedback:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -10;
+        background-color: black;
+        opacity: 0.2;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .feedback {
+        padding-bottom: 2%;
+    }
+}

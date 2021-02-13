@@ -1,0 +1,28 @@
+.selling {
+    display: grid;
+    grid-template-columns: repeat(4, 23.5%);
+    gap: 2%;
+    grid-template-rows: 100%;
+    max-width: 1136px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+
+}
+
+@media screen and (max-width: 740px) {
+    .selling {
+        grid-template-columns: repeat(2, 40%);
+        grid-template-rows: 50%;
+        justify-content: center;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .selling {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+

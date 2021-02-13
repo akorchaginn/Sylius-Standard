@@ -1,60 +1,101 @@
 {% extends '@SyliusShop/layout.html.twig' %}
+{% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
 
 {% block title %}{{ product.name }} - {{ 'sylius.ui.shop_name'|trans }}{% endblock %}
 {% block metatags %}
-<meta name="Description" content="{{ product.translation.metadescription }}">
-    <meta name="Keywords" content="{{ product.translation.metakeywords}}">
+    <meta name="Description" content="{{ product.translation.metadescription }}">
+    <meta name="Keywords" content="{{ product.translation.metakeywords }}">
 {% endblock %}
 
 
 {% block content %}
-{% include '@SyliusShop/Product/Show/_breadcrumb.html.twig' %}
-<div class="ui hidden divider"></div>
+    {{ parent() }}
+    <section class="new catalog catalog__card section">
+        {% include '@SyliusShop/Product/Show/_breadcrumb.html.twig' %}
+        <div class="catalog__flex">
+            {% include '@SyliusShop/Product/_verticalMenu.html.twig' %}
+            <div class="card">
+                <button type="button" class="filter__button filter__button-card">Фильтр товаров</button>
+                <div class="card__container">
+                    <figure class="card__image">
+                        {{ sonata_block_render_event('sylius.shop.product.show.before_images', {'product': product}) }}
+                        {% include '@SyliusShop/Product/Show/_images.html.twig' %}
+                        {{ sonata_block_render_event('sylius.shop.product.show.after_images', {'product': product}) }}
+                    </figure>
+                    <div class="card__description">
+                        <ul class="card__price">
+                            <li class="card__price-list">Цена:
+                                {% if not product.variants.empty() %}
+                                    {{ money.calculatePriceMain(product|marinewool_resolve_min_price_variant) }}
+                                {% endif %}
+                            </li>
+                            {{ sonata_block_render_event('sylius.shop.product.show.after_price', {'product': product}) }}
+                            {% include '@SyliusShop/Product/Show/Tabs/_attributes.html.twig' %}
 
-<div class="ui two column stackable grid">
-    <div class="column main-image">
-        {{ sonata_block_render_event('sylius.shop.product.show.before_images', {'product': product}) }}
+                        </ul>
+                    </div>
 
-        {% include '@SyliusShop/Product/Show/_images.html.twig' %}
-
-        {{ sonata_block_render_event('sylius.shop.product.show.after_images', {'product': product}) }}
-    </div>
-    <div class="column">
-        {% include '@SyliusShop/Product/Show/_header.html.twig' %}
-
-        {{ sonata_block_render_event('sylius.shop.product.show.after_product_header', {'product': product}) }}
-
-        <div class="ui stackable grid">
-            <div class="nine wide column">
-                {% if not product.variants.empty() %}
-                    {% include '@SyliusShop/Product/Show/_price.html.twig' %}
-                {% endif %}
+                </div>
+                <h2 class="color__title">Цвет пряжи</h2>
+                {{ sonata_block_render_event('sylius.shop.product.show.after_description', {'product': product}) }}
+                {% include '@SyliusShop/Product/Show/_inventory.html.twig' with {'place': 'default'} %}
             </div>
         </div>
-
-        {{ sonata_block_render_event('sylius.shop.product.show.after_price', {'product': product}) }}
-
-        <div class="ui basic segment">
-            <!--h3>{{ 'sylius.form.product.short_description'|trans }}</h3>
-            <p>{{ product.shortDescription|raw }}</p-->
-            {% include '@SyliusShop/Product/Show/Tabs/_attributes.html.twig' %}
-            {% include '@SyliusShop/Product/Show/_inventory.html.twig' with {'place': 'description'}  %}
-        </div>
-        
         {{ sonata_block_render_event('sylius.shop.product.show.after_add_to_cart', {'product': product}) }}
-    </div>
-</div>
+    </section>
+    {% include '@SyliusShop/Product/Show/_promotionalProducts.html.twig' %}
+{% endblock %}
 
-{{ sonata_block_render_event('sylius.shop.product.show.after_description', {'product': product}) }}        
+
+
+{#<div class="ui two column stackable grid">#}
+{#    <div class="column main-image">#}
+        {#{{ sonata_block_render_event('sylius.shop.product.show.before_images', {'product': product}) }}#}
+
+{#        {% include '@SyliusShop/Product/Show/_images.html.twig' %}#}
+
+        {#{{ sonata_block_render_event('sylius.shop.product.show.after_images', {'product': product}) }}#}
+{#    </div>#}
+{#    <div class="column">#}
+{#        {% include '@SyliusShop/Product/Show/_header.html.twig' %}#}
+
+{#        {{ sonata_block_render_event('sylius.shop.product.show.after_product_header', {'product': product}) }}#}
+
+{#        <div class="ui stackable grid">#}
+{#            <div class="nine wide column">#}
+{#               #}
+{#            </div>#}
+{#        </div>#}
+
+{#        {{ sonata_block_render_event('sylius.shop.product.show.after_price', {'product': product}) }}#}
+
+{#        <div class="ui basic segment">#}
+{#            <!--h3>{{ 'sylius.form.product.short_description'|trans }}</h3>#}
+{#            <p>{{ product.shortDescription|raw }}</p-->#}
+{#            {% include '@SyliusShop/Product/Show/Tabs/_attributes.html.twig' %}#}
+{#            {% include '@SyliusShop/Product/Show/ntory.html.twig' with {'place': 'description'}  %}#}
+{#        </div>#}
+{#        #}
+{#        {{ sonata_block_render_event('sylius.shop.product.show.after_add_to_cart', {'product': product}) }}#}
+{#    </div>#}
+
+{#    {% include '@SyliusShop/Product/Show/_variantsBlock.html.twig' %}#}
+{#</div>#}
+
+
+
+
+{#
+{{ sonata_block_render_event('sylius.shop.product.show.after_description', {'product': product}) }}
 
 {% include '@SyliusShop/Product/Show/_inventory.html.twig' with {'place': 'default'}   %}
-<div class="ui divider"></div>        
+<div class="ui divider"></div>
 
 {{ sonata_block_render_event('sylius.shop.product.show.before_tabs', {'product': product}) }}
 
 {% include '@SyliusShop/Product/Show/_tabs.html.twig' %}
 
 {{ sonata_block_render_event('sylius.shop.product.show.before_associations', {'product': product}) }}
+#}
 
-{% include '@SyliusShop/Product/Show/_associations.html.twig' %}
-{% endblock %}
+{#{% include '@SyliusShop/Product/Show/_associations.html.twig' %}#}

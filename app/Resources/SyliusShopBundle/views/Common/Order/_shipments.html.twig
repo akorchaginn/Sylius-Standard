@@ -1,0 +1,17 @@
+{% for shipment in order.shipments %}
+    <div class="order__pickup">
+        <img src="/assets/shop/img/cash.svg" alt="наличные" class="order__pickup-img">
+        <p class="order__pickup-title" id="sylius-shipping-method">{{ shipment.method }}</p>
+        <p class="order__pickup-item">Данный способ оплаты доступен при доставке курьером по г.Барнаулу.
+            При самовывозе в шоу руме Marinewool</p>
+    </div>
+
+{#    <div class="ui large icon message">#}
+{#        <i class="truck icon"></i>#}
+{#        <div class="content">#}
+{#            <div class="header" id="sylius-shipping-method">#}
+{#                {{ shipment.method }}#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{% endfor %}

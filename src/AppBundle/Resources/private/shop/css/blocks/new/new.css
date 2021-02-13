@@ -1,0 +1,39 @@
+@import url(__button/new__button.css);
+@import url(__container/new__container.css);
+@import url(__title/new__title.css);
+@import url(__link/new__link.css);
+@import url(__container-basket/new__container-basket.css);
+@import url(__container-catalog/new__container_catalog.css);
+@import url(__arrow/new__arrow.css);
+
+
+.new {
+    max-width: 1136px;
+    margin: 0 auto;
+    padding: 0 0 2% 0;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .new {
+        width: 92%;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .new {
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .new {
+        width: 92%;
+    }
+}
+
+
+
+
+

@@ -1,0 +1,27 @@
+<section class="new comments section" id="sylius-payment-methods">
+    {{ form_start(form, {'action': path('sylius_shop_checkout_select_payment'), 'attr': {'class': 'ui loadable', 'novalidate': 'novalidate'}}) }}
+    <input type="hidden" name="_method" value="PUT"/>
+    <fieldset class="form__comments">
+        <p class="form__comments_item">{{ 'sylius.ui.comment'|trans }}</p>
+        <textarea name="name" type="text" placeholder="Введите текст"
+                  class="form__input-textarea form__input-comments"></textarea>
+    </fieldset>
+    <div class="order__buttons">
+        <div class="comments__button">
+            <button type="button" class="form__submit-button form__submit-button-basket">
+                <a href="{{ path('sylius_shop_checkout_address') }}" class="header__button-link">
+                    <img src="/assets/shop/img/arrow-point-to-right-order.svg" alt=" "
+                         class="comments__arrow">{{ 'sylius.ui.change_address'|trans }}</a>
+            </button>
+        </div>
+        <div class="order__total">
+            <button class="form__submit-button form__submit-button-basket order_open-button" type="submit">
+                <a href="#" class="header__button-link">
+                    <img class="order__confirm" src="/assets/shop/img/confirm.svg"
+                         alt=" ">{{ 'sylius.ui.checkout'|trans }}
+                </a></button>
+        </div>
+    </div>
+    {{ form_row(form._token) }}
+    {{ form_end(form, {'render_rest': false}) }}
+</section>

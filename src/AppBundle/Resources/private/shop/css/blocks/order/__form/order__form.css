@@ -1,0 +1,45 @@
+.order__form {
+    max-width: 751px;
+}
+
+@media screen and (max-width: 1150px) {
+    .order__form {
+        padding: 0 0 7% 4%;
+        width: 55%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .order__form {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .order__form {
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .order__form {
+        padding: 0 0 6% 4%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .order__form {
+        padding: 0 0 6% 9%;
+    }
+}
+@media screen and (max-width: 362px) {
+    .order__form {
+        padding: 0 0 6% 0;
+    }
+}
+@media screen and (max-width: 332px) {
+    .order__form {
+        padding: 0 0 6% 9%;
+    }
+}

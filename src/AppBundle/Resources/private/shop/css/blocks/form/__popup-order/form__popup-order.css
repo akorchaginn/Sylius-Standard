@@ -1,0 +1,12 @@
+.form__popup-order {
+    align-items: center;
+    padding: 15px 130px 58px;
+    color: #696868;
+    font-family: "Roboto", Arial, sans-serif;
+}
+
+@media screen and (max-width: 420px) {
+    .form__popup-order {
+        padding: 10px 16px 10px;
+    }
+}

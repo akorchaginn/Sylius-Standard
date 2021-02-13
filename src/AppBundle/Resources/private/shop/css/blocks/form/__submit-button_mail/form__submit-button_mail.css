@@ -1,0 +1,14 @@
+.form__submit-button_mail {
+    margin: 0;
+    width: 162px;
+    float: right;
+}
+
+@media screen and (max-width: 480px) {
+    .form__submit-button_mail {
+        width: 97px;
+    }
+}
+
+
+

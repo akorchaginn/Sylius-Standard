@@ -1,0 +1,34 @@
+.icon__links-mobile {
+    display: none;
+    justify-content: space-around;
+    max-width: 425px;
+    margin: 0 auto;
+    font-family: "Roboto", Arial, sans-serif;
+}
+
+
+@media screen and (max-width: 600px){
+    .icon__links-mobile {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 420px){
+    .icon__links-mobile {
+        display: flex;
+        justify-content: space-around;
+        max-width: 278px;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .icon__links-mobile {
+        margin-left: 14%;
+    }
+}
+
+@media screen and (max-width: 362px){
+    .icon__links-mobile {
+        margin-left: auto;
+    }
+}

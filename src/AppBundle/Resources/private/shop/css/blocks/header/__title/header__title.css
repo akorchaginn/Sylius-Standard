@@ -1,0 +1,38 @@
+.header__title {
+    line-height: 50px;
+    text-align: center;
+    font-family: "Amatic SC", Arial, sans-serif;;
+    font-weight: 700;
+    font-size: 40px;
+    font-style: normal;
+}
+
+.header__title_catalog {
+    font-size: 30px;
+    line-height: 38px;
+    margin: 0;
+}
+
+
+@media screen and (max-width: 800px) {
+    .header__title {
+        font-size: 30px;
+        line-height: 38px;
+        margin: 10px 0 0 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header__title {
+        font-size: 23px;
+        line-height: 13px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .header__title {
+        font-size: 23px;
+        line-height: 18px;
+    }
+}
+

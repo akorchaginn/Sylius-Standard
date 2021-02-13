@@ -1,0 +1,40 @@
+.footer__info-subtitle {
+    padding-left: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: normal;
+}
+
+@media screen and (max-width: 800px) {
+    .footer__info-subtitle {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .footer__info-subtitle {
+        line-height: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .footer__info-subtitle {
+        line-height: 15px;
+        font-size: 12px;
+    }
+}
+
+
+@media screen and (max-width: 420px) {
+    .footer__info-subtitle {
+        padding-right: 17%;
+        padding-left: 11%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .footer__info-subtitle {
+        padding-left: 0;
+    }
+}
+

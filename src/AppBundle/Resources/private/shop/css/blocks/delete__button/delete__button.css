@@ -1,0 +1,14 @@
+.delete__button {
+    margin-top: 15px;
+    transition: 1s linear;
+}
+
+.delete__button:hover {
+    cursor: pointer;
+    opacity: 0.6;
+    transform: scale(1.2);
+}
+
+.delete__button:focus {
+    outline: none;
+}

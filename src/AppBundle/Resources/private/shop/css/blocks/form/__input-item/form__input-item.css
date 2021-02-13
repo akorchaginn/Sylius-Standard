@@ -1,0 +1,36 @@
+.form__input-item {
+    border-radius: 40px;
+    width: 367px;
+    height: 50px;
+    margin: 2% 0;
+    padding: 0 4%;
+    outline: none;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border: 1px solid #E9E8E1
+}
+
+.form__input-item:focus {
+    outline: none;
+    border: 1px solid #BFE9F3;
+}
+
+@media screen and (max-width: 1150px){
+    .form__input-item {
+      width: 90%;
+    }
+}
+
+@media screen and (max-width: 1030px){
+    .form__input-item {
+        width: 84%;
+    }
+}
+
+@media screen and (max-width: 740px){
+    .form__input-item {
+        width: 100%;
+    }
+}
+
+

@@ -1,0 +1,19 @@
+.instagram__marinewool-footer {
+    font-size: 26px;
+    line-height: 40px;
+    padding: 0;
+}
+
+@media screen and (max-width: 600px) {
+    .instagram__marinewool-footer {
+        font-size: 18px;
+        line-height: 20px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .instagram__marinewool-footer {
+        font-size: 26px;
+        line-height: 40px;
+    }
+}

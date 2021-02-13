@@ -1,0 +1,27 @@
+.filter__label {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 7px 20px 0;
+    position: relative;
+    display: block;
+    height: 30px;
+    cursor: pointer;
+    line-height: 30px;
+    font-size: 16px;
+    border-bottom: 1px solid #E3E5F4;
+    max-width: 240px;
+}
+
+@media screen and (max-width: 735px) {
+    .filter__label {
+        max-width: 100%;
+        width: 100%;
+        margin: 14px 29px 0;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .filter__label {
+        height: 40px;
+        width: 95%;
+    }
+}

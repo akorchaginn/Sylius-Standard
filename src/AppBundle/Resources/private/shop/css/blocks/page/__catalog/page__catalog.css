@@ -1,0 +1,14 @@
+.page__catalog {
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 100vh;
+    min-width: 320px;
+    color: #59515A;
+    display: flex;
+    flex-direction: column;                   
+    background-image: url("../../../../img/img-head-catalog.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    object-fit: cover;
+}

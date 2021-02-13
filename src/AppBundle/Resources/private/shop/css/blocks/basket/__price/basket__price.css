@@ -1,0 +1,15 @@
+@import url(_accent/basket__price_accent.css);
+
+.basket__price {
+    font-size: 20px;
+    line-height: 23px;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 700px) {
+    .basket__price {
+        line-height: 31px;
+        margin: 0;
+    }
+}

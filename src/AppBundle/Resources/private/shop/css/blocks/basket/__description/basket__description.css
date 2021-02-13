@@ -1,0 +1,26 @@
+@import url(_accent/basket__description_accent.css);
+@import url(_item/basket__description_item.css);
+
+
+.basket__description {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    line-height: 36px;
+}
+
+.basket__description:hover {
+    color: #339999;
+}
+
+@media screen and (max-width: 700px) {
+    .basket__description {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .basket__description {
+        margin-left: 18%;
+    }
+}

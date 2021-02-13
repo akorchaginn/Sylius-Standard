@@ -1,0 +1,41 @@
+.form__input-comments {
+    border: 1px solid #E9E8E1;
+    box-sizing: border-box;
+    width: 752px;
+    height: 140px;
+    padding: 1% 2%;
+}
+
+@media screen and (max-width: 800px) {
+    .form__input-comments {
+        width: 670px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .form__input-comments {
+        width: 100%;
+        font-size: 15px;
+
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .form__input-comments {
+        width: 92%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .form__input-comments {
+        width: 98%;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 362px) {
+    .form__input-comments {
+        width: 100%;
+    }
+}

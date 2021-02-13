@@ -1,0 +1,15 @@
+@import url(__content/page__content.css);
+@import url(__catalog/page__catalog.css);
+
+.page {
+    background-color: #FFFEF7;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+
+}

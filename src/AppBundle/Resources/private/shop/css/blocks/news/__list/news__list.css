@@ -1,0 +1,15 @@
+.news__list {
+    max-width: 362px;
+}
+
+@media screen and (max-width: 1875px) {
+    .news__list {
+        max-width: 358px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .news__list {
+        max-width: 100%;
+    }
+}

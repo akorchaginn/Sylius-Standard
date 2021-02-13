@@ -1,0 +1,58 @@
+.card__price {
+    margin: 0;
+    padding: 0 0 0 43px;
+    list-style-type: none;
+}
+
+@media screen and (max-width: 1100px) {
+    .card__price {
+        padding: 0 0 0 3%;
+        width: 61%;
+    }
+}
+
+@media screen and (max-width: 735px) {
+    .card__price {
+        padding: 0 0 0 20%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .card__price {
+        padding: 0 0 0 15%;
+    }
+}
+
+
+@media screen and (max-width: 520px) {
+    .card__price {
+        padding: 0 0 0 3%;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .card__price {
+        padding: 0 0 0 22%;
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .card__price {
+        padding: 0 0 0 5%;
+        width: 90%;
+    }
+}
+@media screen and (max-width: 362px) {
+    .card__price {
+        padding: 0;
+        width: 90%;
+    }
+}
+
+
+
+
+    
+

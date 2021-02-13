@@ -1,0 +1,35 @@
+@import url(__title/__title.css);
+@import url(__opened/filter__opened.css);
+@import url(__menu/filter__menu.css);
+@import url(__list/filter__list.css);
+@import url(__link/filter__link.css);
+@import url(__container/filter__container.css);
+@import url(__label/filter__label.css);
+@import url(__label-accent/filter__label-accent.css);
+@import url(__input/filter__input.css);
+@import url(__closed-icon/filter__closed-icon.css);
+@import url(__button/filter__button.css);
+@import url(__label-accent/filter__label-accent.css);
+@import url(__box/filter__box.css);
+@import url(__button-card/filter__button-card.css);
+
+.filter {
+    background: linear-gradient(90deg, #8A95DA -23.61%, #39E6ED 102.12%);
+    color: #FFFEF6;
+    width: 270px;
+    border-radius: 10px 10px 0 0;
+    padding: 6% 0;
+}
+
+@media screen and (max-width: 800px) {
+    .filter {
+        width: 190px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .filter {
+        display: none;
+    }
+}
+

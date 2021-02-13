@@ -1,0 +1,16 @@
+@media screen and (max-width: 420px) {
+    .card__description {
+        margin-left: 2%;
+    }
+}
+@media screen and (max-width: 362px) {
+    .card__description {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .card__description {
+        margin-left: 5%;
+    }
+}

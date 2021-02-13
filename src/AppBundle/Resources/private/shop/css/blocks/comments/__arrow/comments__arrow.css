@@ -1,0 +1,10 @@
+.comments__arrow {
+    margin-right: 13px;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+@media screen and (max-width: 500px) {
+    .comments__arrow {
+        top: 37%;
+    }
+}

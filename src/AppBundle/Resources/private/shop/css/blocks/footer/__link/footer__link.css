@@ -1,0 +1,5 @@
+.footer__link {
+    color:#339999;
+    border-bottom: 1px dashed #339999;
+    cursor: pointer;
+}

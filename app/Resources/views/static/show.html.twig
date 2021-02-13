@@ -4,8 +4,8 @@
 {% endblock %}
 
 {% block content %}
-<div class="col-xs-12">
-<h3 class="ui monster dividing header text-center">{{ static_content.header }}</h3>
-  {{ static_content.content|raw }}
-</div>  
+<section class="new about section">
+    <h1 class="new__title about__title">{{ static_content.header }}</h1>
+    {{ static_content.content|raw }}
+</section>
 {% endblock %}

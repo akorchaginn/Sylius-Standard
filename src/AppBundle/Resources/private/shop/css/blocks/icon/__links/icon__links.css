@@ -1,0 +1,29 @@
+.icon__links {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1186px;
+    margin: 0 auto;
+    font-family: "Roboto", Arial, sans-serif;
+}
+
+@media screen and (max-width: 1030px) {
+    .icon__links {
+        width: 96%
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .icon__links {
+        width: 89%;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .icon__links {
+        display: none;
+    }
+}
+
+
+

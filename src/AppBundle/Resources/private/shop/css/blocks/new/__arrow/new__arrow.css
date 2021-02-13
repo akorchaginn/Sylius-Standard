@@ -1,0 +1,21 @@
+.new__arrow {
+    margin-left: 12px;
+}
+
+
+@media screen and (max-width: 600px) {
+    .new__arrow {
+        margin-left: 12px;
+        width: 12px;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .new__arrow {
+        margin-left: 12px;
+        width: 12px;
+    }
+}
+
+
+

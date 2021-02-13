@@ -2,14 +2,13 @@
 {% import '@SyliusUi/Macro/pagination.html.twig' as pagination %}
 
 {% if resources.data|length > 0 %}
-    <div class="ui three column stackable grid" id="products">
+    <div class="yarn yarn__box" id="products">
         {% for product in resources.data %}
-            <div class="column">
+            <figure class="yarn__container yarn__container-catalog">
                 {% include '@SyliusShop/Product/_box.html.twig' %}
-            </div>
+            </figure>
         {% endfor %}
     </div>
-    <div class="ui hidden divider"></div>
     {{ pagination.simple(resources.data) }}
 {% else %}
     {{ messages.info('sylius.ui.no_results_to_display') }}

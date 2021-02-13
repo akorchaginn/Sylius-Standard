@@ -1,0 +1,33 @@
+{#{% import '@SyliusUi/Macro/messages.html.twig' as messages %}#}
+
+{#{% if last_error %}#}
+{#    {{ messages.error(last_error.messageKey|trans(last_error.messageData, 'security')) }}#}
+{#{% endif %}#}
+
+{#{{ form_row(form._username) }}#}
+{#{{ form_row(form._password) }}#}
+{#{{ form_row(form._remember_me) }}#}
+
+<form action="#" class="form__popup form__popup-enter form_enter" novalidate>
+    <div><label>{{ 'sylius.ui.username'|trans }}
+            <input name="name_enter" type="text" placeholder="Введите логин" data-error="Поле заполнено не корректно"
+                   class="form__input_enter form__input_type form__input-popup" required minlength="2" maxlength="40"
+                   autocomplete="off">
+            <span class="form__error form__error_visible" id="name_enter-error"></span>
+        </label>
+    </div>
+    <label class="form__password">{{ 'sylius.ui.password'|trans }}
+        <span class="form__error form__error_visible" id="password_enter-error"></span>
+        <input name="password_enter" type="password" placeholder="Введите пароль"
+               data-error="Поле заполнено не корректно"
+               class="form__input-popup form__input_type form__input_enter form__input_type-password" required
+               minlength="6" maxlength="30" autocomplete="off">
+    </label>
+
+    <input type="checkbox" id="checkbox-id" class="form__checkbox" required>
+    <label for="checkbox-id" class="form__container-checkbox">{{ 'sylius.ui.subscribed_to_newsletter'|trans }} </label>
+    <button type="submit" class="form__submit-button form__submit-button-enter form__submit-button_disabled">
+        {{ 'sylius.ui.sign_in'|trans }}
+    </button>
+    <a href="#" target="_blank" class="form__popup-enter_link">{{ 'sylius.ui.forgot_password'|trans }}</a>
+</form>

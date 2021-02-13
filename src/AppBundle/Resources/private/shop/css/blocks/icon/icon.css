@@ -1,0 +1,33 @@
+@import url(__link/icon__link.css);
+@import url(__links/icon__links.css);
+@import url(__img/icon__img.css);
+@import url(__images/icon__images.css);
+@import url(__items/icon__items.css);
+@import url(__item/icon__item.css);
+@import url(__catalog/icon__catalog.css);
+@import url(__links-mobile/icon__links-mobile.css);
+@import url(__items-mobile/icon__items-mobile.css);
+@import url(__items-mobile-item/icon__items-mobile-item.css);
+
+.icon {
+    height: 136px;
+    margin: 0 auto 8%;
+    padding-top: 5%;
+}
+
+@media screen and (max-width: 640px) {
+    .icon {
+        padding-top: 10%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .icon {
+        padding-bottom: 14%;
+        height: auto;
+        margin: 0;
+    }
+}
+
+
+

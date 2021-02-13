@@ -1,0 +1,21 @@
+.header__info_padlock {
+    margin-right: 5px;
+}
+
+@media screen and (max-width: 1024px) {
+    .header__info_padlock {
+        width: 22px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .header__info_padlock {
+        width: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header__info_padlock {
+        width: 20px;
+    }
+}

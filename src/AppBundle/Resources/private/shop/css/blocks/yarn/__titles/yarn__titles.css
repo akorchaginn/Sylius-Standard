@@ -1,0 +1,8 @@
+.yarn__titles {
+    /*display: grid;*/
+    /*grid-template-columns: repeat(3, 283px);*/
+    gap: 15px;
+    /*grid-template-rows: 52px;*/
+    font-family: "Roboto", Arial, sans-serif;
+    margin: 10px 0 0 0;
+}

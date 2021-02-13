@@ -1,0 +1,34 @@
+.icon__items {
+    background-color: #339999;
+    display: grid;
+    grid-template-columns: 18% 20% 20% 23% 13%;
+    gap: 1%;
+    grid-template-rows: 100%;
+    max-width: 1133px;
+    border-radius: 55px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 1030px){
+    .icon__items {
+      width: 92%;
+    }
+}
+
+
+@media screen and (max-width: 740px){
+    .icon__items {
+          width: 86%;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .icon__items {
+		display: none;
+       
+    }
+}
+
+

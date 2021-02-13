@@ -1,0 +1,34 @@
+.popup__container {
+    width: 745px;
+    background-color: #EFEFEF;
+    border-radius: 35px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+@media screen and (max-width: 780px) {
+    .popup__container {
+        width: 670px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .popup__container {
+        width: 570px;
+    }
+}
+
+
+@media screen and (max-width: 521px) {
+    .popup__container {
+        width: 460px;
+        padding-bottom: 7%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .popup__container {
+        width: 90%;
+        padding-bottom: 41px;
+    }
+}

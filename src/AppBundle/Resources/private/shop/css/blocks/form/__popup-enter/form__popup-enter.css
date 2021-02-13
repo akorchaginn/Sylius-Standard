@@ -1,0 +1,22 @@
+@import url(_link/form__popup-enter_link.css);
+
+.form__popup-enter {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 50px 58px;
+
+}
+
+@media screen and (max-width: 521px) {
+    .form__popup-enter {
+        padding: 15px 50px 4px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .form__popup-enter {
+        padding: 4px 25px 21px;
+        height: 326px;
+        overflow: hidden;
+    }
+}

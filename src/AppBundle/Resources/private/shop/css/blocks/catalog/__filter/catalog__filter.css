@@ -1,0 +1,19 @@
+.catalog__filter {
+    width: 268px;
+    font-family: "Roboto", Arial, sans-serif;
+    background: #FFFEF6;
+    box-sizing: border-box;
+    max-height: 215px;
+}
+
+@media screen and (max-width: 800px) {
+    .catalog__filter {
+        width: 190px;
+    }
+}
+
+@media screen and (max-width: 735px) {
+    .catalog__filter {
+        display: none;
+    }
+}
