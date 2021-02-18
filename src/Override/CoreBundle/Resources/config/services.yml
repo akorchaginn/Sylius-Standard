@@ -3,3 +3,20 @@ services:
     class: Override\CoreBundle\Form\Type\Checkout\AddressTypeExtension
     tags:
       - { name: form.type_extension, extended_type: Sylius\Bundle\CoreBundle\Form\Type\Checkout\AddressType}
+
+  override.core.form.type.recaptcha:
+    class: Override\CoreBundle\Form\Type\RecaptchaExtension
+    arguments:
+      - "@override.core.recaptcha_constraint"
+    tags:
+      - { name: form.type_extension, extended_type: Sylius\Bundle\CoreBundle\Form\Type\Customer\CustomerRegistrationType }
+
+  override.core.recaptcha_constraint:
+    class: Override\CoreBundle\Validator\Constraints\RecaptchaConstraint
+
+  override.core.recaptcha_validator:
+    class: Override\CoreBundle\Validator\Constraints\RecaptchaConstraintValidator
+    arguments:
+      - "@integration.utils.google_recaptcha"
+    tags:
+      - { name: validator.constraint_validator, alias: marinewool_recaptcha}

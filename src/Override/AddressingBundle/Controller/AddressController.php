@@ -12,7 +12,6 @@ use GuzzleHttp\Client;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller as Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\VarDumper\VarDumper;
 
 /**
  * @param Request $request
@@ -30,7 +29,7 @@ class AddressController extends Controller
     public function addressAction(Request $request)
     {
         $value = $request->get('value');
-        
+
         $token = $this->getParameter("dadata_token");
         $headers = [
             'Authorization' => "Token $token",

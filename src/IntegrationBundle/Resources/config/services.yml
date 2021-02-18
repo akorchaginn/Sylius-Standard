@@ -40,3 +40,8 @@ services:
         class: IntegrationBundle\Form\Type\ProductVariantTypeExtension
         tags:
             - { name: form.type_extension, extended_type: Sylius\Bundle\ProductBundle\Form\Type\ProductVariantType }
+
+    integration.utils.google_recaptcha:
+        class: IntegrationBundle\Utils\GoogleRecaptchaClient
+        arguments:
+            - "%google_recaptcha_secret_token%"

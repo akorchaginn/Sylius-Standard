@@ -10,20 +10,23 @@
     <div class="ui padded segment">
         {{ sonata_block_render_event('sylius.shop.register.before_form') }}
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-        <script>
-            function onSubmit(token) {
-                document.getElementById("registration").submit();
-            }
-        </script>
+
         {{ form_start(form, {'action': path('sylius_shop_register'), 'attr': {'id': 'registration', 'class': 'ui loadable form', 'novalidate': 'novalidate'}}) }}
             {% include '@SyliusShop/Register/_form.html.twig' %}
 
             {{ sonata_block_render_event('sylius.shop.register.form', {'form': form}) }}
 
-            <button type="submit" class="ui large primary button g-recaptcha" data-sitekey="6LfAnFYaAAAAACnV2l_hD0oV19BQZuCG4kH57Gmk" data-callback="onSubmit">
+            <button data-callback='onSubmit' class="ui large primary button g-recaptcha" data-sitekey="6LeX_lcaAAAAABX-39kAJ2s7pFAQ2puRyh062SZ2">
                 {{ 'sylius.ui.create_an_account'|trans }}
             </button>
+        {{ form_errors(form.grecaptcharesponse) }}
         {{ form_row(form._token) }}
         {{ form_end(form, {'render_rest': false}) }}
+        <script>
+            function onSubmit(token) {
+                $('#g-recaptcha-response').attr('name', () => {return 'sylius_customer_registration[grecaptcharesponse]'});
+                $('#registration').submit();
+            }
+        </script>
     </div>
 {% endblock %}

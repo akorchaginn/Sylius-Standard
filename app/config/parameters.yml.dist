@@ -19,3 +19,4 @@ parameters:
     assets_version: 0
     secret: EDITME
     dadata_token: ~
+    google_recaptcha_secret_token: ~
